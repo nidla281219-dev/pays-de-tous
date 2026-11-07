@@ -1,0 +1,24 @@
+name: Lire les commentaires YouTube
+on:
+  workflow_dispatch:
+    inputs:
+      jour: {description: "numéro du jour dont on lit les votes", default: "1"}
+permissions:
+  contents: write
+concurrency: {group: publier, cancel-in-progress: false}
+jobs:
+  c:
+    runs-on: ubuntu-latest
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q requests
+      - run: python studio/commentaires.py "${{ inputs.jour }}"
+      - run: |
+          git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
+          git add jours; git diff --cached --quiet || (git commit -m "Commentaires YouTube du jour ${{ inputs.jour }}" && git pull --rebase -q && git push)
