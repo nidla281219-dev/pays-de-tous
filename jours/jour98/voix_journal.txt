@@ -1,0 +1,2 @@
+32 caractères
+ELEVENLABS_API_KEY manquante (secrets GitHub du dépôt pays-de-tous).
