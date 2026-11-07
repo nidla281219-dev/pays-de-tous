@@ -1,0 +1,4 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+879 caractères
+voix.mp3 écrite
+mots.json : 139 mots, calage 85%, fin à 56.0 s
