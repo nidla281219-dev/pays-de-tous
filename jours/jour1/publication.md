@@ -38,7 +38,7 @@ JOUR 1 — 0 habitant. Chaque abonné devient citoyen.
 Commente A ou B + ton idée de nom pour le pays 👇 Envoie ce Reel à l'ami qui serait président 😏
 Demain : jour 2.
 
-#LePaysDeTous #pays #vote #construction #3d #reels #reelsfrance #jeu
+#LePaysDeTous #pays #vote
 
 **Commentaire à épingler** : même que TikTok.
 
