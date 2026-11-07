@@ -1,4 +1,4 @@
-// node render.js --jour N sortie.mp4 [--test t1,t2,...] [--fps 30] [--cadre]
+// node render.js --jour N sortie.mp4 [--test t1,t2,...] [--fps 30] [--cadre] [--propre]
 // Lit ../jours/jourN/timeline.json (plans caméra, textes, cartes, état du pays) — format décrit dans ../CLAUDE.md.
 // --test : écrit seulement quelques images JPG (sortie_t.jpg) ; --cadre : dessine la zone visible TikTok par-dessus (vérification).
 const { chromium } = require('playwright'); const { spawn } = require('child_process'); const path = require('path'); const fs = require('fs');
@@ -9,6 +9,7 @@ const out = args.find((a, i) => !a.startsWith('--') && !['--jour', '--test', '--
 const test = opt('--test') ? opt('--test').split(',').map(Number) : null;
 const fps = +(opt('--fps') || 30);
 const cadre = args.includes('--cadre');
+const propre = args.includes('--propre'); // sans textes ni cartes (fond de miniature)
 
 const TL = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'jours', `jour${jour}`, 'timeline.json'), 'utf8'));
 const PRESETS = JSON.parse(fs.readFileSync(path.join(__dirname, 'presets.json'), 'utf8'));
@@ -24,7 +25,8 @@ TL.caps = (TL.caps || []).map(c => {
   const lines = c.lignes.map(l => l.split(/(\*[^*]+\*)/).filter(Boolean).map(s => s.startsWith('*') ? [s.slice(1, -1), 1] : [s, 0]));
   return { t0: c.t0, t1: c.t1, lines, y: c.y };
 });
-TL.cards = TL.cards || []; TL.flashes = TL.flashes || []; TL.win = TL.win || {}; TL.grow = TL.grow || {};
+TL.cards = TL.cards || []; TL.flashes = TL.flashes || [];
+if (propre) { TL.caps = []; TL.cards = []; TL.flashes = []; } TL.win = TL.win || {}; TL.grow = TL.grow || {};
 
 (async () => {
   const b = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });

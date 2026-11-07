@@ -51,6 +51,12 @@ VALIDATION DU SCRIPT (demande de l'utilisateur, 08.11) : après l'étape 3 (scri
 8. Envoyer à l'utilisateur : la vidéo, le résultat du vote, le gagnant, la nouvelle question, les textes TikTok + Instagram prêts à copier.
 Si une étape échoue : réparer si possible, sinon prévenir l'utilisateur clairement (ne jamais publier une vidéo cassée).
 
+## Livrables envoyés à l'utilisateur DANS LA DISCUSSION (demande du 08.11)
+Chaque jour, ici dans la discussion : la vidéo MP4 (jours/jourN/video.mp4), 2 miniatures et les textes PERSONNALISÉS par plateforme :
+- miniature_youtube.jpg : `node render.js --jour N t/m --test <t d'un beau plan> --propre` puis `python3 miniature.py t/m_<t>.jpg ../jours/jourN/miniature_youtube.jpg --style youtube "JOUR N" "*MOT FORT*" "…"` (texte en haut). Copie aussi en miniature.jpg (utilisée pour l'envoi YouTube).
+- miniature_tiktok.jpg (sert aussi pour Instagram) : même fond, `--style tiktok` (texte centré dans la zone 3:4 que montre la grille du profil). 2–3 lignes, 1 mot en jaune, très gros, lisible en petit ; vérifier l'image avec Read avant de l'envoyer.
+- Textes (publication.md) : YouTube (titre ≤ 100 caractères + description + tags), TikTok (légende courte, 3 hashtags max), Instagram (légende un peu plus longue, 3 hashtags max), et un commentaire à épingler pour CHAQUE plateforme (TikTok, Instagram, YouTube), adapté au ton de chacune.
+
 ## Publication YouTube
 - Workflow « Publier sur YouTube » (.github/workflows/publier.yml, lancement manuel) : action `verifier` (affiche la chaîne liée au jeton) ou `publier` (rendu + son + envoi + miniature, programmé à l'heure choisie, défaut 18:00 ; publié tout de suite si l'heure est passée).
 - publier.py refuse d'envoyer si la chaîne du jeton ne contient pas « Pays de Tous ».
