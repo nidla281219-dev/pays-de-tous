@@ -131,7 +131,7 @@ const fcv=document.createElement('canvas');fcv.width=480;fcv.height=315;drawFlag
 const flagGeo=new THREE.PlaneGeometry(16,10.5,20,8);flagGeo.translate(8,0,0);const flag=new THREE.Mesh(flagGeo,new THREE.MeshStandardMaterial({map:flagTex,side:THREE.DoubleSide}));flag.position.set(0,24.5,0);flagG.add(flag);
 const FX=-135,FZ=0;flagG.position.set(FX,height(FX,FZ),FZ);scene.add(flagG);const fbase=Float32Array.from(flagGeo.attributes.position.array);
 // ---------- sites de l'île (pour les votes et les constructions) ----------
-const SITES={plage:[-48,198],volcan:[26,-12],pied_volcan:[-18,-34],centre:[-120,20],foret:[100,120],riviere:[-20,60],baie:[-70,235],nord:[-20,-180],est:[170,10]};
+const SITES={plage:[-48,198],volcan:[26,-12],pied_volcan:[-18,-34],plage_ville:[-45,165],centre:[-120,20],foret:[100,120],riviere:[-20,60],baie:[-70,235],nord:[-20,-180],est:[170,10]};
 // ================= VILLE : vraies maisons, rues, place =================
 // petites briques fusionnées en un seul maillage par maison (couleurs par sommet) → joli ET rapide
 const VC=new THREE.Color();
