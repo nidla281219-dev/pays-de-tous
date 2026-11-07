@@ -14,7 +14,8 @@ Une série quotidienne où les abonnés construisent un pays ensemble sur une î
 ## Règles de l'utilisateur
 - ZONE VISIBLE (07.11) — référence assets/zone_visible_tiktok.png. Vidéo 1080×1920 : texte et éléments importants dans x 60–960, y 130–1600 (haut ≥ 108 = barre « Abonnements | Pour toi » ; droite ≤ 960 sous y ≈ 300 = colonne j'aime/commentaires/partage ; bas ≤ 1600 = pseudo/description). Ligne de texte ≤ 840 px de large. Vérifier quelques images test avec ce cadre dessiné avant chaque rendu complet.
   Défauts du jour 1 à corriger dès le jour 2 : HUD qui commence à y ≈ 90 (trop haut) ; légende « PORT, PÊCHE, COMMERCE » jusqu'à x ≈ 1015.
-- UNE SEULE question par vidéo (07.11) : pas de questions en plus, garder simple. Jour 2 = « Qui sera le chef ? » (candidatures en commentaire).
+- 2 à 3 questions MAXIMUM par vidéo (07.11), dont « Qui sera le chef ? » au jour 2.
+- CONSTRUIRE CE QUE LES GENS DEMANDENT (07.11) : une idée aimée dans les commentaires (ex. « une boutique de croissant » de @RL_Ham) est construite en 3D avec le NOM DE LA PERSONNE sur l'enseigne (« Boulangerie de RL_Ham 🥐 ») et on le dit à voix haute. Champ etat.batiments dans timeline.json.
 - Secrets uniquement dans les secrets GitHub de CE dépôt. Ne jamais écrire une clé dans le dépôt ni la demander dans le chat.
 
 ## Organisation du dépôt
@@ -33,6 +34,7 @@ Une série quotidienne où les abonnés construisent un pays ensemble sur une î
 - caps : [{t0, t1, lignes:["UN *PAYS*…"], y?}] (*mot* = jaune ; y par défaut 560, garder entre 400 et 1000 si une carte est en bas).
 - cards : [{kind, t0, t1, data}] — gagnant {titre, pseudo, texte, likes} (+ confettis), drapeau {nom, sous, confettis, drapeau?}, resultat {options:[{lettre,titre,pct,couleur?}], gagnant}, vs {A:{titre,sous,couleur?}, B:{…}}, comment {pseudo, lignes, likes} (exemple de commentaire pour montrer comment voter), fin {demain:"DEMAIN : JOUR N+1", ligne?}, vote (jour 1 seulement).
 - win : fenêtres de visibilité {clé:[[t0,t1],…]} ; grow : {clé:[t0,t1]} (pousse). Clés : capitale (construction animée ; sans grow = déjà construite), drapeau / sansDrapeau, nuages, nuagesIntro, fin, + les clés des fantomes/epingles.
+- etat.batiments : [{nom (texte de l'enseigne), site ou pos:[x,z], dx, dz, couleur, toit, key?}] — bâtiment spécial avec enseigne lisible ; avec key + grow[key] il pousse à ce moment-là, sinon il est déjà construit.
 - fantomes : [{key, site, n, rayon, hauteur}] (bâtiments transparents = projet à voter) ; epingles : [{key, site, lettre, couleur}].
 - flashes : [t…] (flash blanc) ; pops : [t…] (sons en plus des cartes). mix.py met un whoosh à chaque plan et un pop à chaque carte.
 - drapeau (spec) : {fond:'uni'|'h'|'v'|'diag'|'croix'|'triangle', couleurs:[…], bande:{couleur, sens:'montante'|'descendante'|'h'|'v', epaisseur}, bordure:'#couleur', symboles:[plusieurs symboles], symbole:{forme:'etoile'|'cercle'|'soleil'|'volcan'|'palmier'|'vague'|'lune'|'coeur'|'couronne'|'triangle'|'poisson'|'feuille'|'aucun', couleur, taille 0–1, x, y}}. Traduire fidèlement la description du commentaire gagnant.
