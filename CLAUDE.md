@@ -14,6 +14,7 @@ Une série quotidienne où les abonnés construisent un pays ensemble sur une î
 ## Règles de l'utilisateur
 - ZONE VISIBLE (07.11) — référence assets/zone_visible_tiktok.png. Vidéo 1080×1920 : texte et éléments importants dans x 60–960, y 130–1600 (haut ≥ 108 = barre « Abonnements | Pour toi » ; droite ≤ 960 sous y ≈ 300 = colonne j'aime/commentaires/partage ; bas ≤ 1600 = pseudo/description). Ligne de texte ≤ 840 px de large. Vérifier quelques images test avec ce cadre dessiné avant chaque rendu complet.
   Défauts du jour 1 à corriger dès le jour 2 : HUD qui commence à y ≈ 90 (trop haut) ; légende « PORT, PÊCHE, COMMERCE » jusqu'à x ≈ 1015.
+- UNE SEULE question par vidéo (07.11) : pas de questions en plus, garder simple. Jour 2 = « Qui sera le chef ? » (candidatures en commentaire).
 - Secrets uniquement dans les secrets GitHub de CE dépôt. Ne jamais écrire une clé dans le dépôt ni la demander dans le chat.
 
 ## Organisation du dépôt
