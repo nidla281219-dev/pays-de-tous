@@ -127,13 +127,13 @@ const FX=-135,FZ=0;flagG.position.set(FX,height(FX,FZ),FZ);scene.add(flagG);cons
 const SITES={plage:[-48,198],volcan:[26,-12],centre:[-120,20],foret:[100,120],riviere:[-20,60],baie:[-70,235],nord:[-20,-180],est:[170,10]};
 // capitale « en dur » : maisons colorées (murs + toits) qui poussent
 function town(cx,cz,n,spread,seed,maxH=10){const g=new THREE.Group();const walls=['#f3ead8','#fff7e6','#e9dcc3','#f6e1c6','#e8eef2'],roofs=['#c8553d','#d9822b','#3d6fb6','#b5413a','#6a8f3c'];
- let made=0;for(let i=0;i<n*4&&made<n;i++){const a=hash(i,seed)*Math.PI*2,r=Math.sqrt(hash(i,seed+1))*spread;const x=cx+Math.cos(a)*r,z=cz+Math.sin(a)*r;const y0=height(x,z);if(y0<1.2||riverDist(x,z)<7)continue;
+ let made=0;for(let i=0;i<n*4&&made<n;i++){const a=hash(i,seed)*Math.PI*2,r=Math.sqrt(hash(i,seed+1))*spread;const x=cx+Math.cos(a)*r,z=cz+Math.sin(a)*r;const y0=height(x,z);if(y0<1.2||riverDist(x,z)<7||EXCL.some(([ex,ez])=>Math.hypot(x-ex,z-ez)<11))continue;
   const w=4+hash(i,seed+2)*4,h=4+hash(i,seed+3)*maxH*(1-r/spread*.6),d=4+hash(i,seed+4)*4;const b=new THREE.Group();
   const wg=new THREE.BoxGeometry(w,h,d);wg.translate(0,h/2,0);b.add(new THREE.Mesh(wg,new THREE.MeshStandardMaterial({color:walls[i%walls.length],flatShading:true})));
   const rg=new THREE.ConeGeometry(Math.max(w,d)*.75,3+w*.25,4);rg.rotateY(Math.PI/4);rg.translate(0,h+1.5+w*.12,0);b.add(new THREE.Mesh(rg,new THREE.MeshStandardMaterial({color:roofs[(i*7)%roofs.length],flatShading:true})));
   b.position.set(x,y0-.2,z);b.rotation.y=hash(i,seed+6)*Math.PI;b.userData.d=Math.min(1,r/spread*.8+hash(i,seed+5)*.25);g.add(b);made++}
  scene.add(g);return g}
-let capitale=null,capSite=null;const speciaux=[];
+let capitale=null,capSite=null;const speciaux=[];let EXCL=[];
 // bâtiment spécial avec enseigne (idée d'un abonné, avec son nom)
 function enseigne(txt){const cv=document.createElement('canvas');cv.width=1024;cv.height=200;const c=cv.getContext('2d');c.font='86px L';const w=Math.min(1000,c.measureText(txt).width+80);
  c.fillStyle='#fffaf0';c.strokeStyle='#5a3a1e';c.lineWidth=12;c.beginPath();c.roundRect((1024-w)/2,20,w,160,40);c.fill();c.stroke();c.fillStyle='#3a2410';c.textAlign='center';c.textBaseline='middle';
@@ -144,7 +144,7 @@ function special(b){const [sx,sz]=SITES[b.site]||b.pos||[0,0];const x=sx+(b.dx||
  const rg=new THREE.ConeGeometry(9.5,5,4);rg.rotateY(Math.PI/4);rg.translate(0,10.5,0);inner.add(new THREE.Mesh(rg,new THREE.MeshStandardMaterial({color:b.toit||'#c8553d',flatShading:true})));
  const aw=new THREE.Mesh(new THREE.BoxGeometry(12.5,.6,3),new THREE.MeshStandardMaterial({color:b.store||'#e8452c'}));aw.position.set(0,5.2,6);aw.rotation.x=.35;inner.add(aw);
  const door=new THREE.Mesh(new THREE.BoxGeometry(3,4.5,.4),new THREE.MeshStandardMaterial({color:'#6b4a2e'}));door.position.set(0,2.25,5.1);inner.add(door);
- g.add(inner);const sp=enseigne(b.nom||'?');sp.position.set(0,20,0);g.add(sp);g.position.set(x,height(x,z)-.2,z);g.rotation.y=b.rot||0;g.userData={key:b.key,inner,sp};scene.add(g);speciaux.push(g)}
+ g.add(inner);const sp=enseigne(b.nom||'?');sp.position.set(0,15.5,0);sp.scale.multiplyScalar(.75);g.add(sp);g.position.set(x,height(x,z)-.2,z);g.rotation.y=b.rot||0;g.userData={key:b.key,inner,sp};scene.add(g);speciaux.push(g)}
 function waveFlag(t){const p=flagGeo.attributes.position;for(let i=0;i<p.count;i++){const x=fbase[i*3];p.setZ(i,Math.sin(x*.6-t*6)*x*.09);p.setY(i,fbase[i*3+1]+Math.sin(x*.5-t*5)*x*.03)}p.needsUpdate=true;flagGeo.computeVertexNormals()}
 // silhouette « toi »
 const toi=new THREE.Group();{const m=new THREE.MeshStandardMaterial({color:'#ffe08a',emissive:'#ffcf4a',emissiveIntensity:.6});const b=new THREE.Mesh(new THREE.CapsuleGeometry(1,2.2,4,8),m);b.position.y=2.2;const hd=new THREE.Mesh(new THREE.SphereGeometry(1.1,12,8),m);hd.position.y=4.8;toi.add(b,hd)}
@@ -220,7 +220,8 @@ let TL=null;
 const extras=[];
 window.setup=(tl)=>{TL=tl;const E=tl.etat||{};
  if(E.drapeau){drawFlag(fcv.getContext('2d'),E.drapeau,480,315);flagTex.needsUpdate=true}
- if(E.capitale&&SITES[E.capitale.site]){capSite=SITES[E.capitale.site];capitale=town(capSite[0],capSite[1],E.capitale.maisons||60,E.capitale.rayon||32,140,E.capitale.hauteur||9);
+ EXCL=(E.batiments||[]).map(b=>{const [sx,sz]=SITES[b.site]||b.pos||[0,0];return [sx+(b.dx||0),sz+(b.dz||0)]});
+ if(E.capitale&&SITES[E.capitale.site]){capSite=SITES[E.capitale.site];EXCL.push([capSite[0]+(E.capitale.drapeau_dx??0),capSite[1]+(E.capitale.drapeau_dz??0)]);capitale=town(capSite[0],capSite[1],E.capitale.maisons||60,E.capitale.rayon||32,140,E.capitale.hauteur||9);
   const fx=capSite[0]+(E.capitale.drapeau_dx??0),fz=capSite[1]+(E.capitale.drapeau_dz??0);flagG.position.set(fx,height(fx,fz),fz)}
  for(const b of E.batiments||[])special(b);
  for(const f of tl.fantomes||[]){const [x,z]=SITES[f.site]||f.pos;const g=ghostBuildings(x,z,f.n||40,f.rayon||30,f.seed||200+extras.length*17,f.hauteur||10);g.userData.key=f.key;extras.push(g)}
