@@ -21,7 +21,14 @@ def main(n):
         while True:
             p = {'part': 'snippet', 'videoId': vid, 'maxResults': 100, 'order': 'relevance', 'textFormat': 'plainText'}
             if page: p['pageToken'] = page
-            d = requests.get(f'{API}/commentThreads', headers=h, params=p, timeout=30).json()
+            r = requests.get(f'{API}/commentThreads', headers=h, params=p, timeout=30)
+            if not r.ok:
+                print(f'ERREUR commentaires ({r.status_code}) : {r.text[:400]}')
+                k = os.environ.get('YT_API_KEY')
+                if not k: sys.exit('Lecture des commentaires refusée : voir l\'erreur ci-dessus.')
+                r = requests.get(f'{API}/commentThreads', params={**p, 'key': k}, timeout=30)
+                if not r.ok: sys.exit(f'Refusé aussi avec la clé API ({r.status_code}) : {r.text[:300]}')
+            d = r.json()
             for it in d.get('items', []):
                 s = it['snippet']['topLevelComment']['snippet']
                 coms.append({'auteur': s.get('authorDisplayName', ''), 'texte': s.get('textOriginal', ''), 'likes': s.get('likeCount', 0),
