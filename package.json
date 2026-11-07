@@ -1,0 +1,8 @@
+{
+  "name": "enigmo-studio",
+  "private": true,
+  "description": "Fabrique automatique des vidéos Énigmo",
+  "dependencies": {
+    "playwright": "1.55.0"
+  }
+}

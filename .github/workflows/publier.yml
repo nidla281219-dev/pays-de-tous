@@ -1,0 +1,44 @@
+name: Publier sur YouTube
+on:
+  workflow_dispatch:
+    inputs:
+      action: {description: "verifier = juste afficher la chaîne liée ; publier = rendu 3D + son + envoi", type: choice, options: [verifier, publier], default: verifier}
+      jour: {description: "numéro du jour", default: "1"}
+      heure: {description: "heure de publication (heure suisse, publié tout de suite si passée)", default: "18:00"}
+permissions:
+  contents: write
+concurrency: {group: publier, cancel-in-progress: false}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q requests
+      - name: Chaîne liée au jeton
+        run: python studio/publier.py verifier
+      - if: inputs.action == 'publier'
+        uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - if: inputs.action == 'publier'
+        name: Rendu 3D + son
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          npm install --no-audit --no-fund && npx playwright install --with-deps chromium
+          cd studio && node render.js pays_j${{ inputs.jour }}_video.mp4 && bash mix.sh ${{ inputs.jour }}
+      - if: inputs.action == 'publier'
+        name: Envoi YouTube
+        run: python studio/publier.py publier "${{ inputs.jour }}" studio/le_pays_de_tous_jour${{ inputs.jour }}.mp4 "${{ inputs.heure }}"
+      - if: inputs.action == 'publier'
+        uses: actions/upload-artifact@v4
+        with: {name: "jour${{ inputs.jour }}", path: "studio/le_pays_de_tous_jour*.mp4", retention-days: 14}
+      - if: always() && inputs.action == 'publier'
+        run: |
+          git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
+          git add jours; git diff --cached --quiet || (git commit -m "Jour ${{ inputs.jour }} envoyé sur YouTube" && git pull --rebase -q && git push)

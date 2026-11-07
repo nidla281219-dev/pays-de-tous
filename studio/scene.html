@@ -1,0 +1,159 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>@font-face{font-family:L;src:url(lilita.woff2)}html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><canvas id="out" width="1080" height="1920"></canvas>
+<script type="module">
+import * as THREE from './three.js';
+const W=1080,H=1920;
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setSize(W,H);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();
+const SKY=new THREE.Color('#9fd3f2');scene.background=SKY;scene.fog=new THREE.Fog('#bfe3f7',600,1900);
+const cam=new THREE.PerspectiveCamera(50,W/H,1,5000);
+scene.add(new THREE.HemisphereLight('#e6f4ff','#5a6b3a',1.25));
+const sun=new THREE.DirectionalLight('#fff3d6',2.0);sun.position.set(-300,500,200);scene.add(sun);
+
+// ---------- bruit ----------
+function hash(x,y){const s=Math.sin(x*127.1+y*311.7)*43758.5453;return s-Math.floor(s)}
+function vnoise(x,y){const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi;const u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf);
+ const a=hash(xi,yi),b=hash(xi+1,yi),c=hash(xi,yi+1),d=hash(xi+1,yi+1);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v}
+function fbm(x,y){let s=0,a=.5,f=1;for(let i=0;i<5;i++){s+=a*vnoise(x*f,y*f);f*=2;a*=.5}return s}
+// ---------- île ----------
+const VOLC=new THREE.Vector2(60,-70);            // volcan (x,z)
+const RIVER=[[40,-30],[20,10],[-10,40],[-30,80],[-45,120],[-55,165],[-60,215]]; // du volcan vers la baie sud
+function riverDist(x,z){let best=1e9;for(let i=0;i<RIVER.length-1;i++){const [ax,az]=RIVER[i],[bx,bz]=RIVER[i+1];const vx=bx-ax,vz=bz-az;let t=((x-ax)*vx+(z-az)*vz)/(vx*vx+vz*vz);t=Math.max(0,Math.min(1,t));const dx=x-(ax+vx*t),dz=z-(az+vz*t);best=Math.min(best,Math.hypot(dx,dz))}return best}
+function height(x,z){
+ const ang=Math.atan2(z,x), r=Math.hypot(x,z);
+ const R=230+38*Math.sin(ang*3+.7)+22*Math.sin(ang*5+2.1)+30*(fbm(Math.cos(ang)*2+5,Math.sin(ang)*2+5)-.5);
+ let h=(1-Math.pow(r/R,2.2))*26; if(r>R) h=-(r-R)*.25-1;
+ h+= (fbm(x*.012+3,z*.012+7)-.5)*14*Math.max(0,Math.min(1,(R-r)/60));
+ const dv=Math.hypot(x-VOLC.x,z-VOLC.y); h+=Math.max(0,95*Math.exp(-dv*dv/(2*55*55))); if(dv<22) h-= (22-dv)*1.6; // cratère
+ const rd=riverDist(x,z); if(rd<10 && h>1) h=Math.min(h, h-(10-rd)*.9*Math.min(1,h/6));
+ // baie sud (port) : creuse la côte
+ const bd=Math.hypot(x+70,z-235); if(bd<55) h=Math.min(h, -2+(bd/55)*4*0);
+ return h}
+const SEG=300,SIZE=640;
+const tg=new THREE.PlaneGeometry(SIZE,SIZE,SEG,SEG);tg.rotateX(-Math.PI/2);
+const pos=tg.attributes.position,cols=[];const C=new THREE.Color();
+for(let i=0;i<pos.count;i++){const x=pos.getX(i),z=pos.getZ(i);const h=height(x,z);pos.setY(i,h);
+ const rd=riverDist(x,z), dv=Math.hypot(x-VOLC.x,z-VOLC.y), n=fbm(x*.05,z*.05);
+ if(h<1.2) C.set('#ecdca3'); else if(rd<6 && h<60) C.set('#4aa8d8');
+ else if(dv<26) C.set('#4a3f3a'); else if(h>48) C.set(n>.5?'#857a70':'#958a7e'); else if(h>34) C.set('#7e8a55');
+ else C.set(n>.52?'#5fae45':'#6cbd4e');
+ if(h<1.2&&h>-3) C.lerp(new THREE.Color('#d9c48a'),Math.max(0,-h/3));
+ cols.push(C.r,C.g,C.b)}
+tg.setAttribute('color',new THREE.Float32BufferAttribute(cols,3));tg.computeVertexNormals();
+const terrain=new THREE.Mesh(tg,new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:1}));scene.add(terrain);
+// océan
+const og=new THREE.PlaneGeometry(6000,6000,120,120);og.rotateX(-Math.PI/2);
+const ocols=[];const op=og.attributes.position;for(let i=0;i<op.count;i++){const r=Math.hypot(op.getX(i),op.getZ(i));C.set('#1f6fb2').lerp(new THREE.Color('#3fd0d6'),Math.max(0,1-(r-180)/220));ocols.push(C.r,C.g,C.b)}
+og.setAttribute('color',new THREE.Float32BufferAttribute(ocols,3));
+const ocean=new THREE.Mesh(og,new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.35,metalness:.05,transparent:true,opacity:.93}));ocean.position.y=-.3;scene.add(ocean);
+const obase=Float32Array.from(op.array);
+function waves(t){for(let i=0;i<op.count;i++){const x=obase[i*3],z=obase[i*3+2];op.setY(i,Math.sin(x*.02+t*1.3)*.9+Math.cos(z*.025+t*1.1)*.9)}op.needsUpdate=true;og.computeVertexNormals()}
+// écume autour de l'île
+const foam=[];{const fg=new THREE.RingGeometry(0,1,64);}
+// arbres
+const treeG=new THREE.ConeGeometry(3.2,9,6);treeG.translate(0,7.5,0);const trunkG=new THREE.CylinderGeometry(.6,.8,3.5,5);trunkG.translate(0,1.7,0);
+const N=4200;const trees=new THREE.InstancedMesh(treeG,new THREE.MeshStandardMaterial({color:'#2f7d3a',flatShading:true}),N);const trunks=new THREE.InstancedMesh(trunkG,new THREE.MeshStandardMaterial({color:'#6b4a2e',flatShading:true}),N);
+const tcol=new THREE.Color();let k=0;const M=new THREE.Matrix4(),Q=new THREE.Quaternion(),S=new THREE.Vector3(),P=new THREE.Vector3();
+for(let i=0;i<40000&&k<N;i++){const x=(hash(i,1)-.5)*560,z=(hash(i,2)-.5)*560;const h=height(x,z);if(h<3||h>40)continue;if(riverDist(x,z)<12)continue;
+ if(Math.hypot(x-VOLC.x,z-VOLC.y)<70)continue; const zone=fbm(x*.02+11,z*.02+3); if(zone<.48)continue; // clairières
+ if(Math.hypot(x+120,z-20)<75) continue; if(Math.hypot(x-28,z+12)<38||Math.hypot(x+50,z-205)<35) continue;
+ const sc=.7+hash(i,3)*.8;P.set(x,h-.3,z);S.set(sc,sc*(0.9+hash(i,4)*.5),sc);Q.setFromAxisAngle(new THREE.Vector3(0,1,0),hash(i,5)*6);M.compose(P,Q,S);trees.setMatrixAt(k,M);trunks.setMatrixAt(k,M);
+ tcol.set(hash(i,6)>.5?'#2f7d3a':'#3b8f3f').offsetHSL(0,0,(hash(i,7)-.5)*.08);trees.setColorAt(k,tcol);k++}
+trees.count=k;trunks.count=k;scene.add(trees,trunks);
+// nuages
+const clouds=new THREE.Group();const cm=new THREE.MeshLambertMaterial({color:'#ffffff',emissive:'#c9d8e6',emissiveIntensity:.55,transparent:true,opacity:.96});
+for(let i=0;i<26;i++){const g=new THREE.Group();const n=4+Math.floor(hash(i,8)*4);for(let j=0;j<n;j++){const s=new THREE.Mesh(new THREE.IcosahedronGeometry(14+hash(i,j)*16,2),cm);s.position.set((j-n/2)*16,hash(j,i)*8,(hash(i+j,3)-.5)*20);g.add(s)}
+ const a=hash(i,9)*Math.PI*2,r=330+hash(i,10)*450;g.position.set(Math.cos(a)*r,170+hash(i,11)*90,Math.sin(a)*r);g.userData.v=4+hash(i,12)*6;clouds.add(g)}
+scene.add(clouds);
+// mer de nuages pour l'intro (couche dense haute)
+const cloudLayer=new THREE.Group();for(let i=0;i<70;i++){const s=new THREE.Mesh(new THREE.IcosahedronGeometry(60+hash(i,20)*60,2),cm);s.position.set((hash(i,21)-.5)*900,600+hash(i,22)*70,(hash(i,23)-.5)*900);cloudLayer.add(s)}scene.add(cloudLayer);
+// fumée du volcan
+const smoke=new THREE.Group();const sm=new THREE.MeshStandardMaterial({color:'#d8d4cf',flatShading:true,transparent:true,opacity:.75});
+for(let i=0;i<10;i++){const s=new THREE.Mesh(new THREE.IcosahedronGeometry(6,1),sm);smoke.add(s)}scene.add(smoke);
+// ville fantôme
+function ghostBuildings(cx,cz,n,spread,seed,maxH=24){const g=new THREE.Group();const mat=new THREE.MeshStandardMaterial({color:'#ffffff',transparent:true,opacity:.35,depthWrite:false});const lm=new THREE.LineBasicMaterial({color:'#ffffff',transparent:true,opacity:.9});
+ for(let i=0;i<n;i++){const a=hash(i,seed)*Math.PI*2,r=Math.sqrt(hash(i,seed+1))*spread;const x=cx+Math.cos(a)*r,z=cz+Math.sin(a)*r;const w=5+hash(i,seed+2)*8,h=6+hash(i,seed+3)*maxH,d=5+hash(i,seed+4)*8;
+  const geo=new THREE.BoxGeometry(w,h,d);geo.translate(0,h/2,0);const m=new THREE.Mesh(geo,mat);const e=new THREE.LineSegments(new THREE.EdgesGeometry(geo),lm);const b=new THREE.Group();b.add(m,e);b.position.set(x,height(x,z),z);b.userData.d=hash(i,seed+5);g.add(b)}
+ g.userData.grow=0;scene.add(g);return g}
+const city=ghostBuildings(-120,20,170,70,30,40);
+const villA=ghostBuildings(-45,200,40,30,60,10);const villB=ghostBuildings(25,-10,40,28,90,10);
+// bateaux fantômes au port A
+const boats=new THREE.Group();for(let i=0;i<5;i++){const b=new THREE.Mesh(new THREE.BoxGeometry(10,2.5,4),new THREE.MeshStandardMaterial({color:'#fff',transparent:true,opacity:.6}));b.position.set(-90+i*14,0.5,248+(i%2)*10);boats.add(b)}scene.add(boats);
+// champs fantômes en B
+// épingles
+function pin(col,letter,x,z){const g=new THREE.Group();const cv=document.createElement('canvas');cv.width=cv.height=256;const c=cv.getContext('2d');
+ c.fillStyle=col;c.beginPath();c.arc(128,110,95,0,7);c.fill();c.beginPath();c.moveTo(60,170);c.lineTo(196,170);c.lineTo(128,250);c.fill();c.fillStyle='#fff';c.beginPath();c.arc(128,110,72,0,7);c.fill();
+ c.fillStyle=col;c.font='bold 110px L';c.textAlign='center';c.textBaseline='middle';c.fillText(letter,128,118);
+ const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(cv),depthTest:false}));sp.scale.set(26,26,1);sp.position.set(0,13,0);g.add(sp);g.position.set(x,height(x,z)+6,z);scene.add(g);return g}
+const pinA=pin('#2f7fe0','A',-50,205),pinB=pin('#f08a24','B',28,-12);
+// drapeau
+const flagG=new THREE.Group();const pole=new THREE.Mesh(new THREE.CylinderGeometry(.5,.5,30,6),new THREE.MeshStandardMaterial({color:'#8a6a4a'}));pole.position.y=15;flagG.add(pole);
+const fcv=document.createElement('canvas');fcv.width=320;fcv.height=210;{const c=fcv.getContext('2d');c.fillStyle='#f4f4f0';c.fillRect(0,0,320,210);c.fillStyle='#c9c9c4';c.font='bold 150px L';c.textAlign='center';c.textBaseline='middle';c.fillText('?',160,115)}
+const flagGeo=new THREE.PlaneGeometry(16,10.5,20,8);flagGeo.translate(8,0,0);const flag=new THREE.Mesh(flagGeo,new THREE.MeshStandardMaterial({map:new THREE.CanvasTexture(fcv),side:THREE.DoubleSide}));flag.position.set(0,24.5,0);flagG.add(flag);
+const FX=-135,FZ=0;flagG.position.set(FX,height(FX,FZ),FZ);scene.add(flagG);const fbase=Float32Array.from(flagGeo.attributes.position.array);
+function waveFlag(t){const p=flagGeo.attributes.position;for(let i=0;i<p.count;i++){const x=fbase[i*3];p.setZ(i,Math.sin(x*.6-t*6)*x*.09);p.setY(i,fbase[i*3+1]+Math.sin(x*.5-t*5)*x*.03)}p.needsUpdate=true;flagGeo.computeVertexNormals()}
+// silhouette « toi »
+const toi=new THREE.Group();{const m=new THREE.MeshStandardMaterial({color:'#ffe08a',emissive:'#ffcf4a',emissiveIntensity:.6});const b=new THREE.Mesh(new THREE.CapsuleGeometry(1,2.2,4,8),m);b.position.y=2.2;const hd=new THREE.Mesh(new THREE.SphereGeometry(1.1,12,8),m);hd.position.y=4.8;toi.add(b,hd)}
+const TX=-120,TZ=35;toi.position.set(TX,height(TX,TZ),TZ);scene.add(toi);
+
+// ---------- 2D (texte, HUD) ----------
+const out=document.getElementById('out');const X=out.getContext('2d');
+function rr(x,y,w,h,r){X.beginPath();X.roundRect(x,y,w,h,r)}
+function pillDark(x,y,w,h){rr(x,y,w,h,h/2);X.fillStyle='rgba(15,25,40,.62)';X.fill();X.strokeStyle='rgba(255,255,255,.35)';X.lineWidth=3;X.stroke()}
+function hud(st){X.save();X.textBaseline='middle';
+ pillDark(250,90,240,116);X.fillStyle='#ffd34d';X.font='32px L';X.textAlign='center';X.fillText('JOUR',370,124);X.fillStyle='#fff';X.font='58px L';X.fillText('1',370,170);
+ pillDark(510,90,320,116);X.fillStyle='#ffd34d';X.font='32px L';X.fillText('HABITANTS',670,124);X.fillStyle='#fff';X.font='58px L';X.fillText('👤 '+st.pop,670,170);
+ pillDark(335,222,410,70);X.fillStyle='#fff';X.font='34px L';X.fillText('🏳️ PAYS SANS NOM',540,258);X.restore()}
+function caption(lines,y,k){X.save();X.textAlign='center';X.textBaseline='middle';X.lineJoin='round';
+ lines.forEach((ln,i)=>{const yy=y+i*96;let total=0;X.font='84px L';let parts=ln.map(([s,c])=>[s,c,X.measureText(s).width]);total=parts.reduce((a,p)=>a+p[2],0);let fs=84;if(total>960){fs=Math.floor(84*960/total);X.font=fs+'px L';parts=ln.map(([s,c])=>[s,c,X.measureText(s).width]);total=parts.reduce((a,p)=>a+p[2],0)}
+  let x=540-total/2;X.translate(0,0);const sc=k;X.save();X.translate(540,yy);X.scale(sc,sc);X.translate(-540,-yy);
+  for(const [s,c,w] of parts){X.lineWidth=16;X.strokeStyle='#1a1a2a';X.strokeText(s,x+w/2,yy);X.fillStyle=c?'#ffd34d':'#ffffff';X.fillText(s,x+w/2,yy);x+=w}X.restore()});X.restore()}
+function card(x,y,w,h){X.save();X.shadowColor='rgba(0,0,0,.35)';X.shadowBlur=20;X.shadowOffsetY=8;rr(x,y,w,h,28);X.fillStyle='#fff';X.fill();X.restore()}
+const CARDS={
+ vote(k,t){const items=[['🏗️','CONSTRUIRE'],['📜','LOIS'],['⚔️','GUERRES'],['✊','RÉVOLTES']];items.forEach(([e,s],i)=>{const kk=Math.max(0,Math.min(1,(k*4-i)));if(kk<=0)return;const x=150+(i%2)*400,y=760+Math.floor(i/2)*230;X.save();X.translate(x+180,y+90);X.scale(kk,kk);X.translate(-x-180,-y-90);card(x,y,360,180);X.font='80px sans-serif';X.textAlign='center';X.textBaseline='middle';X.fillText(e,x+180,y+70);X.fillStyle='#1a1a2a';X.font='38px L';X.fillText(s,x+180,y+145);X.restore()})},
+ comment(k,t){X.save();X.globalAlpha=k;const y=1180;card(110,y,860,250);X.textBaseline='middle';X.textAlign='left';X.fillStyle='#999';X.font='30px L';X.fillText('@toi · il y a 2 min',250,y+50);X.fillStyle='#1a1a2a';X.font='44px L';X.fillText('Nom : « Azuria » 🏝️',250,y+115);X.fillText('Drapeau : bleu avec un volcan',250,y+175);
+  X.fillStyle='#4aa8d8';X.beginPath();X.arc(180,y+70,40,0,7);X.fill();X.fillStyle='#e0245e';X.font='40px L';X.textAlign='right';X.fillText('❤ '+Math.round(1240*Math.min(1,k*1.5+ (t%1)*0)),930,y+50);X.restore()},
+ vs(k,t){X.save();X.globalAlpha=k;card(70,1200,440,190);card(570,1200,440,190);X.textAlign='center';X.textBaseline='middle';
+  X.fillStyle='#2f7fe0';X.font='70px L';X.fillText('A',150,1265);X.fillStyle='#1a1a2a';X.font='38px L';X.fillText('LA PLAGE',330,1255);X.font='28px L';X.fillStyle='#666';X.fillText('port · pêche · commerce',290,1320);
+  X.fillStyle='#f08a24';X.font='70px L';X.fillText('B',650,1265);X.fillStyle='#1a1a2a';X.font='38px L';X.fillText('LE VOLCAN',830,1255);X.font='28px L';X.fillStyle='#666';X.fillText('terres fertiles · protégé',800,1320);
+  X.fillStyle='#e8193c';X.beginPath();X.arc(540,1295,52,0,7);X.fill();X.fillStyle='#fff';X.font='48px L';X.fillText('VS',540,1298);X.restore()},
+ fin(k,t){X.save();X.globalAlpha=k;X.fillStyle='rgba(10,20,40,.55)';X.fillRect(0,0,W,H);X.textAlign='center';X.textBaseline='middle';X.lineJoin='round';
+  X.font='120px L';X.lineWidth=18;X.strokeStyle='#1a1a2a';X.strokeText('LE PAYS',540,820);X.fillStyle='#fff';X.fillText('LE PAYS',540,820);X.strokeText('DE TOUS',540,950);X.fillStyle='#ffd34d';X.fillText('DE TOUS',540,950);
+  X.font='56px L';X.fillStyle='#fff';X.fillText('1 abonné = 1 habitant',540,1090);X.fillStyle='#ffd34d';X.fillText('DEMAIN : JOUR 2',540,1180);X.restore()},
+};
+// ---------- timeline ----------
+let TL=null;
+window.setup=(tl)=>{TL=tl};
+function lerp(a,b,t){return a+(b-a)*t}function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+function camAt(t){const shots=TL.shots;let i=0;while(i<shots.length-1&&t>=shots[i+1].t)i++;const s=shots[i],e=(shots[i+1]?shots[i+1].t:TL.dur);const p=Math.max(0,Math.min(1,(t-s.t)/(e-s.t)));const q=s.ease===false?p:ease(p);
+ const a=s.from,b=s.to;const P=new THREE.Vector3(...a.p).lerp(new THREE.Vector3(...b.p),q);const L=new THREE.Vector3(...a.l).lerp(new THREE.Vector3(...b.l),q);if(s.rel){P.y+=Math.max(0,height(P.x,P.z));L.y+=Math.max(0,height(L.x,L.z))}return {P,L,s,p}}
+window.frame=(t)=>{
+ waves(t);waveFlag(t);
+ clouds.children.forEach((g,i)=>{g.position.x+=0;g.rotation.y=t*.02;g.position.x=g.position.x;});
+ for(const g of clouds.children){g.position.x=g.userData.x0??(g.userData.x0=g.position.x);g.position.x=g.userData.x0+t*g.userData.v}
+ smoke.children.forEach((s,i)=>{const ph=(t*.25+i/10)%1;s.position.set(VOLC.x+Math.sin(i*3+t*.5)*4+ph*20,height(VOLC.x,VOLC.y)+10+ph*60,VOLC.y-ph*8);s.scale.setScalar(1+ph*3);s.material.opacity=.7*(1-ph)});
+ const {P,L,s,p}=camAt(t);cam.position.copy(P);cam.lookAt(L);
+ // éléments selon le temps
+ const sh=s.id;
+ cloudLayer.visible=TL.vis(t,'nuagesIntro'); clouds.visible=TL.vis(t,'nuages');
+ city.children.forEach(b=>{const g=TL.prog(t,'ville');const v=Math.max(0,Math.min(1,(g*1.4-b.userData.d)*4));b.scale.set(1,v||.0001,1);b.visible=v>0});
+ villA.children.forEach(b=>{const g=TL.prog(t,'villA');const v=Math.max(0,Math.min(1,(g*1.4-b.userData.d)*4));b.scale.set(1,v||.0001,1);b.visible=v>0});
+ villB.children.forEach(b=>{const g=TL.prog(t,'villB');const v=Math.max(0,Math.min(1,(g*1.4-b.userData.d)*4));b.scale.set(1,v||.0001,1);b.visible=v>0});
+ boats.visible=TL.prog(t,'villA')>.3; boats.children.forEach((b,i)=>b.position.y=.5+Math.sin(t*2+i)*.4);
+ pinA.visible=TL.vis(t,'pins')||TL.vis(t,'pinA');pinB.visible=TL.vis(t,'pins')||TL.vis(t,'pinB');
+ for(const [pp,h0] of [[pinA,height(-50,205)],[pinB,height(28,-12)]]) pp.position.y=h0+6+Math.sin(t*3)*1.5;
+ flagG.visible=TL.vis(t,'drapeau');toi.visible=TL.vis(t,'toi');toi.children.forEach(c=>c.material.emissiveIntensity=.5+.4*Math.sin(t*5));
+ renderer.render(scene,cam);
+ X.clearRect(0,0,W,H);X.drawImage(renderer.domElement,0,0);
+ // léger vignettage
+ const g=X.createRadialGradient(540,960,500,540,960,1200);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.28)');X.fillStyle=g;X.fillRect(0,0,W,H);
+ if(!TL.vis(t,'fin')) hud({pop:0});
+ for(const c of TL.cards) if(t>=c.t0&&t<c.t1){const k=Math.min(1,(t-c.t0)/.35)*Math.min(1,(c.t1-t)/.25);CARDS[c.kind](k,t)}
+ for(const c of TL.caps) if(t>=c.t0&&t<c.t1){const k0=Math.min(1,(t-c.t0)/.18);const k=k0<1?.7+.3*k0+Math.sin(k0*Math.PI)*.15:1;caption(c.lines,c.y||560,k)}
+ // flash blanc aux transitions marquées
+ for(const f of TL.flashes) if(t>=f&&t<f+.25){X.fillStyle=`rgba(255,255,255,${1-(t-f)/.25})`;X.fillRect(0,0,W,H)}
+ return out.toDataURL('image/jpeg',.9)};
+window.ready=true;
+</script></body></html>
