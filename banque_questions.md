@@ -15,6 +15,16 @@ Fil rouge : chaque jour = 1 résultat montré + 1 nouvelle question. Alterner le
 | 9 | ÉVÉNEMENT : le volcan gronde ! | **A = évacuer la ville, B = construire un mur de lave** |
 | 10 | Conséquence (ville sauvée ou abîmée) | **Une île voisine apparaît : A = alliance, B = guerre** |
 
+
+## Ce que les gens aiment (analyse des 20 commentaires du jour 1, 07.11 21h45)
+- **Donner des noms** : 14 commentaires sur 20 proposent un nom (Regastan, Ifrit, Canado, Macaron, Riot, Baldives…) → les questions « propose un nom » marchent très fort.
+- **Dessiner le drapeau** : 5 descriptions détaillées → les gens aiment créer, en détail.
+- **Le volcan** : B un peu plus liké, et des idées autour (Ifrit, cendres, « Volcan » comme nom) → un événement volcan va plaire.
+- **Se mettre eux-mêmes dans le pays** (un nom tiré de son pseudo, « Obedien ») → candidatures, rues ou statues au nom des abonnés.
+- **L'humour** (aigle qui tient une bière, boutique de croissants) → garder des options drôles.
+- Remercier les gens par leur pseudo et répondre à une idée (croissants) dans la vidéo = ils reviennent voir.
+→ Idée récurrente : chaque jour, l'auteur du commentaire le plus liké reçoit une **rue à son nom** (panneau visible dans la vidéo).
+
 ## Réserve d'idées
 - Devise du pays, hymne (une phrase), plat national, sport national, fête nationale (date + nom).
 - Nom de la capitale (différent du pays), nom de la rivière, du volcan.

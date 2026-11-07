@@ -174,7 +174,7 @@ const CARDS={
  comment(k,t,d={}){const pseudo=d.pseudo||'@toi · il y a 2 min',lignes=d.lignes||['Nom : « Azuria » 🏝️','Drapeau : bleu avec un volcan'],likes=d.likes||1240;
   X.save();X.globalAlpha=k;const y=d.y||1180,hh=110+lignes.length*62;card(90,y,840,hh);X.textBaseline='middle';X.textAlign='left';X.fillStyle='#999';X.font='30px L';X.fillText(pseudo,230,y+50);X.fillStyle='#1a1a2a';
   lignes.forEach((l,i)=>{X.font=fitFont(l,44,560)+'px L';X.fillText(l,230,y+115+i*60)});
-  avatar(160,y+70,40,pseudo);X.fillStyle='#e0245e';X.font='40px L';X.textAlign='right';X.fillText('❤ '+Math.round(likes*Math.min(1,k*1.5)),905,y+50);X.restore()},
+  avatar(160,y+70,40,pseudo);if(d.likes!==null){X.fillStyle='#e0245e';X.font='40px L';X.textAlign='right';X.fillText('❤ '+Math.round(likes*Math.min(1,k*1.5)),905,y+50)}X.restore()},
  // le commentaire gagnant, bien visible : d = {titre, pseudo, texte, likes, y}
  gagnant(k,t,d){const y=d.y||1040;const lignes=wrap(d.texte,610,'42px L').slice(0,4);const hh=150+lignes.length*58;const s=pop(Math.min(1,k*1.4));
   X.save();X.translate(CX,y+hh/2);X.scale(s,s);X.translate(-CX,-(y+hh/2));X.globalAlpha=Math.min(1,k*2);
