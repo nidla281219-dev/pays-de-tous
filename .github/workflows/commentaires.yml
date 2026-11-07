@@ -1,4 +1,4 @@
-name: Lire les commentaires YouTube
+name: Lire les commentaires (YouTube, TikTok, Instagram)
 on:
   workflow_dispatch:
     inputs:
@@ -14,12 +14,16 @@ jobs:
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
       YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
       YT_API_KEY: ${{ secrets.YT_API_KEY }}
+      APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: pip install -q requests
       - run: python studio/commentaires.py "${{ inputs.jour }}"
+      - name: TikTok + Instagram (Apify)
+        timeout-minutes: 20
+        run: python studio/commentaires_reseaux.py "${{ inputs.jour }}"
       - run: |
           git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
           git add jours; git diff --cached --quiet || (git commit -m "Commentaires YouTube du jour ${{ inputs.jour }}" && git pull --rebase -q && git push)
