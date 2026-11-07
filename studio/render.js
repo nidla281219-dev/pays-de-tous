@@ -4,7 +4,7 @@
 const { chromium } = require('playwright'); const { spawn } = require('child_process'); const path = require('path'); const fs = require('fs');
 const args = process.argv.slice(2);
 const opt = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null; };
-const jour = +(opt('--jour') || 1);
+const jour = opt('--jour') || '1';
 const out = args.find((a, i) => !a.startsWith('--') && !['--jour', '--test', '--fps'].includes(args[i - 1]));
 const test = opt('--test') ? opt('--test').split(',').map(Number) : null;
 const fps = +(opt('--fps') || 30);

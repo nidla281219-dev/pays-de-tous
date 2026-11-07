@@ -33,7 +33,7 @@ Une série quotidienne où les abonnés construisent un pays ensemble sur une î
 - win : fenêtres de visibilité {clé:[[t0,t1],…]} ; grow : {clé:[t0,t1]} (pousse). Clés : capitale (construction animée ; sans grow = déjà construite), drapeau / sansDrapeau, nuages, nuagesIntro, fin, + les clés des fantomes/epingles.
 - fantomes : [{key, site, n, rayon, hauteur}] (bâtiments transparents = projet à voter) ; epingles : [{key, site, lettre, couleur}].
 - flashes : [t…] (flash blanc) ; pops : [t…] (sons en plus des cartes). mix.py met un whoosh à chaque plan et un pop à chaque carte.
-- drapeau (spec) : {fond:'uni'|'h'|'v'|'diag'|'croix'|'triangle', couleurs:[…], symbole:{forme:'etoile'|'cercle'|'soleil'|'volcan'|'palmier'|'vague'|'lune'|'coeur'|'couronne'|'triangle'|'poisson'|'feuille'|'aucun', couleur, taille 0–1, x, y}}. Traduire fidèlement la description du commentaire gagnant.
+- drapeau (spec) : {fond:'uni'|'h'|'v'|'diag'|'croix'|'triangle', couleurs:[…], bande:{couleur, sens:'montante'|'descendante'|'h'|'v', epaisseur}, bordure:'#couleur', symboles:[plusieurs symboles], symbole:{forme:'etoile'|'cercle'|'soleil'|'volcan'|'palmier'|'vague'|'lune'|'coeur'|'couronne'|'triangle'|'poisson'|'feuille'|'aucun', couleur, taille 0–1, x, y}}. Traduire fidèlement la description du commentaire gagnant.
 
 ## Procédure quotidienne (tâche programmée 16h41, publication 18h00 — décidé par l'utilisateur le 07.11 : tout automatique, il reçoit la vidéo + textes vers 17h45)
 1. N = etat.jour + 1. Lancer le workflow « Lire les commentaires YouTube » (jour N-1), attendre, git pull. Lire aussi jours/jour(N-1)/commentaires_autres.txt s'il existe.
