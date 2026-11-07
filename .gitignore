@@ -1,5 +1,5 @@
 studio/t/
 studio/render.log
-*.mp4
+studio/*.mp4
 node_modules/
 __pycache__/

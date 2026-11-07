@@ -1,0 +1,20 @@
+{
+ "jour": 1,
+ "habitants": 53,
+ "nom": null,
+ "drapeau": null,
+ "capitale": null,
+ "chef": null,
+ "lois": [],
+ "constructions": [],
+ "vote_en_cours": {
+  "jour": 1,
+  "type": "AB + proposition",
+  "question": "Où fonder la capitale ?",
+  "options": {"A": "La plage (port, pêche, commerce) → site plage", "B": "Le pied du volcan (terres fertiles, protégé) → site volcan"},
+  "propositions": "Nom du pays + drapeau : le commentaire le plus liké gagne"
+ },
+ "historique": [
+  {"jour": 1, "resume": "Présentation de l'île déserte, 0 habitant. Vote 1 : capitale A plage / B volcan. Appel au nom + drapeau."}
+ ]
+}

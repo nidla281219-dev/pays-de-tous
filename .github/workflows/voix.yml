@@ -1,0 +1,24 @@
+name: Voix du jour
+on:
+  workflow_dispatch:
+    inputs:
+      jour: {description: "numéro du jour (lit jours/jourN/script.md)", default: "2"}
+permissions:
+  contents: write
+concurrency: {group: publier, cancel-in-progress: false}
+jobs:
+  v:
+    runs-on: ubuntu-latest
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/cache@v4
+        with: {path: ~/.cache/huggingface, key: whisper-small-v1}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy faster-whisper==1.2.1
+      - run: cd studio && python voix.py "${{ inputs.jour }}" 2>&1 | tee ../jours/jour${{ inputs.jour }}/voix_journal.txt
+      - run: |
+          git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
+          git add jours; git diff --cached --quiet || (git commit -m "Voix du jour ${{ inputs.jour }}" && git pull --rebase -q && git push)

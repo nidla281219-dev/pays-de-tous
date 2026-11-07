@@ -17,13 +17,34 @@ Une série quotidienne où les abonnés construisent un pays ensemble sur une î
 - Secrets uniquement dans les secrets GitHub de CE dépôt. Ne jamais écrire une clé dans le dépôt ni la demander dans le chat.
 
 ## Organisation du dépôt
-- studio/ : scene.html (Three.js : île, océan animé, arbres, nuages, volcan qui fume, villes « fantômes » qui poussent, épingles A/B, drapeau), render.js (caméra par plans calés sur la voix, textes, cartes de vote, HUD ; rendu image par image Playwright + SwiftShader, page servie par python http.server port 8765), mix.sh N (voix + musique + whooshs → le_pays_de_tous_jourN.mp4), miniature.py, chaine_visuels.py (logo/bannière), publier.py.
-  Test rapide : `cd studio && mkdir -p t && node render.js t/f --test 1,13.8,42`. Rendu complet : `node render.js pays_j1_video.mp4` (~20 min) puis `bash mix.sh 1`.
-  ⚠️ render.js et les instants de mix.sh sont encore ceux du jour 1 : pour chaque nouveau jour, faire la timeline du jour (idéalement jours/jourN/timeline.json lu par render.js).
-- jours/jourN/ : voix.mp3, script.md, mots.json (calage Whisper), publication.json (titre, description, tags YouTube), publication.md (textes 3 plateformes), miniature.jpg, youtube.txt (résultat de l'envoi).
-- sons/ : sons CC0 (CREDITS.json). chaine/ : logo_chaine.png (800×800), banniere_youtube.jpg (2560×1440).
-- Voix : ElevenLabs (voix Leo AfbuxQ9DVtS4azaxN1W7), secret ELEVENLABS_API_KEY. Script de voix pas encore copié ici (il est dans enigmo/pipeline/tts.py, voix_longue.py) : à faire pour le jour 2.
-- État du pays : etat.json (jour, habitants, nom, drapeau, constructions, votes passés) — à créer au jour 2.
+- etat.json : état du pays (jour, habitants, nom, drapeau, capitale, chef, lois, constructions, vote en cours, historique). Mis à jour chaque jour.
+- banque_questions.md : plan des prochaines questions + règles de décision (modération, égalités, pseudos).
+- studio/ : scene.html (Three.js), render.js, mix.py, voix.py (+ align.py), commentaires.py, publier.py, miniature.py, chaine_visuels.py, presets.json (plans caméra nommés), exemple_timeline.json (exemple complet d'un jour 2).
+  Test : `cd studio && mkdir -p t && node render.js --jour N t/f --test 1,8,15 --cadre` (--cadre dessine la zone visible en rouge). Complet : `node render.js --jour N pays_jN_video.mp4` (~20 min) puis `python mix.py N`.
+- jours/jourN/ : script.md (1re ligne « # titre », puis le texte dit), voix.mp3 + mots.json (temps de chaque mot), timeline.json, publication.json (titre/description/tags YouTube), publication.md (textes TikTok + Insta, 3 hashtags max chacun), miniature.jpg, commentaires_youtube.json (votes lus), commentaires_autres.txt (TikTok/Insta, ajoutés par l'utilisateur), video.mp4 (vidéo finale), youtube.txt.
+- sons/ : sons CC0 (CREDITS.json). chaine/ : logo + bannière.
+
+## Format de jours/jourN/timeline.json (lu par render.js, mix.py)
+- dur (s, = fin de la voix + ~1 s). etat : {nom, drapeau, capitale:{site, maisons, rayon}} = état du pays MONTRÉ dans cette vidéo (copie figée, pas de lien vers etat.json).
+- hud : {jour, pop (nombre ou {de,a,t0,t1} qui compte), nom, drapeau, changements:[{t, nom, drapeau}]} (ex. le nom apparaît dans le compteur au moment de la révélation).
+- shots : [{t, preset:"nom"} ou {t, from:{p:[x,y,z], l:[x,y,z]}, to:{…}, rel?}] — un plan toutes les 2–4 s. Presets dans studio/presets.json. Sites (x,z) : plage[-48,198] volcan[26,-12] centre[-120,20] foret[100,120] riviere[-20,60] baie[-70,235] nord[-20,-180] est[170,10].
+- caps : [{t0, t1, lignes:["UN *PAYS*…"], y?}] (*mot* = jaune ; y par défaut 560, garder entre 400 et 1000 si une carte est en bas).
+- cards : [{kind, t0, t1, data}] — gagnant {titre, pseudo, texte, likes} (+ confettis), drapeau {nom, sous, confettis, drapeau?}, resultat {options:[{lettre,titre,pct,couleur?}], gagnant}, vs {A:{titre,sous,couleur?}, B:{…}}, comment {pseudo, lignes, likes} (exemple de commentaire pour montrer comment voter), fin {demain:"DEMAIN : JOUR N+1", ligne?}, vote (jour 1 seulement).
+- win : fenêtres de visibilité {clé:[[t0,t1],…]} ; grow : {clé:[t0,t1]} (pousse). Clés : capitale (construction animée ; sans grow = déjà construite), drapeau / sansDrapeau, nuages, nuagesIntro, fin, + les clés des fantomes/epingles.
+- fantomes : [{key, site, n, rayon, hauteur}] (bâtiments transparents = projet à voter) ; epingles : [{key, site, lettre, couleur}].
+- flashes : [t…] (flash blanc) ; pops : [t…] (sons en plus des cartes). mix.py met un whoosh à chaque plan et un pop à chaque carte.
+- drapeau (spec) : {fond:'uni'|'h'|'v'|'diag'|'croix'|'triangle', couleurs:[…], symbole:{forme:'etoile'|'cercle'|'soleil'|'volcan'|'palmier'|'vague'|'lune'|'coeur'|'couronne'|'triangle'|'poisson'|'feuille'|'aucun', couleur, taille 0–1, x, y}}. Traduire fidèlement la description du commentaire gagnant.
+
+## Procédure quotidienne (tâche programmée 16h41, publication 18h00 — décidé par l'utilisateur le 07.11 : tout automatique, il reçoit la vidéo + textes vers 17h45)
+1. N = etat.jour + 1. Lancer le workflow « Lire les commentaires YouTube » (jour N-1), attendre, git pull. Lire aussi jours/jour(N-1)/commentaires_autres.txt s'il existe.
+2. Décider selon banque_questions.md (règles de décision) : résultat du vote, propositions gagnantes (pseudo exact). Mettre à jour etat.json (+ historique).
+3. Écrire jours/jourN/script.md (45–60 s) : accroche « Jour N… » + ce qui a changé (« hier vous avez voté… »), remercier à voix haute le(s) gagnant(s) par leur pseudo, construction/révélation, puis la nouvelle question (A/B ou proposition) + « Commente… » + « Abonne-toi pour devenir habitant » + « Demain, jour N+1 ». Pas de voix chuchotée.
+4. Commit/push, lancer « Voix du jour » (jour N), attendre, git pull → mots.json.
+5. Écrire jours/jourN/timeline.json calé sur mots.json (textes au mot près, un plan toutes les 2–4 s, ≥ 3 décors différents). Rendre 6–8 images test avec --cadre, les regarder, corriger (tout le texte dans la zone visible, rien sous le HUD).
+6. publication.json (YouTube : titre « … Jour N : … », description, tags), publication.md (TikTok + Instagram, 3 hashtags max, commentaire à épingler), miniature.jpg (image test sans texte + miniature.py).
+7. Commit/push, lancer « Publier sur YouTube » (action publier, jour N, heure 18:00), attendre (~25 min), git pull → jours/jourN/video.mp4.
+8. Envoyer à l'utilisateur : la vidéo, le résultat du vote, le gagnant, la nouvelle question, les textes TikTok + Instagram prêts à copier.
+Si une étape échoue : réparer si possible, sinon prévenir l'utilisateur clairement (ne jamais publier une vidéo cassée).
 
 ## Publication YouTube
 - Workflow « Publier sur YouTube » (.github/workflows/publier.yml, lancement manuel) : action `verifier` (affiche la chaîne liée au jeton) ou `publier` (rendu + son + envoi + miniature, programmé à l'heure choisie, défaut 18:00 ; publié tout de suite si l'heure est passée).
@@ -34,3 +55,4 @@ Une série quotidienne où les abonnés construisent un pays ensemble sur une î
 ## Journal
 - Jour 1 (07.11) : présentation de l'île, appel au nom + drapeau en commentaire, vote 1 : capitale A (plage, port) ou B (pied du volcan, terres fertiles). Vidéo faite (55,6 s), publiée à la main sur TikTok le 07.11 ; YouTube : via le workflow une fois le jeton en place.
 - 07.11 soir : projet déplacé depuis enigmo/projets/pays_de_tous vers ce dépôt.
+- 07.11 21h : scène pilotable par timeline.json, drapeau généré, capitale, cartes gagnant/résultat/drapeau, voix et commentaires automatiques, tâche quotidienne 16h41. Jour 1 sur YouTube (posté à la main) : 901 vues, 53 abonnés, 0 commentaire YouTube à 20h50.
