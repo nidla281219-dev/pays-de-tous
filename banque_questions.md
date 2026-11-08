@@ -5,9 +5,8 @@ Fil rouge : chaque jour = 1 résultat montré + 1 nouvelle question. Alterner le
 ## Plan prévu (à adapter selon les votes)
 | Jour | Résultat montré | Nouvelle question |
 |---|---|---|
-| 2 | Capitale (A plage / B volcan) construite + NOM et DRAPEAU du plus liké (carte « gagnant » + gros drapeau + confettis) | **Qui sera le premier chef ?** Candidature en commentaire : « Je me présente + ma promesse ». Les 2 candidats les plus likés s'affrontent demain. |
-| 3 | Les 2 candidats (carte VS avec leurs pseudos + promesses) | **Vote : A = candidat 1, B = candidat 2.** |
-| 4 | Le chef élu (carte gagnant, couronne) + sa promesse | **Première loi ?** Propose une loi, la plus likée devient loi (on refuse ce qui est méchant ou interdit). |
+| 2 | Capitale + NOM et DRAPEAU du plus liké | **Qui sera le premier chef ?** Candidature en commentaire (pseudo + promesse) : la candidature LA PLUS LIKÉE devient chef directement (décision de l'utilisateur, 08.11 — pas de duel). |
+| 3 | Le chef (candidature la plus likée, carte gagnant + couronne) + sa promesse | **Première loi ?** Propose une loi, la plus likée devient loi (on refuse ce qui est méchant ou interdit). |
 | 5 | La loi affichée (parchemin / carte) | **Premier bâtiment : A = hôpital, B = stade** |
 | 6 | Le bâtiment construit à côté de la capitale | **Nom de la monnaie ?** (proposition) |
 | 7 | La monnaie (pièce avec le symbole du drapeau) | **Animal national ?** (proposition) |

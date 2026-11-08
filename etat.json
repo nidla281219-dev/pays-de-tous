@@ -45,7 +45,7 @@
  "vote_en_cours": {
   "jour": 2,
   "questions": [
-   "Qui sera le chef ? Candidature en commentaire (pseudo + promesse) → les 2 plus likés s'affrontent au jour 3",
+   "Qui sera le chef ? Candidature en commentaire (pseudo + promesse) → la plus likée (tous réseaux) devient chef au jour 3",
    "Nom de la capitale (proposition, le plus liké gagne)"
   ]
  },
