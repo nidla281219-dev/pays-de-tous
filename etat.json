@@ -1,38 +1,36 @@
 {
  "jour": 2,
  "habitants": 233,
- "nom": "Regastan",
+ "nom": "Vulkaris",
  "drapeau": {
-  "fond": "uni",
+  "fond": "sautoir",
   "couleurs": [
-   "#1f5fbf"
+   "#141414",
+   "#c0281e"
   ],
-  "bande": {
-   "couleur": "#ffd23f",
-   "sens": "montante",
-   "epaisseur": 0.2
-  },
+  "liseré": "#e6c9a0",
   "symboles": [
    {
-    "forme": "cercle",
-    "couleur": "#e3262e",
-    "taille": 0.24,
-    "x": 0.13,
-    "y": 0.2
+    "forme": "anneau",
+    "couleur": "#e6c9a0",
+    "fond": "#1a1010",
+    "taille": 0.7,
+    "x": 0.5,
+    "y": 0.5
    },
    {
-    "forme": "cercle",
-    "couleur": "#e3262e",
-    "taille": 0.24,
-    "x": 0.3,
-    "y": 0.2
+    "forme": "volcan_lave",
+    "couleur": "#ff6a1a",
+    "taille": 0.5,
+    "x": 0.5,
+    "y": 0.58
    },
    {
-    "forme": "cercle",
-    "couleur": "#e3262e",
-    "taille": 0.24,
-    "x": 0.85,
-    "y": 0.8
+    "forme": "lance",
+    "couleur": "#e6c9a0",
+    "taille": 0.3,
+    "x": 0.5,
+    "y": 0.14
    }
   ]
  },
@@ -58,7 +56,7 @@
   },
   {
    "jour": 2,
-   "resume": "Vote capitale : A plage 26 (YT 7, TT 11, IG 8) / B volcan 13 (YT 7, TT 2, IG 4) → capitale sur la plage. Nom Regastan (@chocolat-lindt, 12 likes). Drapeau de @Windard28. Boulangerie de @RL_Ham. Trésor lancé : 222 pièces. Questions : candidatures chef + nom de la capitale."
+   "resume": "Vote capitale : A plage 27 (YT 7, TT 11, IG 9) / B volcan 13 (YT 7, TT 2, IG 4) → capitale sur la plage. Nom VULKARIS + drapeau de @c_c_a_a_s (Instagram, 27 likes ; Regastan 2e avec 12). Boulangerie de @RL_Ham. Trésor lancé : 222 pièces. Questions : candidatures chef + nom de la capitale."
   }
  ],
  "habitants_detail": {
@@ -66,8 +64,8 @@
   "tiktok": 41,
   "instagram": 79
  },
- "nom_par": "@chocolat-lindt (YouTube, 12 likes)",
- "drapeau_par": "@Windard28 (YouTube, 4 likes)",
+ "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
+ "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
  "batiments": [
   {
    "nom": "Boulangerie de RL_Ham",
