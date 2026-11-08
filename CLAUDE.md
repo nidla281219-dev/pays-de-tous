@@ -39,7 +39,7 @@ Une série quotidienne où les abonnés construisent un pays ensemble sur une î
 - flashes : [t…] (flash blanc) ; pops : [t…] (sons en plus des cartes). mix.py met un whoosh à chaque plan et un pop à chaque carte.
 - drapeau (spec) : {fond:'uni'|'h'|'v'|'diag'|'croix'|'triangle', couleurs:[…], bande:{couleur, sens:'montante'|'descendante'|'h'|'v', epaisseur}, bordure:'#couleur', symboles:[plusieurs symboles], symbole:{forme:'etoile'|'cercle'|'soleil'|'volcan'|'palmier'|'vague'|'lune'|'coeur'|'couronne'|'triangle'|'poisson'|'feuille'|'aucun', couleur, taille 0–1, x, y}}. Traduire fidèlement la description du commentaire gagnant.
 
-## Procédure quotidienne (15h41, publication 18h00) — se déroule DANS LA DISCUSSION de l'utilisateur (message programmé chaque jour par send_later, reprogrammé à la fin de chaque épisode ; l'ancienne tâche « Le Pays de Tous – épisode du jour » est désactivée et sert de secours)
+## Procédure quotidienne (14h45, publication 17h00 — décision de l'utilisateur le 08.11) — se déroule DANS LA DISCUSSION de l'utilisateur (message programmé chaque jour par send_later, reprogrammé à la fin de chaque épisode ; l'ancienne tâche « Le Pays de Tous – épisode du jour » est désactivée et sert de secours)
 VALIDATION DU SCRIPT (demande de l'utilisateur, 08.11) : après l'étape 3 (script écrit), ENVOYER le script à l'utilisateur et ATTENDRE son OK (ou ses corrections) avant la voix et la vidéo. Sans réponse, ne rien fabriquer ni publier.
 1. N = etat.jour + 1. Lancer le workflow commentaires.yml (jour N-1) : il lit YouTube (API) + TikTok @le.pays.de.tous + Instagram @lepaysdetous (Apify, secret APIFY_TOKEN) → jours/jour(N-1)/commentaires_youtube.json, commentaires_tiktok.json, commentaires_instagram.json. Attendre, git pull. Lire aussi commentaires_autres.txt s'il existe. ADDITIONNER les 3 plateformes (1 voix par personne et par plateforme ; likes additionnés pour les égalités ; le gagnant peut venir de n'importe quelle plateforme, mais NE JAMAIS nommer la plateforme dans la vidéo ni les textes). HABITANTS = abonnés YouTube + TikTok + Instagram.
 2. Décider selon banque_questions.md (règles de décision) : résultat du vote, propositions gagnantes (pseudo exact). Mettre à jour etat.json (+ historique).
@@ -47,7 +47,7 @@ VALIDATION DU SCRIPT (demande de l'utilisateur, 08.11) : après l'étape 3 (scri
 4. Commit/push, lancer « Voix du jour » (jour N), attendre, git pull → mots.json.
 5. Écrire jours/jourN/timeline.json calé sur mots.json (textes au mot près, un plan toutes les 2–4 s, ≥ 3 décors différents). Rendre 6–8 images test avec --cadre, les regarder, corriger (tout le texte dans la zone visible, rien sous le HUD).
 6. publication.json (YouTube : titre « … Jour N : … », description, tags), publication.md (TikTok + Instagram, 3 hashtags max, commentaire à épingler), miniature.jpg (image test sans texte + miniature.py).
-7. Commit/push, lancer « Publier sur YouTube » (action publier, jour N, heure 18:00), attendre (~25 min), git pull → jours/jourN/video.mp4.
+7. Commit/push, lancer « Publier sur YouTube » (action publier, jour N, heure 17:00), attendre (~25 min), git pull → jours/jourN/video.mp4.
 8. Envoyer à l'utilisateur : la vidéo, le résultat du vote, le gagnant, la nouvelle question, les textes TikTok + Instagram prêts à copier.
 Si une étape échoue : réparer si possible, sinon prévenir l'utilisateur clairement (ne jamais publier une vidéo cassée).
 
@@ -60,7 +60,7 @@ Chaque jour, ici dans la discussion : la vidéo MP4 (jours/jourN/video.mp4), 2 m
 - Textes (publication.md) : YouTube (titre ≤ 100 caractères + description + tags), TikTok (légende courte, 3 hashtags max), Instagram (légende un peu plus longue, 3 hashtags max), et un commentaire à épingler pour CHAQUE plateforme (TikTok, Instagram, YouTube), adapté au ton de chacune.
 
 ## Publication YouTube
-- Workflow « Publier sur YouTube » (.github/workflows/publier.yml, lancement manuel) : action `verifier` (affiche la chaîne liée au jeton) ou `publier` (rendu + son + envoi + miniature, programmé à l'heure choisie, défaut 18:00 ; publié tout de suite si l'heure est passée).
+- Workflow « Publier sur YouTube » (.github/workflows/publier.yml, lancement manuel) : action `verifier` (affiche la chaîne liée au jeton) ou `publier` (rendu + son + envoi + miniature, programmé à l'heure choisie, défaut 18:00 dans le workflow, mais TOUJOURS passer 17:00 ; publié tout de suite si l'heure est passée).
 - publier.py refuse d'envoyer si la chaîne du jeton ne contient pas « Pays de Tous ».
 - Secrets : YT_CLIENT_ID / YT_CLIENT_SECRET (client OAuth « Pays de Tous », type Application Web, redirection https://developers.google.com/oauthplayground, dans le projet Google Cloud d'Énigmo), YT_REFRESH_TOKEN (obtenu via OAuth Playground en choisissant la chaîne Le Pays de Tous). Ne jamais toucher au client « Enigmo » (Ordinateur de bureau).
 - Claude ne peut ni créer de release ni lire/écrire les secrets depuis ses sessions : la vidéo est refaite dans Actions.
