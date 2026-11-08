@@ -1,20 +1,89 @@
 {
- "jour": 1,
- "habitants": 53,
- "nom": null,
- "drapeau": null,
- "capitale": null,
+ "jour": 2,
+ "habitants": 233,
+ "nom": "Regastan",
+ "drapeau": {
+  "fond": "uni",
+  "couleurs": [
+   "#1f5fbf"
+  ],
+  "bande": {
+   "couleur": "#ffd23f",
+   "sens": "montante",
+   "epaisseur": 0.2
+  },
+  "symboles": [
+   {
+    "forme": "cercle",
+    "couleur": "#e3262e",
+    "taille": 0.24,
+    "x": 0.13,
+    "y": 0.2
+   },
+   {
+    "forme": "cercle",
+    "couleur": "#e3262e",
+    "taille": 0.24,
+    "x": 0.3,
+    "y": 0.2
+   },
+   {
+    "forme": "cercle",
+    "couleur": "#e3262e",
+    "taille": 0.24,
+    "x": 0.85,
+    "y": 0.8
+   }
+  ]
+ },
+ "capitale": {
+  "site": "plage_ville",
+  "rayon": 42,
+  "nom": null
+ },
  "chef": null,
  "lois": [],
  "constructions": [],
  "vote_en_cours": {
-  "jour": 1,
-  "type": "AB + proposition",
-  "question": "Où fonder la capitale ?",
-  "options": {"A": "La plage (port, pêche, commerce) → site plage", "B": "Le pied du volcan (terres fertiles, protégé) → site volcan"},
-  "propositions": "Nom du pays + drapeau : le commentaire le plus liké gagne"
+  "jour": 2,
+  "questions": [
+   "Qui sera le chef ? Candidature en commentaire (pseudo + promesse) → les 2 plus likés s'affrontent au jour 3",
+   "Nom de la capitale (proposition, le plus liké gagne)"
+  ]
  },
  "historique": [
-  {"jour": 1, "resume": "Présentation de l'île déserte, 0 habitant. Vote 1 : capitale A plage / B volcan. Appel au nom + drapeau."}
- ]
+  {
+   "jour": 1,
+   "resume": "Présentation de l'île déserte, 0 habitant. Vote 1 : capitale A plage / B volcan. Appel au nom + drapeau."
+  },
+  {
+   "jour": 2,
+   "resume": "Vote capitale : A plage 26 (YT 7, TT 11, IG 8) / B volcan 13 (YT 7, TT 2, IG 4) → capitale sur la plage. Nom Regastan (@chocolat-lindt, 12 likes). Drapeau de @Windard28. Boulangerie de @RL_Ham. Trésor lancé : 222 pièces. Questions : candidatures chef + nom de la capitale."
+  }
+ ],
+ "habitants_detail": {
+  "youtube": 113,
+  "tiktok": 41,
+  "instagram": 79
+ },
+ "nom_par": "@chocolat-lindt (YouTube, 12 likes)",
+ "drapeau_par": "@Windard28 (YouTube, 4 likes)",
+ "batiments": [
+  {
+   "nom": "Boulangerie de RL_Ham",
+   "place": -1.5708,
+   "par": "@RL_Ham (YouTube)"
+  }
+ ],
+ "tresor": 222,
+ "tresor_detail": {
+  "youtube": 85,
+  "tiktok": 32,
+  "instagram": 105
+ },
+ "objectif": {
+  "nom": "l'université",
+  "prix": 500,
+  "idee": "@JulesGondo-k5k (YouTube)"
+ }
 }
