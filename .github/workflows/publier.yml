@@ -2,9 +2,10 @@ name: Publier sur YouTube
 on:
   workflow_dispatch:
     inputs:
-      action: {description: "verifier = juste afficher la chaîne liée ; publier = rendu 3D + son + envoi", type: choice, options: [verifier, publier], default: verifier}
+      action: {description: "verifier = juste afficher la chaîne liée ; publier = rendu 3D + son + envoi", type: choice, options: [verifier, publier, maintenant], default: verifier}
       jour: {description: "numéro du jour", default: "1"}
-      heure: {description: "heure de publication (heure suisse, publié tout de suite si passée)", default: "18:00"}
+      heure: {description: "heure de publication (heure suisse, publié tout de suite si passée)", default: "17:00"}
+      video: {description: "action maintenant : id de la vidéo YouTube à rendre publique tout de suite", default: ""}
 permissions:
   contents: write
 concurrency: {group: publier, cancel-in-progress: false}
@@ -23,6 +24,9 @@ jobs:
       - run: pip install -q requests
       - name: Chaîne liée au jeton
         run: python studio/publier.py verifier
+      - if: inputs.action == 'maintenant'
+        name: Rendre publique maintenant
+        run: python studio/publier.py maintenant "${{ inputs.video }}"
       - if: inputs.action == 'publier'
         uses: actions/setup-node@v4
         with: {node-version: 20}

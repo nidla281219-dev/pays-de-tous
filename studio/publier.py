@@ -56,7 +56,16 @@ def publier(n, video, heure='18:00'):
     out = f'Jour {n} envoyé : https://youtube.com/shorts/{vid} — publication {quand_txt} — miniature {etat_mini}'
     print(out); open(os.path.join(D, 'youtube.txt'), 'w').write(out + '\n')
 
+def maintenant(vid):
+    h = jeton(); verifier(h)
+    v = requests.get(f'{API}/videos', headers=h, params={'part': 'status', 'id': vid}, timeout=30).json()['items'][0]
+    st = v['status']; st.pop('publishAt', None); st['privacyStatus'] = 'public'
+    r = requests.put(f'{API}/videos?part=status', headers={**h, 'Content-Type': 'application/json'}, data=json.dumps({'id': vid, 'status': st}), timeout=30)
+    if not r.ok: sys.exit(f'Refusé ({r.status_code}) : {r.text[:300]}')
+    print(f'{vid} est maintenant publique : https://youtube.com/shorts/{vid}')
+
 if __name__ == '__main__':
     a = sys.argv[1:]
     if a[0] == 'verifier': verifier(jeton())
+    elif a[0] == 'maintenant': maintenant(a[1])
     else: publier(int(a[1]), a[2], a[3] if len(a) > 3 else '18:00')
