@@ -254,11 +254,18 @@ function pillDark(x,y,w,h){rr(x,y,w,h,h/2);X.fillStyle='rgba(15,25,40,.62)';X.fi
 // zone visible TikTok/Shorts/Reels : x 60–960, y 130–1600 → centre des textes CX=510, largeur max 840
 const CX=510,MAXW=840;
 function fitFont(text,base,maxw){X.font=base+'px L';const w=X.measureText(text).width;if(w<=maxw)return base;return Math.floor(base*maxw/w)}
+function fmtNb(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+function piece(x,y,r,rot=0){X.save();X.translate(x,y);X.scale(Math.max(.15,Math.abs(Math.cos(rot))),1);X.fillStyle='#b8860b';X.beginPath();X.arc(0,0,r,0,7);X.fill();X.fillStyle='#ffd34d';X.beginPath();X.arc(0,0,r*.82,0,7);X.fill();
+ X.fillStyle='#e8b923';X.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,q=i%2?r*.22:r*.5;X.lineTo(Math.cos(a)*q,Math.sin(a)*q)}X.closePath();X.fill();X.restore()}
+const PIECES=[...Array(70)].map((_,i)=>({x:120+hash(i,81)*780,v:700+hash(i,82)*500,d:hash(i,83)*1.1,r:16+hash(i,84)*14,w:hash(i,85)*8}));
 function hud(st){X.save();X.textBaseline='middle';X.textAlign='center';
  pillDark(190,132,230,110);X.fillStyle='#ffd34d';X.font='30px L';X.fillText('JOUR',305,164);X.fillStyle='#fff';X.font='56px L';X.fillText(String(st.jour),305,209);
  pillDark(440,132,390,110);X.fillStyle='#ffd34d';X.font='30px L';X.fillText('HABITANTS',635,164);X.fillStyle='#fff';X.font='56px L';X.fillText('👤 '+st.pop,635,209);
  const nom=(st.nom||'PAYS SANS NOM').toUpperCase();const fs=fitFont(nom,34,420);X.font=fs+'px L';const tw=X.measureText(nom).width;const fw=st.drapeau?54:40,pw=tw+fw+70;
- pillDark(CX-pw/2,256,pw,70);const x0=CX-pw/2+28;
+ const tr=st.tresor!=null?'💰 '+fmtNb(st.tresor):null;X.font='34px L';const tw2=tr?X.measureText(tr).width+56:0;const tot=pw+(tr?18+tw2:0);
+ pillDark(CX-tot/2,256,pw,70);const x0=CX-tot/2+28;
+ if(tr){const xt=CX-tot/2+pw+18;rr(xt,256,tw2,70,35);X.fillStyle='rgba(60,40,0,.68)';X.fill();X.strokeStyle='rgba(255,211,77,.8)';X.lineWidth=3;X.stroke();
+  X.fillStyle='#ffd34d';X.font='34px L';X.textAlign='center';X.fillText(tr,xt+tw2/2,292);X.textAlign='center'}
  if(st.drapeau){const c2=document.createElement('canvas');c2.width=108;c2.height=72;drawFlag(c2.getContext('2d'),st.drapeau,108,72);X.drawImage(c2,x0,273,fw,36);X.strokeStyle='rgba(255,255,255,.7)';X.lineWidth=2;X.strokeRect(x0,273,fw,36)}
  else{X.font='34px sans-serif';X.fillStyle='#fff';X.fillText('🏳️',x0+fw/2,292)}
  X.font=fs+'px L';X.fillStyle='#fff';X.textAlign='left';X.fillText(nom,x0+fw+14,292);X.restore()}
@@ -308,6 +315,18 @@ const CARDS={
   const c2=document.createElement('canvas');c2.width=w;c2.height=h;drawFlag(c2.getContext("2d"),d.drapeau||(TL.etat&&TL.etat.drapeau),w,h);X.shadowColor='rgba(0,0,0,.45)';X.shadowBlur=30;X.shadowOffsetY=12;X.drawImage(c2,x,y);X.shadowColor='transparent';X.strokeStyle='#fff';X.lineWidth=10;X.strokeRect(x,y,w,h);
   X.textAlign='center';X.textBaseline='middle';X.lineJoin='round';if(d.nom){X.font=fitFont(d.nom.toUpperCase(),120,MAXW)+'px L';X.lineWidth=18;X.strokeStyle='#1a1a2a';X.strokeText(d.nom.toUpperCase(),CX,y+h+110);X.fillStyle='#ffd34d';X.fillText(d.nom.toUpperCase(),CX,y+h+110)}
   if(d.sous){X.font=fitFont(d.sous,52,MAXW)+'px L';X.lineWidth=12;X.strokeText(d.sous,CX,y+h+210);X.fillStyle='#fff';X.fillText(d.sous,CX,y+h+210)}X.restore();if(d.confettis)confettis(d.t0??0,t)},
+ // TRÉSOR : 1 like = 1 pièce. d = {likes, avant, objectif:{nom, prix}, titre?, y?}
+ tresor(k,t,d){const y=d.y||960,dt=t-(d.t0||0),q=ease(Math.max(0,Math.min(1,(dt-.3)/1.6)));const total=(d.avant||0)+d.likes*q;
+  for(const p of PIECES){const tt=dt-p.d;if(tt<0||tt>1.6)continue;const yy=-60+tt*p.v;if(yy>y+120)continue;piece(p.x,yy,p.r,tt*p.w)}
+  X.save();X.globalAlpha=Math.min(1,k*2);X.textAlign='center';X.textBaseline='middle';X.lineJoin='round';const tt0=d.titre||'💰 TRÉSOR DU PAYS';X.font=fitFont(tt0,58,MAXW)+'px L';X.lineWidth=13;X.strokeStyle='#1a1a2a';X.strokeText(tt0,CX,y-70);X.fillStyle='#ffd34d';X.fillText(tt0,CX,y-70);
+  const hh=d.objectif?400:250;card(90,y,840,hh);X.strokeStyle='#e8b923';X.lineWidth=8;rr(90,y,840,hh,28);X.stroke();
+  X.fillStyle='#e0245e';X.font='46px L';X.textAlign='left';X.fillText('❤ '+fmtNb(d.likes*q)+' likes hier',140,y+60);
+  X.fillStyle='#1a1a2a';X.font='34px L';X.textAlign='right';X.fillText('1 like = 1 pièce',890,y+62);
+  piece(175,y+160,42,0);X.textAlign='left';X.fillStyle='#8a6500';X.font='92px L';X.fillText(fmtNb(total),235,y+165);X.font='38px L';X.fillStyle='#666';X.fillText('pièces',240+X.measureText('').width,y+225);
+  if(d.objectif){const o=d.objectif,pr=Math.min(1,total/o.prix);X.fillStyle='#1a1a2a';X.font=fitFont('PROCHAIN CHANTIER : '+o.nom.toUpperCase(),36,760)+'px L';X.fillText('PROCHAIN CHANTIER : '+o.nom.toUpperCase(),140,y+285);
+   X.fillStyle='#eee';rr(140,y+315,740,48,24);X.fill();X.fillStyle=pr>=1?'#2fb36b':'#e8b923';rr(140,y+315,Math.max(48,740*pr),48,24);X.fill();
+   X.fillStyle='#1a1a2a';X.font='30px L';X.textAlign='center';X.fillText(pr>=1?'✅ ON PEUT CONSTRUIRE !':fmtNb(total)+' / '+fmtNb(o.prix)+' 💰',510,y+340)}
+  X.restore()},
  fin(k,t,d={}){X.save();X.globalAlpha=k;X.fillStyle='rgba(10,20,40,.55)';X.fillRect(0,0,W,H);X.textAlign='center';X.textBaseline='middle';X.lineJoin='round';
   X.font='120px L';X.lineWidth=18;X.strokeStyle='#1a1a2a';X.strokeText('LE PAYS',CX,820);X.fillStyle='#fff';X.fillText('LE PAYS',CX,820);X.strokeText('DE TOUS',CX,950);X.fillStyle='#ffd34d';X.fillText('DE TOUS',CX,950);
   X.font='56px L';X.fillStyle='#fff';X.fillText(d.ligne||'1 abonné = 1 habitant',CX,1090);X.fillStyle='#ffd34d';X.fillText(d.demain||'DEMAIN : JOUR 2',CX,1180);X.restore()},
