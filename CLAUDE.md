@@ -61,6 +61,11 @@ Chaque jour, ici dans la discussion : la vidéo MP4 (jours/jourN/video.mp4), 2 m
 - NE JAMAIS NOMMER UNE AUTRE PLATEFORME (08.11, risque de perte de portée) : ni dans la vidéo (voix + textes à l'écran, identiques sur les 3 réseaux), ni dans les descriptions, ni dans les commentaires épinglés. Dans la vidéo, dire juste « Bravo @pseudo ! » (jamais « sur TikTok / Instagram / YouTube »). Pas de logo d'une autre plateforme non plus.
 - Textes (publication.md) : YouTube (titre ≤ 100 caractères + description + tags), TikTok (légende courte, 3 hashtags max), Instagram (légende un peu plus longue, 3 hashtags max), et un commentaire à épingler pour CHAQUE plateforme (TikTok, Instagram, YouTube), adapté au ton de chacune.
 
+## Lecture Instagram officielle (08.11)
+- studio/instagram_officiel.py (Instagram API with Instagram Login, graph.instagram.com) : tous les commentaires + likes + abonnés. Utilisé automatiquement si le secret IG_TOKEN existe (sinon Apify, limité à 15 commentaires).
+- Jeton 60 jours, prolongé à chaque lecture ; réenregistré tout seul si le secret GH_SECRETS_TOKEN existe (jeton GitHub fine-grained, dépôt pays-de-tous, droit « Secrets : Read and write »). Sinon le regénérer tous les ~55 jours.
+- TikTok : pas d'accès officiel aux commentaires pour un petit créateur → Apify (clockworks/tiktok-comments-scraper) ; ne jamais scraper avec le compte de l'utilisateur (risque de blocage).
+
 ## Publication YouTube
 - Workflow « Publier sur YouTube » (.github/workflows/publier.yml, lancement manuel) : action `verifier` (affiche la chaîne liée au jeton) ou `publier` (rendu + son + envoi + miniature, programmé à l'heure choisie, défaut 18:00 dans le workflow, mais TOUJOURS passer 17:00 ; publié tout de suite si l'heure est passée).
 - publier.py refuse d'envoyer si la chaîne du jeton ne contient pas « Pays de Tous ».

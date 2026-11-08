@@ -63,15 +63,23 @@ def instagram(n):
             for c in coms if g(c, 'text', 'comment')], key=lambda c: -c['likes'])})
     return out
 
+def instagram_choisi(n):
+    if os.environ.get('IG_TOKEN'):
+        import instagram_officiel
+        print('  instagram : lecteur OFFICIEL (tous les commentaires)')
+        return instagram_officiel.instagram(n)
+    return instagram(n)
+
 if __name__ == '__main__':
     n = int(sys.argv[1])
-    if not TOKEN: sys.exit(print('APIFY_TOKEN absent : commentaires TikTok/Instagram non lus (YouTube seul).') or 0)
+    if not TOKEN and not os.environ.get('IG_TOKEN'): sys.exit(print('APIFY_TOKEN et IG_TOKEN absents : TikTok/Instagram non lus (YouTube seul).') or 0)
     d = os.path.join(ICI, '..', 'jours', f'jour{n}'); os.makedirs(d, exist_ok=True)
-    for nom, f in [('tiktok', tiktok), ('instagram', instagram)]:
+    for nom, f in [('tiktok', tiktok), ('instagram', instagram_choisi)]:
+        if nom == 'tiktok' and not TOKEN: continue
         try:
             res = {'lu_le': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='minutes'), **f(n)}
             json.dump(res, open(os.path.join(d, f'commentaires_{nom}.json'), 'w'), ensure_ascii=False, indent=1)
-            print(f'{nom} : {res["abonnes"]} abonnés')
+            print(f'{nom} : {res["abonnes"]} abonnés' + (f' — {res["jeton"]}' if res.get('jeton') else ''))
             for v in res['videos']:
                 print(f'  {v["url"]} : {v.get("vues")} vues, {v.get("likes")} likes, {len(v["commentaires"])} commentaires')
                 for c in v['commentaires'][:8]: print(f'    ❤{c["likes"]} {c["auteur"]} : {c["texte"][:100]!r}')
