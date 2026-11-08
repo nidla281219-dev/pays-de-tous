@@ -197,6 +197,24 @@ function town(cx,cz,opt={}){const g=new THREE.Group();const R=opt.rayon||40,nRue
    const fx=Math.cos(a)*0-(-Math.sin(a)*s),fz=Math.sin(a)*0-(Math.cos(a)*s);essai(x,z,Math.atan2(fx,fz))}}
  for(let i=0;i<nRues;i++){const a=((i+.5)/nRues)*Math.PI*2+.3;for(const r of [18,26]){const x=cx+Math.cos(a)*r,z=cz+Math.sin(a)*r;essai(x,z,Math.atan2(cx-x,cz-z))}}
  scene.add(g);g.userData.place=[cx,hp,cz];return g}
+// ================= HABITANTS (petits personnages qui se promènent) =================
+// timeline : habitants:{n, t0, site?} → apparaissent (pop) à t0 et marchent sur la place / dans les rues
+const GENS=[];
+function bonhomme(i){const g=new THREE.Group();const L=[];const peau=['#f1c9a5','#d9a47a','#a8754f','#7a5236','#f6dcc2'][i%5];
+ const haut=['#e8452c','#2f7fe0','#2fb36b','#ffd34d','#8a5cf6','#f08a24','#e0245e','#ffffff'][(i*3)%8],bas=['#2c3e75','#3d3d3d','#6b4428','#1f5f3f'][(i*7)%4];
+ for(const d of[-1,1])bx(L,.42,1.1,.42,d*.28,.55,0,bas);bx(L,1.05,1.25,.62,0,1.72,0,haut);for(const d of[-1,1])bx(L,.3,1.05,.3,d*.7,1.75,0,haut,0,0);
+ const t=new THREE.SphereGeometry(.48,10,8).toNonIndexed();t.deleteAttribute('uv');t.translate(0,2.75,0);L.push(paint(t,peau));
+ if(i%3===0){const c=new THREE.SphereGeometry(.52,10,6,0,Math.PI*2,0,Math.PI/2).toNonIndexed();c.deleteAttribute('uv');c.translate(0,2.85,0);L.push(paint(c,['#3a2a20','#c06a2e','#1e1e1e','#e8e6e0'][i%4]))}
+ const m=new THREE.Mesh(merge(L),VMAT);m.scale.setScalar(1.25);g.add(m);scene.add(g);return g}
+function placerGens(H){const [cx,cz]=SITES[H.site]||(capitale?[capitale.userData.place[0],capitale.userData.place[2]]:(capSite||SITES.plage));
+ const n=Math.min(H.n||40,80);for(let i=0;i<n;i++){const g=bonhomme(i);const r=H.rayon?hash(i,41)*H.rayon:(capitale?(8+hash(i,41)*32):hash(i,41)*22);const a=hash(i,42)*Math.PI*2;
+  g.userData={a,r,v:(hash(i,43)-.5)*.35,ph:hash(i,44)*6,d:hash(i,45)*.9,cx,cz};g.visible=false;GENS.push(g)}}
+function bougerGens(t){const H=TL.habitants;if(!H)return;const k=t-(H.t0||0);
+ for(const g of GENS){const u=g.userData;const pr=Math.max(0,Math.min(1,(k-u.d)/.35));g.visible=pr>0&&!(H.t1&&t>H.t1);if(!g.visible)continue;
+  const a=u.a+u.v*t;let x=u.cx+Math.cos(a)*u.r,z=u.cz+Math.sin(a)*u.r;if(Math.hypot(x-u.cx,z-u.cz)<4.2){x=u.cx+Math.cos(a)*4.2;z=u.cz+Math.sin(a)*4.2}
+  if(EXCL.some(([ex,ez])=>Math.hypot(x-ex,z-ez)<12)){g.visible=false;continue}
+  const h=height(x,z);const s=pr<1?back(pr):1;g.scale.setScalar(s);g.position.set(x,h+Math.abs(Math.sin(t*7+u.ph))*.35,z);g.rotation.y=-a+(u.v>0?0:Math.PI)}}
+function back(t){const c=1.7;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)}
 let capitale=null,capSite=null;const speciaux=[];let EXCL=[];
 // ================= BÂTIMENTS SPÉCIAUX (idée d'un abonné, avec son nom) =================
 function panneau(lignes,w,h,fond='#2f4a3a',enc='#e8c35a'){const cv=document.createElement('canvas');cv.width=1024;cv.height=Math.round(1024*h/w);const c=cv.getContext('2d');const H=cv.height;
@@ -346,6 +364,7 @@ window.setup=(tl)=>{TL=tl;const E=tl.etat||{};
   capitale=town(capSite[0],capSite[1],{rayon:E.capitale.rayon||42,rues:E.capitale.rues||5,seed:140});
   const [px,py,pz]=capitale.userData.place;flagG.position.set(px+(E.capitale.drapeau_dx??-9),py-.3,pz+(E.capitale.drapeau_dz??3))}
  for(const b of E.batiments||[])special(b);
+ if(tl.habitants)placerGens(tl.habitants);
  for(const f of tl.fantomes||[]){const [x,z]=SITES[f.site]||f.pos;const g=ghostBuildings(x,z,f.n||40,f.rayon||30,f.seed||200+extras.length*17,f.hauteur||10);g.userData.key=f.key;extras.push(g)}
  for(const p of tl.epingles||[]){const [x,z]=SITES[p.site]||p.pos;const g=pin(p.couleur||'#2f7fe0',p.lettre||'?',x,z);g.userData.key=p.key;g.userData.h0=height(x,z);extras.push(g)}
 };
@@ -371,6 +390,7 @@ window.frame=(t)=>{
  for(const g of extras){if(g.isGroup&&g.children[0]&&g.children[0].isSprite){g.visible=TL.vis(t,g.userData.key);g.position.y=g.userData.h0+6+Math.sin(t*3)*1.5}else{const pr=TL.prog(t,g.userData.key);g.children.forEach(b=>{const v=Math.max(0,Math.min(1,(pr*1.4-b.userData.d)*4));b.scale.set(1,v||.0001,1);b.visible=v>0})}}
  if(capitale){const pr=progAbs(t,'capitale');capitale.children.forEach(b=>{const v=Math.max(0,Math.min(1,(pr*1.5-b.userData.d)*3));b.scale.set(1,v||.0001,1);b.visible=v>0})}
  for(const g of speciaux){const pr=g.userData.key?progAbs(t,g.userData.key):1;const v=ease(Math.max(0,Math.min(1,pr)));g.userData.inner.scale.set(1,v||.0001,1);g.visible=pr>0;g.userData.sp.visible=pr>.85;g.userData.sp.material.opacity=Math.min(1,(pr-.85)*8)}
+ bougerGens(t);
  flagG.visible=TL.vis(t,'drapeau')||(!!(TL.etat&&TL.etat.capitale)&&!TL.vis(t,'sansDrapeau'));toi.visible=TL.vis(t,'toi');toi.children.forEach(c=>c.material.emissiveIntensity=.5+.4*Math.sin(t*5));
  renderer.render(scene,cam);
  X.clearRect(0,0,W,H);X.drawImage(renderer.domElement,0,0);
