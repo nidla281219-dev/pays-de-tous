@@ -11,6 +11,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageFilter
 a = sys.argv[1:]
 style = 'youtube'
 if '--style' in a: i = a.index('--style'); style = a[i + 1]; del a[i:i + 2]
+if '--y' in a: i = a.index('--y'); del a[i:i + 2]
 src, out, lignes = a[0], a[1], a[2:] or ['ON CRÉE', 'UN *PAYS*', 'ENSEMBLE']
 FONT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 't', 'lilita.ttf')
 im = ImageEnhance.Contrast(ImageEnhance.Color(Image.open(src).convert('RGB')).enhance(1.3)).enhance(1.08)
@@ -29,6 +30,7 @@ for l in lignes:
     blocs.append((parts, f, taille, larg))
 H = sum(int(t * 1.05) for _, _, t, _ in blocs)
 y0 = 330 if style == 'youtube' else int(960 - H / 2 - 40)
+if '--y' in sys.argv: y0 = int(sys.argv[sys.argv.index('--y') + 1])
 # bandeau sombre flou derrière le texte (lisibilité sur n'importe quel décor)
 ov = Image.new('L', im.size, 0); dv = ImageDraw.Draw(ov)
 dv.rounded_rectangle((CX - MAXW / 2 - 40, y0 - 40, CX + MAXW / 2 + 40, y0 + H + 60), radius=60, fill=150)

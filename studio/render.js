@@ -26,7 +26,7 @@ TL.caps = (TL.caps || []).map(c => {
   return { t0: c.t0, t1: c.t1, lines, y: c.y };
 });
 TL.cards = TL.cards || []; TL.flashes = TL.flashes || [];
-if (propre) { TL.caps = []; TL.cards = []; TL.flashes = []; } TL.win = TL.win || {}; TL.grow = TL.grow || {};
+if (propre) { TL.caps = []; TL.cards = []; TL.flashes = []; TL.win.fin = [[0, 999]]; } TL.win = TL.win || {}; TL.grow = TL.grow || {};
 
 (async () => {
   const b = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
