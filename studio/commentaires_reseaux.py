@@ -36,7 +36,7 @@ def tiktok(n):
     for v in du_jour(vids, n, lambda i: i.get('text'), lambda i: i.get('createTimeISO')):
         url = g(v, 'webVideoUrl', 'videoUrl')
         coms = actor('clockworks/tiktok-comments-scraper', {'postURLs': [url], 'commentsPerPost': 400, 'maxRepliesPerComment': 0})
-        out['videos'].append({'url': url, 'titre': v.get('text', ''), 'vues': g(v, 'playCount', defaut=0), 'commentaires': sorted([
+        out['videos'].append({'url': url, 'titre': v.get('text', ''), 'vues': g(v, 'playCount', defaut=0), 'likes': int(g(v, 'diggCount', defaut=0)), 'commentaires': sorted([
             {'auteur': '@' + str(g(c, 'uniqueId', 'user.uniqueId', 'authorMeta.name', defaut='?')), 'texte': g(c, 'text', defaut=''),
              'likes': int(g(c, 'diggCount', 'likes', defaut=0)), 'reponses': int(g(c, 'replyCommentTotal', defaut=0)), 'date': g(c, 'createTimeISO', defaut='')}
             for c in coms if g(c, 'text')], key=lambda c: -c['likes'])})
@@ -50,7 +50,7 @@ def instagram(n):
     for p in du_jour(posts, n, lambda i: i.get('caption'), lambda i: i.get('timestamp')):
         url = p.get('url')
         coms = actor('apify/instagram-comment-scraper', {'directUrls': [url], 'resultsLimit': 400})
-        out['videos'].append({'url': url, 'titre': (p.get('caption') or '')[:120], 'vues': g(p, 'videoPlayCount', 'videoViewCount', defaut=0), 'commentaires': sorted([
+        out['videos'].append({'url': url, 'titre': (p.get('caption') or '')[:120], 'vues': g(p, 'videoPlayCount', 'videoViewCount', defaut=0), 'likes': int(g(p, 'likesCount', defaut=0)), 'commentaires': sorted([
             {'auteur': '@' + str(g(c, 'ownerUsername', 'owner.username', defaut='?')), 'texte': g(c, 'text', defaut=''),
              'likes': int(g(c, 'likesCount', defaut=0)), 'reponses': int(g(c, 'repliesCount', defaut=0)), 'date': g(c, 'timestamp', defaut='')}
             for c in coms if g(c, 'text')], key=lambda c: -c['likes'])})
@@ -66,7 +66,7 @@ if __name__ == '__main__':
             json.dump(res, open(os.path.join(d, f'commentaires_{nom}.json'), 'w'), ensure_ascii=False, indent=1)
             print(f'{nom} : {res["abonnes"]} abonnés')
             for v in res['videos']:
-                print(f'  {v["url"]} : {len(v["commentaires"])} commentaires')
+                print(f'  {v["url"]} : {v.get("vues")} vues, {v.get("likes")} likes, {len(v["commentaires"])} commentaires')
                 for c in v['commentaires'][:8]: print(f'    ❤{c["likes"]} {c["auteur"]} : {c["texte"][:100]!r}')
         except Exception as e:
             print(f'ERREUR {nom} : {e}')
