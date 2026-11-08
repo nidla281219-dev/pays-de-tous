@@ -35,7 +35,7 @@ def tiktok(n):
     out = {'abonnes': abonnes, 'videos': []}
     for v in du_jour(vids, n, lambda i: i.get('text'), lambda i: i.get('createTimeISO')):
         url = g(v, 'webVideoUrl', 'videoUrl')
-        coms = actor('clockworks/tiktok-comments-scraper', {'postURLs': [url], 'commentsPerPost': 400, 'maxRepliesPerComment': 0})
+        coms = actor('clockworks/tiktok-comments-scraper', {'postURLs': [url], 'commentsPerPost': 500, 'topLevelCommentsPerPost': 500, 'maxRepliesPerComment': 0})
         out['videos'].append({'url': url, 'titre': v.get('text', ''), 'vues': g(v, 'playCount', defaut=0), 'likes': int(g(v, 'diggCount', defaut=0)), 'commentaires': sorted([
             {'auteur': '@' + str(g(c, 'uniqueId', 'user.uniqueId', 'authorMeta.name', defaut='?')), 'texte': g(c, 'text', defaut=''),
              'likes': int(g(c, 'diggCount', 'likes', defaut=0)), 'reponses': int(g(c, 'replyCommentTotal', defaut=0)), 'date': g(c, 'createTimeISO', defaut='')}
@@ -49,11 +49,18 @@ def instagram(n):
     out = {'abonnes': abonnes, 'videos': []}
     for p in du_jour(posts, n, lambda i: i.get('caption'), lambda i: i.get('timestamp')):
         url = p.get('url')
-        coms = actor('apify/instagram-comment-scraper', {'directUrls': [url], 'resultsLimit': 400})
+        coms = []
+        try:  # 1) lecteur trié par popularité (les plus likés d'abord)
+            coms = actor('scrapesmith/instagram-comments-scraper', {'postUrls': [url], 'maxCommentsPerPost': 300, 'sortOrder': 'popular'})
+            print(f'  instagram (tri popularité) : {len(coms)} commentaires')
+        except Exception as e: print('  lecteur popularité indisponible :', str(e)[:200])
+        if len(coms) < 5:  # 2) secours : lecteur officiel Apify
+            coms = actor('apify/instagram-comment-scraper', {'directUrls': [url], 'resultsLimit': 400})
+            print(f'  instagram (lecteur officiel) : {len(coms)} commentaires')
         out['videos'].append({'url': url, 'titre': (p.get('caption') or '')[:120], 'vues': g(p, 'videoPlayCount', 'videoViewCount', defaut=0), 'likes': int(g(p, 'likesCount', defaut=0)), 'commentaires': sorted([
-            {'auteur': '@' + str(g(c, 'ownerUsername', 'owner.username', defaut='?')), 'texte': g(c, 'text', defaut=''),
-             'likes': int(g(c, 'likesCount', defaut=0)), 'reponses': int(g(c, 'repliesCount', defaut=0)), 'date': g(c, 'timestamp', defaut='')}
-            for c in coms if g(c, 'text')], key=lambda c: -c['likes'])})
+            {'auteur': '@' + str(g(c, 'ownerUsername', 'owner.username', 'username', 'user.username', defaut='?')), 'texte': g(c, 'text', 'comment', defaut=''),
+             'likes': int(g(c, 'likesCount', 'likeCount', 'likes', defaut=0)), 'reponses': int(g(c, 'repliesCount', 'replyCount', defaut=0)), 'date': g(c, 'timestamp', 'createdAt', defaut='')}
+            for c in coms if g(c, 'text', 'comment')], key=lambda c: -c['likes'])})
     return out
 
 if __name__ == '__main__':
