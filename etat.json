@@ -1,6 +1,6 @@
 {
- "jour": 2,
- "habitants": 233,
+ "jour": 3,
+ "habitants": 864,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -37,16 +37,22 @@
  "capitale": {
   "site": "plage_ville",
   "rayon": 42,
-  "nom": null
+  "nom": "Plavulca",
+  "nom_par": "@SHIANNN-g6p (YouTube, 5 likes, égalité avec Likkos tranchée par l'utilisateur)"
  },
- "chef": null,
+ "chef": {
+  "pseudo": "@cc_gdfr",
+  "plateforme": "instagram",
+  "likes": 165,
+  "promesse": "figure médiatique ; les décisions par référendum citoyen"
+ },
  "lois": [],
  "constructions": [],
  "vote_en_cours": {
-  "jour": 2,
+  "jour": 3,
   "questions": [
-   "Qui sera le chef ? Candidature en commentaire (pseudo + promesse) → la plus likée (tous réseaux) devient chef au jour 3",
-   "Nom de la capitale (proposition, le plus liké gagne)"
+   "Référendum : A = stade de foot, B = circuit de karting (prix 3000 pièces)",
+   "Quel métier veux-tu à Vulkaris ? (les plus likés auront leur atelier)"
   ]
  },
  "historique": [
@@ -57,12 +63,16 @@
   {
    "jour": 2,
    "resume": "Vote capitale : A plage 27 (YT 7, TT 11, IG 9) / B volcan 13 (YT 7, TT 2, IG 4) → capitale sur la plage. Nom VULKARIS + drapeau de @c_c_a_a_s (Instagram, 27 likes ; Regastan 2e avec 12). Boulangerie de @RL_Ham. Trésor lancé : 222 pièces. Questions : candidatures chef + nom de la capitale."
+  },
+  {
+   "jour": 3,
+   "resume": "Chef : @cc_gdfr (Instagram, 165 likes, décisions par référendum). Trésor : +2422 likes → université construite (500), reste 2144. Bateau de @leroux_1136. Capitale Plavulca. Questions : référendum stade/karting + métiers. Lecture Instagram complète grâce à Apify payant (156 commentaires)."
   }
  ],
  "habitants_detail": {
-  "youtube": 113,
-  "tiktok": 41,
-  "instagram": 79
+  "youtube": 171,
+  "tiktok": 89,
+  "instagram": 604
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -70,18 +80,33 @@
   {
    "nom": "Boulangerie de RL_Ham",
    "place": -1.5708,
-   "par": "@RL_Ham (YouTube)"
+   "par": "@RL_Ham"
+  },
+  {
+   "type": "universite",
+   "nom": "Université de Vulkaris",
+   "idee": "@JulesGondo-k5k"
+  },
+  {
+   "type": "bateau",
+   "nom": "Bateau de leroux_1136",
+   "par": "@leroux_1136 (Instagram, 63 likes)"
   }
  ],
- "tresor": 222,
+ "tresor": 2144,
  "tresor_detail": {
-  "youtube": 85,
-  "tiktok": 32,
-  "instagram": 105
+  "avant": 222,
+  "likes_jour2": {
+   "youtube": 149,
+   "tiktok": 120,
+   "instagram": 2153
+  },
+  "depense": {
+   "université": 500
+  }
  },
  "objectif": {
-  "nom": "l'université",
-  "prix": 500,
-  "idee": "@JulesGondo-k5k (YouTube)"
+  "nom": "résultat du référendum (stade ou karting)",
+  "prix": 3000
  }
 }
