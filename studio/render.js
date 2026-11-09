@@ -1,11 +1,11 @@
-// node render.js --jour N sortie.mp4 [--test t1,t2,...] [--fps 30] [--cadre] [--propre]
+// node render.js --jour N sortie.mp4 [--test t1,t2,...] [--fps 30] [--cadre] [--propre] [--morceau k/n]
 // Lit ../jours/jourN/timeline.json (plans caméra, textes, cartes, état du pays) — format décrit dans ../CLAUDE.md.
 // --test : écrit seulement quelques images JPG (sortie_t.jpg) ; --cadre : dessine la zone visible TikTok par-dessus (vérification).
 const { chromium } = require('playwright'); const { spawn } = require('child_process'); const path = require('path'); const fs = require('fs');
 const args = process.argv.slice(2);
 const opt = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null; };
 const jour = opt('--jour') || '1';
-const out = args.find((a, i) => !a.startsWith('--') && !['--jour', '--test', '--fps'].includes(args[i - 1]));
+const out = args.find((a, i) => !a.startsWith('--') && !['--jour', '--test', '--fps', '--morceau'].includes(args[i - 1]));
 const test = opt('--test') ? opt('--test').split(',').map(Number) : null;
 const fps = +(opt('--fps') || 30);
 const cadre = args.includes('--cadre');
@@ -38,7 +38,8 @@ if (propre) { TL.caps = []; TL.cards = []; TL.flashes = []; TL.win.fin = [[0, 99
     tl.prog = (t, k) => { if (!tl.vis(t, k)) return 0; const g = tl.grow[k]; if (!g) return 1; return Math.max(0, Math.min(1, (t - g[0]) / (g[1] - g[0]))); };
     window.setup(tl);
   }, TL);
-  const times = test || Array.from({ length: Math.round(TL.dur * fps) }, (_, i) => i / fps);
+  let times = test || Array.from({ length: Math.round(TL.dur * fps) }, (_, i) => i / fps);
+  if (opt('--morceau') && !test) { const [k, n] = opt('--morceau').split('/').map(Number); const L = Math.ceil(times.length / n); times = times.slice((k - 1) * L, k * L); } // --morceau k/n : seulement la k-ième part
   let ff = null; if (!test) ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', out], { stdio: ['pipe', 'inherit', 'inherit'] });
   const t0 = Date.now();
   for (const [i, t] of times.entries()) {
