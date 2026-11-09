@@ -1,80 +1,30 @@
 # Le Pays de Tous — contexte pour Claude (à lire en premier)
 
-Compte créé le 07.11.2026, du même propriétaire que la chaîne Énigmo (dépôt séparé nidla281219-dev/enigmo : ne rien y mélanger).
-Il lit sur téléphone : tutoiement, réponses courtes en français.
-
-## Le concept
-Une série quotidienne où les abonnés construisent un pays ensemble sur une île déserte (océan, plages, forêt, rivière, volcan endormi).
-- 1 abonné = 1 habitant. Compteur « JOUR n » + « HABITANTS » + nom du pays en haut de l'écran.
-- Chaque vidéo : on montre ce qui a changé depuis la veille (résultat du vote d'hier, construit en 3D), puis UN nouveau vote (A ou B) en commentaire, et « Demain, jour n+1 ».
-- Le vote gagnant = l'option la plus commentée / le commentaire le plus liké. On le respecte toujours.
-- Inspiration (concept seulement, ne jamais copier textes ou visuels) : TikTok @gerantduparc.
-- Plateformes : YouTube Shorts (automatique, workflow ci-dessous), TikTok et Instagram Reels (l'utilisateur publie à la main ; pas de Metricool pour l'instant). TikTok : 3 hashtags max.
+Série quotidienne : les abonnés construisent un pays sur une île (1 abonné = 1 habitant). Même propriétaire qu'Énigmo (dépôt nidla281219-dev/enigmo : ne rien y mélanger). Il lit sur téléphone : tutoiement, réponses COURTES en français.
+Plateformes : YouTube Shorts (envoi automatique), TikTok @le.pays.de.tous et Instagram @lepaysdetous (il publie à la main). Inspiration concept seulement : @gerantduparc.
+Autres docs (n'ouvrir QUE si besoin) : docs/TIMELINE.md (format timeline, à l'étape 5), docs/TECHNIQUE.md (organisation, Instagram officiel, secrets YouTube — en cas de panne), docs/JOURNAL.md (historique), banque_questions.md (règles de décision).
 
 ## Règles de l'utilisateur
-- ZONE VISIBLE (07.11) — référence assets/zone_visible_tiktok.png. Vidéo 1080×1920 : texte et éléments importants dans x 60–960, y 130–1600 (haut ≥ 108 = barre « Abonnements | Pour toi » ; droite ≤ 960 sous y ≈ 300 = colonne j'aime/commentaires/partage ; bas ≤ 1600 = pseudo/description). Ligne de texte ≤ 840 px de large. Vérifier quelques images test avec ce cadre dessiné avant chaque rendu complet.
-  Défauts du jour 1 à corriger dès le jour 2 : HUD qui commence à y ≈ 90 (trop haut) ; légende « PORT, PÊCHE, COMMERCE » jusqu'à x ≈ 1015.
-- 2 à 3 questions MAXIMUM par vidéo (07.11), dont « Qui sera le chef ? » au jour 2.
-- CONSTRUIRE CE QUE LES GENS DEMANDENT (07.11) : une idée aimée dans les commentaires (ex. « une boutique de croissant » de @RL_Ham) est construite en 3D avec le NOM DE LA PERSONNE sur l'enseigne (« Boulangerie de RL_Ham 🥐 ») et on le dit à voix haute. Champ etat.batiments dans timeline.json.
-- Secrets uniquement dans les secrets GitHub de CE dépôt. Ne jamais écrire une clé dans le dépôt ni la demander dans le chat.
+- ZONE VISIBLE : texte et éléments importants dans x 60–960, y 130–1600 ; ligne ≤ 840 px (centre x ≈ 510). Vérifier avec --cadre.
+- 2 à 3 questions MAX par vidéo. Vidéo 55–65 s.
+- CONSTRUIRE CE QUE LES GENS DEMANDENT, avec le NOM de la personne sur le bâtiment, dit à voix haute. Bâtiments BEAUX et détaillés (jamais des boîtes).
+- Habitants visibles quand la voix annonce leur nombre.
+- Trésor : 1 like = 1 pièce (likes des 3 vidéos) ; toujours inciter à liker.
+- Chiffres TOUS RÉSEAUX CONFONDUS (« au total », « sur tous les réseaux ») mais NE JAMAIS NOMMER une plateforme (vidéo, descriptions, épinglés).
+- Vote : compter le NOMBRE de personnes qui proposent la même chose, plus les likes. Chef = candidature la plus likée.
+- Pas de voix chuchotée. Secrets uniquement dans GitHub, jamais dans le dépôt ni le chat. Ne jamais scraper avec le compte de l'utilisateur.
 
-## Organisation du dépôt
-- etat.json : état du pays (jour, habitants, nom, drapeau, capitale, chef, lois, constructions, vote en cours, historique). Mis à jour chaque jour.
-- banque_questions.md : plan des prochaines questions + règles de décision (modération, égalités, pseudos).
-- studio/ : scene.html (Three.js), render.js, mix.py, voix.py (+ align.py), commentaires.py, publier.py, miniature.py, chaine_visuels.py, presets.json (plans caméra nommés), exemple_timeline.json (exemple complet d'un jour 2).
-  Test : `cd studio && mkdir -p t && node render.js --jour N t/f --test 1,8,15 --cadre` (--cadre dessine la zone visible en rouge). Complet : `node render.js --jour N pays_jN_video.mp4` (~20 min) puis `python mix.py N`.
-- jours/jourN/ : script.md (1re ligne « # titre », puis le texte dit), voix.mp3 + mots.json (temps de chaque mot), timeline.json, publication.json (titre/description/tags YouTube), publication.md (textes TikTok + Insta, 3 hashtags max chacun), miniature.jpg, commentaires_youtube.json (votes lus), commentaires_autres.txt (TikTok/Insta, ajoutés par l'utilisateur), video.mp4 (vidéo finale), youtube.txt.
-- sons/ : sons CC0 (CREDITS.json). chaine/ : logo + bannière.
-
-## Format de jours/jourN/timeline.json (lu par render.js, mix.py)
-- dur (s, = fin de la voix + ~1 s). etat : {nom, drapeau, capitale:{site, maisons, rayon}} = état du pays MONTRÉ dans cette vidéo (copie figée, pas de lien vers etat.json).
-- hud : {jour, pop (nombre ou {de,a,t0,t1} qui compte), nom, drapeau, changements:[{t, nom, drapeau}]} (ex. le nom apparaît dans le compteur au moment de la révélation).
-- shots : [{t, preset:"nom"} ou {t, from:{p:[x,y,z], l:[x,y,z]}, to:{…}, rel?}] — un plan toutes les 2–4 s. Presets dans studio/presets.json. Sites (x,z) : plage[-48,198] volcan[26,-12] centre[-120,20] foret[100,120] riviere[-20,60] baie[-70,235] nord[-20,-180] est[170,10].
-- VILLE (refaite le 07.11 : l'utilisateur veut du BEAU, pas des boîtes) : capitale = place pavée + fontaine + arbres au centre, rues en étoile, maisons détaillées (fenêtres, volets, jardinières, toits à deux pans, cheminées) alignées face aux rues ; terrain aplani sous la ville, sapins retirés. Capitale : si B (volcan) gagne → site pied_volcan [-18,-34] ; si A (plage) gagne → site plage_ville [-45,165] (testé le 07.11, rend bien, mer derrière). Centre de la place = coordonnées du site. Drapeau au bord de la place (dx -9, dz 3). Plans : rel:1 avec l = [c0, 5, c1] (c = centre de la place) — exemples dans jours/jourtest2/timeline.json (large, haut, rue, gros plan drapeau, boulangerie).
-- caps : [{t0, t1, lignes:["UN *PAYS*…"], y?}] (*mot* = jaune ; y par défaut 560, garder entre 400 et 1000 si une carte est en bas).
-- cards : [{kind, t0, t1, data}] — gagnant {titre, pseudo, texte, likes} (+ confettis), drapeau {nom, sous, confettis, drapeau?}, resultat {options:[{lettre,titre,pct,couleur?}], gagnant}, vs {A:{titre,sous,couleur?}, B:{…}}, comment {pseudo, lignes, likes} (exemple de commentaire pour montrer comment voter), fin {demain:"DEMAIN : JOUR N+1", ligne?}, vote (jour 1 seulement).
-- win : fenêtres de visibilité {clé:[[t0,t1],…]} ; grow : {clé:[t0,t1]} (pousse). Clés : capitale (construction animée ; sans grow = déjà construite), drapeau / sansDrapeau, nuages, nuagesIntro, fin, + les clés des fantomes/epingles.
-- etat.batiments : [{nom (texte de l'enseigne, ex. « Boulangerie de RL_Ham »), place: angle (radians) autour de la place de la capitale (la façade regarde la fontaine ; -1.5708 = côté nord, face caméra depuis le sud), key?, couleur, toit, store}] — pour l'instant un seul modèle : boutique avec vitrine (pains, croissants, baguettes), auvent rayé, terrasse, enseigne peinte au nom de l'abonné. Avec key + grow[key] elle pousse à ce moment-là, sinon elle est déjà là (garder les bâtiments des jours d'avant dans etat). Pour un AUTRE type de bâtiment demandé (stade, hôpital…), le modéliser avec le même soin dans scene.html (fonction comme boulangerie()), le tester en images avant le rendu.
-- habitants : {n, t0, t1?, site?, rayon?} — petits habitants qui apparaissent (pop) à t0 et se promènent dans la capitale (max 80 affichés). OBLIGATOIRE au moment où la voix annonce le nombre d'habitants (demande de l'utilisateur, 08.11 : « on voit personne ») ; n ≈ habitants/3. Avant que la capitale existe : site (ex. plage) + rayon.
-- fantomes : [{key, site, n, rayon, hauteur}] (bâtiments transparents = projet à voter) ; epingles : [{key, site, lettre, couleur}].
-- flashes : [t…] (flash blanc) ; pops : [t…] (sons en plus des cartes). mix.py met un whoosh à chaque plan et un pop à chaque carte.
-- drapeau (spec) : {fond:'uni'|'h'|'v'|'diag'|'croix'|'triangle', couleurs:[…], bande:{couleur, sens:'montante'|'descendante'|'h'|'v', epaisseur}, bordure:'#couleur', symboles:[plusieurs symboles], symbole:{forme:'etoile'|'cercle'|'soleil'|'volcan'|'palmier'|'vague'|'lune'|'coeur'|'couronne'|'triangle'|'poisson'|'feuille'|'aucun', couleur, taille 0–1, x, y}}. Traduire fidèlement la description du commentaire gagnant.
-
-## Procédure quotidienne (14h45, publication 17h00 — décision de l'utilisateur le 08.11) — se déroule DANS LA DISCUSSION de l'utilisateur (message programmé chaque jour par send_later, reprogrammé à la fin de chaque épisode ; l'ancienne tâche « Le Pays de Tous – épisode du jour » est désactivée et sert de secours)
-VALIDATION DU SCRIPT (demande de l'utilisateur, 08.11) : après l'étape 3 (script écrit), ENVOYER le script à l'utilisateur et ATTENDRE son OK (ou ses corrections) avant la voix et la vidéo. Sans réponse, ne rien fabriquer ni publier.
-1. N = etat.jour + 1. Lancer le workflow commentaires.yml (jour N-1) : il lit YouTube (API) + TikTok @le.pays.de.tous + Instagram @lepaysdetous (Apify, secret APIFY_TOKEN) → jours/jour(N-1)/commentaires_youtube.json, commentaires_tiktok.json, commentaires_instagram.json. Attendre, git pull. Lire aussi commentaires_autres.txt s'il existe. ADDITIONNER les 3 plateformes (1 voix par personne et par plateforme ; likes additionnés pour les égalités ; le gagnant peut venir de n'importe quelle plateforme, mais NE JAMAIS nommer la plateforme dans la vidéo ni les textes). HABITANTS = abonnés YouTube + TikTok + Instagram.
-2. Décider selon banque_questions.md (règles de décision) : résultat du vote, propositions gagnantes (pseudo exact). Mettre à jour etat.json (+ historique).
-3. Écrire jours/jourN/script.md (45–65 s) puis l'envoyer à l'utilisateur pour validation (voir ci-dessus) : accroche « Jour N… » + ce qui a changé (« hier vous avez voté… »), remercier à voix haute le(s) gagnant(s) par leur pseudo, construction/révélation, puis la nouvelle question (A/B ou proposition) + « Commente… » + « Abonne-toi pour devenir habitant » + « Demain, jour N+1 ». Pas de voix chuchotée.
-4. Commit/push, lancer « Voix du jour » (jour N), attendre, git pull → mots.json.
-5. Écrire jours/jourN/timeline.json calé sur mots.json (textes au mot près, un plan toutes les 2–4 s, ≥ 3 décors différents). Rendre 6–8 images test avec --cadre, les regarder, corriger (tout le texte dans la zone visible, rien sous le HUD).
-6. publication.json (YouTube : titre « … Jour N : … », description, tags), publication.md (TikTok + Instagram, 3 hashtags max, commentaire à épingler), miniature.jpg (image test sans texte + miniature.py).
-7. Commit/push, lancer « Publier sur YouTube » (action publier, jour N, heure 17:00), attendre (~25 min), git pull → jours/jourN/video.mp4.
-8. Envoyer à l'utilisateur : la vidéo, le résultat du vote, le gagnant, la nouvelle question, les textes TikTok + Instagram prêts à copier.
-Si une étape échoue : réparer si possible, sinon prévenir l'utilisateur clairement (ne jamais publier une vidéo cassée).
-
-## Livrables envoyés à l'utilisateur DANS LA DISCUSSION (demande du 08.11)
-Chaque jour, ici dans la discussion : la vidéo MP4 (jours/jourN/video.mp4), 2 miniatures et les textes PERSONNALISÉS par plateforme :
-- miniature_youtube.jpg : `node render.js --jour N t/m --test <t d'un beau plan> --propre` puis `python3 miniature.py t/m_<t>.jpg ../jours/jourN/miniature_youtube.jpg --style youtube "JOUR N" "*MOT FORT*" "…"` (texte en haut). Copie aussi en miniature.jpg (utilisée pour l'envoi YouTube).
-- miniature_tiktok.jpg (sert aussi pour Instagram) : même fond, `--style tiktok` (texte centré dans la zone 3:4 que montre la grille du profil). 2–3 lignes, 1 mot en jaune, très gros, lisible en petit ; vérifier l'image avec Read avant de l'envoyer.
-- CRÉDITS DES GAGNANTS dans chaque description (08.11) : nommer chaque gagnant du jour (nom, drapeau, idée construite, chef…) avec ce qu'il a fait. Gagnant de la MÊME plateforme → vrai tag @pseudo (ex. légende Instagram : « 🏆 Nom choisi par @c_c_a_a_s ») + tag dans le commentaire épinglé de cette plateforme. Gagnant d'une AUTRE plateforme → seulement son pseudo, SANS @ et SANS nommer la plateforme (ex. description YouTube : « 🏆 Nom : VULKARIS, proposé par c_c_a_a_s »). Pseudo exact, tel que lu dans commentaires_*.json.
-- CHIFFRES TOUS RÉSEAUX CONFONDUS (08.11) : habitants, votes, likes/trésor et « commentaire le plus liké » additionnent les 3 plateformes ; le DIRE sans les nommer (« en comptant tous les réseaux », « au total », « sur n'importe quel réseau », « le plus liké de tous ») pour que chacun comprenne que ce n'est pas que sa plateforme.
-- NE JAMAIS NOMMER UNE AUTRE PLATEFORME (08.11, risque de perte de portée) : ni dans la vidéo (voix + textes à l'écran, identiques sur les 3 réseaux), ni dans les descriptions, ni dans les commentaires épinglés. Dans la vidéo, dire juste « Bravo @pseudo ! » (jamais « sur TikTok / Instagram / YouTube »). Pas de logo d'une autre plateforme non plus.
-- Textes (publication.md) : YouTube (titre ≤ 100 caractères + description + tags), TikTok (légende courte, 3 hashtags max), Instagram (légende un peu plus longue, 3 hashtags max), et un commentaire à épingler pour CHAQUE plateforme (TikTok, Instagram, YouTube), adapté au ton de chacune.
-
-## Lecture Instagram officielle (08.11)
-- studio/instagram_officiel.py (Instagram API with Instagram Login, graph.instagram.com) : tous les commentaires + likes + abonnés. Utilisé automatiquement si le secret IG_TOKEN existe (sinon Apify, limité à 15 commentaires).
-- Jeton 60 jours, prolongé à chaque lecture ; réenregistré tout seul si le secret GH_SECRETS_TOKEN existe (jeton GitHub fine-grained, dépôt pays-de-tous, droit « Secrets : Read and write »). Sinon le regénérer tous les ~55 jours.
-- TikTok : pas d'accès officiel aux commentaires pour un petit créateur → Apify (clockworks/tiktok-comments-scraper) ; ne jamais scraper avec le compte de l'utilisateur (risque de blocage).
-
-## Publication YouTube
-- Workflow « Publier sur YouTube » (.github/workflows/publier.yml, lancement manuel) : action `verifier` (affiche la chaîne liée au jeton) ou `publier` (rendu + son + envoi + miniature, programmé à l'heure choisie, défaut 18:00 dans le workflow, mais TOUJOURS passer 17:00 ; publié tout de suite si l'heure est passée).
-- publier.py refuse d'envoyer si la chaîne du jeton ne contient pas « Pays de Tous ».
-- Secrets : YT_CLIENT_ID / YT_CLIENT_SECRET (client OAuth « Pays de Tous », type Application Web, redirection https://developers.google.com/oauthplayground, dans le projet Google Cloud d'Énigmo), YT_REFRESH_TOKEN (obtenu via OAuth Playground en choisissant la chaîne Le Pays de Tous). Ne jamais toucher au client « Enigmo » (Ordinateur de bureau).
-- Claude ne peut ni créer de release ni lire/écrire les secrets depuis ses sessions : la vidéo est refaite dans Actions.
-
-## Journal
-- Jour 1 (07.11) : présentation de l'île, appel au nom + drapeau en commentaire, vote 1 : capitale A (plage, port) ou B (pied du volcan, terres fertiles). Vidéo faite (55,6 s), publiée à la main sur TikTok le 07.11 ; YouTube : via le workflow une fois le jeton en place.
-- 07.11 soir : projet déplacé depuis enigmo/projets/pays_de_tous vers ce dépôt.
-- 07.11 21h : scène pilotable par timeline.json, drapeau généré, capitale, cartes gagnant/résultat/drapeau, voix et commentaires automatiques, tâche quotidienne 16h41. Jour 1 sur YouTube (posté à la main) : 901 vues, 53 abonnés, 0 commentaire YouTube à 20h50.
-- Jour 2 (08.11) : capitale plage (A 27 / B 13), VULKARIS + drapeau de @c_c_a_a_s (27 likes, Instagram — absent de la lecture Apify, vu sur capture de l'utilisateur : la lecture TikTok/Insta est incomplète, demander une capture si doute), boulangerie de @RL_Ham, trésor 222 / 500 (université). Questions : chef (candidature la plus likée = chef, sans duel) + nom de la capitale. 78 s (trop long : viser 55–65 s). YouTube jENvEJW5qLo programmé 17h00 ; miniature refusée (403, chaîne à vérifier par téléphone).
-- Jour 3 (09.11) : chef @cc_gdfr (165 likes), +2422 likes → université construite (trésor 2144 / 3000), bateau de @leroux_1136, barbershop d'estebarbero (ajouté par l'utilisateur), capitale PLAVULCA (égalité avec Likkos tranchée par l'utilisateur). 864 habitants (YT 171 / TT 89 / IG 604). Apify payant : Instagram complet (156 commentaires, tri popularité) ; compter aussi le NOMBRE de personnes qui proposent la même chose. Questions : référendum A stade de foot / B karting (3000 pièces) + métiers (ateliers). 65 s.
+## Procédure quotidienne (tâche programmée 14h45, publication 17h00) — ÉCONOMISER LES TOKENS
+Ne pas lire les gros fichiers (commentaires_*.json, scene.html, mots.json en entier) : utiliser les scripts et grep.
+PARTIE 1
+1. N = etat.jour + 1. Lancer commentaires.yml (jour N-1) ; attendre avec UNE seule commande en arrière-plan (pas de vérifications répétées) ; git pull.
+2. `python3 studio/compter.py N-1 --opt "A=mots|…" "B=mots|…"` → chiffres par réseau + total, votes, propositions répétées, top commentaires. Lire commentaires_autres.txt s'il existe. Décider (banque_questions.md), mettre à jour etat.json (+ historique court).
+3. Écrire jours/jourN/script.md (1re ligne « # titre » ; ~60 s) : « Jour N… », ce qui a changé, merci aux gagnants (pseudo), construction, nouvelle(s) question(s), « Commente… », « Like = pièce pour le trésor », « Abonne-toi pour devenir habitant », « Demain, jour N+1 ». Commit/push.
+4. Envoyer à l'utilisateur (court) : chiffres, gagnants, ce qui sera construit, trésor, questions, SCRIPT COMPLET, « Réponds OK pour lancer la vidéo ». ATTENDRE son OK. Sans OK : rien fabriquer.
+PARTIE 2 (après OK)
+5. Lancer voix.yml (jour N), attendre, git pull. Nouveau bâtiment : le modéliser dans scene.html (comme boulangerie()/universite()). Écrire timeline.json (docs/TIMELINE.md ; partir du timeline de la veille) calé sur mots.json (lire avec un petit script : mot + temps). Rendre et REGARDER seulement 3–4 images test : `cd studio && node render.js --jour N t/f --test a,b,c --cadre`.
+6. Miniatures : `node render.js --jour N t/m --test <t> --propre` puis `python3 miniature.py t/m_<t>.jpg ../jours/jourN/miniature_youtube.jpg --style youtube "JOUR N" "*MOT*" "…"` (+ copie miniature.jpg) et `--style tiktok` → miniature_tiktok.jpg. Regarder chaque miniature une fois.
+7. publication.json (YouTube : titre ≤ 100 car. « … Jour N : … », description, tags) + publication.md (YouTube / TikTok / Instagram, 3 hashtags max, un commentaire à épingler par réseau). CRÉDITS : gagnant du même réseau → @pseudo ; d'un autre réseau → pseudo sans @ et sans nommer le réseau.
+8. Commit/push, lancer publier_rapide.yml (jour N, heure 17:00 ; 6 morceaux en parallèle, ~20 min). Attendre avec UNE commande en arrière-plan. (publier.yml = ancien rendu en un seul morceau, ~1 h, secours.)
+9. git pull, envoyer ICI : jours/jourN/video.mp4 + les 2 miniatures, puis les textes prêts à copier. Ajouter 1 ligne à docs/JOURNAL.md.
+Si une étape échoue : réparer, sinon prévenir clairement (jamais de vidéo cassée publiée). La miniature YouTube peut être refusée (403) tant que la chaîne n'est pas vérifiée : il la met à la main.
