@@ -4,7 +4,10 @@
 - Question principale du jour 4 : « Une île voisine veut envahir Vulkaris : A = créer une armée ⚔️ / B = proposer une alliance 🤝 » (des gens demandent une base militaire).
 - Accroches (chiffres lus le 10.11 à 00h, à relire à 14h45) : référendum serré, stade 72 / karting 64 → « à 8 voix près ! » ; trésor 2144 + 792 = 2936, « il manque 64 pièces pour 3 000 » → gros appel aux likes (si les likes de 14h45 dépassent 3000 : construire le stade).
 - Partages : ajouter « Tague un ami pour en faire ton ministre ».
-- Bâtiments demandés les plus likés : ferme de @lean.dvko (72), kebab de @alexis._.privvvvv (26) — en construire 1–2 avec leur nom.
+- L'utilisateur veut DONNER PLUS au spectateur (« juste la ferme et le kebab c'est pas assez ») :
+  · MONTAGE RAPIDE « vos demandes sont construites » (~10 s, 1 plan par bâtiment, nom de la personne sur l'enseigne) : ferme de @lean.dvko (72), kebab d'@alexis._.privvvvv (26), restaurant de poulet frit de @bunny_bugzy (20), bistro de quartier de @fiizenn (8), sentier autour du volcan de @ma_tribuu (10) + les nouvelles demandes très likées de 14h45.
+  · le STADE construit si le trésor atteint 3000 (sinon chantier visible « il manque X pièces »).
+  · l'ÎLE ENNEMIE qui apparaît à l'horizon avec ses bateaux de guerre et son drapeau (moment fort, accroche possible en flash au début).
 
 
 Fil rouge : chaque jour = 1 résultat montré + 1 nouvelle question. Alterner les **votes A/B** (faciles, beaucoup de commentaires) et les **propositions libres** (le commentaire le plus liké gagne, on affiche le pseudo en grand). Les réponses des abonnés passent avant ce plan : si un commentaire très liké propose autre chose de drôle ou fort, on peut le suivre.
