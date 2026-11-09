@@ -1,4 +1,11 @@
 # Banque de questions — Le Pays de Tous
+## ⚠️ JOUR 4 — décidé par l'utilisateur (10.11, 00h28) : à appliquer
+- Les vues baissent : il veut des votes avec SUSPENSE et ENJEU (menace, ennemi, drame), plus des bâtiments.
+- Question principale du jour 4 : « Une île voisine veut envahir Vulkaris : A = créer une armée ⚔️ / B = proposer une alliance 🤝 » (des gens demandent une base militaire).
+- Accroches (chiffres lus le 10.11 à 00h, à relire à 14h45) : référendum serré, stade 72 / karting 64 → « à 8 voix près ! » ; trésor 2144 + 792 = 2936, « il manque 64 pièces pour 3 000 » → gros appel aux likes (si les likes de 14h45 dépassent 3000 : construire le stade).
+- Partages : ajouter « Tague un ami pour en faire ton ministre ».
+- Bâtiments demandés les plus likés : ferme de @lean.dvko (72), kebab de @alexis._.privvvvv (26) — en construire 1–2 avec leur nom.
+
 
 Fil rouge : chaque jour = 1 résultat montré + 1 nouvelle question. Alterner les **votes A/B** (faciles, beaucoup de commentaires) et les **propositions libres** (le commentaire le plus liké gagne, on affiche le pseudo en grand). Les réponses des abonnés passent avant ce plan : si un commentaire très liké propose autre chose de drôle ou fort, on peut le suivre.
 
