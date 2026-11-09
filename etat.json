@@ -91,6 +91,12 @@
    "type": "bateau",
    "nom": "Bateau de leroux_1136",
    "par": "@leroux_1136 (Instagram, 63 likes)"
+  },
+  {
+   "type": "barber",
+   "nom": "Barbershop d'estebarbero",
+   "place": 0,
+   "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
  "tresor": 2144,
