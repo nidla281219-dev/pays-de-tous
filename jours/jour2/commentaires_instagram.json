@@ -1,117 +1,1104 @@
 {
- "lu_le": "2026-11-09T11:52+00:00",
- "abonnes": 582,
+ "lu_le": "2026-11-09T12:49+00:00",
+ "abonnes": 604,
  "videos": [
   {
-   "url": "https://www.instagram.com/p/Dfc54pgsLG9/",
-   "titre": "Et si on créait un pays… tous ensemble ? 🏝️\nJOUR 1 — 0 habitant. Chaque abonné devient citoyen.\n🗳️ Premier vote : où fon",
-   "vues": 3328,
-   "likes": 174,
+   "url": "https://www.instagram.com/p/DffE2eBsff2/",
+   "titre": "Jour 2 : VULKARIS est né 🌋🏝️\nAu total, 27 voix pour la plage : la capitale sort de terre au bord de la mer.\n🏆 Nom + drap",
+   "vues": 34874,
+   "likes": 2153,
    "commentaires": [
     {
-     "auteur": "@arthurm3103",
-     "texte": "Au pied du volcan !",
-     "likes": 2,
-     "reponses": 0,
-     "date": "2026-11-08T10:30:16.000Z"
+     "auteur": "@cc_gdfr",
+     "texte": "Je me présente pour être chef, néanmoins seulement en tant que figure médiatique, pour les décision je m’en fierai à un referunfum citoyen pour un état démocratique et égalitaire",
+     "likes": 165,
+     "reponses": 1,
+     "date": 1794152532
     },
     {
-     "auteur": "@lekers971",
-     "texte": "Volacano City",
-     "likes": 2,
-     "reponses": 0,
-     "date": "2026-11-08T07:59:09.000Z"
+     "auteur": "@leroux_1136",
+     "texte": "Jour 2 pour être le pêcheur du village et avoir un bateau a mon nom",
+     "likes": 63,
+     "reponses": 2,
+     "date": 1794155891
     },
     {
      "auteur": "@lorenzo_lns09",
-     "texte": "Je choisi A pour la capitale",
-     "likes": 1,
+     "texte": "Candidature au poste de chef de VULKARIS\nChers habitants de VULKARIS,\nJe présente aujourd'hui ma candidature pour devenir le chef de notre magnifique île.\nMon objectif est de faire de VULKARIS une île prospère, paisible et accueillante, tout en protégeant ses richesses naturelles.\nSi je suis élu, je m'engage à :\n- Protéger notre environnement : préserver nos forêts, notre volcan endormi et nos plages.\n- Développer notre économie : créer des emplois et favoriser le tourisme.\n- Améliorer la vie des habitants : développer les écoles, les hôpitaux et les infrastructures.\n- Assurer la sécurité : protéger la population et préparer l'île aux risques naturels.\n- Préserver notre identité : respecter notre drapeau, notre culture et nos traditions.\nJe souhaite construire une île où chacun pourra vivre en sécurité, être respecté et participer aux décisions importantes.\nJe ne veux pas être un chef qui commande sans écouter, mais un chef qui rassemble, protège et agit pour tous.\nEnsemble, faisons de VULKARIS une île forte, magnifique et tournée vers l'avenir !\n« Nature, Équilibre, Avenir »\nVotre candidat au poste de chef de VULKARIS.",
+     "likes": 61,
+     "reponses": 6,
+     "date": 1794167680
+    },
+    {
+     "auteur": "@lepaysdetous",
+     "texte": "👑 Candidatures pour devenir chef ici ! Merci @c_c_a_a_s pour le nom et le drapeau de Vulkaris 🌋",
+     "likes": 41,
+     "reponses": 3,
+     "date": 1794151701
+    },
+    {
+     "auteur": "@estebarbero",
+     "texte": "Je veux avoir mon propre barbershop",
+     "likes": 15,
+     "reponses": 2,
+     "date": 1794155942
+    },
+    {
+     "auteur": "@flowrl_.c",
+     "texte": "Mes chères concitoyennes, mes chers concitoyens du Vulkaris,\nNotre pays est un géant en marche, mais l’espoir ne suffit plus : il nous faut de l’action.✊🏽\nSi je sollicite vos suffrages, c’est pour bâtir en urgence le Vulkaris de demain autour de trois priorités :\n\n1. L’emploi et la jeunesse : Soutenir nos entrepreneurs, valoriser nos talents et offrir un vrai avenir à chaque jeune.\n2. La justice sociale : Garantir la santé, l’éducation, l’eau et l’électricité pour tous, sans exception.\n3. L’unité nationale : Rassembler tous les enfants du Vulkaris pour ne laisser personne au bord de la route.\nLe moment est venu de concrétiser notre émergence. Le jour du vote, faites le choix de l’action et de l’avenir.\nVive le Vulkaris !💪🏽✨",
+     "likes": 15,
      "reponses": 0,
-     "date": "2026-11-08T19:48:11.000Z"
+     "date": 1794165166
+    },
+    {
+     "auteur": "@ululink17",
+     "texte": "Rajoute une boutique jeu dans la ville 🙏🙏",
+     "likes": 9,
+     "reponses": 2,
+     "date": 1794162316
+    },
+    {
+     "auteur": "@bape.zz",
+     "texte": "Je voudrais créé un circuit de karting à mon nom et gratuit pour la ville.",
+     "likes": 6,
+     "reponses": 0,
+     "date": 1794164476
+    },
+    {
+     "auteur": "@enzo.mattarelli70",
+     "texte": "Incroyable le concept",
+     "likes": 5,
+     "reponses": 1,
+     "date": 1794175363
+    },
+    {
+     "auteur": "@nath_lhs",
+     "texte": "Bonjour je veux avoir mon horlogerie ce qui fera partie du patrimoine culturel du pays",
+     "likes": 5,
+     "reponses": 1,
+     "date": 1794173146
+    },
+    {
+     "auteur": "@yoni_brl",
+     "texte": "Un arboriculteur ici ! Comment vivre sans fruit dans un verger !?",
+     "likes": 5,
+     "reponses": 1,
+     "date": 1794172790
+    },
+    {
+     "auteur": "@benj_prv28",
+     "texte": "Je me présente PRÉSIDENT.  Ma Promesse: Diviser le volcan en parcelles citoyennes pour que CHAQUE commentaire puisse y installer sa propre attraction (bar à jus de lave, tyrolienne, thermes volcaniques). À Vulkaris, le peuple commande, le volcan obéit ! 🏛️🌋✨",
+     "likes": 4,
+     "reponses": 0,
+     "date": 1794168880
+    },
+    {
+     "auteur": "@_w_a_s_s_i_m_b_l",
+     "texte": "Et pour la capital azura",
+     "likes": 4,
+     "reponses": 0,
+     "date": 1794155079
     },
     {
      "auteur": "@domquen1113",
-     "texte": "Stp ma maison avec écrit mon prénom Quentin",
-     "likes": 1,
-     "reponses": 0,
-     "date": "2026-11-08T12:56:16.000Z"
+     "texte": "Peux tu faire une piste de F1",
+     "likes": 3,
+     "reponses": 1,
+     "date": 1794207873
     },
     {
-     "auteur": "@r_d_v56",
-     "texte": "Une capitale au pied d'un volcan ça peut être stylé",
-     "likes": 1,
+     "auteur": "@ilaan.vnst",
+     "texte": "Moi je veux mon parc d’attractions ( être le gérant )",
+     "likes": 3,
      "reponses": 0,
-     "date": "2026-11-08T12:16:57.000Z"
+     "date": 1794176742
     },
     {
-     "auteur": "@papy_is_a_geek",
-     "texte": "B (au pied du volcan).",
-     "likes": 0,
-     "reponses": 0,
-     "date": "2026-11-09T08:09:33.000Z"
+     "auteur": "@mathy._mmans",
+     "texte": "Bonjour je peux être le pêcheur du pays ?",
+     "likes": 3,
+     "reponses": 2,
+     "date": 1794166911
     },
     {
-     "auteur": "@ilan.trgr",
-     "texte": "Je veux avoir une cabane dans un arbre et pouvoir être le protecteur de l’île",
-     "likes": 0,
+     "auteur": "@l930353",
+     "texte": "Moi je veut biens etre le maire",
+     "likes": 3,
      "reponses": 0,
-     "date": "2026-11-08T18:37:59.000Z"
+     "date": 1794153547
     },
     {
-     "auteur": "@nani.tlemceni",
-     "texte": "A",
-     "likes": 0,
-     "reponses": 0,
-     "date": "2026-11-08T16:21:59.000Z"
+     "auteur": "@ndiasse_pro_121",
+     "texte": "Je voudrais un ferme stp",
+     "likes": 3,
+     "reponses": 1,
+     "date": 1794178506
     },
     {
-     "auteur": "@lilian25_07",
-     "texte": "J veut trop etre le maire du village et avoir la plus grosse maison de l’île",
-     "likes": 0,
-     "reponses": 0,
-     "date": "2026-11-08T15:25:27.000Z"
+     "auteur": "@elekom07",
+     "texte": "Moi si je suis président chaque habitant aura chaque fin du mois un salaire et ne sera pas oublié de travaillé",
+     "likes": 3,
+     "reponses": 1,
+     "date": 1794178245
     },
     {
-     "auteur": "@romainvdh_",
-     "texte": "Au milieu de À et B stp",
-     "likes": 0,
-     "reponses": 0,
-     "date": "2026-11-08T14:06:09.000Z"
+     "auteur": "@origame23137",
+     "texte": "Aucun rapport mais j'veux être le chasseur du village et tenir une boutique de viande et de poisson avec leroux_1136 🙏 sinon \"vulkan\" comme nom de village c sympa",
+     "likes": 3,
+     "reponses": 1,
+     "date": 1794178125
     },
     {
-     "auteur": "@domquen1113",
-     "texte": "A",
-     "likes": 0,
+     "auteur": "@nikitoulich",
+     "texte": "Je veux etre prof à l'université et ouvrir le centres des recherches sur la biologie marine en collaboration avec les pêcheurs !",
+     "likes": 3,
      "reponses": 0,
-     "date": "2026-11-08T12:55:56.000Z"
+     "date": 1794175581
     },
     {
-     "auteur": "@hugo.maillet69",
-     "texte": "A stpp",
-     "likes": 0,
+     "auteur": "@kbth_012",
+     "texte": "JE VEUX BIEN ÊTRE LE BÛCHERON DU VILLAGE ET INSTALLE UN GRAND FEU COMME ON S'APPROCHE DE NOEL ON POURRAIT TOUS SE RETOUVER LA BAS",
+     "likes": 3,
      "reponses": 0,
-     "date": "2026-11-08T10:29:05.000Z"
+     "date": 1794157630
     },
     {
-     "auteur": "@beta_by_timoute7",
-     "texte": "B",
-     "likes": 0,
+     "auteur": "@grace871785",
+     "texte": "Un terrain de football stp avec mon nom im grâce",
+     "likes": 3,
      "reponses": 0,
-     "date": "2026-11-08T09:28:44.000Z"
+     "date": 1794164183
     },
     {
      "auteur": "@rayan.bert.10",
-     "texte": "A",
-     "likes": 0,
+     "texte": "une armée",
+     "likes": 3,
      "reponses": 0,
-     "date": "2026-11-08T09:25:18.000Z"
+     "date": 1794152520
     },
     {
-     "auteur": "@gorgedoux",
-     "texte": "À",
+     "auteur": "@joel9.698",
+     "texte": "Boutique de voiture",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794212990
+    },
+    {
+     "auteur": "@manoah56",
+     "texte": "Je serai le bûcheron pour récupérer le bois qui servira à faire les bâtiments , des bateaux etc... 🪓",
+     "likes": 2,
+     "reponses": 1,
+     "date": 1794206217
+    },
+    {
+     "auteur": "@coumbelle_keyly",
+     "texte": "Jour 2, je veux devenir la directrice de la police. Nom de la capitale Valtheris",
+     "likes": 2,
+     "reponses": 1,
+     "date": 1794211099
+    },
+    {
+     "auteur": "@oscar_brtss_",
+     "texte": "Je me présente je m’appelle Henry j’aimerai bien réussir ma vie, etre aimeeeeeerrrrrrrrrrr❤️❤️",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794175899
+    },
+    {
+     "auteur": "@anais_mthe124",
+     "texte": "Je peux avoir un gymnase avec des terrains de volley ball à mon nom ? 😍",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794189353
+    },
+    {
+     "auteur": "@hkmarwane94z",
+     "texte": "Je v aux avoir ma banque",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794161187
+    },
+    {
+     "auteur": "@fafahf0960",
+     "texte": "Une statue en pierre sur le volcan 🌋",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794173766
+    },
+    {
+     "auteur": "@robin.pqt05",
+     "texte": "Si je suis élu président il y aura des frites à la cantine tous les jours et il n’y aura plus de devoirs",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794176831
+    },
+    {
+     "auteur": "@_w_a_s_s_i_m_b_l",
+     "texte": "Met moi une boutique de vettement stp",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794155046
+    },
+    {
+     "auteur": "@paul.bracq",
+     "texte": "Je me suis abonné et j’ai rajouté ma pièce d’or dans le coffre commun . J’aimerais monter un atelier de forge comme ça, je pourrais être le forgeron du pays du volcan.",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794181273
+    },
+    {
+     "auteur": "@elyamin_0976",
+     "texte": "Je me présente moi .elyamin_0976. De de venir un symbole de paix pour que la paix soit je vous promets que avec moi il y'aura jamais de bas tout ça pour dire que je voudrait être nommé (capitaine policier)",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794193929
+    },
+    {
+     "auteur": "@its__louyy",
+     "texte": "Un terrain de rugby",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794199006
+    },
+    {
+     "auteur": "@nino_chapot",
+     "texte": "Je veux une boutique de jeux vidéo !!!!",
+     "likes": 2,
+     "reponses": 2,
+     "date": 1794178032
+    },
+    {
+     "auteur": "@tremblayloup",
+     "texte": "Ajoute un circuit de course, motocross, f1, et autres",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794178163
+    },
+    {
+     "auteur": "@xil3f.exe",
+     "texte": "Une librairie ?",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794176725
+    },
+    {
+     "auteur": "@r0cky_lvn1.9",
+     "texte": "Je veux avoir mon concessionnaire automobile 🚘 🔥🔥🔥🔥🙌🙌🙌🙌",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794162761
+    },
+    {
+     "auteur": "@melvin_bss_",
+     "texte": "Je veut bien construire des moto, pour pouvoir se déplacer,",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794177086
+    },
+    {
+     "auteur": "@solhead_",
+     "texte": "Moi je veux un terrain de basket a mon nom svppp",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794177782
+    },
+    {
+     "auteur": "@ndiasse_pro_121",
+     "texte": "Je me présente pour être président pas pour être chef parce que je ne veux pas vous traiter avec force mais plutôt être en commun pour une seul but",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794178342
+    },
+    {
+     "auteur": "@t.mornet1",
+     "texte": "Chapitre de sirque",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794174500
+    },
+    {
+     "auteur": "@tavaka44",
+     "texte": "Un club de foot stp",
+     "likes": 2,
+     "reponses": 2,
+     "date": 1794163890
+    },
+    {
+     "auteur": "@gbld_07",
+     "texte": "Un Empereur ce serait pas mieux ? Avec un Sénat et plusieurs sénateur. Je serais votre Empereur si vous le souhaitez",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794169922
+    },
+    {
+     "auteur": "@francois_onno",
+     "texte": "Et pourquoi pas \" Vulcania \" pour notre capital ? 🤔",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794167355
+    },
+    {
+     "auteur": "@just_janna04",
+     "texte": "Je veux être président \nEt je promets de toujours m occuper de tous mais habitant est écoute tout vos demandes",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794169124
+    },
+    {
+     "auteur": "@noah.sar",
+     "texte": "Un park stp",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794165446
+    },
+    {
+     "auteur": "@layane.213",
+     "texte": "La capitale \nValkor\nStp like",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794165312
+    },
+    {
+     "auteur": "@dada.to123",
+     "texte": "Crée une épicerie",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794164130
+    },
+    {
+     "auteur": "@imryan.off",
+     "texte": "Moi je me présente en tant que ministre De l'éducation nationale. Comme ça plus de Blocus",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794160088
+    },
+    {
+     "auteur": "@dyran.244",
+     "texte": "Je propose d etre juge de la cour supreme et donne nom vulkur comme capital",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794159644
+    },
+    {
+     "auteur": "@truckspotteur_du_44",
+     "texte": "Ça serait bien de rajouter un magasin, comme nom \" VulkaMarket \"",
+     "likes": 2,
+     "reponses": 2,
+     "date": 1794154912
+    },
+    {
+     "auteur": "@wensy_jr",
+     "texte": "Je veux bien être le chef\nJe ferai en sorte que le pays ne manque de rien et que les habitants se respecte mutuellement en ayant tous les mêmes droits",
+     "likes": 2,
+     "reponses": 0,
+     "date": 1794154908
+    },
+    {
+     "auteur": "@esdk_707",
+     "texte": "Je serais votre leader je vous dirige ! Nous ferons tomber la France a Macron et nous allons la reconquérir ensembles mes chères citoyens. Gloire et pouvoir à Vulkaris votez pour moi 🔥",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794216895
+    },
+    {
+     "auteur": "@papabdou69",
+     "texte": "Le bar \"Lava Love\" vous accueille pour ses happy hour bouillants tous les soirs au sommet du volcan 🌋🔥🍻",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794217631
+    },
+    {
+     "auteur": "@merveilleuxniman",
+     "texte": "Une population en bonne santé mentale et physique est indispensable pour le développement d'un si jeune territoire. Je propose donc la construction d'un complexe hospitalo-universitaire ( qui comprendra une faculté des sciences de la santé et un CHU ) donc je serai le responsable.",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794222441
+    },
+    {
+     "auteur": "@abedichiragira",
+     "texte": "Moi ,sublime presente ma candidature pour etre votre chef👏",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794216123
+    },
+    {
+     "auteur": "@bunny_bugzy",
+     "texte": "Je veux un restaurant de poulet frit !",
+     "likes": 1,
+     "reponses": 1,
+     "date": 1794218507
+    },
+    {
+     "auteur": "@paulcphoto1",
+     "texte": "Vulkar City la capital",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794216602
+    },
+    {
+     "auteur": "@clementctx1",
+     "texte": "Met un magasin Colruyt stp 🙌🔥",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794218586
+    },
+    {
+     "auteur": "@dabedoo1235",
+     "texte": "Bonjour est qu'il est possible d'avoir une galerie d'art et un atelier dans la même maison",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794209227
+    },
+    {
+     "auteur": "@iiilfrostliii",
+     "texte": "Ont peut baptisé l'université Patrick Stewart??",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794216298
+    },
+    {
+     "auteur": "@skyline.__.2011",
+     "texte": "Je me présente pour le poste de chef  pour la gloire et la prospériters voters skyline!!!",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794211081
+    },
+    {
+     "auteur": "@aurelio68976",
+     "texte": "Je peux avoir une pizzeria stp",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794179054
+    },
+    {
+     "auteur": "@flavio_abou_rached",
+     "texte": "Capital :Vulkar",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794178885
+    },
+    {
+     "auteur": "@armel.king24",
+     "texte": "MOI JE VEUX JUSTE UNE SALLE DE JEUX",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794214719
+    },
+    {
+     "auteur": "@xtradark509",
+     "texte": "Capital vulcarian",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794183961
+    },
+    {
+     "auteur": "@issis.leo",
+     "texte": "Je veux être chef voter moi je ferai ce pays un pays de paix",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794189080
+    },
+    {
+     "auteur": "@gabrielneo64",
+     "texte": "Je veux juste être fleuriste pour s'il vous plaît",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794190876
+    },
+    {
+     "auteur": "@alexis_nessel",
+     "texte": "Un port national avec une station de peche .",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794191496
+    },
+    {
+     "auteur": "@maxx.frns",
+     "texte": "J’peux être le patron d’un garage automobile ?",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794191857
+    },
+    {
+     "auteur": "@mnr__yanis",
+     "texte": "Je candidate je serais un dictateur communiste promis je serrais gentils",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794194104
+    },
+    {
+     "auteur": "@keke_bikepatrol",
+     "texte": "Une boutique de velo",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794194258
+    },
+    {
+     "auteur": "@cmax56_",
+     "texte": "Rajoute une banque",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794195526
+    },
+    {
+     "auteur": "@anthonybioret",
+     "texte": "Je peux avoir un restaurant s’il te plaît",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794198102
+    },
+    {
+     "auteur": "@_habed_75",
+     "texte": "Volcano pour la capitale 🙏🙏",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794199184
+    },
+    {
+     "auteur": "@justme13.05",
+     "texte": "Bonjour je me présente au poste de chef des armées je veux protéger le pays 🔥",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794201637
+    },
+    {
+     "auteur": "@raven_octurna",
+     "texte": "si c'est VulKAARIS, je dit \"PUTE\" 😂😂😂😂😂",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794202436
+    },
+    {
+     "auteur": "@martin_enprive",
+     "texte": "Fait moi une boutique de chaussur pour moi",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794205348
+    },
+    {
+     "auteur": "@zozo.bdl.rld",
+     "texte": "J'adore le concept. Il manque un hopital ou cabinet médical à ta ville 😊",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794205825
+    },
+    {
+     "auteur": "@nizos",
+     "texte": "Capitale  pompei",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794183417
+    },
+    {
+     "auteur": "@mathis.hubert",
+     "texte": "Je serais le bûcheron isolé dans la forêt la plus éloigné",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794181135
+    },
+    {
+     "auteur": "@theosb29",
+     "texte": "JE ME PRESENTE EN TANT QU'ENTRAINEUR POUR UNE EQUIPE DE FOOTBALL S'IL VOUS PLAIT",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794165663
+    },
+    {
+     "auteur": "@mohamedl_29833",
+     "texte": "Un stade de football et de basketball!!",
+     "likes": 1,
+     "reponses": 1,
+     "date": 1794155322
+    },
+    {
+     "auteur": "@slsimon_19",
+     "texte": "J'aimerais une piscine pour s'entraîner. Sa sappelerais le SIM PEPS",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794157470
+    },
+    {
+     "auteur": "@tonydraw13",
+     "texte": "C'est superbe,un endroit prometteur !",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794175181
+    },
+    {
+     "auteur": "@lu__k19",
+     "texte": "Un bar à Nuggets 🙏🏼🙏🏼🙏🏼🙏🏼",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794174852
+    },
+    {
+     "auteur": "@gaetangodfire974",
+     "texte": "Tu penses que c’est possible de rajouter un club de basket et son terrain ? 🫰😏",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794173257
+    },
+    {
+     "auteur": "@planckaerteliott",
+     "texte": "Je me présente pour être chef , je suis quelqu'un pour l égalité et l'aide et l'écoute de tous , je suis pour la démocratie et le droit que tout le monde s'exprime",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794173547
+    },
+    {
+     "auteur": "@flo_mathys12",
+     "texte": "Un stade de foot stp",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794173653
+    },
+    {
+     "auteur": "@samuel.120302",
+     "texte": "Je pourais avoir le port pour que l’on fasse du commerce ?",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794174409
+    },
+    {
+     "auteur": "@hockey_3267",
+     "texte": "Moi et un poste de police",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794174515
+    },
+    {
+     "auteur": "@gauthier_231",
+     "texte": "Mes chers concitoyens de Vulkaris, je me présente aujourd'hui avec une vision claire pour notre avenir. Ensemble, nous allons rendre notre ville plus forte, plus verte et plus prospère pour tout le monde. Votre confiance sera le moteur de notre réussite. Votez pour le changement, votez pour l'avenir!",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794174651
+    },
+    {
+     "auteur": "@liliansirot",
+     "texte": "Je pourrais construire un petit ponton au début pour débuter un port ? Au début modeste mais que je développe petit à petit.",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794174890
+    },
+    {
+     "auteur": "@tibomdlb",
+     "texte": "Je me serais bien présenter, mais ma seul promesse et que si je suis choisis on casse les codes d'une personne a la tete et que nous vivons tous au commande de la ville et personne n'est au dessus de personne ! 🙌🔥",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794169810
+    },
+    {
+     "auteur": "@baptistepelletier8",
+     "texte": "👑👑 je veut être le président ma promesse vive la gauche bref il est tard je travaille demain bonne journée a tous et que du bonheur 🫶🏼🫶🏼",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794172320
+    },
+    {
+     "auteur": "@mohamed__hideche",
+     "texte": "Moi je vous promet que les kebab ne dépasseront pas 5€ en menus",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794172376
+    },
+    {
+     "auteur": "@m3g.cd",
+     "texte": "Nous devons nous amuser , créé un parc d’attraction",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794172593
+    },
+    {
+     "auteur": "@jaylon.sv",
+     "texte": "Valoris le non de la capitale",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794172610
+    },
+    {
+     "auteur": "@kreli_jr_officiel",
+     "texte": "Terrain de football",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794169573
+    },
+    {
+     "auteur": "@kevin__cld",
+     "texte": "Je me présente comme chef de la caserne de pompier de la ville",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794171271
+    },
+    {
+     "auteur": "@kevin__cld",
+     "texte": "Nom de la capitale : Vulkan",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794171384
+    },
+    {
+     "auteur": "@kylianscreations86",
+     "texte": "Une école🔥🔥🔥",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794167039
+    },
+    {
+     "auteur": "@francois_onno",
+     "texte": "Je ne me présente pas en tant que chef seulement citoyen de notre capitale, mais il me semble que nous devrions avoir un port pour accueillir nos prochains citoyens ✋️",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794167158
+    },
+    {
+     "auteur": "@pvpv_mvndir_gueye",
+     "texte": "Une stade stp",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794167318
+    },
+    {
+     "auteur": "@dorianmorel95",
+     "texte": "Moi aussi je vais participer et y a moyen ou pas qu’on rajoute une piste de karting",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794167366
+    },
+    {
+     "auteur": "@n.2noe",
+     "texte": "Gendarmerie",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794168901
+    },
+    {
+     "auteur": "@ayoub.raito",
+     "texte": "Je me porte volontaire pour être chef de Vulkaris et je suis a votre disposition 🤷🏻‍♂️",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794168600
+    },
+    {
+     "auteur": "@cyrilclamaron",
+     "texte": "Une ville pour moi stp",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794168212
+    },
+    {
+     "auteur": "@mohamed__affu",
+     "texte": "Et une station service et un terrain de foot",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794167632
+    },
+    {
+     "auteur": "@mohamed__affu",
+     "texte": "J'aimerais nommer l'université D'affu de vulkaris ❤️",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794167570
+    },
+    {
+     "auteur": "@tobias_dufour",
+     "texte": "Il faut construire le glorys de creteil faites des likes",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794167431
+    },
+    {
+     "auteur": "@gaut63000",
+     "texte": "Je voudrais un cinéma",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794167378
+    },
+    {
+     "auteur": "@bryan_daire",
+     "texte": "Il faut un port et un aéroport pour le commerce",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794166034
+    },
+    {
+     "auteur": "@romalexmail",
+     "texte": "Je veux être le barman avec mon propre bar 🔥",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794165051
+    },
+    {
+     "auteur": "@flo._.005",
+     "texte": "Il faut un port aussi",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794164240
+    },
+    {
+     "auteur": "@bazin.emmanuel",
+     "texte": "Moi je veux une armuriew🙌🙌🙏🙏",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794163789
+    },
+    {
+     "auteur": "@adm__0ml",
+     "texte": "Je veux un stade de foot",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794163737
+    },
+    {
+     "auteur": "@leandro_gk40",
+     "texte": "Un cabinet de psychiatrie",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794163679
+    },
+    {
+     "auteur": "@chloe_vtr23",
+     "texte": "C est possible d avoir un aéroport ?",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794163246
+    },
+    {
+     "auteur": "@benjamin65851",
+     "texte": "Un club de foot",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794162957
+    },
+    {
+     "auteur": "@lukaimetoutlemonde",
+     "texte": "Je veux un parc national",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794162860
+    },
+    {
+     "auteur": "@ululink17",
+     "texte": "Ajoute moi stp 🙏🙏🙏",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794162281
+    },
+    {
+     "auteur": "@r3my.drx",
+     "texte": "J’aimerais bien avoir mon atelier de maintenance pour tout la ville pour aider 🤯",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794161185
+    },
+    {
+     "auteur": "@marwzkaner",
+     "texte": "Capitaine de l'armée",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794160246
+    },
+    {
+     "auteur": "@marius_sandro",
+     "texte": "Moi je veux le club de Rugby",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794160231
+    },
+    {
+     "auteur": "@marwzkaner",
+     "texte": "Soldat",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794160222
+    },
+    {
+     "auteur": "@lov_light2",
+     "texte": "J'aimerai bien avoir une banque",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794159969
+    },
+    {
+     "auteur": "@lean.dvko",
+     "texte": "Je voudrais posséder une petite ferme pour produire la nourriture de la ville ✌️",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794159281
+    },
+    {
+     "auteur": "@cyrille48600",
+     "texte": "Je peux être là banque stp",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794159244
+    },
+    {
+     "auteur": "@nils_ronnet",
+     "texte": "Fait un aéroport qui est sur le volcan ! Et je partage ma candidature pour être chef.",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794157897
+    },
+    {
+     "auteur": "@wensy_jr",
+     "texte": "La capitale s'appellera VULKAS",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794155000
+    },
+    {
+     "auteur": "@ethan.znb",
+     "texte": "Je me présente en tant que chef",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794153526
+    },
+    {
+     "auteur": "@emile_rousseau_",
+     "texte": "En tant que scientifique de vulkaris je suggère de tirer l'énergie pour la ville à partir du volcan avec la (haute enthalpie)",
+     "likes": 1,
+     "reponses": 0,
+     "date": 1794152686
+    },
+    {
+     "auteur": "@charlesleh68fr",
+     "texte": "C’est un jeux sa mdr ?? Ou ces que toi qui fait sa c’est une bonne idée de fou",
+     "likes": 0,
+     "reponses": 2,
+     "date": 1794190331
+    },
+    {
+     "auteur": "@arthur.gchrr",
+     "texte": "Je peux etre complotiste et directeur de l'université stppp",
      "likes": 0,
      "reponses": 0,
-     "date": "2026-11-08T07:21:15.000Z"
+     "date": 1794227980
+    },
+    {
+     "auteur": "@kevinshark08",
+     "texte": "Mw je suis docteur et j'aimerais avoir un hôpital 😍",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794226483
+    },
+    {
+     "auteur": "@n_lcci",
+     "texte": "Je me propose en facteur, ainsi grâce a mes service les citoyen recevrons tous des nouvelles de leurs chef et de ses projets (et d'autre commerce évidemment).",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794225851
+    },
+    {
+     "auteur": "@tk4.tln.24",
+     "texte": "Je veux avoir mon armurerie",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794223000
+    },
+    {
+     "auteur": "@sm.jls",
+     "texte": "Je me présente !\nMa promesse : une ville riche et sans crime \nQue de l’amour et de la bienveillance 🎉🙏🏽",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794222785
+    },
+    {
+     "auteur": "@amir_bjj1",
+     "texte": "Une boutique où ya des épée et le nom d’la boutique AS",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794222034
+    },
+    {
+     "auteur": "@danielkouassy",
+     "texte": "Je veux une maison tout bleue svp",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794221691
+    },
+    {
+     "auteur": "@samsuffit2a",
+     "texte": "C’est trop tôt pour construire un club libertin?",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794221306
+    },
+    {
+     "auteur": "@latortuesagace",
+     "texte": "Je veux bien habiter sur le volcan avec une petite baraque en bois 🙂",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794208926
+    },
+    {
+     "auteur": "@sowitout.nheng",
+     "texte": "Des MONTAGNE RUSSE AUTOUR DU VOLCAN",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794203562
+    },
+    {
+     "auteur": "@lucas.lvn7",
+     "texte": "Salut, je viens de m'installer et j'aimerais être chef des finances pour mieux gérer les infrastructures intéressantes et touristiques j'aimerais soutenir aux mieux nos citoyens qu'es que vous en dites ? Je ferais en sorte de pouvoir avoir des bus et des champs et découvrir un maximum l'île et ses alentours pour avoir des ports et des d'autres postes et bien plus encore !! Alors, aidez-moi à avoir ce poste !!",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794185665
+    },
+    {
+     "auteur": "@yasm.ine200127",
+     "texte": "Moi",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794174304
+    },
+    {
+     "auteur": "@gameuseoptimiste",
+     "texte": "❤️",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794173781
+    },
+    {
+     "auteur": "@alexandrerod2016",
+     "texte": "Moi stp",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794161247
+    },
+    {
+     "auteur": "@nathisagamer",
+     "texte": "L’essence decendra a 0,01€, et vs aurez des villas, et il n’y aura pas d’impots",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794159171
+    },
+    {
+     "auteur": "@nathisagamer",
+     "texte": "Je me presente",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794159106
+    },
+    {
+     "auteur": "@abddonkey",
+     "texte": "Une brasri",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794157098
+    },
+    {
+     "auteur": "@natane_prvvvv",
+     "texte": "Je veux avoir une salle de guerreeee",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794156551
+    },
+    {
+     "auteur": "@williamdonatozenteno",
+     "texte": "Je me présente en tant que chef je serai à l’écoute de vos idées pour notre magnifique pays vulkaris",
+     "likes": 0,
+     "reponses": 0,
+     "date": 1794155336
     }
    ]
   }
