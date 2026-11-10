@@ -6,7 +6,7 @@
 - studio/ : scene.html (Three.js), render.js, mix.py, voix.py (+ align.py), commentaires.py, publier.py, miniature.py, chaine_visuels.py, presets.json (plans caméra nommés), exemple_timeline.json (exemple complet d'un jour 2).
   Test : `cd studio && mkdir -p t && node render.js --jour N t/f --test 1,8,15 --cadre` (--cadre dessine la zone visible en rouge). Complet : `node render.js --jour N pays_jN_video.mp4` (~20 min) puis `python mix.py N`.
 - jours/jourN/ : script.md (1re ligne « # titre », puis le texte dit), voix.mp3 + mots.json (temps de chaque mot), timeline.json, publication.json (titre/description/tags YouTube), publication.md (textes TikTok + Insta, 3 hashtags max chacun), miniature.jpg, commentaires_youtube.json (votes lus), commentaires_autres.txt (TikTok/Insta, ajoutés par l'utilisateur), video.mp4 (vidéo finale), youtube.txt.
-- sons/ : sons CC0 (CREDITS.json). chaine/ : logo + bannière.
+- sons/ : musique + sons/lib (bruitages réels Openverse CC0, CREDITS.json, workflow sons.yml) + sons/earshot (sons générés par earshot). chaine/ : logo + bannière.
 
 ## Lecture Instagram officielle (08.11)
 - studio/instagram_officiel.py (Instagram API with Instagram Login, graph.instagram.com) : tous les commentaires + likes + abonnés. Utilisé automatiquement si le secret IG_TOKEN existe (sinon Apify, limité à 15 commentaires).

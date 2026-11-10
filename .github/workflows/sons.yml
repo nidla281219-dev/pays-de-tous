@@ -1,0 +1,20 @@
+name: Bibliothèque de bruitages (Openverse CC0)
+on:
+  workflow_dispatch:
+    inputs:
+      par_role: {description: "Nombre de sons par rôle", default: "5"}
+permissions:
+  contents: write
+jobs:
+  sfx:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q requests
+      - run: python studio/sfx_openverse.py --par-role ${{ inputs.par_role }} 2>&1 | tee sons/lib/journal.txt
+      - if: always()
+        run: |
+          git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
+          git add sons/lib; git diff --cached --quiet || (git commit -m "Bruitages réels (Openverse, CC0)" && git pull --rebase -q && git push)
