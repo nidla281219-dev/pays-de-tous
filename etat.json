@@ -1,6 +1,6 @@
 {
- "jour": 3,
- "habitants": 864,
+ "jour": 4,
+ "habitants": 1379,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -47,12 +47,55 @@
   "promesse": "figure médiatique ; les décisions par référendum citoyen"
  },
  "lois": [],
- "constructions": [],
+ "constructions": [
+  {
+   "type": "karting",
+   "nom": "Circuit de karting de Vulkaris",
+   "place": 0,
+   "par": "référendum jour 3 : karting 74 voix / stade 68"
+  },
+  {
+   "type": "ferme",
+   "nom": "Ferme de lean.dvko",
+   "place": 1,
+   "par": "@lean.dvko (Instagram, 91 likes)"
+  },
+  {
+   "type": "kebab",
+   "nom": "Kebab d'alexis._.privvvvv",
+   "place": 2,
+   "par": "@alexis._.privvvvv (Instagram, 31 likes)"
+  },
+  {
+   "type": "poulet",
+   "nom": "Poulet frit de bunny_bugzy",
+   "place": 3,
+   "par": "@bunny_bugzy (Instagram, 24 likes)"
+  },
+  {
+   "type": "bistro",
+   "nom": "Bistro de fiizenn",
+   "place": 4,
+   "par": "@fiizenn (Instagram, 8 likes)"
+  },
+  {
+   "type": "sentier",
+   "nom": "Sentier du volcan de ma_tribuu",
+   "place": 5,
+   "par": "@ma_tribuu (Instagram, 18 likes)"
+  },
+  {
+   "type": "caserne_pompiers",
+   "nom": "Caserne de pompiers de salman381560",
+   "place": 6,
+   "par": "@salman381560 (Instagram, métier pompier, 4 likes)"
+  }
+ ],
  "vote_en_cours": {
-  "jour": 3,
+  "jour": 4,
   "questions": [
-   "Référendum : A = stade de foot, B = circuit de karting (prix 3000 pièces)",
-   "Quel métier veux-tu à Vulkaris ? (les plus likés auront leur atelier)"
+   "Une île voisine veut envahir Vulkaris : A = créer une armée / B = proposer une alliance",
+   "Tague un ami pour en faire ton ministre"
   ]
  },
  "historique": [
@@ -67,6 +110,10 @@
   {
    "jour": 3,
    "resume": "Chef : @cc_gdfr (Instagram, 165 likes, décisions par référendum). Trésor : +2422 likes → université construite (500), reste 2144. Bateau de @leroux_1136. Capitale Plavulca. Questions : référendum stade/karting + métiers. Lecture Instagram complète grâce à Apify payant (156 commentaires)."
+  },
+  {
+   "jour": 4,
+   "resume": "1379 habitants. Référendum : karting 74 voix/72 likes, stade 68/71 → karting construit (trésor 2144+1009-3000=153). Montage demandes : ferme, kebab, poulet frit, bistro, sentier du volcan, caserne de pompiers. Île ennemie → vote A armée / B alliance. Prochain chantier 2000."
   }
  ],
  "habitants_detail": {
@@ -99,20 +146,20 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 2144,
+ "tresor": 153,
  "tresor_detail": {
-  "avant": 222,
-  "likes_jour2": {
-   "youtube": 149,
-   "tiktok": 120,
-   "instagram": 2153
+  "avant": 2144,
+  "likes_jour3": {
+   "youtube": 161,
+   "tiktok": 75,
+   "instagram": 773
   },
   "depense": {
-   "université": 500
+   "karting": 3000
   }
  },
  "objectif": {
-  "nom": "résultat du référendum (stade ou karting)",
-  "prix": 3000
+  "nom": "défense de l'île (selon le vote : base militaire ou ambassade)",
+  "prix": 2000
  }
 }
