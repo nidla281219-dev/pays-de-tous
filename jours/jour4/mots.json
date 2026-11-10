@@ -1,0 +1,1010 @@
+[
+{
+"w": "Regarde",
+"red": false,
+"s": 0.0,
+"e": 0.44
+},
+{
+"w": "à",
+"red": false,
+"s": 0.44,
+"e": 0.56
+},
+{
+"w": "l'horizon…",
+"red": false,
+"s": 0.56,
+"e": 0.9
+},
+{
+"w": "des",
+"red": false,
+"s": 1.36,
+"e": 1.62
+},
+{
+"w": "bateaux",
+"red": false,
+"s": 1.62,
+"e": 1.96
+},
+{
+"w": "de",
+"red": false,
+"s": 1.96,
+"e": 2.06
+},
+{
+"w": "guerre.",
+"red": false,
+"s": 2.06,
+"e": 2.3
+},
+{
+"w": "Une",
+"red": false,
+"s": 2.88,
+"e": 3.08
+},
+{
+"w": "île",
+"red": false,
+"s": 3.08,
+"e": 3.18
+},
+{
+"w": "voisine",
+"red": false,
+"s": 3.18,
+"e": 3.52
+},
+{
+"w": "veut",
+"red": false,
+"s": 3.52,
+"e": 3.68
+},
+{
+"w": "envahir",
+"red": false,
+"s": 3.68,
+"e": 4.18
+},
+{
+"w": "Vulkaris !",
+"red": false,
+"s": 4.18,
+"e": 5.4
+},
+{
+"w": "Mais",
+"red": false,
+"s": 5.4,
+"e": 5.54
+},
+{
+"w": "d'abord :",
+"red": false,
+"s": 5.54,
+"e": 5.9
+},
+{
+"w": "jour",
+"red": false,
+"s": 6.38,
+"e": 6.58
+},
+{
+"w": "quatre,",
+"red": false,
+"s": 6.58,
+"e": 7.34
+},
+{
+"w": "et",
+"red": false,
+"s": 7.34,
+"e": 7.4
+},
+{
+"w": "vous",
+"red": false,
+"s": 7.4,
+"e": 7.54
+},
+{
+"w": "êtes",
+"red": false,
+"s": 7.54,
+"e": 7.74
+},
+{
+"w": "mille",
+"red": false,
+"s": 7.74,
+"e": 8.065
+},
+{
+"w": "trois",
+"red": false,
+"s": 8.065,
+"e": 8.39
+},
+{
+"w": "cent",
+"red": false,
+"s": 8.39,
+"e": 8.715
+},
+{
+"w": "soixante-dix-neuf",
+"red": false,
+"s": 8.715,
+"e": 9.04
+},
+{
+"w": "habitants,",
+"red": false,
+"s": 9.04,
+"e": 9.66
+},
+{
+"w": "au",
+"red": false,
+"s": 9.66,
+"e": 9.88
+},
+{
+"w": "total !",
+"red": false,
+"s": 9.88,
+"e": 10.16
+},
+{
+"w": "Le",
+"red": false,
+"s": 10.88,
+"e": 10.94
+},
+{
+"w": "référendum",
+"red": false,
+"s": 10.94,
+"e": 11.4
+},
+{
+"w": "du",
+"red": false,
+"s": 11.4,
+"e": 11.6
+},
+{
+"w": "chef",
+"red": false,
+"s": 11.6,
+"e": 11.82
+},
+{
+"w": "a",
+"red": false,
+"s": 11.82,
+"e": 12.02
+},
+{
+"w": "été",
+"red": false,
+"s": 12.02,
+"e": 12.2
+},
+{
+"w": "serré :",
+"red": false,
+"s": 12.2,
+"e": 12.62
+},
+{
+"w": "karting,",
+"red": false,
+"s": 13.04,
+"e": 13.52
+},
+{
+"w": "soixante-quatorze",
+"red": false,
+"s": 13.52,
+"e": 14.42
+},
+{
+"w": "voix…",
+"red": false,
+"s": 14.42,
+"e": 14.88
+},
+{
+"w": "stade,",
+"red": false,
+"s": 14.88,
+"e": 16.12
+},
+{
+"w": "soixante-huit.",
+"red": false,
+"s": 16.12,
+"e": 17.36
+},
+{
+"w": "À",
+"red": false,
+"s": 17.36,
+"e": 17.52
+},
+{
+"w": "six",
+"red": false,
+"s": 17.52,
+"e": 17.8
+},
+{
+"w": "voix",
+"red": false,
+"s": 17.8,
+"e": 18.0
+},
+{
+"w": "près,",
+"red": false,
+"s": 18.0,
+"e": 18.24
+},
+{
+"w": "c'est",
+"red": false,
+"s": 18.48,
+"e": 18.6
+},
+{
+"w": "le",
+"red": false,
+"s": 18.6,
+"e": 18.68
+},
+{
+"w": "karting",
+"red": false,
+"s": 18.68,
+"e": 19.16
+},
+{
+"w": "qui",
+"red": false,
+"s": 19.16,
+"e": 19.36
+},
+{
+"w": "gagne !",
+"red": false,
+"s": 19.36,
+"e": 19.68
+},
+{
+"w": "Et",
+"red": false,
+"s": 20.14,
+"e": 20.28
+},
+{
+"w": "le",
+"red": false,
+"s": 20.28,
+"e": 20.36
+},
+{
+"w": "trésor ?",
+"red": false,
+"s": 20.36,
+"e": 20.72
+},
+{
+"w": "Mille",
+"red": false,
+"s": 20.72,
+"e": 21.27
+},
+{
+"w": "neuf",
+"red": false,
+"s": 21.27,
+"e": 21.82
+},
+{
+"w": "likes",
+"red": false,
+"s": 21.82,
+"e": 22.12
+},
+{
+"w": "hier :",
+"red": false,
+"s": 22.12,
+"e": 22.4
+},
+{
+"w": "on",
+"red": false,
+"s": 22.8,
+"e": 22.92
+},
+{
+"w": "monte",
+"red": false,
+"s": 22.92,
+"e": 23.16
+},
+{
+"w": "à",
+"red": false,
+"s": 23.16,
+"e": 23.26
+},
+{
+"w": "trois",
+"red": false,
+"s": 23.26,
+"e": 23.57
+},
+{
+"w": "mille",
+"red": false,
+"s": 23.57,
+"e": 23.88
+},
+{
+"w": "cent",
+"red": false,
+"s": 23.88,
+"e": 24.19
+},
+{
+"w": "cinquante-trois",
+"red": false,
+"s": 24.19,
+"e": 24.5
+},
+{
+"w": "pièces.",
+"red": false,
+"s": 24.5,
+"e": 24.9
+},
+{
+"w": "Le",
+"red": false,
+"s": 25.26,
+"e": 25.42
+},
+{
+"w": "circuit",
+"red": false,
+"s": 25.42,
+"e": 25.72
+},
+{
+"w": "de",
+"red": false,
+"s": 25.72,
+"e": 25.86
+},
+{
+"w": "karting",
+"red": false,
+"s": 25.86,
+"e": 26.26
+},
+{
+"w": "est",
+"red": false,
+"s": 26.26,
+"e": 26.44
+},
+{
+"w": "construit !",
+"red": false,
+"s": 26.44,
+"e": 27.0
+},
+{
+"w": "Et",
+"red": false,
+"s": 27.42,
+"e": 27.56
+},
+{
+"w": "vos",
+"red": false,
+"s": 27.56,
+"e": 27.68
+},
+{
+"w": "demandes,",
+"red": false,
+"s": 27.68,
+"e": 28.14
+},
+{
+"w": "on",
+"red": false,
+"s": 28.3,
+"e": 28.44
+},
+{
+"w": "les",
+"red": false,
+"s": 28.44,
+"e": 28.54
+},
+{
+"w": "construit :",
+"red": false,
+"s": 28.54,
+"e": 29.04
+},
+{
+"w": "la",
+"red": false,
+"s": 29.04,
+"e": 29.56
+},
+{
+"w": "ferme",
+"red": false,
+"s": 29.56,
+"e": 29.96
+},
+{
+"w": "de",
+"red": false,
+"s": 29.96,
+"e": 30.06
+},
+{
+"w": "Lean !",
+"red": false,
+"s": 30.06,
+"e": 30.72
+},
+{
+"w": "Le",
+"red": false,
+"s": 30.72,
+"e": 30.94
+},
+{
+"w": "kebab",
+"red": false,
+"s": 30.94,
+"e": 31.32
+},
+{
+"w": "d'Alexis !",
+"red": false,
+"s": 31.32,
+"e": 31.44
+},
+{
+"w": "Le",
+"red": false,
+"s": 32.34,
+"e": 32.46
+},
+{
+"w": "poulet",
+"red": false,
+"s": 32.46,
+"e": 32.76
+},
+{
+"w": "frit",
+"red": false,
+"s": 32.76,
+"e": 33.0
+},
+{
+"w": "de",
+"red": false,
+"s": 33.0,
+"e": 33.18
+},
+{
+"w": "Bunny",
+"red": false,
+"s": 33.18,
+"e": 33.46
+},
+{
+"w": "Bugzy !",
+"red": false,
+"s": 33.46,
+"e": 34.34
+},
+{
+"w": "Le",
+"red": false,
+"s": 34.34,
+"e": 34.46
+},
+{
+"w": "bistro",
+"red": false,
+"s": 34.46,
+"e": 34.86
+},
+{
+"w": "de",
+"red": false,
+"s": 34.86,
+"e": 35.0
+},
+{
+"w": "quartier",
+"red": false,
+"s": 35.0,
+"e": 35.34
+},
+{
+"w": "de",
+"red": false,
+"s": 35.34,
+"e": 35.48
+},
+{
+"w": "Fizenn !",
+"red": false,
+"s": 35.48,
+"e": 36.38
+},
+{
+"w": "Le",
+"red": false,
+"s": 36.38,
+"e": 36.62
+},
+{
+"w": "sentier",
+"red": false,
+"s": 36.62,
+"e": 37.0
+},
+{
+"w": "du",
+"red": false,
+"s": 37.0,
+"e": 37.14
+},
+{
+"w": "volcan",
+"red": false,
+"s": 37.14,
+"e": 37.42
+},
+{
+"w": "de",
+"red": false,
+"s": 37.42,
+"e": 37.66
+},
+{
+"w": "Ma",
+"red": false,
+"s": 37.66,
+"e": 38.14
+},
+{
+"w": "Tribu !",
+"red": false,
+"s": 38.14,
+"e": 38.62
+},
+{
+"w": "Et",
+"red": false,
+"s": 38.62,
+"e": 38.82
+},
+{
+"w": "la",
+"red": false,
+"s": 38.82,
+"e": 38.94
+},
+{
+"w": "caserne",
+"red": false,
+"s": 38.94,
+"e": 39.3
+},
+{
+"w": "de",
+"red": false,
+"s": 39.3,
+"e": 39.46
+},
+{
+"w": "pompiers",
+"red": false,
+"s": 39.46,
+"e": 39.82
+},
+{
+"w": "de",
+"red": false,
+"s": 39.82,
+"e": 39.96
+},
+{
+"w": "Salman !",
+"red": false,
+"s": 39.96,
+"e": 40.38
+},
+{
+"w": "Mais",
+"red": false,
+"s": 40.98,
+"e": 41.2
+},
+{
+"w": "maintenant…",
+"red": false,
+"s": 41.2,
+"e": 41.56
+},
+{
+"w": "l'île",
+"red": false,
+"s": 42.14,
+"e": 42.42
+},
+{
+"w": "voisine",
+"red": false,
+"s": 42.42,
+"e": 42.76
+},
+{
+"w": "approche.",
+"red": false,
+"s": 42.76,
+"e": 43.28
+},
+{
+"w": "Que",
+"red": false,
+"s": 43.64,
+"e": 43.8
+},
+{
+"w": "fait",
+"red": false,
+"s": 43.8,
+"e": 44.0
+},
+{
+"w": "Vulkaris ?",
+"red": false,
+"s": 44.0,
+"e": 45.18
+},
+{
+"w": "A :",
+"red": false,
+"s": 45.18,
+"e": 45.38
+},
+{
+"w": "on",
+"red": false,
+"s": 45.84,
+"e": 45.96
+},
+{
+"w": "crée",
+"red": false,
+"s": 45.96,
+"e": 46.24
+},
+{
+"w": "une",
+"red": false,
+"s": 46.24,
+"e": 46.38
+},
+{
+"w": "armée.",
+"red": false,
+"s": 46.38,
+"e": 46.68
+},
+{
+"w": "B :",
+"red": false,
+"s": 47.16,
+"e": 47.44
+},
+{
+"w": "on",
+"red": false,
+"s": 47.92,
+"e": 48.04
+},
+{
+"w": "propose",
+"red": false,
+"s": 48.04,
+"e": 48.36
+},
+{
+"w": "une",
+"red": false,
+"s": 48.36,
+"e": 48.6
+},
+{
+"w": "alliance.",
+"red": false,
+"s": 48.6,
+"e": 48.8
+},
+{
+"w": "Commente",
+"red": false,
+"s": 49.46,
+"e": 49.84
+},
+{
+"w": "A",
+"red": false,
+"s": 49.84,
+"e": 50.16
+},
+{
+"w": "ou",
+"red": false,
+"s": 50.16,
+"e": 50.44
+},
+{
+"w": "B !",
+"red": false,
+"s": 50.44,
+"e": 50.62
+},
+{
+"w": "Et",
+"red": false,
+"s": 51.0,
+"e": 51.14
+},
+{
+"w": "tague",
+"red": false,
+"s": 51.14,
+"e": 51.32
+},
+{
+"w": "un",
+"red": false,
+"s": 51.32,
+"e": 51.46
+},
+{
+"w": "ami",
+"red": false,
+"s": 51.46,
+"e": 51.68
+},
+{
+"w": "pour",
+"red": false,
+"s": 51.68,
+"e": 51.88
+},
+{
+"w": "en",
+"red": false,
+"s": 51.88,
+"e": 52.0
+},
+{
+"w": "faire",
+"red": false,
+"s": 52.0,
+"e": 52.1
+},
+{
+"w": "ton",
+"red": false,
+"s": 52.1,
+"e": 52.26
+},
+{
+"w": "ministre.",
+"red": false,
+"s": 52.26,
+"e": 52.54
+},
+{
+"w": "Le",
+"red": false,
+"s": 53.12,
+"e": 53.28
+},
+{
+"w": "prochain",
+"red": false,
+"s": 53.28,
+"e": 53.54
+},
+{
+"w": "chantier",
+"red": false,
+"s": 53.54,
+"e": 53.98
+},
+{
+"w": "coûte",
+"red": false,
+"s": 53.98,
+"e": 54.28
+},
+{
+"w": "deux",
+"red": false,
+"s": 54.28,
+"e": 54.46
+},
+{
+"w": "mille",
+"red": false,
+"s": 54.46,
+"e": 54.64
+},
+{
+"w": "pièces :",
+"red": false,
+"s": 54.64,
+"e": 55.1
+},
+{
+"w": "chaque",
+"red": false,
+"s": 55.42,
+"e": 55.74
+},
+{
+"w": "like,",
+"red": false,
+"s": 55.74,
+"e": 55.98
+},
+{
+"w": "c'est",
+"red": false,
+"s": 56.24,
+"e": 56.36
+},
+{
+"w": "une",
+"red": false,
+"s": 56.36,
+"e": 56.56
+},
+{
+"w": "pièce",
+"red": false,
+"s": 56.56,
+"e": 56.82
+},
+{
+"w": "d'or.",
+"red": false,
+"s": 56.82,
+"e": 57.1
+},
+{
+"w": "Mets",
+"red": false,
+"s": 57.1,
+"e": 57.41
+},
+{
+"w": "ton",
+"red": false,
+"s": 57.41,
+"e": 57.72
+},
+{
+"w": "like !",
+"red": false,
+"s": 57.72,
+"e": 57.96
+},
+{
+"w": "Abonne-toi",
+"red": false,
+"s": 58.5,
+"e": 58.96
+},
+{
+"w": "pour",
+"red": false,
+"s": 58.96,
+"e": 59.12
+},
+{
+"w": "devenir",
+"red": false,
+"s": 59.12,
+"e": 59.36
+},
+{
+"w": "habitant.",
+"red": false,
+"s": 59.36,
+"e": 59.86
+},
+{
+"w": "Demain,",
+"red": false,
+"s": 60.3,
+"e": 60.72
+},
+{
+"w": "jour",
+"red": false,
+"s": 60.9,
+"e": 61.1
+},
+{
+"w": "cinq :",
+"red": false,
+"s": 61.1,
+"e": 61.94
+},
+{
+"w": "on",
+"red": false,
+"s": 61.94,
+"e": 62.04
+},
+{
+"w": "saura",
+"red": false,
+"s": 62.04,
+"e": 62.38
+},
+{
+"w": "si",
+"red": false,
+"s": 62.38,
+"e": 62.54
+},
+{
+"w": "c'est",
+"red": false,
+"s": 62.54,
+"e": 62.7
+},
+{
+"w": "la",
+"red": false,
+"s": 62.7,
+"e": 62.82
+},
+{
+"w": "guerre…",
+"red": false,
+"s": 62.82,
+"e": 63.0
+}
+]
