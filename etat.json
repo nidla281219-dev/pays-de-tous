@@ -1,6 +1,6 @@
 {
- "jour": 4,
- "habitants": 1379,
+ "jour": 5,
+ "habitants": 1654,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -89,13 +89,37 @@
    "nom": "Caserne de pompiers de salman381560",
    "place": 6,
    "par": "@salman381560 (Instagram, métier pompier, 4 likes)"
+  },
+  {
+   "type": "mine",
+   "nom": "Mine de quentin.gsdn",
+   "place": 7,
+   "par": "@quentin.gsdn (Instagram, 62 likes)"
+  },
+  {
+   "type": "port",
+   "nom": "Port de cesare_92b",
+   "place": 8,
+   "par": "@cesare_92b (Instagram, 34 likes)"
+  },
+  {
+   "type": "forge",
+   "nom": "Forge de 4kage5an",
+   "place": 9,
+   "par": "@4kage5an (Instagram, forgeron, 10 likes)"
+  },
+  {
+   "type": "prison",
+   "nom": "Prison de leoetpaslesbas",
+   "place": 10,
+   "par": "@leoetpaslesbas (Instagram, 8 likes)"
   }
  ],
  "vote_en_cours": {
-  "jour": 4,
+  "jour": 5,
   "questions": [
-   "Une île voisine veut envahir Vulkaris : A = créer une armée / B = proposer une alliance",
-   "Tague un ami pour en faire ton ministre"
+   "Qui devient commandant de l'armée ? (candidature la plus likée)",
+   "On attaque l'île ennemie en premier (A) ou on se défend et on attend (B) ?"
   ]
  },
  "historique": [
@@ -114,12 +138,16 @@
   {
    "jour": 4,
    "resume": "1379 habitants. Référendum : karting 74 voix/72 likes, stade 68/71 → karting construit (trésor 2144+1009-3000=153). Montage demandes : ferme, kebab, poulet frit, bistro, sentier du volcan, caserne de pompiers. Île ennemie → vote A armée / B alliance. Prochain chantier 2000."
+  },
+  {
+   "jour": 5,
+   "resume": "1654 habitants (YT 392/TT 110/IG 1152). Vote A armée 129 / B alliance 24 → armée de 129 volontaires. +662 likes → trésor 815 / 2000 (base militaire). Demandes : mine @quentin.gsdn, port @cesare_92b, forge @4kage5an, prison @leoetpaslesbas. Questions : commandant (plus liké) + A attaquer / B se défendre."
   }
  ],
  "habitants_detail": {
-  "youtube": 171,
-  "tiktok": 89,
-  "instagram": 604
+  "youtube": 392,
+  "tiktok": 110,
+  "instagram": 1152
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -146,20 +174,24 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 153,
+ "tresor": 815,
  "tresor_detail": {
-  "avant": 2144,
-  "likes_jour3": {
-   "youtube": 161,
-   "tiktok": 75,
-   "instagram": 773
+  "avant": 153,
+  "likes_jour4": {
+   "youtube": 123,
+   "tiktok": 25,
+   "instagram": 514
   },
-  "depense": {
-   "karting": 3000
-  }
+  "depense": {}
  },
  "objectif": {
-  "nom": "défense de l'île (selon le vote : base militaire ou ambassade)",
+  "nom": "base militaire",
   "prix": 2000
+ },
+ "armee": {
+  "cree": "jour 5",
+  "vote": "A armée 129 voix (YT 24, TT 5, IG 100) / B alliance 24 (YT 2, IG 22)",
+  "soldats": 129,
+  "commandant": null
  }
 }
