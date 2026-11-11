@@ -428,13 +428,37 @@ function drapeauEnnemi(){const cv=document.createElement('canvas');cv.width=240;
  const tx=new THREE.CanvasTexture(cv);tx.colorSpace=THREE.SRGBColorSpace;return tx}
 const ENN=new THREE.Group();ENN.visible=false;scene.add(ENN);const NAV=[];
 function construireEnnemi(o){const [ix,iz]=o.ile||[-60,700];const L=[];
- {const g=new THREE.ConeGeometry(o.rayon||110,o.haut||80,14,4).toNonIndexed();g.deleteAttribute('uv');const p=g.attributes.position;for(let i=0;i<p.count;i++){const y=p.getY(i);p.setX(i,p.getX(i)*(1+.18*Math.sin(i*1.7)));p.setZ(i,p.getZ(i)*(.75+.12*Math.cos(i*2.3)));p.setY(i,y+(y<35?Math.sin(i)*3:0))}g.computeVertexNormals();g.translate(ix,(o.haut||80)/2-14,iz);L.push(paint(g,'#3d3a40'))}
- for(let i=0;i<9;i++){const a=i*.7,r=40+i*6;const g=new THREE.ConeGeometry(6,30+i%3*12,5).toNonIndexed();g.deleteAttribute('uv');g.translate(ix+Math.cos(a)*r,10,iz+Math.sin(a)*r*.7);L.push(paint(g,'#2a272e'))}
- // forteresse
- bx(L,40,14,22,ix,52,iz-10,'#4a4550');for(const d of[-1,1]){cyl(L,6,6.5,30,ix+d*22,58,iz-10,'#3f3a46',10);{const c=new THREE.ConeGeometry(7.5,10,10).toNonIndexed();c.deleteAttribute('uv');c.translate(ix+d*22,78,iz-10);L.push(paint(c,'#5b1f7a'))}}
- for(let i=0;i<8;i++)bx(L,3,3,3,ix-17+i*5,60,iz+1,'#4a4550');for(let i=0;i<4;i++)bx(L,1.4,2.6,.3,ix-12+i*8,52,iz+1.2,'#ff8a2a');
+ // ===== vraie île : relief, plage, forêt sombre, montagne, village, port, forteresse =====
+ const RX=150,RZ=105,FX=ix-10,FZ=iz-20,FP=24,MX=ix+45,MZ=iz+35;
+ const eh=(x,z)=>{const dx=(x-ix)/RX,dz=(z-iz)/RZ;let d=Math.sqrt(dx*dx+dz*dz);d*=1+.35*(fbm(x*.018+7,z*.018+3)-.5);const b=1-d;
+  if(b<=0)return -7;let h=b<.1?-5+b*90:4+(b-.1)*55*(.55+.9*fbm(x*.03,z*.03));
+  h+=95*Math.exp(-((x-MX)**2+(z-MZ)**2)/(2*38*38))*(.8+.4*fbm(x*.05,z*.05));
+  const fd=Math.hypot(x-FX,z-FZ);if(b>.1){const w=Math.max(0,Math.min(1,(40-fd)/16));h=h*(1-w)+FP*w}return h};
+ {const G=new THREE.PlaneGeometry(RX*2.5,RZ*2.5,170,120);G.rotateX(-Math.PI/2);G.translate(ix,0,iz);const P=G.attributes.position,C=[];const c=new THREE.Color();
+  for(let i=0;i<P.count;i++){const x=P.getX(i),z=P.getZ(i),h=eh(x,z);P.setY(i,h);const n=fbm(x*.08,z*.08);
+   if(h<-1.5)c.set('#c9b57e');else if(h<3.2)c.set(n>.5?'#e2d09a':'#d8c48c');else if(h<45)c.set(n>.55?'#355c33':n>.4?'#2f5230':'#3d6a38');else if(h<75)c.set(n>.5?'#5d5862':'#4e4a55');else c.set('#3a3640');
+   C.push(c.r,c.g,c.b)}
+  G.setAttribute('color',new THREE.Float32BufferAttribute(C,3));const g=G.toNonIndexed();g.deleteAttribute('uv');g.computeVertexNormals();L.push(g)}
+ // cratère rougeoyant au sommet
+ {const hy=eh(MX,MZ);cyl(L,9,13,3,MX,hy-1,MZ,'#2a2228',12);cyl(L,7,7,.5,MX,hy+.6,MZ,'#ff5a1a',12)}
+ // forêt de sapins sombres
+ for(let i=0;i<420;i++){const x=ix+(hash(i,1)-.5)*RX*2,z=iz+(hash(i,2)-.5)*RZ*2,h=eh(x,z);if(h<6||h>46||Math.hypot(x-FX,z-FZ)<44||(z<iz-55&&Math.abs(x-ix+40)<45))continue;
+  const s=1+hash(i,3)*.8;cyl(L,.5,.7,3*s,x,h+1.4*s,z,'#3b2a20',5);const k=new THREE.ConeGeometry(3*s,9*s,6).toNonIndexed();k.deleteAttribute('uv');k.translate(x,h+7*s,z);L.push(paint(k,hash(i,4)>.5?'#1f3d27':'#26482c'))}
+ // village au bord de l'eau (toits sombres)
+ for(let i=0;i<12;i++){const x=ix-75+(i%6)*15+(hash(i,9)-.5)*4,z=iz-62-Math.floor(i/6)*16,h=eh(x,z);if(h<3)continue;const m=maison(900+i);const ry=Math.PI+(hash(i,8)-.5)*.4;
+  for(const gg of m.L){gg.rotateY(ry);gg.translate(x,h,z);if(gg.attributes.color){const cc=gg.attributes.color;for(let j=0;j<cc.count;j++){cc.setX(j,cc.getX(j)*.62);cc.setY(j,cc.getY(j)*.55);cc.setZ(j,cc.getZ(j)*.68)}}L.push(gg)}}
+ // port en bois
+ bx(L,40,1,7,ix-40,1.2,iz-98,'#5a4330');for(let k=0;k<3;k++)bx(L,5,1,22,ix-62+k*20,1.2,iz-110,'#5a4330');for(let k=0;k<10;k++)cyl(L,.5,.5,6,ix-60+k*4.5,-1.5,iz-101,'#3b2a20',6);
+ // forteresse sur la colline : remparts, 4 tours, donjon
+ {const y=FP;const R=22;for(let k=0;k<4;k++){const a=k*Math.PI/2+Math.PI/4;const tx=FX+Math.cos(a)*R,tz=FZ+Math.sin(a)*R;cyl(L,4.2,4.8,22,tx,y+11,tz,'#4a4550',10);cyl(L,5,5,1.4,tx,y+22.5,tz,'#3f3a46',10);{const c=new THREE.ConeGeometry(5.6,9,10).toNonIndexed();c.deleteAttribute('uv');c.translate(tx,y+27.5,tz);L.push(paint(c,'#5b1f7a'))}
+   const a2=a+Math.PI/2,nx=FX+Math.cos(a2)*R,nz=FZ+Math.sin(a2)*R,mx=(tx+nx)/2,mz=(tz+nz)/2,len=Math.hypot(nx-tx,nz-tz),ang=Math.atan2(nz-tz,nx-tx);
+   bx(L,len,12,3,mx,y+6,mz,'#55505c',-ang);for(let j=0;j<7;j++){const u=(j+.5)/7-.5;bx(L,2,2,3.2,mx+Math.cos(ang)*u*len,y+13,mz+Math.sin(ang)*u*len,'#55505c',-ang)}}
+  bx(L,8,9,1,FX,y+4.5,FZ-R*.72,'#1a1418');bx(L,18,26,16,FX,y+13,FZ+2,'#433e4a');bx(L,19,1.4,17,FX,y+26.5,FZ+2,'#3a3540');
+  for(let j=0;j<5;j++){bx(L,2.2,2.2,17.4,FX-8+j*4,y+28,FZ+2,'#433e4a')}
+  for(let e=0;e<3;e++)for(let j=0;j<4;j++)bx(L,1.4,2.4,.4,FX-6+j*4,y+8+e*6,FZ-6.1,'#ff8a2a')}
  ENN.add(new THREE.Mesh(merge(L),VMAT));
- const ft=drapeauEnnemi();const fl=new THREE.Mesh(new THREE.PlaneGeometry(24,16),new THREE.MeshStandardMaterial({map:ft,side:THREE.DoubleSide}));fl.position.set(ix+12,96,iz-10);ENN.add(fl);cylMesh(ENN,ix,iz-10);
+ const ft=drapeauEnnemi();const fl=new THREE.Mesh(new THREE.PlaneGeometry(16,11),new THREE.MeshStandardMaterial({map:ft,side:THREE.DoubleSide}));fl.position.set(FX+8.6,FP+50,FZ+2);ENN.add(fl);
+ {const m=new THREE.Mesh(new THREE.CylinderGeometry(.5,.5,24,6),new THREE.MeshStandardMaterial({color:'#222'}));m.position.set(FX,FP+40,FZ+2);ENN.add(m)}
  const n=o.navires||5;for(let k=0;k<n;k++){const S=[];const H='#2b2530';bx(S,22,4,7,0,2,0,H);bx(S,22.4,.6,7.4,0,4.2,0,'#5b1f7a');{const c=new THREE.ConeGeometry(3.7,8,4).toNonIndexed();c.deleteAttribute('uv');c.rotateY(Math.PI/4);c.rotateZ(-Math.PI/2);c.scale(1,.6,1.3);c.translate(14.5,2.2,0);S.push(paint(c,H))}
   bx(S,6,3,6,-7,6,0,'#3a3340');for(const x of[-8,6])for(const d of[-1,1])cyl(S,.5,.5,3,x+d*0,5.6,d*3.6,'#111',6);
   for(const [mx,mh] of[[-2,20],[6,16]]){cyl(S,.35,.45,mh,mx,4+mh/2,0,'#3a2a20',6);bx(S,.3,mh*.6,9,mx+.4,4+mh*.55,0,'#7a1f2b')}
