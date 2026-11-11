@@ -4,6 +4,7 @@ on:
     inputs:
       jour: {description: "numéro du jour", default: "1"}
       heure: {description: "heure de publication (heure suisse, publié tout de suite si passée)", default: "17:00"}
+      envoyer: {description: "oui = envoi YouTube ; non = seulement refaire la vidéo", default: "oui"}
 permissions:
   contents: write
 concurrency: {group: publier-rapide, cancel-in-progress: false}
@@ -43,11 +44,13 @@ jobs:
           for k in 1 2 3 4 5 6; do echo "file '$PWD/morceaux/morceau_$k.mp4'"; done > liste.txt
           ffmpeg -v error -y -f concat -safe 0 -i liste.txt -c copy studio/pays_j${{ inputs.jour }}_video.mp4
           cd studio && python mix.py ${{ inputs.jour }}
-      - run: python studio/publier.py verifier
+      - if: inputs.envoyer != 'non'
+        run: python studio/publier.py verifier
       - name: Envoi YouTube
+        if: inputs.envoyer != 'non'
         run: python studio/publier.py publier "${{ inputs.jour }}" studio/le_pays_de_tous_jour${{ inputs.jour }}.mp4 "${{ inputs.heure }}"
       - run: cp studio/le_pays_de_tous_jour${{ inputs.jour }}.mp4 jours/jour${{ inputs.jour }}/video.mp4
       - if: always()
         run: |
           git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
-          git add jours; git diff --cached --quiet || (git commit -m "Jour ${{ inputs.jour }} envoyé sur YouTube (rapide)" && git pull --rebase -q && git push)
+          git add jours; git diff --cached --quiet || (git commit -m "Jour ${{ inputs.jour }} vidéo (rapide, envoi=${{ inputs.envoyer }})" && git pull --rebase -q && git push)
