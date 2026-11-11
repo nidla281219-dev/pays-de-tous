@@ -1,0 +1,30 @@
+name: Remplacer une vidéo YouTube (supprime l'ancienne, envoie jours/jourN/video.mp4)
+on:
+  workflow_dispatch:
+    inputs:
+      jour: {description: "numéro du jour", default: "1"}
+      ancien: {description: "ID YouTube de la vidéo à supprimer", default: ""}
+      heure: {description: "heure de publication (heure suisse, publié tout de suite si passée)", default: "17:00"}
+permissions:
+  contents: write
+concurrency: {group: publier-rapide, cancel-in-progress: false}
+jobs:
+  r:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q requests
+      - if: inputs.ancien != ''
+        run: python studio/publier.py supprimer "${{ inputs.ancien }}"
+      - run: python studio/publier.py publier "${{ inputs.jour }}" "jours/jour${{ inputs.jour }}/video.mp4" "${{ inputs.heure }}"
+      - if: always()
+        run: |
+          git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
+          git add jours; git diff --cached --quiet || (git commit -m "Jour ${{ inputs.jour }} remplacé sur YouTube" && git pull --rebase -q && git push)

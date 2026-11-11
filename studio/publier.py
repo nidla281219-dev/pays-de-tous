@@ -1,5 +1,6 @@
 """Le Pays de Tous — publication YouTube (chaîne séparée d'Énigmo).
 python publier.py verifier                      → affiche la chaîne liée au jeton (rien n'est envoyé)
+python publier.py supprimer ID                   → supprime une vidéo de la chaîne (remplacement)
 python publier.py publier N video.mp4 [HH:MM]   → envoie le jour N, programmé à HH:MM heure suisse (publié tout de suite si l'heure est passée)
 Secrets GitHub du dépôt pays-de-tous : YT_CLIENT_ID, YT_CLIENT_SECRET (client OAuth « Pays de Tous ») + YT_REFRESH_TOKEN (autorisation donnée sur la chaîne Le Pays de Tous).
 Sécurité : refuse d'envoyer si la chaîne du jeton ne s'appelle pas « … Pays de Tous … » (jamais sur Énigmo par erreur).
@@ -64,8 +65,15 @@ def maintenant(vid):
     if not r.ok: sys.exit(f'Refusé ({r.status_code}) : {r.text[:300]}')
     print(f'{vid} est maintenant publique : https://youtube.com/shorts/{vid}')
 
+def supprimer(vid):
+    h = jeton(); verifier(h)
+    r = requests.delete(f'{API}/videos', headers=h, params={'id': vid}, timeout=30)
+    if not r.ok: sys.exit(f'Suppression refusée ({r.status_code}) : {r.text[:300]}')
+    print(f'{vid} supprimée')
+
 if __name__ == '__main__':
     a = sys.argv[1:]
     if a[0] == 'verifier': verifier(jeton())
     elif a[0] == 'maintenant': maintenant(a[1])
+    elif a[0] == 'supprimer': supprimer(a[1])
     else: publier(int(a[1]), a[2], a[3] if len(a) > 3 else '18:00')
