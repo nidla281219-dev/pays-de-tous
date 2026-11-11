@@ -33,8 +33,8 @@ jobs:
       - if: inputs.action == 'publier'
         name: Rendu 3D + son
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-          npm install --no-audit --no-fund && npx playwright install --with-deps chromium
+          { pip install -q --break-system-packages imageio-ffmpeg && sudo ln -sf "$(python3 -c 'import imageio_ffmpeg as i;print(i.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg; }
+          npm install --no-audit --no-fund && (timeout 90 npx playwright install --with-deps chromium || npx playwright install chromium)
           cd studio && node render.js --jour ${{ inputs.jour }} pays_j${{ inputs.jour }}_video.mp4 && python mix.py ${{ inputs.jour }}
       - if: inputs.action == 'publier'
         name: Envoi YouTube
