@@ -112,7 +112,11 @@
    "type": "prison",
    "nom": "Prison de leoetpaslesbas",
    "place": 10,
-   "par": "@leoetpaslesbas (Instagram, 8 likes)"
+   "par": "@leoetpaslesbas (Instagram, 8 likes)",
+   "pos": [
+    55,
+    108
+   ]
   }
  ],
  "vote_en_cours": {
