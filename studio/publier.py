@@ -12,6 +12,7 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 JOURS = os.path.join(ICI, '..', 'jours')
 API, UP = 'https://www.googleapis.com/youtube/v3', 'https://www.googleapis.com/upload/youtube/v3'
 TZ = ZoneInfo('Europe/Zurich')
+LIEN = '🏡 Achète ta maison sur Vulkaris : https://lepaysdetous.github.io'
 
 def jeton():
     r = requests.post('https://oauth2.googleapis.com/token', data={
@@ -39,7 +40,7 @@ def publier(n, video, heure='18:00'):
     tout_de_suite = quand <= datetime.datetime.now(TZ) + datetime.timedelta(minutes=15)
     status = {'privacyStatus': 'public' if tout_de_suite else 'private', 'selfDeclaredMadeForKids': False, 'containsSyntheticMedia': False}
     if not tout_de_suite: status['publishAt'] = quand.astimezone(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-    body = {'snippet': {'title': M['titre'][:100], 'description': M['description'][:4900], 'tags': M.get('tags', []),
+    body = {'snippet': {'title': M['titre'][:100], 'description': (M['description'] if 'lepaysdetous.github.io' in M['description'] else LIEN + '\n\n' + M['description'])[:4900], 'tags': M.get('tags', []),
                         'categoryId': '24', 'defaultLanguage': 'fr', 'defaultAudioLanguage': 'fr'}, 'status': status}
     r = requests.post(f'{UP}/videos?uploadType=resumable&part=snippet,status', headers={**h, 'Content-Type': 'application/json; charset=UTF-8',
                       'X-Upload-Content-Type': 'video/mp4', 'X-Upload-Content-Length': str(os.path.getsize(video))}, data=json.dumps(body), timeout=60)
@@ -71,9 +72,29 @@ def supprimer(vid):
     if not r.ok: sys.exit(f'Suppression refusée ({r.status_code}) : {r.text[:300]}')
     print(f'{vid} supprimée')
 
+def lien():
+    """Ajoute le lien du site dans la description de la chaîne et de toutes ses vidéos (une seule fois)."""
+    h = jeton(); cid = verifier(h); H = {**h, 'Content-Type': 'application/json; charset=UTF-8'}
+    c = requests.get(f'{API}/channels', headers=h, params={'part': 'brandingSettings', 'id': cid}, timeout=30).json()['items'][0]
+    b = c['brandingSettings']; d = b.get('channel', {}).get('description', '')
+    if 'lepaysdetous.github.io' not in d:
+        b.setdefault('channel', {})['description'] = (LIEN + '\n\n' + d).strip()
+        r = requests.put(f'{API}/channels?part=brandingSettings', headers=H, data=json.dumps({'id': cid, 'brandingSettings': b}), timeout=30)
+        print('chaîne :', 'lien ajouté' if r.ok else f'refusé {r.status_code} {r.text[:200]}')
+    else: print('chaîne : lien déjà présent')
+    up = requests.get(f'{API}/channels', headers=h, params={'part': 'contentDetails', 'id': cid}, timeout=30).json()['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+    ids = [i['contentDetails']['videoId'] for i in requests.get(f'{API}/playlistItems', headers=h, params={'part': 'contentDetails', 'playlistId': up, 'maxResults': 50}, timeout=30).json().get('items', [])]
+    for v in requests.get(f'{API}/videos', headers=h, params={'part': 'snippet', 'id': ','.join(ids)}, timeout=30).json().get('items', []):
+        sn = v['snippet']
+        if 'lepaysdetous.github.io' in sn.get('description', ''): print(v['id'], ': déjà'); continue
+        sn = {k: sn[k] for k in ('title', 'categoryId', 'tags', 'defaultLanguage', 'defaultAudioLanguage') if k in sn} | {'description': (LIEN + '\n\n' + sn.get('description', ''))[:4900]}
+        r = requests.put(f'{API}/videos?part=snippet', headers=H, data=json.dumps({'id': v['id'], 'snippet': sn}), timeout=30)
+        print(v['id'], ':', 'lien ajouté' if r.ok else f'refusé {r.status_code} {r.text[:200]}')
+
 if __name__ == '__main__':
     a = sys.argv[1:]
     if a[0] == 'verifier': verifier(jeton())
     elif a[0] == 'maintenant': maintenant(a[1])
     elif a[0] == 'supprimer': supprimer(a[1])
+    elif a[0] == 'lien': lien()
     else: publier(int(a[1]), a[2], a[3] if len(a) > 3 else '18:00')
