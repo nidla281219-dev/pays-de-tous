@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: |
           curl -s -o /dev/null -w "site: %{http_code}\n" "${{ inputs.url }}/"
-          curl -s -X POST "${{ inputs.url }}/api/panier" -H 'Content-Type: application/json' -H 'Origin: https://lepaysdetous.github.io' -d '{"maison":"petite","lot":35,"options":["piscine"],"statue":true,"ref":"P35-test"}' | sed -E 's#(https://checkout.stripe.com/c/pay/[^"]{0,30})[^"]*#\1…#'
+          curl -s -X POST "${{ inputs.url }}/api/panier" -H 'Content-Type: application/json' -H 'Origin: https://lepaysdetous.github.io' -d '{"maison":"petite","lot":35,"options":["piscine"],"statue":true,"ref":"P35-test","email":"test@example.com","accord":true}' | sed -E 's#(https://checkout.stripe.com/c/pay/[^"]{0,30})[^"]*#\1…#'
