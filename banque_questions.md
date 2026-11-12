@@ -1,4 +1,10 @@
 # Banque de questions — Le Pays de Tous
+## ⚠️ JOUR 6 (12.11) — demande de l'utilisateur : ANNONCER LES MAISONS À ACHETER
+- En plus du vote du jour : un passage de ~8–10 s : « Nouveau : le quartier des HAUTS DE PLAVULCA ouvre ! Choisis ta parcelle, construis ta maison à ton goût — piscine, statue en or… — et elle apparaît dans la vidéo avec ton nom. L'argent sert à financer NOTRE PROPRE JEU, où tu pourras te balader dans Vulkaris. Lien dans la bio. »
+- Visuel : un nouveau quartier sur l'île (parcelles vides avec panneaux « À VENDRE » + une villa de démonstration avec piscine et statue dorée, même style que le site boutique/index.html), + texte à l'écran « TA MAISON · dès 1,99 € · LIEN DANS LA BIO ».
+- Garder le reste du format (votes gratuits, likes = pièces). Ne nommer aucune plateforme ni « Stripe ». Description/épinglés : ajouter « 🏡 Ta maison : lepaysdetous.github.io » (YouTube) et « lien dans la bio » (TikTok/Insta).
+- Site : https://lepaysdetous.github.io (voir boutique/LISEZMOI.md).
+
 ## ⚠️ JOUR 4 — décidé par l'utilisateur (10.11, 00h28) : à appliquer
 - Les vues baissent : il veut des votes avec SUSPENSE et ENJEU (menace, ennemi, drame), plus des bâtiments.
 - Question principale du jour 4 : « Une île voisine veut envahir Vulkaris : A = créer une armée ⚔️ / B = proposer une alliance 🤝 » (des gens demandent une base militaire).
