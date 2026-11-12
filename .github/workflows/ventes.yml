@@ -1,0 +1,17 @@
+name: Ventes de la boutique (Stripe)
+on:
+  workflow_dispatch: {}
+  schedule: [{cron: "17 */3 * * *"}]
+permissions: {contents: write}
+jobs:
+  v:
+    runs-on: ubuntu-latest
+    env: {STRIPE_KEY: "${{ secrets.STRIPE_KEY }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q requests && python boutique/ventes.py
+      - run: |
+          git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
+          git add boutique; git diff --cached --quiet || (git commit -m "Ventes boutique" && git pull --rebase -q && git push)
