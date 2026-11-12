@@ -1,0 +1,1064 @@
+[
+{
+"w": "Les",
+"red": false,
+"s": 0.0,
+"e": 0.18
+},
+{
+"w": "navires",
+"red": false,
+"s": 0.18,
+"e": 0.46
+},
+{
+"w": "ennemis",
+"red": false,
+"s": 0.46,
+"e": 0.78
+},
+{
+"w": "approchent…",
+"red": false,
+"s": 0.78,
+"e": 1.42
+},
+{
+"w": "et",
+"red": false,
+"s": 1.72,
+"e": 1.94
+},
+{
+"w": "Vulkaris",
+"red": false,
+"s": 1.94,
+"e": 2.46
+},
+{
+"w": "a",
+"red": false,
+"s": 2.46,
+"e": 2.52
+},
+{
+"w": "choisi :",
+"red": false,
+"s": 2.52,
+"e": 2.9
+},
+{
+"w": "on",
+"red": false,
+"s": 3.3,
+"e": 3.4
+},
+{
+"w": "se",
+"red": false,
+"s": 3.4,
+"e": 3.56
+},
+{
+"w": "défend !",
+"red": false,
+"s": 3.56,
+"e": 3.88
+},
+{
+"w": "Jour",
+"red": false,
+"s": 4.54,
+"e": 4.62
+},
+{
+"w": "six,",
+"red": false,
+"s": 4.62,
+"e": 5.48
+},
+{
+"w": "vous",
+"red": false,
+"s": 5.48,
+"e": 5.56
+},
+{
+"w": "êtes",
+"red": false,
+"s": 5.56,
+"e": 5.8
+},
+{
+"w": "mille",
+"red": false,
+"s": 5.8,
+"e": 6.08
+},
+{
+"w": "huit",
+"red": false,
+"s": 6.08,
+"e": 6.36
+},
+{
+"w": "cent",
+"red": false,
+"s": 6.36,
+"e": 6.64
+},
+{
+"w": "soixante-six",
+"red": false,
+"s": 6.64,
+"e": 6.92
+},
+{
+"w": "habitants,",
+"red": false,
+"s": 6.92,
+"e": 7.52
+},
+{
+"w": "au",
+"red": false,
+"s": 7.52,
+"e": 7.72
+},
+{
+"w": "total !",
+"red": false,
+"s": 7.72,
+"e": 7.94
+},
+{
+"w": "Défense :",
+"red": false,
+"s": 8.58,
+"e": 9.04
+},
+{
+"w": "quarante",
+"red": false,
+"s": 9.04,
+"e": 9.32
+},
+{
+"w": "et",
+"red": false,
+"s": 9.32,
+"e": 9.6
+},
+{
+"w": "une",
+"red": false,
+"s": 9.6,
+"e": 9.88
+},
+{
+"w": "voix.",
+"red": false,
+"s": 9.88,
+"e": 10.16
+},
+{
+"w": "Attaque :",
+"red": false,
+"s": 10.66,
+"e": 11.08
+},
+{
+"w": "vingt-deux.",
+"red": false,
+"s": 11.08,
+"e": 12.36
+},
+{
+"w": "Votre",
+"red": false,
+"s": 12.36,
+"e": 12.54
+},
+{
+"w": "commandant,",
+"red": false,
+"s": 12.54,
+"e": 13.08
+},
+{
+"w": "avec",
+"red": false,
+"s": 13.24,
+"e": 13.38
+},
+{
+"w": "deux",
+"red": false,
+"s": 13.38,
+"e": 13.653
+},
+{
+"w": "cent",
+"red": false,
+"s": 13.653,
+"e": 13.927
+},
+{
+"w": "vingt-deux",
+"red": false,
+"s": 13.927,
+"e": 14.2
+},
+{
+"w": "likes :",
+"red": false,
+"s": 14.2,
+"e": 14.48
+},
+{
+"w": "Lorenzo !",
+"red": false,
+"s": 14.92,
+"e": 15.38
+},
+{
+"w": "Discipline,",
+"red": false,
+"s": 15.9,
+"e": 16.54
+},
+{
+"w": "honneur,",
+"red": false,
+"s": 16.84,
+"e": 17.24
+},
+{
+"w": "protection.",
+"red": false,
+"s": 17.5,
+"e": 17.78
+},
+{
+"w": "Vos",
+"red": false,
+"s": 18.46,
+"e": 18.6
+},
+{
+"w": "demandes",
+"red": false,
+"s": 18.6,
+"e": 18.9
+},
+{
+"w": "sont",
+"red": false,
+"s": 18.9,
+"e": 19.0
+},
+{
+"w": "construites :",
+"red": false,
+"s": 19.0,
+"e": 19.56
+},
+{
+"w": "l'aéroport",
+"red": false,
+"s": 19.98,
+"e": 20.5
+},
+{
+"w": "de",
+"red": false,
+"s": 20.5,
+"e": 20.64
+},
+{
+"w": "Chloé,",
+"red": false,
+"s": 20.64,
+"e": 21.06
+},
+{
+"w": "le",
+"red": false,
+"s": 21.38,
+"e": 21.5
+},
+{
+"w": "chantier",
+"red": false,
+"s": 21.5,
+"e": 21.86
+},
+{
+"w": "naval",
+"red": false,
+"s": 21.86,
+"e": 22.08
+},
+{
+"w": "de",
+"red": false,
+"s": 22.08,
+"e": 22.32
+},
+{
+"w": "Lucas,",
+"red": false,
+"s": 22.32,
+"e": 23.14
+},
+{
+"w": "et",
+"red": false,
+"s": 23.14,
+"e": 23.16
+},
+{
+"w": "le",
+"red": false,
+"s": 23.16,
+"e": 23.32
+},
+{
+"w": "labo",
+"red": false,
+"s": 23.32,
+"e": 23.6
+},
+{
+"w": "marin",
+"red": false,
+"s": 23.6,
+"e": 23.82
+},
+{
+"w": "de",
+"red": false,
+"s": 23.82,
+"e": 24.06
+},
+{
+"w": "Nikitoulich !",
+"red": false,
+"s": 24.06,
+"e": 25.2
+},
+{
+"w": "Trésor :",
+"red": false,
+"s": 25.2,
+"e": 25.82
+},
+{
+"w": "mille",
+"red": false,
+"s": 25.82,
+"e": 26.09
+},
+{
+"w": "huit",
+"red": false,
+"s": 26.09,
+"e": 26.36
+},
+{
+"w": "cent",
+"red": false,
+"s": 26.36,
+"e": 26.63
+},
+{
+"w": "vingt-huit",
+"red": false,
+"s": 26.63,
+"e": 26.9
+},
+{
+"w": "pièces.",
+"red": false,
+"s": 26.9,
+"e": 27.4
+},
+{
+"w": "Plus",
+"red": false,
+"s": 27.4,
+"e": 27.86
+},
+{
+"w": "que",
+"red": false,
+"s": 27.86,
+"e": 28.04
+},
+{
+"w": "cent",
+"red": false,
+"s": 28.04,
+"e": 28.48
+},
+{
+"w": "soixante-douze",
+"red": false,
+"s": 28.48,
+"e": 28.92
+},
+{
+"w": "pour",
+"red": false,
+"s": 28.92,
+"e": 29.16
+},
+{
+"w": "la",
+"red": false,
+"s": 29.16,
+"e": 29.28
+},
+{
+"w": "base",
+"red": false,
+"s": 29.28,
+"e": 29.46
+},
+{
+"w": "militaire !",
+"red": false,
+"s": 29.46,
+"e": 29.96
+},
+{
+"w": "Une",
+"red": false,
+"s": 30.42,
+"e": 30.64
+},
+{
+"w": "nouvelle :",
+"red": false,
+"s": 30.64,
+"e": 30.92
+},
+{
+"w": "on",
+"red": false,
+"s": 31.46,
+"e": 31.54
+},
+{
+"w": "veut",
+"red": false,
+"s": 31.54,
+"e": 31.66
+},
+{
+"w": "créer",
+"red": false,
+"s": 31.66,
+"e": 31.9
+},
+{
+"w": "un",
+"red": false,
+"s": 31.9,
+"e": 32.12
+},
+{
+"w": "jeu",
+"red": false,
+"s": 32.12,
+"e": 32.32
+},
+{
+"w": "où",
+"red": false,
+"s": 32.32,
+"e": 32.56
+},
+{
+"w": "tout",
+"red": false,
+"s": 32.56,
+"e": 32.8
+},
+{
+"w": "le",
+"red": false,
+"s": 32.8,
+"e": 32.92
+},
+{
+"w": "monde",
+"red": false,
+"s": 32.92,
+"e": 33.1
+},
+{
+"w": "pourra",
+"red": false,
+"s": 33.1,
+"e": 33.36
+},
+{
+"w": "aller",
+"red": false,
+"s": 33.36,
+"e": 33.6
+},
+{
+"w": "à",
+"red": false,
+"s": 33.6,
+"e": 33.7
+},
+{
+"w": "Vulkaris.",
+"red": false,
+"s": 33.7,
+"e": 34.72
+},
+{
+"w": "Rien",
+"red": false,
+"s": 34.72,
+"e": 34.98
+},
+{
+"w": "ne",
+"red": false,
+"s": 34.98,
+"e": 35.12
+},
+{
+"w": "change",
+"red": false,
+"s": 35.12,
+"e": 35.32
+},
+{
+"w": "dans",
+"red": false,
+"s": 35.32,
+"e": 35.5
+},
+{
+"w": "les",
+"red": false,
+"s": 35.5,
+"e": 35.62
+},
+{
+"w": "vidéos :",
+"red": false,
+"s": 35.62,
+"e": 35.94
+},
+{
+"w": "tout",
+"red": false,
+"s": 36.26,
+"e": 36.36
+},
+{
+"w": "reste",
+"red": false,
+"s": 36.36,
+"e": 36.58
+},
+{
+"w": "gratuit,",
+"red": false,
+"s": 36.58,
+"e": 37.02
+},
+{
+"w": "et",
+"red": false,
+"s": 37.3,
+"e": 37.4
+},
+{
+"w": "c'est",
+"red": false,
+"s": 37.4,
+"e": 37.54
+},
+{
+"w": "vous",
+"red": false,
+"s": 37.54,
+"e": 37.78
+},
+{
+"w": "qui",
+"red": false,
+"s": 37.78,
+"e": 37.94
+},
+{
+"w": "décidez.",
+"red": false,
+"s": 37.94,
+"e": 38.32
+},
+{
+"w": "Pour",
+"red": false,
+"s": 38.78,
+"e": 38.9
+},
+{
+"w": "nous",
+"red": false,
+"s": 38.9,
+"e": 39.02
+},
+{
+"w": "soutenir,",
+"red": false,
+"s": 39.02,
+"e": 39.5
+},
+{
+"w": "tu",
+"red": false,
+"s": 39.72,
+"e": 39.78
+},
+{
+"w": "peux",
+"red": false,
+"s": 39.78,
+"e": 39.92
+},
+{
+"w": "acheter",
+"red": false,
+"s": 39.92,
+"e": 40.2
+},
+{
+"w": "ta",
+"red": false,
+"s": 40.2,
+"e": 40.36
+},
+{
+"w": "propre",
+"red": false,
+"s": 40.36,
+"e": 40.7
+},
+{
+"w": "maison",
+"red": false,
+"s": 40.7,
+"e": 41.04
+},
+{
+"w": "dans",
+"red": false,
+"s": 41.04,
+"e": 41.24
+},
+{
+"w": "le",
+"red": false,
+"s": 41.24,
+"e": 41.36
+},
+{
+"w": "nouveau",
+"red": false,
+"s": 41.36,
+"e": 41.52
+},
+{
+"w": "quartier.",
+"red": false,
+"s": 41.52,
+"e": 42.0
+},
+{
+"w": "Lien",
+"red": false,
+"s": 42.32,
+"e": 42.52
+},
+{
+"w": "dans",
+"red": false,
+"s": 42.52,
+"e": 42.68
+},
+{
+"w": "la",
+"red": false,
+"s": 42.68,
+"e": 42.78
+},
+{
+"w": "bio.",
+"red": false,
+"s": 42.78,
+"e": 42.96
+},
+{
+"w": "Merci",
+"red": false,
+"s": 43.4,
+"e": 43.68
+},
+{
+"w": "à",
+"red": false,
+"s": 43.68,
+"e": 43.94
+},
+{
+"w": "empereur.pe,",
+"red": false,
+"s": 43.94,
+"e": 45.36
+},
+{
+"w": "le",
+"red": false,
+"s": 45.36,
+"e": 45.48
+},
+{
+"w": "premier",
+"red": false,
+"s": 45.48,
+"e": 45.82
+},
+{
+"w": "à",
+"red": false,
+"s": 45.82,
+"e": 46.0
+},
+{
+"w": "s'installer :",
+"red": false,
+"s": 46.0,
+"e": 46.44
+},
+{
+"w": "voici",
+"red": false,
+"s": 46.78,
+"e": 47.08
+},
+{
+"w": "sa",
+"red": false,
+"s": 47.08,
+"e": 47.28
+},
+{
+"w": "maison !",
+"red": false,
+"s": 47.28,
+"e": 47.48
+},
+{
+"w": "Question",
+"red": false,
+"s": 48.02,
+"e": 48.22
+},
+{
+"w": "du",
+"red": false,
+"s": 48.22,
+"e": 48.46
+},
+{
+"w": "jour :",
+"red": false,
+"s": 48.46,
+"e": 48.72
+},
+{
+"w": "comment",
+"red": false,
+"s": 49.14,
+"e": 49.34
+},
+{
+"w": "on",
+"red": false,
+"s": 49.34,
+"e": 49.58
+},
+{
+"w": "défend",
+"red": false,
+"s": 49.58,
+"e": 49.86
+},
+{
+"w": "la",
+"red": false,
+"s": 49.86,
+"e": 50.02
+},
+{
+"w": "plage ?",
+"red": false,
+"s": 50.02,
+"e": 50.42
+},
+{
+"w": "A,",
+"red": false,
+"s": 50.84,
+"e": 51.06
+},
+{
+"w": "un",
+"red": false,
+"s": 51.34,
+"e": 51.48
+},
+{
+"w": "grand",
+"red": false,
+"s": 51.48,
+"e": 51.68
+},
+{
+"w": "mur.",
+"red": false,
+"s": 51.68,
+"e": 51.94
+},
+{
+"w": "B,",
+"red": false,
+"s": 52.34,
+"e": 52.64
+},
+{
+"w": "des",
+"red": false,
+"s": 53.04,
+"e": 53.12
+},
+{
+"w": "canons.",
+"red": false,
+"s": 53.12,
+"e": 53.46
+},
+{
+"w": "C,",
+"red": false,
+"s": 53.78,
+"e": 54.06
+},
+{
+"w": "des",
+"red": false,
+"s": 54.44,
+"e": 54.54
+},
+{
+"w": "pièges",
+"red": false,
+"s": 54.54,
+"e": 54.84
+},
+{
+"w": "dans",
+"red": false,
+"s": 54.84,
+"e": 54.98
+},
+{
+"w": "le",
+"red": false,
+"s": 54.98,
+"e": 55.08
+},
+{
+"w": "sable.",
+"red": false,
+"s": 55.08,
+"e": 55.38
+},
+{
+"w": "Ou",
+"red": false,
+"s": 55.38,
+"e": 55.84
+},
+{
+"w": "propose",
+"red": false,
+"s": 55.84,
+"e": 56.2
+},
+{
+"w": "ta",
+"red": false,
+"s": 56.2,
+"e": 56.38
+},
+{
+"w": "propre",
+"red": false,
+"s": 56.38,
+"e": 56.66
+},
+{
+"w": "défense :",
+"red": false,
+"s": 56.66,
+"e": 57.26
+},
+{
+"w": "la",
+"red": false,
+"s": 57.54,
+"e": 57.62
+},
+{
+"w": "plus",
+"red": false,
+"s": 57.62,
+"e": 57.84
+},
+{
+"w": "likée",
+"red": false,
+"s": 57.84,
+"e": 58.24
+},
+{
+"w": "sera",
+"red": false,
+"s": 58.24,
+"e": 58.42
+},
+{
+"w": "construite !",
+"red": false,
+"s": 58.42,
+"e": 59.02
+},
+{
+"w": "Chaque",
+"red": false,
+"s": 59.3,
+"e": 59.66
+},
+{
+"w": "like,",
+"red": false,
+"s": 59.66,
+"e": 59.94
+},
+{
+"w": "c'est",
+"red": false,
+"s": 60.14,
+"e": 60.26
+},
+{
+"w": "une",
+"red": false,
+"s": 60.26,
+"e": 60.46
+},
+{
+"w": "pièce",
+"red": false,
+"s": 60.46,
+"e": 60.78
+},
+{
+"w": "pour",
+"red": false,
+"s": 60.78,
+"e": 60.94
+},
+{
+"w": "la",
+"red": false,
+"s": 60.94,
+"e": 61.04
+},
+{
+"w": "base.",
+"red": false,
+"s": 61.04,
+"e": 61.3
+},
+{
+"w": "Abonne-toi",
+"red": false,
+"s": 61.66,
+"e": 62.18
+},
+{
+"w": "pour",
+"red": false,
+"s": 62.18,
+"e": 62.34
+},
+{
+"w": "devenir",
+"red": false,
+"s": 62.34,
+"e": 62.6
+},
+{
+"w": "habitant.",
+"red": false,
+"s": 62.6,
+"e": 63.08
+},
+{
+"w": "Demain,",
+"red": false,
+"s": 63.5,
+"e": 63.96
+},
+{
+"w": "jour",
+"red": false,
+"s": 64.14,
+"e": 64.38
+},
+{
+"w": "sept :",
+"red": false,
+"s": 64.38,
+"e": 65.08
+},
+{
+"w": "l'ennemi",
+"red": false,
+"s": 65.08,
+"e": 65.52
+},
+{
+"w": "va-t-il",
+"red": false,
+"s": 65.52,
+"e": 65.82
+},
+{
+"w": "attaquer ?",
+"red": false,
+"s": 65.82,
+"e": 66.16
+}
+]
