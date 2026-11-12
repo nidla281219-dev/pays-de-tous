@@ -1,6 +1,21 @@
 {
- "paniers": 2,
- "payes": 0,
- "ca_eur": 0.0,
- "ventes": []
+ "paniers": 13,
+ "payes": 1,
+ "ca_eur": 2.98,
+ "ventes": [
+  {
+   "date": "12.11 13:18",
+   "maison": "cabane",
+   "parcelle": "1",
+   "email": "emp…",
+   "total": 2.98,
+   "choix": "P1-cabane-med-ocre-brun-bleu-haie-jardin-x",
+   "pseudo": "empereur.pe",
+   "boite": null,
+   "articles": [
+    "Cabane",
+    "Jardin fleuri"
+   ]
+  }
+ ]
 }
