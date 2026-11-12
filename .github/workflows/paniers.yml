@@ -1,0 +1,9 @@
+name: Détail des paniers (Stripe)
+on: {workflow_dispatch: {}}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    env: {STRIPE_KEY: "${{ secrets.STRIPE_KEY }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q requests && python boutique/paniers.py
