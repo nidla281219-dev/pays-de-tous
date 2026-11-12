@@ -146,8 +146,7 @@
  "vote_en_cours": {
   "jour": 6,
   "questions": [
-   "Nom de l'île ennemie ? (proposition la plus likée)",
-   "Défense de la côte : A mur sur la plage / B canons sur le volcan"
+   "Défense de la plage : A grand mur / B canons / C pièges dans le sable, ou proposition libre (la plus likée construite)"
   ]
  },
  "historique": [
@@ -173,7 +172,7 @@
   },
   {
    "jour": 6,
-   "resume": "Défense B 41 / attaque A 22 ; commandant @lorenzo_lns09 (222 likes) ; 1866 habitants ; trésor 1828/2000 ; aéroport, chantier naval, labo marin ; annonce jeu + Hauts de Plavulca. Questions : nom île ennemie + A mur / B canons."
+   "resume": "Défense B 41 / attaque A 22 ; commandant @lorenzo_lns09 (222 likes) ; 1866 habitants ; trésor 1828/2000 ; aéroport, chantier naval, labo marin ; annonce jeu + Hauts de Plavulca. Question : défense de la plage (A mur / B canons / C pièges, ou proposition libre)."
   }
  ],
  "habitants_detail": {
