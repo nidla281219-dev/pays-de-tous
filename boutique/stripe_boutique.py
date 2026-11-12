@@ -3,7 +3,10 @@ Secret : STRIPE_KEY (clé restreinte : Products, Prices, Payment Links, Checkout
 python boutique/stripe_boutique.py  → boutique/stripe_liens.json  {cabane: url, petite: url, grande: url, villa: url}
 """
 import os, json, sys, requests
-K = os.environ['STRIPE_KEY']; API = 'https://api.stripe.com/v1'; ICI = os.path.dirname(os.path.abspath(__file__))
+K = os.environ.get('STRIPE_KEY', '').strip()
+if not K: sys.exit('STRIPE_KEY vide ou absent dans les secrets Actions du dépôt.')
+print('clé :', K[:8] + '…', len(K), 'caractères')
+API = 'https://api.stripe.com/v1'; ICI = os.path.dirname(os.path.abspath(__file__))
 TAX = 'txcd_10000000'  # services fournis par voie électronique
 MAISONS = [('cabane', 'Cabane', 199), ('petite', 'Petite maison', 299), ('grande', 'Grande maison', 499), ('villa', 'Villa', 799)]
 OPTIONS = [('statue', 'Ta statue', 999), ('piscine', 'Piscine', 299), ('voiture', 'Voiture et garage', 199), ('fontaine', 'Fontaine', 199),
