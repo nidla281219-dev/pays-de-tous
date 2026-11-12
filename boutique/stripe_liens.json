@@ -1,0 +1,26 @@
+{
+ "cabane": {
+  "url": "https://buy.stripe.com/5kQ7sLdRQdhe5Sv6B1bAs00",
+  "id": "plink_1UavDKDduW8HXOmWQnQeZo1K",
+  "prix": "price_1UavDKDduW8HXOmWAj8CaWTB",
+  "options_facultatives": true
+ },
+ "petite": {
+  "url": "https://buy.stripe.com/fZu28rbJIa525Sv7F5bAs01",
+  "id": "plink_1UavDMDduW8HXOmWnn8LTG6B",
+  "prix": "price_1UavDLDduW8HXOmWcxcPAh8q",
+  "options_facultatives": true
+ },
+ "grande": {
+  "url": "https://buy.stripe.com/6oUbJ1cNM4KIgx99NdbAs02",
+  "id": "plink_1UavDNDduW8HXOmWQ6xYL6Mo",
+  "prix": "price_1UavDNDduW8HXOmWDrKW81yw",
+  "options_facultatives": true
+ },
+ "villa": {
+  "url": "https://buy.stripe.com/3cI14n8xwgtqcgT9NdbAs03",
+  "id": "plink_1UavDPDduW8HXOmWBiZFCVrh",
+  "prix": "price_1UavDODduW8HXOmWtJXW1gA7",
+  "options_facultatives": true
+ }
+}
