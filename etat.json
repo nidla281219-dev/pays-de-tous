@@ -1,6 +1,6 @@
 {
- "jour": 5,
- "habitants": 1654,
+ "jour": 6,
+ "habitants": 1866,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -117,13 +117,37 @@
     55,
     108
    ]
+  },
+  {
+   "type": "aeroport",
+   "nom": "Aéroport de chloe_vtr23",
+   "place": 11,
+   "par": "@chloe_vtr23 (Instagram, 13 likes)"
+  },
+  {
+   "type": "chantier_naval",
+   "nom": "Chantier naval de lucas_spn_",
+   "place": 12,
+   "par": "@lucas_spn_ (Instagram, 7 likes)"
+  },
+  {
+   "type": "labo_marin",
+   "nom": "Labo marin de nikitoulich",
+   "place": 13,
+   "par": "@nikitoulich (Instagram, 10 likes)"
+  },
+  {
+   "type": "quartier_hauts",
+   "nom": "Les Hauts de Plavulca",
+   "place": 14,
+   "par": "annonce jeu + maisons (demande de l'utilisateur)"
   }
  ],
  "vote_en_cours": {
-  "jour": 5,
+  "jour": 6,
   "questions": [
-   "Qui devient commandant de l'armée ? (candidature la plus likée)",
-   "On attaque l'île ennemie en premier (A) ou on se défend et on attend (B) ?"
+   "Nom de l'île ennemie ? (proposition la plus likée)",
+   "Défense de la côte : A mur sur la plage / B canons sur le volcan"
   ]
  },
  "historique": [
@@ -146,12 +170,16 @@
   {
    "jour": 5,
    "resume": "1654 habitants (YT 392/TT 110/IG 1152). Vote A armée 129 / B alliance 24 → armée de 129 volontaires. +662 likes → trésor 815 / 2000 (base militaire). Demandes : mine @quentin.gsdn, port @cesare_92b, forge @4kage5an, prison @leoetpaslesbas. Questions : commandant (plus liké) + A attaquer / B se défendre."
+  },
+  {
+   "jour": 6,
+   "resume": "Défense B 41 / attaque A 22 ; commandant @lorenzo_lns09 (222 likes) ; 1866 habitants ; trésor 1828/2000 ; aéroport, chantier naval, labo marin ; annonce jeu + Hauts de Plavulca. Questions : nom île ennemie + A mur / B canons."
   }
  ],
  "habitants_detail": {
-  "youtube": 392,
-  "tiktok": 110,
-  "instagram": 1152
+  "youtube": 415,
+  "tiktok": 114,
+  "instagram": 1337
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -178,13 +206,13 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 815,
+ "tresor": 1828,
  "tresor_detail": {
-  "avant": 153,
-  "likes_jour4": {
-   "youtube": 123,
-   "tiktok": 25,
-   "instagram": 514
+  "avant": 815,
+  "likes_jour5": {
+   "youtube": 111,
+   "tiktok": 23,
+   "instagram": 879
   },
   "depense": {}
  },
@@ -196,6 +224,12 @@
   "cree": "jour 5",
   "vote": "A armée 129 voix (YT 24, TT 5, IG 100) / B alliance 24 (YT 2, IG 22)",
   "soldats": 129,
-  "commandant": null
+  "commandant": {
+   "pseudo": "@lorenzo_lns09",
+   "plateforme": "instagram",
+   "likes": 222,
+   "devise": "Discipline, Honneur, Protection"
+  },
+  "strategie": "défense (B 41 voix : YT 4, IG 37 / A attaque 22 : YT 6, TT 1, IG 15)"
  }
 }
