@@ -9,13 +9,13 @@ while True:
     p = {'limit': 100, 'expand[]': 'data.line_items'}
     if apres: p['starting_after'] = apres
     d = requests.get('https://api.stripe.com/v1/checkout/sessions', auth=(K, ''), params=p, timeout=60).json()
-    ses += [s for s in d.get('data', []) if s.get('payment_link') in pl]
+    ses += [s for s in d.get('data', []) if s.get('payment_link') in pl or (s.get('metadata') or {}).get('maison')]
     if not d.get('has_more'): break
     apres = d['data'][-1]['id']
 paye = [s for s in ses if s['payment_status'] == 'paid']
 ca = sum(s['amount_total'] for s in paye) / 100
 champs = lambda s: {c['key']: (c.get('text') or {}).get('value') for c in s.get('custom_fields', [])}
-ventes = [{'date': datetime.datetime.fromtimestamp(s['created']).strftime('%d.%m %H:%M'), 'maison': pl[s['payment_link']], 'total': s['amount_total'] / 100,
+ventes = [{'date': datetime.datetime.fromtimestamp(s['created']).strftime('%d.%m %H:%M'), 'maison': pl.get(s.get('payment_link')) or s['metadata'].get('maison'), 'parcelle': (s.get('metadata') or {}).get('parcelle'), 'email': ((s.get('customer_details') or {}).get('email') or '')[:3] + '…', 'total': s['amount_total'] / 100,
            'choix': s.get('client_reference_id'), **champs(s), 'articles': [i['description'] for i in (s.get('line_items') or {}).get('data', [])]} for s in paye]
 json.dump({'paniers': len(ses), 'payes': len(paye), 'ca_eur': ca, 'ventes': ventes}, open(os.path.join(ICI, 'ventes.json'), 'w'), ensure_ascii=False, indent=1)
 md = [f'# Ventes — Les Hauts de Plavulca (mis à jour {datetime.datetime.now():%d.%m.%Y %H:%M} UTC)', '',
