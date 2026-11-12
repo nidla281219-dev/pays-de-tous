@@ -7,6 +7,7 @@ En plus, à la main dans timeline.json :
           (whoosh, pop, hit, chime, riser, tick, foule, epee, construction, pieces, vagues, mouettes, tambours, cor,
            canon, cloche, feu_artifice, moteur, ferme, oiseaux, feu)
   "ambiance": "vagues"   (fond sonore discret sur toute la vidéo ; ou ["vagues", "mouettes"])
+  "inserts": [{"t0": 30, "t1": 38, "fichier": "assets/site_demo.mp4", "debut": 0}]   (clip plein écran 1080×1920 qui remplace l'image entre t0 et t1, ex. démo du site)
 Un type sans fichier est ignoré sans erreur.
 """
 import os, sys, json, glob, zlib, subprocess
@@ -46,6 +47,15 @@ for t, typ, vol, dmax in sorted(ev):
     args += ['-i', fs]; f += f";[{k}:a]atrim=0:{dmax},afade=t=out:st={max(0, dmax - .3):.2f}:d=0.3,volume={vol},adelay={ms}|{ms}[s{k}]"; mix += f'[s{k}]'; k += 1
     compte[typ] = compte.get(typ, 0) + 1
 f += f";{mix}amix=inputs={k-1}:normalize=0:duration=first,atrim=0:{dur+.3:.2f},loudnorm=I=-14:TP=-1.5[a]"
-subprocess.run(['ffmpeg', '-v', 'error', '-y', *args, '-filter_complex', f, '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
+vmap, vcodec = '0:v', ['-c:v', 'copy']
+ins = TL.get('inserts', [])
+if ins:
+    base = '[0:v]'
+    for j, it in enumerate(ins):
+        args += ['-ss', str(it.get('debut', 0)), '-i', os.path.join(ICI, '..', it['fichier'])]
+        f += f";[{k}:v]scale=1080:1920,setpts=PTS-STARTPTS+{it['t0']}/TB[i{j}];{base}[i{j}]overlay=0:0:eof_action=pass:enable='between(t,{it['t0']},{it['t1']})'[v{j}]"
+        base = f'[v{j}]'; k += 1
+    vmap, vcodec = base, ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p']
+subprocess.run(['ffmpeg', '-v', 'error', '-y', *args, '-filter_complex', f, '-map', vmap, '-map', '[a]', *vcodec, '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
                 os.path.join(ICI, f'le_pays_de_tous_jour{n}.mp4')], check=True)
 print(f'le_pays_de_tous_jour{n}.mp4 :', ', '.join(f'{v} {k}' for k, v in compte.items()), '| ambiance :', amb or 'aucune')

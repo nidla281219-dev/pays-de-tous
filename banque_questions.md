@@ -1,4 +1,10 @@
 # Banque de questions — Le Pays de Tous
+## ⚠️ JOUR 7 (13.11) — demande de l'utilisateur : PARLER UN PEU PLUS DU SITE, AVEC DES IMAGES DU SITE
+- Passage ~10–12 s (dans la 2e moitié, après le vote) : montrer le site sur un téléphone → clip prêt assets/site_demo.mp4 via `inserts` (docs/TIMELINE.md), ~7 s (ex. debut 2.5 → choix d'une villa, piscine, statue).
+- Voix (ton calme, sans pression, le jeu reste gratuit) : « Sur notre site, tu choisis ta parcelle, tu construis ta maison comme tu veux — villa, piscine, même ta statue en or — et elle apparaît dans la vidéo avec ton nom. Ça nous aide à créer le jeu de Vulkaris. Lien dans la bio. »
+- Remercier les nouveaux acheteurs du jour (lire boutique/VENTES.md après avoir relancé ventes.yml) et MONTRER leurs maisons construites dans le quartier avec leur nom (empereur.pe déjà fait le 12.11 si la vidéo du jour 6 l'a montré ; sinon le faire).
+- Rester bref et rassurant (les votes et la ville restent gratuits). Ne nommer aucune plateforme ni « Stripe ».
+
 ## ⚠️ JOUR 6 (12.11) — demande de l'utilisateur : ANNONCER LES MAISONS À ACHETER
 - ⚠️ DERNIÈRE CONSIGNE (14h36, prioritaire sur le reste de cette section) : formuler le passage SIMPLEMENT, dans cet ordre : 1) « On veut créer un JEU où tout le monde pourra aller à Vulkaris » ; 2) « Rien ne change dans les vidéos : tout reste gratuit et c'est vous qui décidez » ; 3) « Si tu souhaites nous soutenir pour le jeu, tu peux prendre une maison dans le nouveau quartier — lien dans la bio. » Court (~8 s), sincère, aucune pression.
 - 🏡 1er ACHETEUR (15h15, demande de l'utilisateur : LE REMERCIER DANS LA VIDÉO) : @empereur.pe (pseudo exact saisi au paiement ; réseau inconnu → dire juste « Merci empereur.pe ! » sans @ de plateforme), parcelle n°1 (lisière de la forêt), CABANE style méditerranéen, façade ocre #e2b56b, toit brun #6e4630, volets bleus #3f6e8c, clôture haie, option jardin fleuri, panneau « empereur.pe ». La montrer construite dans le nouveau quartier (gros plan + panneau à son nom) et le remercier à voix haute, avec le badge ⭐ soutien. Détails : boutique/ventes.json.
