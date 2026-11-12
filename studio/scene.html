@@ -464,13 +464,20 @@ function quartier_hauts(b){const L=[];const C='#f4f1ea',S=26;const g0=new THREE.
   for(const [ax,az,len,rot] of[[x,z+(z>0?1:-1)*(S/4-1.5),S-3,0],[x-(S-3)/2,z,S/2-4,Math.PI/2],[x+(S-3)/2,z,S/2-4,Math.PI/2]]){bx(L,len,.14,.12,ax,.9,az,C,rot);bx(L,len,.14,.12,ax,.5,az,C,rot);const n=Math.floor(len/1.6);for(let k=0;k<=n;k++){const t=-len/2+k*len/n;bx(L,.16,1.2,.16,ax+(rot?0:t),.6,az+(rot?t:0),C)}}});
  // maisons de démo : chalet (lot 0), villa blanche + piscine + statue dorée (lot 4)
  maisonDemo(L,'chalet',-S,-S/2-2);
+ // maison du 1er acheteur : empereur.pe (lot 1) — cabane méditerranéenne ocre, toit brun, volets bleus, haie, jardin fleuri
+ {const x=0,z=-S/2-1,w=5,d=4.5,h=3,y0=.4;bx(L,w+.5,y0,d+.5,x,y0/2,z,'#a39a8c');bx(L,w,h,d,x,y0+h/2,z,'#e2b56b');prism(L,w+.8,d+1,1.5,y0+h,'#6e4630',x,z);bx(L,w+.2,.3,d+.2,x,y0+h+.05,z,'#f7f2e8');
+  for(const k of[-1,1]){bx(L,1,1.3,.2,x+k*1.6,y0+1.7,z+d/2+.05,'#bfe0f0');bx(L,.45,1.4,.15,x+k*1.6-.75,y0+1.7,z+d/2+.1,'#3f6e8c');bx(L,.45,1.4,.15,x+k*1.6+.75,y0+1.7,z+d/2+.1,'#3f6e8c')}
+  bx(L,1.1,2.1,.2,x,y0+1.05,z+d/2+.06,'#3f6e8c');bx(L,w+1,.2,2.2,x,.5,z+d/2+1.1,'#8a6a48');
+  for(const [ax,az,len,rot] of[[x,z-4,S-4,0],[x-(S-4)/2,z+.5,13,Math.PI/2],[x+(S-4)/2,z+.5,13,Math.PI/2]])bx(L,len,1.3,.9,ax,.65,az,'#3f7f3a',rot);
+  for(const [fx,fz] of[[-4,4],[4,4],[-6,1],[6,1],[-3,6],[3,6]]){sph(L,.8,x+fx,.55,z+fz,'#3f7f3a');for(let i=0;i<5;i++)sph(L,.22,x+fx+Math.cos(i*1.3)*.55,1.05,z+fz+Math.sin(i*1.3)*.55,['#e04a6b','#ffd23f','#ffffff','#b04ad8','#ff8a3c'][i])}}
  maisonDemo(L,'villa',-3,S/2+2.5);bx(L,6,.3,8,8.5,.2,S/2-1,'#efe8da');statueOr(L,-10,S/2-2.5);
  inner.add(new THREE.Mesh(merge(L),VMAT));
  {const eau=new THREE.Mesh(new THREE.BoxGeometry(5.2,.2,7.2),new THREE.MeshStandardMaterial({color:'#3fb7e6',roughness:.15,metalness:.1}));eau.position.set(8.5,.38,S/2-1);inner.add(eau)}
  // panneaux À VENDRE sur les 4 lots libres, « TON NOM ICI » devant la villa
- const vendre=[[S,-S/2],[0,-S/2],[-S,S/2],[S,S/2]];
- vendre.forEach(([x,z])=>{const pn=panneau(['À VENDRE','ta maison ici'],5,2.2,'#c0281e','#ffffff');const zz=z+(z>0?-1:1)*(S/4-3.5);pn.position.set(x,2.6,zz);if(z<0)pn.rotation.y=0;else pn.rotation.y=Math.PI;inner.add(pn);const p=new THREE.Mesh(new THREE.CylinderGeometry(.12,.12,2.6,6),new THREE.MeshStandardMaterial({color:'#6b4a2e'}));p.position.set(x,1.3,zz-(z>0?-.1:.1));inner.add(p)});
+ const vendre=[[S,-S/2],[-S,S/2],[S,S/2]];
+ vendre.forEach(([x,z])=>{const pn=panneau(['À VENDRE','ta maison ici'],8,3.4,'#c0281e','#ffffff');const zz=z+(z>0?-1:1)*(S/4-3.5);pn.position.set(x,3.4,zz);if(z<0)pn.rotation.y=0;else pn.rotation.y=Math.PI;inner.add(pn);const p=new THREE.Mesh(new THREE.CylinderGeometry(.15,.15,3.4,6),new THREE.MeshStandardMaterial({color:'#6b4a2e'}));p.position.set(x,1.3,zz-(z>0?-.1:.1));inner.add(p)});
  {const pn=panneau(['TON NOM ICI'],5,1.4,'#fbf7ef','#1f4a6e');pn.position.set(-3,1.6,S/4-1.2);pn.rotation.y=Math.PI;inner.add(pn)}
+ {const pn=panneau(['⭐ empereur.pe'],7,1.8,'#fbf7ef','#6e4630');pn.position.set(0,2.2,-S/2+5.4);inner.add(pn);const p=new THREE.Mesh(new THREE.CylinderGeometry(.12,.12,2.2,6),new THREE.MeshStandardMaterial({color:'#6b4a2e'}));p.position.set(0,1.1,-S/2+5.3);inner.add(p)}
  const ent=panneau(b.enseigne||['🏡 LES HAUTS','DE PLAVULCA'],14,3.4,'#1f4a6e','#ffd34d');ent.position.set(-S*1.5-5,5,0);ent.rotation.y=Math.PI/2;inner.add(ent);
  {const p=new THREE.Mesh(new THREE.BoxGeometry(.6,5,.6),new THREE.MeshStandardMaterial({color:'#6b4a2e'}));for(const d of[-6.5,6.5]){const q=p.clone();q.position.set(-S*1.5-5,2.5,d);inner.add(q)}}
  g0.add(inner);return g0}

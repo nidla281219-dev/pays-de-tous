@@ -1,1 +1,1449 @@
-{"dur": 4, "etat": {"nom": "Vulkaris", "drapeau": {"fond": "sautoir", "couleurs": ["#141414", "#c0281e"], "liseré": "#e6c9a0", "symboles": [{"forme": "anneau", "couleur": "#e6c9a0", "fond": "#1a1010", "taille": 0.7, "x": 0.5, "y": 0.5}, {"forme": "volcan_lave", "couleur": "#ff6a1a", "taille": 0.5, "x": 0.5, "y": 0.58}, {"forme": "lance", "couleur": "#e6c9a0", "taille": 0.3, "x": 0.5, "y": 0.14}]}, "capitale": {"site": "plage_ville", "rayon": 42}, "batiments": [{"nom": "Boulangerie de RL_Ham", "place": -1.5708}, {"type": "barber", "nom": "Barbershop d'estebarbero", "place": 0}, {"type": "universite", "pos": [-13, 131], "rot": -0.7551044034786732}, {"type": "bateau", "nom": "Bateau de leroux_1136", "enseigne": "leroux_1136", "pos": [-22, 226], "rot": 0.5}, {"type": "karting", "nom": "Circuit de karting", "pos": [35, 170], "rot": 0.3}, {"type": "ferme", "nom": "Ferme de lean.dvko", "pos": [-115, 135], "rot": 0.7}, {"type": "kebab", "nom": "Kebab d'alexis._.privvvvv", "enseigne": ["KEBAB", "d'alexis._.privvvvv"], "place": 2.3}, {"type": "poulet", "nom": "Poulet frit de bunny_bugzy", "enseigne": ["POULET FRIT", "de bunny_bugzy"], "place": 0.85}, {"type": "bistro", "nom": "Bistro de fiizenn", "enseigne": ["BISTRO", "de fiizenn"], "place": -2.4}, {"type": "sentier", "nom": "Sentier du volcan de ma_tribuu", "a0": 2.0}, {"type": "caserne_pompiers", "nom": "Caserne de salman381560", "enseigne": ["🚒 POMPIERS", "de salman381560"], "pos": [-98, 195], "rot": 0.4}, {"type": "mine", "nom": "Mine de quentin.gsdn", "pos": [0, 30], "rot": 0.2, "key": "mine"}, {"type": "forge", "nom": "Forge de 4kage5an", "pos": [-100, 163], "rot": 1.2, "key": "forge"}, {"type": "port", "nom": "Port de cesare_92b", "pos": [-82, 230], "rot": -0.2, "key": "port"}, {"type": "prison", "nom": "Prison de leoetpaslesbas", "pos": [55, 108], "rot": 0.3, "key": "prison"}, {"type": "aeroport", "nom": "Aéroport de chloe_vtr23", "pos": [-135, 40], "rot": 0.3, "key": "aeroport"}, {"type": "chantier_naval", "nom": "Chantier naval de lucas_spn_", "pos": [2, 214], "rot": -0.2, "key": "chantier"}, {"type": "labo_marin", "nom": "Labo marin de nikitoulich", "pos": [-128, 212], "rot": 0.2, "key": "labo"}, {"type": "quartier_hauts", "nom": "Les Hauts de Plavulca", "pos": [-62, 105], "rot": 0.0, "key": "hauts"}]}, "hud": {"jour": 5, "pop": {"de": 1379, "a": 1654, "t0": 5.78, "t1": 8.38}, "nom": "Vulkaris", "drapeau": {"fond": "sautoir", "couleurs": ["#141414", "#c0281e"], "liseré": "#e6c9a0", "symboles": [{"forme": "anneau", "couleur": "#e6c9a0", "fond": "#1a1010", "taille": 0.7, "x": 0.5, "y": 0.5}, {"forme": "volcan_lave", "couleur": "#ff6a1a", "taille": 0.5, "x": 0.5, "y": 0.58}, {"forme": "lance", "couleur": "#e6c9a0", "taille": 0.3, "x": 0.5, "y": 0.14}]}, "tresor": 153, "changements": [{"t": 32.58, "tresor": 815}]}, "shots": [{"t": 0, "from": {"p": [-62, 70, 175], "l": [-62, 0, 105]}, "to": {"p": [-60, 68, 177], "l": [-62, 0, 105]}}, {"t": 1, "from": {"p": [47, 28, 174], "l": [2, 4, 214]}, "to": {"p": [49, 26, 176], "l": [2, 4, 214]}}, {"t": 2, "from": {"p": [-92, 22, 147], "l": [-65, 3, 117]}, "to": {"p": [-90, 20, 149], "l": [-65, 3, 117]}}, {"t": 3, "from": {"p": [-42, 25, 70], "l": [-62, 3, 98]}, "to": {"p": [-40, 23, 72], "l": [-62, 3, 98]}}], "caps": [], "cards": [], "habitants": {"n": 80, "t0": 5.78}, "ennemi": {"ile": [-40, 720], "cible": [-45, 330], "t0": -200, "t1": 100, "navires": 5}, "win": {"nuages": [[0, 99]], "fin": [[60.72, 99]], "ennemi": [[0, 60.72]]}, "grow": {}, "flashes": [], "pops": [], "sons": [{"t": 0.2, "type": "cor"}, {"t": 3.34, "type": "tambours"}, {"t": 13.36, "type": "tambours"}, {"t": 22.4, "type": "epee"}, {"t": 24.88, "type": "mouettes"}, {"t": 46.4, "type": "canon"}], "ambiance": "vagues"}
+{
+"dur": 67.0,
+"etat": {
+"nom": "Vulkaris",
+"drapeau": {
+"fond": "sautoir",
+"couleurs": [
+"#141414",
+"#c0281e"
+],
+"liseré": "#e6c9a0",
+"symboles": [
+{
+"forme": "anneau",
+"couleur": "#e6c9a0",
+"fond": "#1a1010",
+"taille": 0.7,
+"x": 0.5,
+"y": 0.5
+},
+{
+"forme": "volcan_lave",
+"couleur": "#ff6a1a",
+"taille": 0.5,
+"x": 0.5,
+"y": 0.58
+},
+{
+"forme": "lance",
+"couleur": "#e6c9a0",
+"taille": 0.3,
+"x": 0.5,
+"y": 0.14
+}
+]
+},
+"capitale": {
+"site": "plage_ville",
+"rayon": 42
+},
+"batiments": [
+{
+"nom": "Boulangerie de RL_Ham",
+"place": -1.5708
+},
+{
+"type": "barber",
+"nom": "Barbershop d'estebarbero",
+"place": 0
+},
+{
+"type": "universite",
+"pos": [
+-13,
+131
+],
+"rot": -0.7551044034786732
+},
+{
+"type": "bateau",
+"nom": "Bateau de leroux_1136",
+"enseigne": "leroux_1136",
+"pos": [
+-22,
+226
+],
+"rot": 0.5
+},
+{
+"type": "karting",
+"nom": "Circuit de karting",
+"pos": [
+35,
+170
+],
+"rot": 0.3
+},
+{
+"type": "ferme",
+"nom": "Ferme de lean.dvko",
+"pos": [
+-115,
+135
+],
+"rot": 0.7
+},
+{
+"type": "kebab",
+"nom": "Kebab d'alexis._.privvvvv",
+"enseigne": [
+"KEBAB",
+"d'alexis._.privvvvv"
+],
+"place": 2.3
+},
+{
+"type": "poulet",
+"nom": "Poulet frit de bunny_bugzy",
+"enseigne": [
+"POULET FRIT",
+"de bunny_bugzy"
+],
+"place": 0.85
+},
+{
+"type": "bistro",
+"nom": "Bistro de fiizenn",
+"enseigne": [
+"BISTRO",
+"de fiizenn"
+],
+"place": -2.4
+},
+{
+"type": "sentier",
+"nom": "Sentier du volcan de ma_tribuu",
+"a0": 2.0
+},
+{
+"type": "caserne_pompiers",
+"nom": "Caserne de salman381560",
+"enseigne": [
+"🚒 POMPIERS",
+"de salman381560"
+],
+"pos": [
+-98,
+195
+],
+"rot": 0.4
+},
+{
+"type": "mine",
+"nom": "Mine de quentin.gsdn",
+"pos": [
+0,
+30
+],
+"rot": 0.2,
+"key": "mine"
+},
+{
+"type": "forge",
+"nom": "Forge de 4kage5an",
+"pos": [
+-100,
+163
+],
+"rot": 1.2,
+"key": "forge"
+},
+{
+"type": "port",
+"nom": "Port de cesare_92b",
+"pos": [
+-82,
+230
+],
+"rot": -0.2,
+"key": "port"
+},
+{
+"type": "prison",
+"nom": "Prison de leoetpaslesbas",
+"pos": [
+55,
+108
+],
+"rot": 0.3,
+"key": "prison"
+},
+{
+"type": "aeroport",
+"nom": "Aéroport de chloe_vtr23",
+"pos": [
+-135,
+40
+],
+"rot": 0.3,
+"key": "aeroport"
+},
+{
+"type": "chantier_naval",
+"nom": "Chantier naval de lucas_spn_",
+"pos": [
+2,
+214
+],
+"rot": -0.2,
+"key": "chantier"
+},
+{
+"type": "labo_marin",
+"nom": "Labo marin de nikitoulich",
+"pos": [
+-128,
+212
+],
+"rot": 0.2,
+"key": "labo"
+},
+{
+"type": "quartier_hauts",
+"nom": "Les Hauts de Plavulca",
+"pos": [
+-62,
+105
+],
+"rot": 0.0,
+"key": "hauts"
+}
+]
+},
+"hud": {
+"jour": 6,
+"pop": {
+"de": 1654,
+"a": 1866,
+"t0": 5.58,
+"t1": 7.9
+},
+"nom": "Vulkaris",
+"drapeau": {
+"fond": "sautoir",
+"couleurs": [
+"#141414",
+"#c0281e"
+],
+"liseré": "#e6c9a0",
+"symboles": [
+{
+"forme": "anneau",
+"couleur": "#e6c9a0",
+"fond": "#1a1010",
+"taille": 0.7,
+"x": 0.5,
+"y": 0.5
+},
+{
+"forme": "volcan_lave",
+"couleur": "#ff6a1a",
+"taille": 0.5,
+"x": 0.5,
+"y": 0.58
+},
+{
+"forme": "lance",
+"couleur": "#e6c9a0",
+"taille": 0.3,
+"x": 0.5,
+"y": 0.14
+}
+]
+},
+"tresor": 815,
+"changements": [
+{
+"t": 27.4,
+"tresor": 1828
+}
+]
+},
+"shots": [
+{
+"t": 0,
+"from": {
+"p": [
+10,
+40,
+340
+],
+"l": [
+-45,
+12,
+470
+]
+},
+"to": {
+"p": [
+0,
+34,
+355
+],
+"l": [
+-45,
+12,
+470
+]
+}
+},
+{
+"t": 1.72,
+"from": {
+"p": [
+-70,
+55,
+640
+],
+"l": [
+-45,
+15,
+250
+]
+},
+"to": {
+"p": [
+-55,
+45,
+610
+],
+"l": [
+-45,
+15,
+250
+]
+}
+},
+{
+"t": 3.3,
+"from": {
+"p": [
+-45,
+45,
+235
+],
+"l": [
+-45,
+10,
+420
+]
+},
+"to": {
+"p": [
+-45,
+40,
+250
+],
+"l": [
+-45,
+10,
+420
+]
+}
+},
+{
+"t": 4.54,
+"from": {
+"p": [
+-5,
+90,
+275
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"to": {
+"p": [
+-20,
+70,
+255
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"rel": 1
+},
+{
+"t": 5.48,
+"from": {
+"p": [
+-85,
+130,
+285
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"to": {
+"p": [
+-75,
+115,
+265
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"rel": 1
+},
+{
+"t": 8.58,
+"from": {
+"p": [
+-45,
+60,
+250
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"to": {
+"p": [
+-40,
+45,
+230
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"rel": 1
+},
+{
+"t": 12.36,
+"from": {
+"p": [
+-20,
+35,
+215
+],
+"l": [
+-45,
+3,
+170
+]
+},
+"to": {
+"p": [
+-28,
+28,
+205
+],
+"l": [
+-45,
+3,
+170
+]
+},
+"rel": 1
+},
+{
+"t": 15.9,
+"from": {
+"p": [
+-110,
+160,
+300
+],
+"l": [
+-45,
+0,
+160
+]
+},
+"to": {
+"p": [
+-95,
+140,
+285
+],
+"l": [
+-45,
+0,
+160
+]
+},
+"rel": 1
+},
+{
+"t": 18.46,
+"from": {
+"p": [
+-45,
+140,
+285
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"to": {
+"p": [
+-40,
+120,
+265
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"rel": 1
+},
+{
+"t": 19.98,
+"from": {
+"p": [
+-80,
+22,
+95
+],
+"l": [
+-135,
+0,
+40
+]
+},
+"to": {
+"p": [
+-86,
+19,
+89
+],
+"l": [
+-135,
+0,
+40
+]
+},
+"rel": 1
+},
+{
+"t": 21.38,
+"from": {
+"p": [
+42,
+22,
+179
+],
+"l": [
+2,
+4,
+214
+]
+},
+"to": {
+"p": [
+37,
+19,
+183
+],
+"l": [
+2,
+4,
+214
+]
+},
+"rel": 1
+},
+{
+"t": 23.14,
+"from": {
+"p": [
+-93,
+20,
+252
+],
+"l": [
+-128,
+3,
+212
+]
+},
+"to": {
+"p": [
+-97,
+17,
+247
+],
+"l": [
+-128,
+3,
+212
+]
+},
+"rel": 1
+},
+{
+"t": 25.2,
+"from": {
+"p": [
+-45,
+140,
+285
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"to": {
+"p": [
+-40,
+120,
+265
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"rel": 1
+},
+{
+"t": 27.4,
+"from": {
+"p": [
+-20,
+35,
+215
+],
+"l": [
+-45,
+3,
+170
+]
+},
+"to": {
+"p": [
+-28,
+28,
+205
+],
+"l": [
+-45,
+3,
+170
+]
+},
+"rel": 1
+},
+{
+"t": 30.42,
+"from": {
+"p": [
+-45,
+180,
+330
+],
+"l": [
+-45,
+0,
+140
+]
+},
+"to": {
+"p": [
+-45,
+165,
+310
+],
+"l": [
+-45,
+0,
+140
+]
+},
+"rel": 1
+},
+{
+"t": 32.56,
+"from": {
+"p": [
+60,
+120,
+260
+],
+"l": [
+-30,
+0,
+120
+]
+},
+"to": {
+"p": [
+45,
+110,
+250
+],
+"l": [
+-30,
+0,
+120
+]
+},
+"rel": 1
+},
+{
+"t": 34.72,
+"from": {
+"p": [
+-85,
+70,
+250
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"to": {
+"p": [
+-75,
+58,
+235
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"rel": 1
+},
+{
+"t": 36.58,
+"from": {
+"p": [
+-20,
+35,
+215
+],
+"l": [
+-45,
+3,
+170
+]
+},
+"to": {
+"p": [
+-28,
+28,
+205
+],
+"l": [
+-45,
+3,
+170
+]
+},
+"rel": 1
+},
+{
+"t": 38.78,
+"from": {
+"p": [
+-62,
+60,
+175
+],
+"l": [
+-62,
+0,
+105
+]
+},
+"to": {
+"p": [
+-62,
+50,
+163
+],
+"l": [
+-62,
+0,
+105
+]
+},
+"rel": 1
+},
+{
+"t": 40.7,
+"from": {
+"p": [
+-107,
+30,
+135
+],
+"l": [
+-62,
+0,
+105
+]
+},
+"to": {
+"p": [
+-99,
+25,
+129
+],
+"l": [
+-62,
+0,
+105
+]
+},
+"rel": 1
+},
+{
+"t": 42.32,
+"from": {
+"p": [
+-22,
+28,
+130
+],
+"l": [
+-55,
+2,
+115
+]
+},
+"to": {
+"p": [
+-28,
+24,
+126
+],
+"l": [
+-55,
+2,
+115
+]
+},
+"rel": 1
+},
+{
+"t": 43.4,
+"from": {
+"p": [
+-38,
+16,
+115
+],
+"l": [
+-62,
+2,
+91
+]
+},
+"to": {
+"p": [
+-42,
+14,
+112
+],
+"l": [
+-62,
+2,
+91
+]
+},
+"rel": 1
+},
+{
+"t": 46.0,
+"from": {
+"p": [
+-78,
+10,
+103
+],
+"l": [
+-62,
+2,
+92
+]
+},
+"to": {
+"p": [
+-75,
+9,
+102
+],
+"l": [
+-62,
+2,
+92
+]
+},
+"rel": 1
+},
+{
+"t": 48.02,
+"from": {
+"p": [
+-45,
+45,
+235
+],
+"l": [
+-45,
+10,
+420
+]
+},
+"to": {
+"p": [
+-45,
+40,
+250
+],
+"l": [
+-45,
+10,
+420
+]
+}
+},
+{
+"t": 50.84,
+"from": {
+"p": [
+-80,
+30,
+260
+],
+"l": [
+-45,
+2,
+200
+]
+},
+"to": {
+"p": [
+-72,
+26,
+266
+],
+"l": [
+-45,
+2,
+200
+]
+}
+},
+{
+"t": 52.34,
+"from": {
+"p": [
+130,
+95,
+160
+],
+"l": [
+26,
+35,
+-12
+]
+},
+"to": {
+"p": [
+120,
+88,
+150
+],
+"l": [
+26,
+35,
+-12
+]
+}
+},
+{
+"t": 53.78,
+"from": {
+"p": [
+-25,
+22,
+262
+],
+"l": [
+-48,
+1,
+205
+]
+},
+"to": {
+"p": [
+-32,
+18,
+255
+],
+"l": [
+-48,
+1,
+205
+]
+}
+},
+{
+"t": 55.38,
+"from": {
+"p": [
+-80,
+45,
+480
+],
+"l": [
+-45,
+8,
+220
+]
+},
+"to": {
+"p": [
+-70,
+38,
+465
+],
+"l": [
+-45,
+8,
+220
+]
+}
+},
+{
+"t": 59.3,
+"from": {
+"p": [
+-45,
+140,
+285
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"to": {
+"p": [
+-40,
+120,
+265
+],
+"l": [
+-45,
+5,
+165
+]
+},
+"rel": 1
+},
+{
+"t": 61.66,
+"from": {
+"p": [
+-45,
+180,
+330
+],
+"l": [
+-45,
+0,
+140
+]
+},
+"to": {
+"p": [
+-45,
+165,
+310
+],
+"l": [
+-45,
+0,
+140
+]
+},
+"rel": 1
+},
+{
+"t": 63.5,
+"from": {
+"p": [
+45,
+45,
+290
+],
+"l": [
+-45,
+10,
+410
+]
+},
+"to": {
+"p": [
+35,
+40,
+285
+],
+"l": [
+-45,
+10,
+410
+]
+}
+}
+],
+"caps": [
+{
+"t0": 0,
+"t1": 1.62,
+"lignes": [
+"LES NAVIRES",
+"*APPROCHENT*…"
+]
+},
+{
+"t0": 1.72,
+"t1": 3.2,
+"lignes": [
+"VULKARIS",
+"A *CHOISI* :"
+]
+},
+{
+"t0": 3.3,
+"t1": 4.44,
+"lignes": [
+"ON SE",
+"*DÉFEND* ! 🛡️"
+]
+},
+{
+"t0": 4.54,
+"t1": 5.38,
+"lignes": [
+"*JOUR 6*"
+]
+},
+{
+"t0": 5.48,
+"t1": 8.48,
+"lignes": [
+"VOUS ÊTES",
+"*1 866 HABITANTS* !"
+]
+},
+{
+"t0": 18.46,
+"t1": 19.88,
+"lignes": [
+"VOS DEMANDES",
+"SONT *CONSTRUITES* !"
+]
+},
+{
+"t0": 19.98,
+"t1": 21.28,
+"lignes": [
+"L'*AÉROPORT*",
+"DE CHLOE_VTR23"
+],
+"y": 1380
+},
+{
+"t0": 21.38,
+"t1": 23.04,
+"lignes": [
+"LE *CHANTIER NAVAL*",
+"DE LUCAS_SPN_"
+],
+"y": 1380
+},
+{
+"t0": 23.14,
+"t1": 25.1,
+"lignes": [
+"LE *LABO MARIN*",
+"DE NIKITOULICH"
+],
+"y": 1380
+},
+{
+"t0": 30.42,
+"t1": 34.62,
+"lignes": [
+"ON VEUT CRÉER",
+"UN *JEU* 🎮",
+"POUR ALLER À VULKARIS"
+]
+},
+{
+"t0": 34.72,
+"t1": 38.68,
+"lignes": [
+"*RIEN NE CHANGE* ✅",
+"TOUT RESTE GRATUIT",
+"C'EST VOUS QUI DÉCIDEZ"
+]
+},
+{
+"t0": 38.78,
+"t1": 42.22,
+"lignes": [
+"*LES HAUTS*",
+"DE PLAVULCA 🏡"
+]
+},
+{
+"t0": 42.32,
+"t1": 43.3,
+"lignes": [
+"TA MAISON",
+"*LIEN DANS LA BIO*"
+]
+},
+{
+"t0": 43.4,
+"t1": 47.92,
+"lignes": [
+"MERCI",
+"*EMPEREUR.PE* ⭐"
+]
+},
+{
+"t0": 48.02,
+"t1": 50.74,
+"lignes": [
+"COMMENT DÉFENDRE",
+"LA *PLAGE* ?"
+]
+},
+{
+"t0": 50.84,
+"t1": 52.24,
+"lignes": [
+"*A* 🧱",
+"UN GRAND MUR"
+]
+},
+{
+"t0": 52.34,
+"t1": 53.68,
+"lignes": [
+"*B* 💥",
+"DES CANONS"
+]
+},
+{
+"t0": 53.78,
+"t1": 55.28,
+"lignes": [
+"*C* 🕳️",
+"DES PIÈGES DANS LE SABLE"
+]
+},
+{
+"t0": 59.3,
+"t1": 61.56,
+"lignes": [
+"METS TON *LIKE* !",
+"= 1 PIÈCE D'OR"
+]
+},
+{
+"t0": 61.66,
+"t1": 63.4,
+"lignes": [
+"*ABONNE-TOI*",
+"POUR DEVENIR HABITANT"
+]
+}
+],
+"cards": [
+{
+"kind": "resultat",
+"t0": 8.58,
+"t1": 12.26,
+"data": {
+"options": [
+{
+"lettre": "A",
+"titre": "ATTAQUE · 22 voix",
+"pct": 35,
+"couleur": "#d8261f"
+},
+{
+"lettre": "B",
+"titre": "DÉFENSE · 41 voix",
+"pct": 65,
+"couleur": "#2f7fe0"
+}
+],
+"gagnant": 1
+}
+},
+{
+"kind": "gagnant",
+"t0": 12.36,
+"t1": 18.36,
+"data": {
+"titre": "🎖️ COMMANDANT",
+"pseudo": "@lorenzo_lns09",
+"texte": "Discipline, Honneur, Protection",
+"likes": 222
+}
+},
+{
+"kind": "tresor",
+"t0": 25.2,
+"t1": 30.32,
+"data": {
+"likes": 1013,
+"avant": 815,
+"objectif": {
+"nom": "la base militaire",
+"prix": 2000
+},
+"titre": "💰 TRÉSOR DE VULKARIS"
+}
+},
+{
+"kind": "comment",
+"t0": 55.38,
+"t1": 59.2,
+"data": {
+"pseudo": "@toi",
+"lignes": [
+"Ma défense : B, des canons ! 💥"
+],
+"likes": 99
+}
+},
+{
+"kind": "fin",
+"t0": 63.5,
+"t1": 99,
+"data": {
+"demain": "DEMAIN : JOUR 7 · L'ENNEMI ATTAQUE ?"
+}
+}
+],
+"habitants": {
+"n": 80,
+"t0": 5.58
+},
+"ennemi": {
+"ile": [
+-40,
+720
+],
+"cible": [
+-45,
+360
+],
+"t0": -200,
+"t1": 120,
+"navires": 5
+},
+"win": {
+"nuages": [
+[
+0,
+99
+]
+],
+"fin": [
+[
+63.5,
+99
+]
+],
+"ennemi": [
+[
+0,
+63.5
+]
+]
+},
+"grow": {
+"aeroport": [
+20.05,
+21.2
+],
+"chantier": [
+21.45,
+22.6
+],
+"labo": [
+23.2,
+24.4
+],
+"hauts": [
+38.85,
+40.4
+]
+},
+"flashes": [
+1.72,
+3.3,
+18.46,
+48.02
+],
+"pops": [
+20.1,
+21.5,
+23.25,
+43.5
+],
+"sons": [
+{
+"t": 0.2,
+"type": "cor"
+},
+{
+"t": 3.4,
+"type": "tambours"
+},
+{
+"t": 12.46,
+"type": "tambours"
+},
+{
+"t": 21.6,
+"type": "mouettes"
+},
+{
+"t": 52.4,
+"type": "canon"
+}
+],
+"ambiance": "vagues"
+}
