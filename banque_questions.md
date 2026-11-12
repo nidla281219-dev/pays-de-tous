@@ -2,6 +2,7 @@
 ## ⚠️ JOUR 7 (13.11) — demande de l'utilisateur : PARLER UN PEU PLUS DU SITE, AVEC DES IMAGES DU SITE
 - Passage ~10–12 s (dans la 2e moitié, après le vote) : montrer le site sur un téléphone → clip prêt assets/site_demo.mp4 via `inserts` (docs/TIMELINE.md), ~8–10 s (debut 0 à 2 ; le clip a déjà ses titres d’étapes).
 - Voix (ton calme, sans pression, le jeu reste gratuit) : « Sur notre site, tu choisis ta parcelle, tu construis ta maison comme tu veux — villa, piscine, même ta statue en or — et elle apparaît dans la vidéo avec ton nom. Ça nous aide à créer le jeu de Vulkaris. Lien dans la bio. »
+- ACHETEURS À MONTRER (12.11 soir, détails dans boutique/ventes.json) : vanvan.du17 → parcelle 18 (cœur du quartier), GRANDE MAISON méditerranéenne, façade ocre, toit brun, volets rouges, haie, panneau « vavan’s house » ; _.zowwee._ → parcelle 33 (bord de mer), PETITE MAISON moderne, façade blanche, toit brun, volets bleus, haie, fontaine + jardin, panneau « Famille Mustafić » (⚠️ nom de famille de l'utilisateur : lui demander si c'est un vrai acheteur avant de le remercier) ; + empereur.pe (parcelle 1, cabane) si pas encore montré.
 - Remercier les nouveaux acheteurs du jour (lire boutique/VENTES.md après avoir relancé ventes.yml) et MONTRER leurs maisons construites dans le quartier avec leur nom (empereur.pe déjà fait le 12.11 si la vidéo du jour 6 l'a montré ; sinon le faire).
 - Rester bref et rassurant (les votes et la ville restent gratuits). Ne nommer aucune plateforme ni « Stripe ».
 
