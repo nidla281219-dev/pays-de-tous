@@ -1,0 +1,15 @@
+name: Boutique Stripe (produits + liens de paiement)
+on: {workflow_dispatch: {}}
+permissions: {contents: write}
+jobs:
+  s:
+    runs-on: ubuntu-latest
+    env: {STRIPE_KEY: "${{ secrets.STRIPE_KEY }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q requests && python boutique/stripe_boutique.py
+      - run: |
+          git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
+          git add boutique; git diff --cached --quiet || (git commit -m "Liens de paiement Stripe" && git pull --rebase -q && git push)
