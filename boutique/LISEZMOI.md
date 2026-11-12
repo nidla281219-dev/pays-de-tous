@@ -1,4 +1,5 @@
 # Boutique « Les Hauts de Plavulca » (maisons payantes)
+SITE PUBLIC : https://lepaysdetous.github.io (dépôt public Lepaysdetous/lepaysdetous.github.io, GitHub Pages). Après chaque modification de boutique/index.html : le copier dans ce dépôt (index.html = même contenu entouré de <!doctype html><html lang="fr"><head>…</head><body>…</body></html>), puis push.
 Page : boutique/index.html (publiée en artifact claude.ai). Commerces de la ville = toujours gratuits (votes).
 - Maisons : cabane 1,99 · petite 2,99 · grande 4,99 · villa 7,99 (+0,50 € tous les 10 terrains vendus).
 - Terrain : forêt (lots 1–16) inclus · centre (17–32) +0,99 · bord de mer (33–48) +2,99.
