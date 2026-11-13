@@ -1,6 +1,6 @@
 {
- "jour": 6,
- "habitants": 1866,
+ "jour": 7,
+ "habitants": 1974,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -141,12 +141,43 @@
    "nom": "Les Hauts de Plavulca",
    "place": 14,
    "par": "annonce jeu + maisons (demande de l'utilisateur)"
+  },
+  {
+   "type": "base_militaire",
+   "nom": "Base militaire de Vulkaris",
+   "place": 15,
+   "par": "trésor 2428 ≥ 2000 (jour 7)"
+  },
+  {
+   "type": "canons",
+   "nom": "Canons de la plage",
+   "place": 16,
+   "par": "vote jour 6 : B canons 22 voix"
+  },
+  {
+   "type": "bunker",
+   "nom": "Bunker de lysic_studio",
+   "place": 17,
+   "par": "@lysic_studio (Instagram, 47 likes)"
+  },
+  {
+   "type": "hopital",
+   "nom": "Hôpital de ndiasse_pro_121",
+   "place": 18,
+   "par": "@ndiasse_pro_121 (Instagram, 6 likes ; aussi @elodie_guerra 5, @Guenole-gz7kl)"
+  },
+  {
+   "type": "observatoire",
+   "nom": "Observatoire du volcan de BobSpie",
+   "place": 19,
+   "par": "@BobSpie-m5e (YouTube, 9 likes)"
   }
  ],
  "vote_en_cours": {
-  "jour": 6,
+  "jour": 7,
   "questions": [
-   "Défense de la plage : A grand mur / B canons / C pièges dans le sable, ou proposition libre (la plus likée construite)"
+   "Messager ennemi au drapeau blanc : A on l'écoute / B prison de leoetpaslesbas",
+   "Proposition libre : ton métier sur l'île (le plus liké construit avec ton nom)"
   ]
  },
  "historique": [
@@ -173,12 +204,16 @@
   {
    "jour": 6,
    "resume": "Défense B 41 / attaque A 22 ; commandant @lorenzo_lns09 (222 likes) ; 1866 habitants ; trésor 1828/2000 ; aéroport, chantier naval, labo marin ; annonce jeu + Hauts de Plavulca. Question : défense de la plage (A mur / B canons / C pièges, ou proposition libre)."
+  },
+  {
+   "jour": 7,
+   "resume": "1974 habitants (YT 434/TT 116/IG 1424). Défense : B canons 22 / A mur 16 / C pièges 3 + bunker @lysic_studio (47). +600 likes → trésor 2428 → base militaire construite, reste 428 / 1500 (grand mur). Hôpital @ndiasse_pro_121, observatoire @BobSpie-m5e. Merci acheteurs vanvan.du17, _.zowwee._, Hidroway + passage site. Questions : messager A écouter / B prison ; métier libre."
   }
  ],
  "habitants_detail": {
-  "youtube": 415,
-  "tiktok": 114,
-  "instagram": 1337
+  "youtube": 434,
+  "tiktok": 116,
+  "instagram": 1424
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -205,19 +240,21 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 1828,
+ "tresor": 428,
  "tresor_detail": {
-  "avant": 815,
-  "likes_jour5": {
-   "youtube": 111,
-   "tiktok": 23,
-   "instagram": 879
+  "avant": 1828,
+  "likes_jour6": {
+   "youtube": 96,
+   "tiktok": 16,
+   "instagram": 488
   },
-  "depense": {}
+  "depense": {
+   "base militaire": 2000
+  }
  },
  "objectif": {
-  "nom": "base militaire",
-  "prix": 2000
+  "nom": "grand mur",
+  "prix": 1500
  },
  "armee": {
   "cree": "jour 5",
@@ -229,6 +266,13 @@
    "likes": 222,
    "devise": "Discipline, Honneur, Protection"
   },
-  "strategie": "défense (B 41 voix : YT 4, IG 37 / A attaque 22 : YT 6, TT 1, IG 15)"
- }
+  "strategie": "défense (B 41 voix : YT 4, IG 37 / A attaque 22 : YT 6, TT 1, IG 15)",
+  "defense_plage": "B canons 22 voix (IG 22, 55 likes) / A mur 16 (YT 6, TT 2, IG 8) / C pièges 3 (YT 1, IG 2) + bunker de @lysic_studio (IG, 47 likes, proposition la plus likée)"
+ },
+ "hauts_acheteurs": [
+  "empereur.pe P1 cabane (jour 6)",
+  "vanvan.du17 P18 grande maison",
+  "_.zowwee._ P33 petite maison (panneau Famille Mustafić)",
+  "Hidroway P44 villa + statue bronze + feu d'artifice (plaque Défenseur de Vulkaris)"
+ ]
 }
