@@ -1,11 +1,100 @@
 {
  "jour": 6,
  "fond": "recap_fond.jpg",
- "chiffres": [["HABITANTS", "1 866"], ["SOLDATS", "129"], ["TRÉSOR", "1 828 💰"]],
- "tresor": [1828, 2000, "base militaire"],
- "decisions": ["On se DÉFEND : 41 voix contre 22", "Commandant : lorenzo_lns09 (222 likes)"],
- "construits": ["Aéroport de chloe_vtr23", "Chantier naval de lucas_spn_", "Labo marin de nikitoulich"],
- "quartier": ["empereur.pe : cabane, parcelle 1"],
+ "chiffres": [
+  [
+   "HABITANTS",
+   "1 866"
+  ],
+  [
+   "SOLDATS",
+   "129"
+  ],
+  [
+   "TRÉSOR",
+   "1 828 💰"
+  ]
+ ],
+ "tresor": [
+  1828,
+  2000,
+  "base militaire"
+ ],
+ "decisions": [
+  "On se DÉFEND : 41 voix contre 22",
+  "Commandant : lorenzo_lns09 (222 likes)"
+ ],
+ "construits": [
+  "Aéroport de chloe_vtr23",
+  "Chantier naval de lucas_spn_",
+  "Labo marin de nikitoulich"
+ ],
+ "quartier": [
+  "empereur.pe : cabane, parcelle 1"
+ ],
  "question": "Comment défendre la plage ?",
- "options": ["A · un grand mur", "B · des canons", "C · des pièges dans le sable"]
+ "options": [
+  "A · un grand mur",
+  "B · des canons",
+  "C · des pièges dans le sable"
+ ],
+ "slides": [
+  {
+   "img": "img_9.jpg",
+   "haut": "LE JOURNAL DE VULKARIS",
+   "titre": "JOUR 6",
+   "badge": "1 866 HABITANTS",
+   "sous": "Glisse pour voir ce qui a changé >>"
+  },
+  {
+   "img": "img_2.5.jpg",
+   "haut": "LES NAVIRES APPROCHENT…",
+   "titre": "ON SE",
+   "jaune": "DÉFEND !",
+   "sous": "Défense 41 voix · Attaque 22"
+  },
+  {
+   "img": "img_13.jpg",
+   "haut": "NOTRE COMMANDANT",
+   "titre": "lorenzo_lns09",
+   "sous": "« Discipline, Honneur, Protection » · 129 soldats"
+  },
+  {
+   "img": "img_20.5.jpg",
+   "haut": "CONSTRUIT POUR VOUS",
+   "titre": "L'AÉROPORT",
+   "jaune": "de chloe_vtr23"
+  },
+  {
+   "img": "img_22.jpg",
+   "haut": "CONSTRUIT POUR VOUS",
+   "titre": "LE CHANTIER NAVAL",
+   "jaune": "de lucas_spn_"
+  },
+  {
+   "img": "img_23.8.jpg",
+   "haut": "CONSTRUIT POUR VOUS",
+   "titre": "LE LABO MARIN",
+   "jaune": "de nikitoulich"
+  },
+  {
+   "img": "img_44.jpg",
+   "haut": "NOUVEAU QUARTIER · LES HAUTS",
+   "titre": "BIENVENUE",
+   "jaune": "empereur.pe",
+   "sous": "Ta maison aussi : lien dans la bio"
+  },
+  {
+   "img": "img_52.jpg",
+   "haut": "À TOI DE VOTER",
+   "titre": "COMMENT DÉFENDRE",
+   "jaune": "LA PLAGE ?",
+   "liste": [
+    "A · un grand mur",
+    "B · des canons",
+    "C · des pièges dans le sable"
+   ],
+   "tresor": true
+  }
+ ]
 }
