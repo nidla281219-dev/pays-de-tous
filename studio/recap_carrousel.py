@@ -3,7 +3,7 @@ Lit jours/jourN/recap.json → "slides": [{img, haut, titre, jaune?, sous?, badg
 → jours/jourN/carrousel/01.jpg … (1080×1440). Une image plein cadre par diapo, peu de texte, gros."""
 import json, os, sys
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageFilter
-ICI = os.path.dirname(os.path.abspath(__file__)); n = sys.argv[1]; D = os.path.join(ICI, '..', 'jours', f'jour{n}')
+ICI = os.path.dirname(os.path.abspath(__file__)); n = sys.argv[1]; D = n if os.path.isdir(n) else os.path.join(ICI, '..', 'jours', f'jour{n}')  # N ou dossier contenant recap.json
 R = json.load(open(os.path.join(D, 'recap.json'))); S = R['slides'] + ([dict(R['fin'], fin=True)] if R.get('fin') else []); O = os.path.join(D, 'carrousel'); os.makedirs(O, exist_ok=True)
 FT = os.path.join(ICI, 't', 'lilita.ttf')
 W, H = 1080, 1440; JAUNE, BLANC, ENCRE, ORANGE = (255, 214, 64), (255, 255, 255), (20, 20, 30), (226, 83, 29)

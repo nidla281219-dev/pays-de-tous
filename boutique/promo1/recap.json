@@ -1,0 +1,70 @@
+{
+ "jour": "",
+ "slides": [
+  {
+   "img": "quartier.jpg",
+   "cadre": 0.5,
+   "haut": "NOUVEAU À VULKARIS",
+   "titre": "TA MAISON",
+   "jaune": "SUR L'ÎLE",
+   "texte": "Le quartier des Hauts de Plavulca est ouvert : construis ta maison, elle apparaît dans la vidéo avec ton nom.",
+   "badge": "dès 1,99 €",
+   "sous": "Glisse >>"
+  },
+  {
+   "img": "img_6.jpg",
+   "cadre": 0.55,
+   "haut": "AVANT TOUT",
+   "titre": "RIEN",
+   "jaune": "NE CHANGE",
+   "texte": "Les votes, le chef, les lois et tous les bâtiments de la ville restent 100 % gratuits et décidés par vous. Les maisons ne donnent aucun avantage."
+  },
+  {
+   "img": "img_41.jpg",
+   "cadre": 0.4,
+   "haut": "POURQUOI CE QUARTIER ?",
+   "titre": "CRÉER LE JEU",
+   "jaune": "DE VULKARIS",
+   "texte": "Notre rêve : un vrai jeu où tout le monde pourra se balader sur l'île. Les maisons nous aident simplement à le financer."
+  },
+  {
+   "img": "quartier.jpg",
+   "cadre": 0.9,
+   "haut": "1. CHOISIS",
+   "titre": "TA PARCELLE",
+   "texte": "48 terrains : lisière de la forêt, cœur du quartier ou bord de mer."
+  },
+  {
+   "img": "s3.jpg",
+   "cadre": 0.5,
+   "haut": "2. CONSTRUIS-LA",
+   "titre": "À TON GOÛT",
+   "texte": "Cabane, maison ou villa. Style, couleurs, piscine, garage, fontaine… tu vois tout en 3D avant d'acheter."
+  },
+  {
+   "img": "statue.jpg",
+   "cadre": 0.3,
+   "haut": "3. EN OPTION",
+   "titre": "TA STATUE",
+   "jaune": "EN OR",
+   "texte": "Ta pose, ta matière, ta plaque gravée. Visible de tout le quartier."
+  },
+  {
+   "img": "img_45.jpg",
+   "cadre": 0.65,
+   "haut": "ELLE APPARAÎT DANS LA VIDÉO",
+   "titre": "MERCI",
+   "jaune": "AUX 3 PREMIERS",
+   "texte": "empereur.pe, vanvan.du17 et _.zowwee._ ont déjà leur maison. Leur nom est sur le panneau et dit à voix haute."
+  },
+  {
+   "img": "s1.jpg",
+   "cadre": 0.5,
+   "haut": "100 % FACULTATIF",
+   "titre": "LIEN",
+   "jaune": "DANS LA BIO",
+   "texte": "Tu ne veux pas acheter ? Aucun souci : regarder, voter et liker, c'est déjà un énorme soutien. Merci",
+   "sous": "lepaysdetous.github.io"
+  }
+ ]
+}
