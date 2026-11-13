@@ -12,6 +12,7 @@ Autres docs (n'ouvrir QUE si besoin) : docs/TIMELINE.md (format timeline, à l'�
 - Trésor : 1 like = 1 pièce (likes des 3 vidéos) ; toujours inciter à liker.
 - Chiffres TOUS RÉSEAUX CONFONDUS (« au total », « sur tous les réseaux ») mais NE JAMAIS NOMMER une plateforme (vidéo, descriptions, épinglés).
 - Vote : compter le NOMBRE de personnes qui proposent la même chose, plus les likes. Chef = candidature la plus likée.
+- MAISONS PAYÉES (13.11, l'utilisateur insiste : « c'est cher payé pour apparaître à la va-vite ») : chaque acheteur a SON moment, ≥ 4–5 s par maison (≥ 2 plans : un plan large qui tourne lentement autour de la maison + un gros plan sur le panneau à son nom), carte « ⭐ Merci <pseudo> » + phrase dite à voix haute avec le type de maison et ses options. Modélisation TRÈS SOIGNÉE, identique à l'aperçu du site (reprendre maison(), terrain(), opts(), statue(), panneauNom() de boutique/index.html : mêmes styles, couleurs, options, statue), jamais une boîte simplifiée. Feu d'artifice à l'écran si l'option « feu » est achetée. Vérifier chaque maison en 2 images test avant le rendu. S'il y a beaucoup d'acheteurs, garder ≥ 4 s chacun quitte à allonger un peu la vidéo.
 - Pas de voix chuchotée. Secrets uniquement dans GitHub, jamais dans le dépôt ni le chat. Ne jamais scraper avec le compte de l'utilisateur.
 
 ## Procédure quotidienne (tâche programmée 14h45, publication 17h00) — ÉCONOMISER LES TOKENS
