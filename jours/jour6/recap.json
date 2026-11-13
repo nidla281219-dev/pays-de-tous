@@ -1,0 +1,11 @@
+{
+ "jour": 6,
+ "fond": "recap_fond.jpg",
+ "chiffres": [["HABITANTS", "1 866"], ["SOLDATS", "129"], ["TRÉSOR", "1 828 💰"]],
+ "tresor": [1828, 2000, "base militaire"],
+ "decisions": ["On se DÉFEND : 41 voix contre 22", "Commandant : lorenzo_lns09 (222 likes)"],
+ "construits": ["Aéroport de chloe_vtr23", "Chantier naval de lucas_spn_", "Labo marin de nikitoulich"],
+ "quartier": ["empereur.pe : cabane, parcelle 1"],
+ "question": "Comment défendre la plage ?",
+ "options": ["A · un grand mur", "B · des canons", "C · des pièges dans le sable"]
+}
