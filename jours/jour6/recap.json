@@ -40,52 +40,75 @@
  ],
  "slides": [
   {
-   "img": "img_9.jpg",
+   "img": "img_6.jpg",
+   "cadre": 0.55,
    "haut": "LE JOURNAL DE VULKARIS",
    "titre": "JOUR 6",
    "badge": "1 866 HABITANTS",
-   "sous": "Glisse pour voir ce qui a changé >>"
+   "texte": "Des navires ennemis à l'horizon, un commandant élu, trois nouveaux bâtiments… et un nouveau quartier. Voici ce qui a changé.",
+   "sous": "Glisse >>"
   },
   {
-   "img": "img_2.5.jpg",
+   "img": "img_3.2.jpg",
+   "cadre": 0.5,
    "haut": "LES NAVIRES APPROCHENT…",
    "titre": "ON SE",
    "jaune": "DÉFEND !",
+   "texte": "Face à l'île ennemie, vous avez tranché : pas d'attaque, Vulkaris protège ses plages.",
    "sous": "Défense 41 voix · Attaque 22"
   },
   {
-   "img": "img_13.jpg",
+   "img": "img_15.jpg",
+   "cadre": 0.35,
    "haut": "NOTRE COMMANDANT",
    "titre": "lorenzo_lns09",
-   "sous": "« Discipline, Honneur, Protection » · 129 soldats"
+   "texte": "Élu avec 222 likes, il prend la tête des 129 soldats volontaires.",
+   "sous": "« Discipline, Honneur, Protection »"
   },
   {
-   "img": "img_20.5.jpg",
+   "img": "img_20.9.jpg",
+   "cadre": 0.5,
    "haut": "CONSTRUIT POUR VOUS",
    "titre": "L'AÉROPORT",
-   "jaune": "de chloe_vtr23"
+   "jaune": "de chloe_vtr23",
+   "texte": "Piste, terminal et tour de contrôle : Vulkaris s'ouvre au monde."
   },
   {
-   "img": "img_22.jpg",
+   "img": "img_22.6.jpg",
+   "cadre": 0.5,
    "haut": "CONSTRUIT POUR VOUS",
    "titre": "LE CHANTIER NAVAL",
-   "jaune": "de lucas_spn_"
+   "jaune": "de lucas_spn_",
+   "texte": "Grue, cale sèche et premiers bateaux : de quoi bâtir une flotte…"
   },
   {
-   "img": "img_23.8.jpg",
+   "img": "img_24.4.jpg",
+   "cadre": 0.55,
    "haut": "CONSTRUIT POUR VOUS",
    "titre": "LE LABO MARIN",
-   "jaune": "de nikitoulich"
+   "jaune": "de nikitoulich",
+   "texte": "Bassins et dôme d'observation pour étudier les fonds de l'île."
   },
   {
-   "img": "img_44.jpg",
-   "haut": "NOUVEAU QUARTIER · LES HAUTS",
-   "titre": "BIENVENUE",
+   "img": "img_41.jpg",
+   "cadre": 0.4,
+   "haut": "NOUVEAU QUARTIER",
+   "titre": "LES HAUTS",
+   "jaune": "DE PLAVULCA",
+   "texte": "Un quartier facultatif pour soutenir le futur jeu de Vulkaris. Tout le reste reste gratuit et décidé par vous."
+  },
+  {
+   "img": "img_45.jpg",
+   "cadre": 0.5,
+   "haut": "PREMIER HABITANT DES HAUTS",
+   "titre": "MERCI",
    "jaune": "empereur.pe",
+   "texte": "Sa cabane est construite, avec son nom sur le panneau.",
    "sous": "Ta maison aussi : lien dans la bio"
   },
   {
-   "img": "img_52.jpg",
+   "img": "img_55.jpg",
+   "cadre": 0.6,
    "haut": "À TOI DE VOTER",
    "titre": "COMMENT DÉFENDRE",
    "jaune": "LA PLAGE ?",
@@ -94,7 +117,16 @@
     "B · des canons",
     "C · des pièges dans le sable"
    ],
-   "tresor": true
+   "tresor": true,
+   "sous": "Réponds en commentaire"
   }
- ]
+ ],
+ "fin": {
+  "img": "img_3.2.jpg",
+  "titre": "LA SUITE",
+  "jaune": "EN VIDÉO",
+  "texte": "Les navires sont toujours là… Regarde l'épisode du jour 6 pour tout voir en 3D, et vote pour le jour 7 !",
+  "sous": "La vidéo est sur notre profil",
+  "haut": "ÉPISODE DU JOUR 6"
+ }
 }
