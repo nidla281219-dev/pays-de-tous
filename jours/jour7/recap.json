@@ -1,0 +1,142 @@
+{
+ "jour": 7,
+ "fond": "img_4.8.jpg",
+ "chiffres": [
+  [
+   "HABITANTS",
+   "1 974"
+  ],
+  [
+   "SOLDATS",
+   "129"
+  ],
+  [
+   "TRÉSOR",
+   "428 💰"
+  ]
+ ],
+ "tresor": [
+  428,
+  1500,
+  "grand mur"
+ ],
+ "decisions": [
+  "Les CANONS : 22 voix contre 16",
+  "Bunker de lysic_studio (47 likes)"
+ ],
+ "construits": [
+  "Base militaire",
+  "Hôpital de ndiasse_pro_121",
+  "Observatoire de BobSpie-m5e"
+ ],
+ "quartier": [
+  "vanvan.du17 : grande maison",
+  "_.zowwee._ : petite maison",
+  "Hidroway : villa + statue + feu d'artifice"
+ ],
+ "question": "Que fait-on du messager ?",
+ "options": [
+  "A · on l'écoute",
+  "B · prison"
+ ],
+ "slides": [
+  {
+   "img": "img_4.8.jpg",
+   "cadre": 0.55,
+   "haut": "LE JOURNAL DE VULKARIS",
+   "titre": "JOUR 7",
+   "badge": "1 974 HABITANTS",
+   "texte": "La flotte ennemie attaque… mais Vulkaris est prête. Voici ce qui a changé.",
+   "sous": "Glisse >>"
+  },
+  {
+   "img": "img_2.jpg",
+   "cadre": 0.5,
+   "haut": "VOUS AVEZ CHOISI",
+   "titre": "LES",
+   "jaune": "CANONS !",
+   "texte": "Quatre canons sur la plage de Plavulca, prêts à tirer.",
+   "sous": "Canons 22 voix · Mur 16 · Pièges 3"
+  },
+  {
+   "img": "img_11.5.jpg",
+   "cadre": 0.45,
+   "haut": "LE PLAN LE PLUS LIKÉ",
+   "titre": "LE BUNKER",
+   "jaune": "de lysic_studio",
+   "texte": "Béton, meurtrière et canon : la côte est protégée.",
+   "sous": "47 likes"
+  },
+  {
+   "img": "img_14.8.jpg",
+   "cadre": 0.5,
+   "haut": "LA BATAILLE",
+   "titre": "FEU !",
+   "jaune": "FLOTTE TOUCHÉE",
+   "texte": "Les canons détruisent une partie de la flotte ennemie."
+  },
+  {
+   "img": "img_18.jpg",
+   "cadre": 0.5,
+   "haut": "ET LÀ…",
+   "titre": "UN MESSAGER",
+   "jaune": "AU DRAPEAU BLANC",
+   "texte": "Un bateau ennemi approche, drapeau blanc levé. Que veut-il ?"
+  },
+  {
+   "img": "img_25.jpg",
+   "cadre": 0.5,
+   "haut": "TRÉSOR : 2 428 PIÈCES",
+   "titre": "LA BASE",
+   "jaune": "MILITAIRE",
+   "texte": "Casernes, tours de guet, héliport : grâce à vos likes, elle est construite !"
+  },
+  {
+   "img": "img_27.2.jpg",
+   "cadre": 0.5,
+   "haut": "CONSTRUIT POUR VOUS",
+   "titre": "L'HÔPITAL",
+   "jaune": "de ndiasse_pro_121",
+   "texte": "Pour soigner nos soldats et tous les habitants."
+  },
+  {
+   "img": "img_29.2.jpg",
+   "cadre": 0.5,
+   "haut": "CONSTRUIT POUR VOUS",
+   "titre": "L'OBSERVATOIRE",
+   "jaune": "de BobSpie-m5e",
+   "texte": "Sur les pentes du volcan, pour l'étudier de près."
+  },
+  {
+   "img": "img_33.8.jpg",
+   "cadre": 0.5,
+   "haut": "LES HAUTS DE PLAVULCA",
+   "titre": "MERCI",
+   "jaune": "vanvan.du17 · _.zowwee._ · Hidroway",
+   "texte": "Leurs maisons sont construites, avec leur nom sur le panneau.",
+   "sous": "Ta maison aussi : lien dans la bio"
+  },
+  {
+   "img": "img_50.jpg",
+   "cadre": 0.6,
+   "haut": "À TOI DE VOTER",
+   "titre": "QUE FAIT-ON",
+   "jaune": "DU MESSAGER ?",
+   "liste": [
+    "A · on l'écoute",
+    "B · prison",
+    "+ propose ton métier !"
+   ],
+   "tresor": true,
+   "sous": "Réponds en commentaire"
+  }
+ ],
+ "fin": {
+  "img": "img_2.jpg",
+  "titre": "LA SUITE",
+  "jaune": "EN VIDÉO",
+  "texte": "Le messager est sur la plage… Regarde l'épisode du jour 7 pour tout voir en 3D, et vote pour le jour 8 !",
+  "sous": "La vidéo est sur notre profil",
+  "haut": "ÉPISODE DU JOUR 7"
+ }
+}
