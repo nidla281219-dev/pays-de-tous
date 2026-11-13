@@ -2,13 +2,13 @@
 
 La flotte ennemie attaque… mais Vulkaris est prête !
 Jour sept, vous êtes mille neuf cent soixante-quatorze habitants, au total !
-Vous avez voté pour les canons : vingt-deux voix, contre seize pour le mur. Plus le bunker de Lysic, quarante-sept likes !
+Vous avez choisi les canons : vingt-deux voix contre seize ! Plus le bunker de Lysic, quarante-sept likes !
 Feu ! Les canons détruisent une partie de leur flotte !
-Et là… un bateau approche avec un drapeau blanc. C'est un messager ennemi !
+Et là… un bateau au drapeau blanc approche : un messager ennemi !
 Trésor : deux mille quatre cent vingt-huit pièces… la base militaire est construite !
 Vos demandes aussi : l'hôpital de Ndiasse et l'observatoire du volcan de Bob Spie !
-Dans les Hauts de Plavulca, merci à vanvan, à zowwee, et à Hidroway… avec son feu d'artifice !
+Dans les Hauts, merci à vanvan, zowwee et Hidroway… et son feu d'artifice !
 Sur notre site, tu choisis ta parcelle, tu construis ta maison comme tu veux — villa, piscine, même ta statue en or — et elle apparaît dans la vidéo avec ton nom. Ça nous aide à créer le jeu de Vulkaris. Lien dans la bio. Les votes, eux, restent gratuits.
-Question du jour : le messager ? A, on l'écoute. B, on l'enferme en prison !
-Et propose ton métier sur l'île : le plus liké sera construit, avec ton nom.
+Question du jour : que fait-on du messager ? A, on l'écoute. B, prison !
+Et propose ton métier : le plus liké sera construit !
 Chaque like, c'est une pièce pour le grand mur. Abonne-toi pour devenir habitant. Demain, jour huit : que veut l'ennemi ?
