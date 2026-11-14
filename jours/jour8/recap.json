@@ -1,0 +1,109 @@
+{
+ "jour": 8,
+ "fond": "img_3.jpg",
+ "chiffres": [
+  [
+   "HABITANTS",
+   "2 077"
+  ],
+  [
+   "SOLDATS",
+   "129"
+  ],
+  [
+   "TRÉSOR",
+   "975 💰"
+  ]
+ ],
+ "tresor": [
+  975,
+  1500,
+  "grand mur"
+ ],
+ "decisions": [
+  "On écoute le messager : 72 voix contre 4",
+  "Métier le plus liké : explorateur (nathan.fr08, 31 likes)"
+ ],
+ "construits": [
+  "Base des explorateurs de nathan.fr08",
+  "Réserve animale d'emma_shtn"
+ ],
+ "quartier": [
+  "Clutcche : grande maison rose + piscine, jardin, voiture, drapeau",
+  "Merci aussi empereur.pe, vanvan.du17, _.zowwee._, Hidroway"
+ ],
+ "question": "La paix contre la moitié du trésor ?",
+ "options": [
+  "A · on paie, la paix",
+  "B · on refuse, la guerre"
+ ],
+ "slides": [
+  {
+   "img": "img_3.jpg",
+   "cadre": 0.55,
+   "haut": "LE JOURNAL DE VULKARIS",
+   "titre": "JOUR 8",
+   "badge": "2 077 HABITANTS",
+   "texte": "Le messager ennemi est sur notre plage. Voici ce qui a changé.",
+   "sous": "Glisse >>"
+  },
+  {
+   "img": "img_13.jpg",
+   "cadre": 0.5,
+   "haut": "VOUS AVEZ CHOISI",
+   "titre": "ON L'",
+   "jaune": "ÉCOUTE !",
+   "texte": "Leur roi propose la paix… mais il veut la MOITIÉ de notre trésor.",
+   "sous": "Écouter 72 voix · Prison 4"
+  },
+  {
+   "img": "img_25.8.jpg",
+   "cadre": 0.5,
+   "haut": "LE MÉTIER LE PLUS LIKÉ",
+   "titre": "EXPLORATEUR",
+   "jaune": "de nathan.fr08",
+   "texte": "Tour de guet, carte des îles, jeep : la base pour découvrir de nouvelles terres.",
+   "sous": "31 likes"
+  },
+  {
+   "img": "img_30.jpg",
+   "cadre": 0.5,
+   "haut": "VOS DEMANDES",
+   "titre": "LA RÉSERVE",
+   "jaune": "d'emma_shtn",
+   "texte": "Cerfs, girafe, zèbre et canards protégés avant que la ville grandisse.",
+   "sous": "12 likes"
+  },
+  {
+   "img": "img_36.jpg",
+   "cadre": 0.5,
+   "haut": "LES HAUTS DE PLAVULCA",
+   "titre": "MERCI",
+   "jaune": "Clutcche ⭐",
+   "texte": "Sa grande maison rose au bord de la mer : piscine, jardin fleuri, voiture et drapeau.",
+   "sous": "Nouvel habitant des Hauts"
+  },
+  {
+   "img": "img_41.5.jpg",
+   "cadre": 0.5,
+   "haut": "MERCI À TOUS",
+   "titre": "LES",
+   "jaune": "BÂTISSEURS ⭐",
+   "texte": "empereur.pe, vanvan.du17, _.zowwee._, Hidroway et Clutcche ont construit les Hauts.",
+   "sous": "Ta maison : lien dans la bio"
+  },
+  {
+   "img": "img_47.8.jpg",
+   "cadre": 0.6,
+   "haut": "À TOI DE VOTER",
+   "titre": "LA PAIX",
+   "jaune": "OU LA GUERRE ?",
+   "liste": [
+    "A · on paie, c'est la paix",
+    "B · on refuse, la guerre continue"
+   ],
+   "tresor": true,
+   "sous": "Réponds en commentaire"
+  }
+ ]
+}
