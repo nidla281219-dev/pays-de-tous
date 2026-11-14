@@ -1,0 +1,71 @@
+{
+ "jour": "",
+ "slides": [
+  {
+   "img": "h_large.jpg",
+   "cadre": 0.45,
+   "haut": "LES HAUTS DE PLAVULCA",
+   "titre": "TA MAISON",
+   "jaune": "À VULKARIS",
+   "texte": "Construis ta maison sur l'île et deviens Fondateur du futur jeu de Vulkaris.",
+   "badge": "dès 1,99 €",
+   "sous": "Glisse pour voir les avantages >>"
+  },
+  {
+   "img": "img_41.jpg",
+   "cadre": 0.4,
+   "haut": "EN SOUTENANT LE JEU",
+   "titre": "TU DEVIENS",
+   "jaune": "FONDATEUR",
+   "texte": "Chaque maison aide à financer un vrai jeu où tout le monde pourra se balader dans Vulkaris. En échange, les Fondateurs ont des avantages."
+  },
+  {
+   "img": "c_large.jpg",
+   "cadre": 0.45,
+   "haut": "AVANTAGE 1",
+   "titre": "BÊTA-TESTEUR",
+   "texte": "Tu joues au jeu avant tout le monde et tu nous aides à l'améliorer."
+  },
+  {
+   "img": "h_fin.jpg",
+   "cadre": 0.45,
+   "haut": "AVANTAGE 2",
+   "titre": "TA MAISON",
+   "jaune": "DANS LE JEU",
+   "texte": "Le jour de la sortie, ta maison est déjà là, sur ta parcelle, exactement comme tu l'as choisie."
+  },
+  {
+   "img": "h_statue.jpg",
+   "cadre": 0.3,
+   "haut": "AVANTAGE 3",
+   "titre": "TON NOM",
+   "jaune": "AU GÉNÉRIQUE",
+   "texte": "Ton pseudo dans les crédits du jeu et sur le Mur des Fondateurs, construit sur l'île."
+  },
+  {
+   "img": "h_panneau.jpg",
+   "cadre": 0.5,
+   "haut": "AVANTAGE 4",
+   "titre": "TON MOMENT",
+   "jaune": "DANS LA VIDÉO",
+   "texte": "Un passage rien que pour ta maison, avec ton nom sur le panneau et dit à voix haute."
+  },
+  {
+   "img": "img_6.jpg",
+   "cadre": 0.55,
+   "haut": "ET POUR TOUS LES AUTRES",
+   "titre": "RIEN",
+   "jaune": "NE CHANGE",
+   "texte": "Les votes, le chef, les lois et les bâtiments de la ville restent 100 % gratuits. Les maisons ne donnent aucun pouvoir dans les votes."
+  },
+  {
+   "img": "c_fin.jpg",
+   "cadre": 0.45,
+   "haut": "100 % FACULTATIF",
+   "titre": "LIEN",
+   "jaune": "DANS LA BIO",
+   "texte": "Regarder, voter et liker, c'est déjà un énorme soutien. Merci à tous les habitants.",
+   "sous": "lepaysdetous.github.io"
+  }
+ ]
+}
