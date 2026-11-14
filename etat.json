@@ -188,8 +188,7 @@
  "vote_en_cours": {
   "jour": 8,
   "questions": [
-   "Paix contre la moitié du trésor : A on paie (paix) / B on refuse (la guerre continue)",
-   "Proposition libre : nom de l'île ennemie (le plus liké)"
+   "Paix contre la moitié du trésor : A on paie (paix) / B on refuse (la guerre continue)"
   ]
  },
  "historique": [
@@ -223,7 +222,7 @@
   },
   {
    "jour": 8,
-   "resume": "2077 habitants (YT 475/TT 119/IG 1483). Messager : A écouter 72 / B prison 4 → leur roi propose la paix contre la moitié du trésor. +547 likes → trésor 975 / 1500 (grand mur). Métier le plus liké : explorateur @nathan.fr08 (31) → base des explorateurs ; réserve animale @emma_shtn (12). Acheteur Clutcche (grande maison rose, piscine, voiture, drapeau). Questions : A payer la paix / B refuser ; nom de l'île ennemie."
+   "resume": "2077 habitants (YT 475/TT 119/IG 1483). Messager : A écouter 72 / B prison 4 → leur roi propose la paix contre la moitié du trésor. +547 likes → trésor 975 / 1500 (grand mur). Métier le plus liké : explorateur @nathan.fr08 (31) → base des explorateurs ; réserve animale @emma_shtn (12). Acheteur Clutcche (grande maison rose, piscine, voiture, drapeau). Questions : A payer la paix / B refuser (nom de l'île ennemie retiré par l'utilisateur). Récap des 5 acheteurs des Hauts."
   }
  ],
  "habitants_detail": {
