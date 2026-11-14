@@ -1,7 +1,7 @@
-# Ventes — Les Hauts de Plavulca (mis à jour 14.11.2026 10:34 UTC)
+# Ventes — Les Hauts de Plavulca (mis à jour 14.11.2026 18:12 UTC)
 
-- Paniers ouverts (page de paiement affichée) : **39**
-- Payés : **5** · abandonnés ou en cours : 34
+- Paniers ouverts (page de paiement affichée) : **40**
+- Payés : **5** · abandonnés ou en cours : 35
 - Chiffre d'affaires : **64.77 €** (avant frais Stripe)
 - Acheteurs d'accord pour les e-mails (sortie du jeu) : **3** (adresses uniquement dans Stripe)
 
