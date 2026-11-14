@@ -1,0 +1,88 @@
+{
+ "jour": "",
+ "slides": [
+  {
+   "img": "h_large.jpg",
+   "cadre": 0.45,
+   "haut": "NOUVEAU · 7 AVANTAGES",
+   "titre": "DEVIENS",
+   "jaune": "FONDATEUR",
+   "texte": "Prends ta maison à Vulkaris et débloque 7 avantages réservés aux Fondateurs du jeu.",
+   "badge": "dès 1,99 €",
+   "sous": "Glisse, le n° 6 est encore libre >>"
+  },
+  {
+   "img": "statue_or.jpg",
+   "cadre": 0.3,
+   "haut": "NOUVEAU · AVANTAGE 1",
+   "titre": "TON NOM",
+   "jaune": "EN OR",
+   "texte": "Dans le jeu, ton pseudo s'affiche en doré avec le badge Fondateur. Tout le monde saura que tu étais là au début."
+  },
+  {
+   "img": "c_large.jpg",
+   "cadre": 0.45,
+   "haut": "NOUVEAU · AVANTAGE 2",
+   "titre": "FONDATEUR",
+   "jaune": "N° 6 ?",
+   "texte": "Chaque Fondateur reçoit son numéro, dans l'ordre d'achat. Les 5 premiers sont déjà pris : plus tu arrives tôt, plus ton numéro est petit."
+  },
+  {
+   "img": "quartier.jpg",
+   "cadre": 0.5,
+   "haut": "NOUVEAU · AVANTAGE 3",
+   "titre": "TON PASSEPORT",
+   "carte": "passeport.jpg",
+   "sous": "À ton nom, avec ton numéro et ta maison. À partager !"
+  },
+  {
+   "img": "h_fin.jpg",
+   "cadre": 0.45,
+   "haut": "AVANTAGE 4",
+   "titre": "BÊTA-TESTEUR",
+   "texte": "Tu joues au jeu de Vulkaris avant tout le monde, et ton avis compte pour l'améliorer."
+  },
+  {
+   "img": "c_fin.jpg",
+   "cadre": 0.45,
+   "haut": "AVANTAGES 5 ET 6",
+   "titre": "TA MAISON",
+   "jaune": "DANS LE JEU",
+   "texte": "À la sortie, ta maison est déjà là, sur ta parcelle. Et ton pseudo est au générique et sur le Mur des Fondateurs."
+  },
+  {
+   "img": "h_panneau.jpg",
+   "cadre": 0.5,
+   "haut": "AVANTAGE 7",
+   "titre": "TON MOMENT",
+   "jaune": "DANS LA VIDÉO",
+   "texte": "Un passage rien que pour ta maison : caméra qui tourne autour, gros plan sur ton nom, remerciement à voix haute."
+  },
+  {
+   "img": "quartier.jpg",
+   "cadre": 0.9,
+   "haut": "48 PARCELLES, PAS UNE DE PLUS",
+   "titre": "PLUS QUE",
+   "jaune": "43 TERRAINS",
+   "texte": "Forêt, cœur du quartier ou bord de mer : choisis avant les autres. Les prix montent de 0,50 € tous les 10 terrains vendus, et 5 sont déjà partis."
+  },
+  {
+   "img": "img_6.jpg",
+   "cadre": 0.55,
+   "haut": "ET POUR TOUT LE MONDE",
+   "titre": "RIEN",
+   "jaune": "NE CHANGE",
+   "texte": "Les votes, le chef, les lois et la ville restent 100 % gratuits. Les maisons ne donnent aucun pouvoir dans les votes : elles financent le jeu."
+  },
+  {
+   "img": "h_large.jpg",
+   "cadre": 0.55,
+   "haut": "CHOISIS TA PARCELLE",
+   "titre": "LIEN",
+   "jaune": "DANS LA BIO",
+   "texte": "Tu vois ta maison en 3D avant d'acheter : style, couleurs, piscine, statue en or…",
+   "badge": "dès 1,99 €",
+   "sous": "lepaysdetous.github.io"
+  }
+ ]
+}

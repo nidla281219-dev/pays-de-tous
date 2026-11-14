@@ -20,6 +20,10 @@ for i, s in enumerate(S, 1):
     vig = Image.new('L', (W, H), 0); ImageDraw.Draw(vig).ellipse([-W * .25, -H * .2, W * 1.25, H * 1.2], fill=255); vig = vig.filter(ImageFilter.GaussianBlur(160))
     im = Image.composite(im, ImageEnhance.Brightness(im).enhance(.55), vig)
     noir = Image.new('RGB', (W, 520), (8, 16, 30)); im.paste(noir, (0, 0), degrade(520, True)); im.paste(Image.new('RGB', (W, 560), (8, 16, 30)), (0, H - 560), degrade(560, False))
+    if s.get('carte'):  # image (ex. passeport) posée au centre, nette, avec une ombre
+        ca = Image.open(os.path.join(D, s['carte'])).convert('RGB'); cw = 560; ca = ca.resize((cw, int(ca.height * cw / ca.width))); cx0, cy0 = (W - cw) // 2, 410
+        om = Image.new('L', (W, H), 0); ImageDraw.Draw(om).rounded_rectangle([cx0 - 6, cy0 + 14, cx0 + cw + 6, cy0 + ca.height + 26], radius=40, fill=170); om = om.filter(ImageFilter.GaussianBlur(22))
+        im.paste(Image.new('RGB', (W, H), (4, 8, 16)), (0, 0), om); mk = Image.new('L', ca.size, 0); ImageDraw.Draw(mk).rounded_rectangle([0, 0, ca.width - 1, ca.height - 1], radius=30, fill=255); im.paste(ca, (cx0, cy0), mk)
     d = ImageDraw.Draw(im)
     def centre(t, y, size, fill, stroke=9, maxw=960):
         ff = font(size)

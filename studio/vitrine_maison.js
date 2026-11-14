@@ -23,6 +23,7 @@ const FPS = 30; const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 
              [1.7, .1, -.25, 22, 17, 6, 4.8, [4.3, 3.1, 12.6], [4.3, 3.2, 12.6]]];
   if (ETAT.statue) P.push([1.7, .75, .45, 22, 17, 8, 7, [-9.5, 5, 8.5], [-9.5, 5.3, 8.5]]);
   P.push([1.4, .3, .65, 54, 64, 24, 30, [0, 1.5, 0], [0, 1.5, 1]]);
+  if (process.env.PHOTO) { const u = await p.evaluate(() => window.photo(-.25, 1080, 1080, 50, 21, [0, 2, 0])); fs.writeFileSync(path.join(out, 'photo.jpg'), Buffer.from(u.split(',')[1], 'base64')); await b.close(); return; }
   let i = 0;
   for (const [d, a0, a1, d0, d1, h0, h1, v0, v1] of P) for (let k = 0, n = Math.round(d * FPS); k < n; k++, i++) {
     const t = ease(k / (n - 1));
