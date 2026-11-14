@@ -1,3 +1,6 @@
+## ⚠️ JOUR 9 (15.11) — MAISONS ACHETÉES : clips prêts
+- jours/jour9/maison_Hidroway.mp4 (villa classique bleue, jardin, drapeau, garage, fontaine, piscine, feu d'artifice, statue en bronze « Défenseur de Vulkaris ») et jours/jour9/maison_Clutcche.mp4 (grande maison méditerranéenne rose, jardin, garage, piscine, drapeau) → les insérer en entier (inserts), un après l'autre, avec un remerciement à voix haute pour chacun. Si d'autres achats arrivent avant 14h45 : relancer ventes.yml puis `python3 studio/vitrines.py 9 <pseudos>`.
+
 # Banque de questions — Le Pays de Tous
 ## ⚠️ JOUR 7 (13.11) — demande de l'utilisateur : PARLER UN PEU PLUS DU SITE, AVEC DES IMAGES DU SITE
 - Passage ~10–12 s (dans la 2e moitié, après le vote) : montrer le site sur un téléphone → clip prêt assets/site_demo.mp4 via `inserts` (docs/TIMELINE.md), ~8–10 s (debut 0 à 2 ; le clip a déjà ses titres d’étapes).
