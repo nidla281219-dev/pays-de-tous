@@ -1,0 +1,1497 @@
+{
+ "dur": 71.3,
+ "etat": {
+  "nom": "Vulkaris",
+  "drapeau": {
+   "fond": "sautoir",
+   "couleurs": [
+    "#141414",
+    "#c0281e"
+   ],
+   "liseré": "#e6c9a0",
+   "symboles": [
+    {
+     "forme": "anneau",
+     "couleur": "#e6c9a0",
+     "fond": "#1a1010",
+     "taille": 0.7,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "forme": "volcan_lave",
+     "couleur": "#ff6a1a",
+     "taille": 0.5,
+     "x": 0.5,
+     "y": 0.58
+    },
+    {
+     "forme": "lance",
+     "couleur": "#e6c9a0",
+     "taille": 0.3,
+     "x": 0.5,
+     "y": 0.14
+    }
+   ]
+  },
+  "capitale": {
+   "site": "plage_ville",
+   "rayon": 42
+  },
+  "batiments": [
+   {
+    "nom": "Boulangerie de RL_Ham",
+    "place": -1.5708
+   },
+   {
+    "type": "barber",
+    "nom": "Barbershop d'estebarbero",
+    "place": 0
+   },
+   {
+    "type": "universite",
+    "pos": [
+     -13,
+     131
+    ],
+    "rot": -0.7551044034786732
+   },
+   {
+    "type": "bateau",
+    "nom": "Bateau de leroux_1136",
+    "enseigne": "leroux_1136",
+    "pos": [
+     -22,
+     226
+    ],
+    "rot": 0.5
+   },
+   {
+    "type": "karting",
+    "nom": "Circuit de karting",
+    "pos": [
+     35,
+     170
+    ],
+    "rot": 0.3
+   },
+   {
+    "type": "ferme",
+    "nom": "Ferme de lean.dvko",
+    "pos": [
+     -115,
+     135
+    ],
+    "rot": 0.7
+   },
+   {
+    "type": "kebab",
+    "nom": "Kebab d'alexis._.privvvvv",
+    "enseigne": [
+     "KEBAB",
+     "d'alexis._.privvvvv"
+    ],
+    "place": 2.3
+   },
+   {
+    "type": "poulet",
+    "nom": "Poulet frit de bunny_bugzy",
+    "enseigne": [
+     "POULET FRIT",
+     "de bunny_bugzy"
+    ],
+    "place": 0.85
+   },
+   {
+    "type": "bistro",
+    "nom": "Bistro de fiizenn",
+    "enseigne": [
+     "BISTRO",
+     "de fiizenn"
+    ],
+    "place": -2.4
+   },
+   {
+    "type": "sentier",
+    "nom": "Sentier du volcan de ma_tribuu",
+    "a0": 2.0
+   },
+   {
+    "type": "caserne_pompiers",
+    "nom": "Caserne de salman381560",
+    "enseigne": [
+     "🚒 POMPIERS",
+     "de salman381560"
+    ],
+    "pos": [
+     -98,
+     195
+    ],
+    "rot": 0.4
+   },
+   {
+    "type": "mine",
+    "nom": "Mine de quentin.gsdn",
+    "pos": [
+     0,
+     30
+    ],
+    "rot": 0.2
+   },
+   {
+    "type": "forge",
+    "nom": "Forge de 4kage5an",
+    "pos": [
+     -100,
+     163
+    ],
+    "rot": 1.2
+   },
+   {
+    "type": "port",
+    "nom": "Port de cesare_92b",
+    "pos": [
+     -82,
+     230
+    ],
+    "rot": -0.2
+   },
+   {
+    "type": "prison",
+    "nom": "Prison de leoetpaslesbas",
+    "pos": [
+     55,
+     108
+    ],
+    "rot": 0.3
+   },
+   {
+    "type": "aeroport",
+    "nom": "Aéroport de chloe_vtr23",
+    "pos": [
+     -135,
+     40
+    ],
+    "rot": 0.3
+   },
+   {
+    "type": "chantier_naval",
+    "nom": "Chantier naval de lucas_spn_",
+    "pos": [
+     2,
+     214
+    ],
+    "rot": -0.2
+   },
+   {
+    "type": "labo_marin",
+    "nom": "Labo marin de nikitoulich",
+    "pos": [
+     -128,
+     212
+    ],
+    "rot": 0.2
+   },
+   {
+    "type": "quartier_hauts",
+    "nom": "Les Hauts de Plavulca",
+    "pos": [
+     -55,
+     0
+    ],
+    "rot": 1.5708,
+    "key": "hauts",
+    "maisons": [
+     {
+      "lot": "-21,-1",
+      "st": "cabane",
+      "haie": 1,
+      "panneau": "⭐ empereur.pe"
+     },
+     {
+      "lot": "-38,1",
+      "st": "grande",
+      "haie": 1,
+      "o": {
+       "w": 11,
+       "d": 8,
+       "et": 2,
+       "mur": "#d9a25e",
+       "toit": "#6e4630",
+       "vol": "#b8322a",
+       "cad": "#f7f2e8"
+      },
+      "panneau": "⭐ vavan's house"
+     },
+     {
+      "lot": "38,-1",
+      "st": "moderne",
+      "haie": 1,
+      "fontaine": 1,
+      "o": {
+       "w": 8,
+       "d": 7,
+       "mur": "#f7f5f0",
+       "toit": "#6e4630"
+      },
+      "panneau": "⭐ Famille Mustafić"
+     },
+     {
+      "lot": "21,1",
+      "st": "villa",
+      "haie": 1,
+      "piscine": 1,
+      "fontaine": 1,
+      "statue": "#a0703a",
+      "voiture": "#2f5fa8",
+      "drapeau": 1,
+      "o": {
+       "w": 12,
+       "d": 9,
+       "et": 2,
+       "mur": "#8fb3d9",
+       "toit": "#b5523b",
+       "vol": "#2a2a2a",
+       "cad": "#f7f2e8"
+      },
+      "panneau": "⭐ Hidroway",
+      "plaque": "Défenseur de Vulkaris"
+     },
+     {
+      "lot": "38,1",
+      "st": "grande",
+      "haie": 1,
+      "piscine": 1,
+      "voiture": "#d8d8d8",
+      "drapeau": 1,
+      "o": {
+       "w": 11,
+       "d": 8,
+       "et": 2,
+       "mur": "#e7b2a6",
+       "toit": "#b5523b",
+       "vol": "#2b2b2b",
+       "cad": "#f7f2e8"
+      },
+      "panneau": "⭐ Clutcche"
+     }
+    ]
+   },
+   {
+    "type": "defense",
+    "nom": "Bunker de lysic_studio",
+    "pos": [
+     -45,
+     222
+    ],
+    "rot": 0
+   },
+   {
+    "type": "base_militaire",
+    "nom": "Base militaire",
+    "pos": [
+     -60,
+     95
+    ],
+    "rot": 0
+   },
+   {
+    "type": "hopital",
+    "nom": "Hôpital de ndiasse_pro_121",
+    "place": -0.75
+   },
+   {
+    "type": "observatoire",
+    "nom": "Observatoire de BobSpie",
+    "pos": [
+     70,
+     -20
+    ],
+    "rot": 0.6
+   },
+   {
+    "type": "explorateurs",
+    "nom": "Base des explorateurs de nathan.fr08",
+    "pos": [
+     40,
+     228
+    ],
+    "rot": -0.2,
+    "key": "explo"
+   },
+   {
+    "type": "reserve",
+    "nom": "Réserve animale d'emma_shtn",
+    "pos": [
+     105,
+     135
+    ],
+    "rot": 0.4,
+    "key": "reserve"
+   }
+  ]
+ },
+ "hud": {
+  "jour": 8,
+  "pop": {
+   "de": 1974,
+   "a": 2077,
+   "t0": 5.4,
+   "t1": 6.6
+  },
+  "nom": "Vulkaris",
+  "drapeau": {
+   "fond": "sautoir",
+   "couleurs": [
+    "#141414",
+    "#c0281e"
+   ],
+   "liseré": "#e6c9a0",
+   "symboles": [
+    {
+     "forme": "anneau",
+     "couleur": "#e6c9a0",
+     "fond": "#1a1010",
+     "taille": 0.7,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "forme": "volcan_lave",
+     "couleur": "#ff6a1a",
+     "taille": 0.5,
+     "x": 0.5,
+     "y": 0.58
+    },
+    {
+     "forme": "lance",
+     "couleur": "#e6c9a0",
+     "taille": 0.3,
+     "x": 0.5,
+     "y": 0.14
+    }
+   ]
+  },
+  "tresor": 428,
+  "changements": [
+   {
+    "t": 18.6,
+    "tresor": 975
+   }
+  ]
+ },
+ "shots": [
+  {
+   "t": 0,
+   "from": {
+    "p": [
+     -12,
+     16,
+     236
+    ],
+    "l": [
+     -45,
+     4,
+     262
+    ]
+   },
+   "to": {
+    "p": [
+     -16,
+     15,
+     234
+    ],
+    "l": [
+     -45,
+     4,
+     262
+    ]
+   }
+  },
+  {
+   "t": 2.2,
+   "from": {
+    "p": [
+     -85,
+     130,
+     285
+    ],
+    "l": [
+     -45,
+     5,
+     165
+    ]
+   },
+   "to": {
+    "p": [
+     -75,
+     115,
+     265
+    ],
+    "l": [
+     -45,
+     5,
+     165
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 4.2,
+   "from": {
+    "p": [
+     -15,
+     40,
+     200
+    ],
+    "l": [
+     -45,
+     3,
+     165
+    ]
+   },
+   "to": {
+    "p": [
+     -20,
+     34,
+     192
+    ],
+    "l": [
+     -45,
+     3,
+     165
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 7.9,
+   "from": {
+    "p": [
+     -45,
+     60,
+     140
+    ],
+    "l": [
+     -45,
+     3,
+     170
+    ]
+   },
+   "to": {
+    "p": [
+     -45,
+     55,
+     148
+    ],
+    "l": [
+     -45,
+     3,
+     170
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 11.1,
+   "from": {
+    "p": [
+     -62,
+     12,
+     240
+    ],
+    "l": [
+     -45,
+     4,
+     262
+    ]
+   },
+   "to": {
+    "p": [
+     -58,
+     11,
+     238
+    ],
+    "l": [
+     -45,
+     4,
+     262
+    ]
+   }
+  },
+  {
+   "t": 14.1,
+   "from": {
+    "p": [
+     -10,
+     45,
+     300
+    ],
+    "l": [
+     -60,
+     4,
+     390
+    ]
+   },
+   "to": {
+    "p": [
+     -15,
+     40,
+     310
+    ],
+    "l": [
+     -60,
+     4,
+     390
+    ]
+   }
+  },
+  {
+   "t": 16.4,
+   "from": {
+    "p": [
+     -45,
+     140,
+     285
+    ],
+    "l": [
+     -45,
+     5,
+     165
+    ]
+   },
+   "to": {
+    "p": [
+     -40,
+     120,
+     265
+    ],
+    "l": [
+     -45,
+     5,
+     165
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 21.9,
+   "from": {
+    "p": [
+     95,
+     80,
+     300
+    ],
+    "l": [
+     40,
+     5,
+     228
+    ]
+   },
+   "to": {
+    "p": [
+     85,
+     70,
+     290
+    ],
+    "l": [
+     40,
+     5,
+     228
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 24.7,
+   "from": {
+    "p": [
+     62,
+     22,
+     252
+    ],
+    "l": [
+     40,
+     5,
+     228
+    ]
+   },
+   "to": {
+    "p": [
+     58,
+     18,
+     256
+    ],
+    "l": [
+     40,
+     5,
+     228
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 26.6,
+   "from": {
+    "p": [
+     22,
+     16,
+     250
+    ],
+    "l": [
+     34,
+     8,
+     222
+    ]
+   },
+   "to": {
+    "p": [
+     26,
+     14,
+     252
+    ],
+    "l": [
+     34,
+     8,
+     222
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 28.3,
+   "from": {
+    "p": [
+     150,
+     55,
+     190
+    ],
+    "l": [
+     105,
+     2,
+     135
+    ]
+   },
+   "to": {
+    "p": [
+     140,
+     48,
+     185
+    ],
+    "l": [
+     105,
+     2,
+     135
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 30.6,
+   "from": {
+    "p": [
+     90,
+     16,
+     110
+    ],
+    "l": [
+     106,
+     2,
+     138
+    ]
+   },
+   "to": {
+    "p": [
+     94,
+     14,
+     108
+    ],
+    "l": [
+     106,
+     2,
+     138
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 32.8,
+   "from": {
+    "p": [
+     -5,
+     60,
+     -55
+    ],
+    "l": [
+     -55,
+     0,
+     0
+    ]
+   },
+   "to": {
+    "p": [
+     -12,
+     52,
+     -45
+    ],
+    "l": [
+     -55,
+     0,
+     0
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 33.9,
+   "from": {
+    "p": [
+     -64,
+     15,
+     -56
+    ],
+    "l": [
+     -38,
+     4,
+     -38
+    ]
+   },
+   "to": {
+    "p": [
+     -62,
+     14,
+     -20
+    ],
+    "l": [
+     -38,
+     4,
+     -38
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 37.9,
+   "from": {
+    "p": [
+     -54,
+     4.5,
+     -30
+    ],
+    "l": [
+     -46.3,
+     1.8,
+     -33.5
+    ]
+   },
+   "to": {
+    "p": [
+     -53,
+     4,
+     -31.5
+    ],
+    "l": [
+     -46.3,
+     1.8,
+     -33.5
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 40.7,
+   "from": {
+    "p": [
+     -110,
+     70,
+     0
+    ],
+    "l": [
+     -55,
+     0,
+     0
+    ]
+   },
+   "to": {
+    "p": [
+     -100,
+     62,
+     8
+    ],
+    "l": [
+     -55,
+     0,
+     0
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 43.4,
+   "from": {
+    "p": [
+     -82,
+     14,
+     10
+    ],
+    "l": [
+     -70,
+     3,
+     21
+    ]
+   },
+   "to": {
+    "p": [
+     -80,
+     13,
+     13
+    ],
+    "l": [
+     -70,
+     3,
+     21
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 44.6,
+   "from": {
+    "p": [
+     -68,
+     16,
+     56
+    ],
+    "l": [
+     -40,
+     4,
+     38
+    ]
+   },
+   "to": {
+    "p": [
+     -66,
+     15,
+     53
+    ],
+    "l": [
+     -40,
+     4,
+     38
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 46.0,
+   "from": {
+    "p": [
+     -42,
+     16,
+     -56
+    ],
+    "l": [
+     -70,
+     4,
+     -38
+    ]
+   },
+   "to": {
+    "p": [
+     -44,
+     15,
+     -53
+    ],
+    "l": [
+     -70,
+     4,
+     -38
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 47.3,
+   "from": {
+    "p": [
+     -78,
+     24,
+     -6
+    ],
+    "l": [
+     -40,
+     10,
+     -21
+    ]
+   },
+   "to": {
+    "p": [
+     -74,
+     22,
+     -14
+    ],
+    "l": [
+     -40,
+     10,
+     -21
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 49.3,
+   "from": {
+    "p": [
+     -64,
+     15,
+     -48
+    ],
+    "l": [
+     -38,
+     4,
+     -38
+    ]
+   },
+   "to": {
+    "p": [
+     -62,
+     14,
+     -40
+    ],
+    "l": [
+     -38,
+     4,
+     -38
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 55.4,
+   "from": {
+    "p": [
+     -12,
+     16,
+     236
+    ],
+    "l": [
+     -45,
+     4,
+     262
+    ]
+   },
+   "to": {
+    "p": [
+     -16,
+     15,
+     234
+    ],
+    "l": [
+     -45,
+     4,
+     262
+    ]
+   }
+  },
+  {
+   "t": 57.1,
+   "from": {
+    "p": [
+     -10,
+     45,
+     300
+    ],
+    "l": [
+     -60,
+     4,
+     390
+    ]
+   },
+   "to": {
+    "p": [
+     -15,
+     40,
+     310
+    ],
+    "l": [
+     -60,
+     4,
+     390
+    ]
+   }
+  },
+  {
+   "t": 62.4,
+   "from": {
+    "p": [
+     -85,
+     130,
+     285
+    ],
+    "l": [
+     -45,
+     5,
+     165
+    ]
+   },
+   "to": {
+    "p": [
+     -75,
+     115,
+     265
+    ],
+    "l": [
+     -45,
+     5,
+     165
+    ]
+   },
+   "rel": 1
+  },
+  {
+   "t": 66.8,
+   "from": {
+    "p": [
+     -45,
+     140,
+     285
+    ],
+    "l": [
+     -45,
+     5,
+     165
+    ]
+   },
+   "to": {
+    "p": [
+     -40,
+     120,
+     265
+    ],
+    "l": [
+     -45,
+     5,
+     165
+    ]
+   },
+   "rel": 1
+  }
+ ],
+ "caps": [
+  {
+   "t0": 0,
+   "t1": 2.1,
+   "lignes": [
+    "LE *MESSAGER*",
+    "EST LÀ ! 🏳️"
+   ]
+  },
+  {
+   "t0": 2.2,
+   "t1": 4.1,
+   "lignes": [
+    "VOUS AVEZ",
+    "*DÉCIDÉ* !"
+   ]
+  },
+  {
+   "t0": 4.2,
+   "t1": 5.0,
+   "lignes": [
+    "*JOUR 8*"
+   ]
+  },
+  {
+   "t0": 5.1,
+   "t1": 7.8,
+   "lignes": [
+    "VOUS ÊTES",
+    "*2 077 HABITANTS* !"
+   ]
+  },
+  {
+   "t0": 11.1,
+   "t1": 14.0,
+   "lignes": [
+    "LEUR *ROI*",
+    "PROPOSE LA *PAIX*…"
+   ]
+  },
+  {
+   "t0": 14.1,
+   "t1": 16.3,
+   "lignes": [
+    "CONTRE LA *MOITIÉ*",
+    "DU TRÉSOR ! 💰"
+   ]
+  },
+  {
+   "t0": 21.9,
+   "t1": 24.6,
+   "lignes": [
+    "MÉTIER LE PLUS LIKÉ :",
+    "*EXPLORATEUR* ! 🧭"
+   ],
+   "y": 520
+  },
+  {
+   "t0": 24.7,
+   "t1": 28.2,
+   "lignes": [
+    "BASE DES *EXPLORATEURS*",
+    "DE NATHAN.FR08"
+   ],
+   "y": 1380
+  },
+  {
+   "t0": 28.3,
+   "t1": 32.7,
+   "lignes": [
+    "RÉSERVE *ANIMALE* 🦌",
+    "D'EMMA_SHTN"
+   ],
+   "y": 1380
+  },
+  {
+   "t0": 32.8,
+   "t1": 33.8,
+   "lignes": [
+    "*LES HAUTS*",
+    "DE PLAVULCA 🏡"
+   ]
+  },
+  {
+   "t0": 37.9,
+   "t1": 40.6,
+   "lignes": [
+    "PISCINE · JARDIN",
+    "VOITURE · *DRAPEAU*"
+   ],
+   "y": 520
+  },
+  {
+   "t0": 40.7,
+   "t1": 43.3,
+   "lignes": [
+    "MERCI À *TOUS*",
+    "LES BÂTISSEURS ⭐"
+   ]
+  },
+  {
+   "t0": 43.4,
+   "t1": 44.5,
+   "lignes": [
+    "MERCI",
+    "*EMPEREUR.PE* ⭐"
+   ],
+   "y": 520
+  },
+  {
+   "t0": 44.6,
+   "t1": 45.9,
+   "lignes": [
+    "MERCI",
+    "*VANVAN.DU17* ⭐"
+   ],
+   "y": 520
+  },
+  {
+   "t0": 46.0,
+   "t1": 47.2,
+   "lignes": [
+    "MERCI",
+    "*_.ZOWWEE._* ⭐"
+   ],
+   "y": 520
+  },
+  {
+   "t0": 47.3,
+   "t1": 49.2,
+   "lignes": [
+    "MERCI",
+    "*HIDROWAY* ⭐"
+   ],
+   "y": 520
+  },
+  {
+   "t0": 49.3,
+   "t1": 50.1,
+   "lignes": [
+    "ET *CLUTCCHE* ⭐"
+   ],
+   "y": 520
+  },
+  {
+   "t0": 55.4,
+   "t1": 57.0,
+   "lignes": [
+    "QUESTION",
+    "DU *JOUR* !"
+   ]
+  },
+  {
+   "t0": 62.4,
+   "t1": 64.8,
+   "lignes": [
+    "METS TON *LIKE* !",
+    "= 1 PIÈCE AU TRÉSOR"
+   ]
+  },
+  {
+   "t0": 64.9,
+   "t1": 66.7,
+   "lignes": [
+    "*ABONNE-TOI*",
+    "POUR DEVENIR HABITANT"
+   ]
+  }
+ ],
+ "cards": [
+  {
+   "kind": "resultat",
+   "t0": 7.9,
+   "t1": 11.0,
+   "data": {
+    "options": [
+     {
+      "lettre": "A",
+      "titre": "ON L'ÉCOUTE · 72 voix",
+      "pct": 95,
+      "couleur": "#2f7fe0"
+     },
+     {
+      "lettre": "B",
+      "titre": "PRISON · 4 voix",
+      "pct": 5,
+      "couleur": "#d8261f"
+     }
+    ],
+    "gagnant": 0
+   }
+  },
+  {
+   "kind": "tresor",
+   "t0": 16.4,
+   "t1": 21.8,
+   "data": {
+    "likes": 547,
+    "avant": 428,
+    "objectif": {
+     "nom": "le grand mur",
+     "prix": 1500
+    },
+    "titre": "💰 TRÉSOR DE VULKARIS"
+   }
+  },
+  {
+   "kind": "gagnant",
+   "t0": 22.6,
+   "t1": 24.6,
+   "data": {
+    "titre": "🧭 MÉTIER LE PLUS LIKÉ",
+    "pseudo": "@nathan.fr08",
+    "texte": "Explorateur : découvrir de nouvelles îles",
+    "likes": 31
+   }
+  },
+  {
+   "kind": "gagnant",
+   "t0": 33.9,
+   "t1": 35.8,
+   "data": {
+    "titre": "⭐ MERCI",
+    "pseudo": "Clutcche",
+    "texte": "Grande maison rose au bord de la mer",
+    "likes": null
+   }
+  },
+  {
+   "kind": "vs",
+   "t0": 57.1,
+   "t1": 62.3,
+   "data": {
+    "A": {
+     "titre": "ON PAIE 💰",
+     "sous": "c'est la paix"
+    },
+    "B": {
+     "titre": "ON REFUSE ⚔️",
+     "sous": "la guerre continue"
+    }
+   }
+  },
+  {
+   "kind": "fin",
+   "t0": 66.8,
+   "t1": 99,
+   "data": {
+    "demain": "DEMAIN : JOUR 9 · LA PAIX OU LA GUERRE ?"
+   }
+  }
+ ],
+ "habitants": {
+  "n": 80,
+  "t0": 5.1
+ },
+ "ennemi": {
+  "ile": [
+   -40,
+   720
+  ],
+  "cible": [
+   -45,
+   360
+  ],
+  "t0": -200,
+  "t1": -100,
+  "navires": 5,
+  "coules": [
+   {
+    "k": 1,
+    "t": -50
+   },
+   {
+    "k": 3,
+    "t": -50
+   },
+   {
+    "k": 0,
+    "t": -50
+   }
+  ]
+ },
+ "messager": {
+  "t0": 0,
+  "t1": 1,
+  "de": [
+   -45,
+   266
+  ],
+  "a": [
+   -45,
+   262
+  ]
+ },
+ "feux": [
+  {
+   "t": 48.0,
+   "pos": [
+    -40,
+    28,
+    -21
+   ],
+   "couleur": "#ffd34d"
+  },
+  {
+   "t": 48.4,
+   "pos": [
+    -32,
+    34,
+    -14
+   ],
+   "couleur": "#ff4a6b"
+  }
+ ],
+ "inserts": [
+  {
+   "t0": 50.2,
+   "t1": 55.3,
+   "fichier": "assets/site_demo.mp4",
+   "debut": 2
+  }
+ ],
+ "win": {
+  "nuages": [
+   [
+    0,
+    99
+   ]
+  ],
+  "fin": [
+   [
+    66.8,
+    99
+   ]
+  ],
+  "ennemi": [
+   [
+    0,
+    66.8
+   ]
+  ],
+  "messager": [
+   [
+    0,
+    66.8
+   ]
+  ]
+ },
+ "grow": {
+  "explo": [
+   24.7,
+   26.2
+  ],
+  "reserve": [
+   28.3,
+   29.8
+  ]
+ },
+ "flashes": [
+  2.2,
+  24.7,
+  33.9
+ ],
+ "pops": [
+  24.8,
+  28.4,
+  33.9,
+  43.4,
+  44.6,
+  46.0,
+  47.3,
+  49.3
+ ],
+ "sons": [
+  {
+   "t": 0.2,
+   "type": "vagues"
+  },
+  {
+   "t": 0.4,
+   "type": "mouettes"
+  },
+  {
+   "t": 7.9,
+   "type": "foule"
+  },
+  {
+   "t": 11.2,
+   "type": "cor"
+  },
+  {
+   "t": 21.9,
+   "type": "riser"
+  },
+  {
+   "t": 28.5,
+   "type": "oiseaux"
+  },
+  {
+   "t": 34.0,
+   "type": "chime"
+  },
+  {
+   "t": 48.0,
+   "type": "feu_artifice"
+  },
+  {
+   "t": 55.4,
+   "type": "tambours"
+  },
+  {
+   "t": 60.2,
+   "type": "canon"
+  }
+ ],
+ "ambiance": "vagues"
+}
