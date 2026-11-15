@@ -1,4 +1,4 @@
-# Jour 9 — 2133 habitants, paix refusée (B 49 / A 23) → le messager repart, la flotte ennemie se prépare ; division blindée @leandro_gk40, magasin de chaussures @EliottHentzi, concessionnaire @cosmos74_in ; trésor 1467 / 1500 (il manque 33 pour le grand mur) ; questions : A attaquer leur île / B attendre derrière les canons + ta construction
+# Jour 9 — 2133 habitants, paix refusée (B 49 / A 23) → le messager repart, la flotte ennemie se prépare ; division blindée @leandro_gk40, magasin de chaussures @EliottHentzi, concessionnaire @cosmos74_in ; trésor 1467 / 1500 (il manque 33 pour le grand mur) ; questions : A attaquer leur île / B attendre derrière les canons + ta construction ; promo du jeu en développement (images du jeu filmées par l'utilisateur) : Fondateurs = bêta-test en avant-première
 
 On a refusé de payer… et le roi ennemi est furieux !
 Jour neuf : vous êtes deux mille cent trente-trois habitants, au total !
@@ -10,5 +10,6 @@ Mais la ville continue de grandir : le magasin de chaussures d'Eliott…
 Le trésor : mille quatre cent soixante-sept pièces. Il manque trente-trois pièces pour le grand mur ! Ton like peut le finir aujourd'hui !
 Question du jour : A, on attaque leur île les premiers. B, on les attend derrière nos canons.
 Et commente ce que tu veux construire à Vulkaris !
-Toi aussi, construis ta maison dans les Hauts : elle apparaît dans la vidéo avec ton nom. Lien dans la bio.
+Et grande nouvelle : le jeu de Vulkaris est en développement ! Tu pourras te promener dans la ville et dans les Hauts.
+Ceux qui achètent une maison deviennent Fondateurs : ils testent le jeu en avant-première, avec leur maison dedans, leur nom en doré, leur numéro et leur passeport de Fondateur. Lien dans la bio.
 Chaque like, c'est une pièce pour le trésor. Abonne-toi pour devenir habitant. Demain, jour dix : la bataille ?
