@@ -1,6 +1,6 @@
 {
- "jour": 8,
- "habitants": 2077,
+ "jour": 9,
+ "habitants": 2133,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -183,12 +183,31 @@
    "nom": "Réserve animale d'emma_shtn",
    "place": 21,
    "par": "@emma_shtn (Instagram, 12 likes)"
+  },
+  {
+   "type": "division_blindee",
+   "nom": "7e division blindée de leandro_gk40",
+   "place": 22,
+   "par": "@leandro_gk40 (Instagram, 19 likes, demandé 3 jours)"
+  },
+  {
+   "type": "chaussures",
+   "nom": "Magasin de chaussures d'EliottHentzi",
+   "place": 23,
+   "par": "@EliottHentzi (YouTube, 4 likes)"
+  },
+  {
+   "type": "concessionnaire",
+   "nom": "Concessionnaire de cosmos74_in",
+   "place": 24,
+   "par": "@cosmos74_in (Instagram, 3 likes, demandé 10 jours)"
   }
  ],
  "vote_en_cours": {
-  "jour": 8,
+  "jour": 9,
   "questions": [
-   "Paix contre la moitié du trésor : A on paie (paix) / B on refuse (la guerre continue)"
+   "Flotte ennemie : A on attaque leur île les premiers / B on les attend derrière nos canons",
+   "Construction libre : commente ce que tu veux construire"
   ]
  },
  "historique": [
@@ -223,12 +242,16 @@
   {
    "jour": 8,
    "resume": "2077 habitants (YT 475/TT 119/IG 1483). Messager : A écouter 72 / B prison 4 → leur roi propose la paix contre la moitié du trésor. +547 likes → trésor 975 / 1500 (grand mur). Métier le plus liké : explorateur @nathan.fr08 (31) → base des explorateurs ; réserve animale @emma_shtn (12). Acheteur Clutcche (grande maison rose, piscine, voiture, drapeau). Questions : A payer la paix / B refuser (nom de l'île ennemie retiré par l'utilisateur). Récap des 5 acheteurs des Hauts."
+  },
+  {
+   "jour": 9,
+   "resume": "2133 habitants (YT 498/TT 121/IG 1514). Paix contre la moitié du trésor : B refuser 49 / A payer 23 → le messager repart, la flotte ennemie se prépare. +492 likes → trésor 1467 / 1500 (il manque 33 pour le grand mur). Division blindée @leandro_gk40 (19), magasin de chaussures @EliottHentzi (YT 4), concessionnaire @cosmos74_in (3, 10 jours de demande). Aucun nouvel acheteur. Questions : A attaquer leur île / B attendre derrière les canons + construction libre."
   }
  ],
  "habitants_detail": {
-  "youtube": 475,
-  "tiktok": 119,
-  "instagram": 1483
+  "youtube": 498,
+  "tiktok": 121,
+  "instagram": 1514
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -255,13 +278,13 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 975,
+ "tresor": 1467,
  "tresor_detail": {
-  "avant": 428,
-  "likes_jour7": {
-   "youtube": 116,
-   "tiktok": 14,
-   "instagram": 417
+  "avant": 975,
+  "likes_jour8": {
+   "youtube": 93,
+   "tiktok": 18,
+   "instagram": 381
   },
   "depense": {}
  },
@@ -280,7 +303,13 @@
    "devise": "Discipline, Honneur, Protection"
   },
   "strategie": "défense (B 41 voix : YT 4, IG 37 / A attaque 22 : YT 6, TT 1, IG 15)",
-  "defense_plage": "B canons 22 voix (IG 22, 55 likes) / A mur 16 (YT 6, TT 2, IG 8) / C pièges 3 (YT 1, IG 2) + bunker de @lysic_studio (IG, 47 likes, proposition la plus likée)"
+  "defense_plage": "B canons 22 voix (IG 22, 55 likes) / A mur 16 (YT 6, TT 2, IG 8) / C pièges 3 (YT 1, IG 2) + bunker de @lysic_studio (IG, 47 likes, proposition la plus likée)",
+  "division_blindee": {
+   "commandant": "@leandro_gk40",
+   "plateforme": "instagram",
+   "likes": 19,
+   "demande": "commandant de la 7e division blindée (jour 3 de demande)"
+  }
  },
  "hauts_acheteurs": [
   "empereur.pe P1 cabane (jour 6)",
@@ -292,5 +321,9 @@
  "messager": {
   "vote": "A écouter 72 voix (YT 17, TT 1, IG 54, 49 likes) / B prison 4 (YT 1, IG 3)",
   "message": "leur roi propose la paix contre la moitié du trésor"
+ },
+ "paix": {
+  "vote": "B refuser 49 voix (YT 4, IG 45, 88 likes) / A payer 23 (YT 9, TT 1, IG 13, 35 likes)",
+  "resultat": "refus : le messager repart, la flotte ennemie se prépare"
  }
 }
