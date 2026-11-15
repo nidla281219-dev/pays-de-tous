@@ -1,0 +1,109 @@
+{
+ "jour": 9,
+ "fond": "img_30.jpg",
+ "chiffres": [
+  [
+   "HABITANTS",
+   "2 133"
+  ],
+  [
+   "SOLDATS",
+   "129"
+  ],
+  [
+   "TRÉSOR",
+   "1 467 💰"
+  ]
+ ],
+ "tresor": [
+  1467,
+  1500,
+  "grand mur"
+ ],
+ "decisions": [
+  "On refuse de payer : 49 voix contre 23"
+ ],
+ "construits": [
+  "7e division blindée de leandro_gk40",
+  "Magasin de chaussures d'EliottHentzi",
+  "Concessionnaire de cosmos74_in"
+ ],
+ "quartier": [
+  "Le jeu de Vulkaris arrive : les Fondateurs le testent en avant-première"
+ ],
+ "question": "La flotte ennemie arrive : on attaque ou on défend ?",
+ "options": [
+  "A · on attaque leur île",
+  "B · on défend derrière les canons"
+ ],
+ "slides": [
+  {
+   "img": "img_30.jpg",
+   "cadre": 0.55,
+   "haut": "LE JOURNAL DE VULKARIS",
+   "titre": "JOUR 9",
+   "badge": "2 133 HABITANTS",
+   "texte": "On a refusé de payer… et leur roi est furieux. Voici ce qui a changé.",
+   "sous": "Glisse >>"
+  },
+  {
+   "img": "img_13.8.jpg",
+   "cadre": 0.5,
+   "haut": "VOUS AVEZ CHOISI",
+   "titre": "ON",
+   "jaune": "REFUSE !",
+   "texte": "Pas une seule pièce pour l'ennemi. Le messager repart… et leur flotte se prépare.",
+   "sous": "Refuser 49 voix · Payer 23"
+  },
+  {
+   "img": "img_20.8.jpg",
+   "cadre": 0.5,
+   "haut": "L'ARMÉE SE RENFORCE",
+   "titre": "7e DIVISION BLINDÉE",
+   "jaune": "de leandro_gk40",
+   "texte": "Hangar, chars et sacs de sable : les blindés sont prêts.",
+   "sous": "19 likes"
+  },
+  {
+   "img": "img_24.3.jpg",
+   "cadre": 0.5,
+   "haut": "VOS DEMANDES",
+   "titre": "CHAUSSURES",
+   "jaune": "d'EliottHentzi",
+   "texte": "Un magasin de baskets sur la place de Plavulca.",
+   "sous": "Nouveau sur la place"
+  },
+  {
+   "img": "img_26.jpg",
+   "cadre": 0.5,
+   "haut": "VOS DEMANDES",
+   "titre": "CONCESSIONNAIRE",
+   "jaune": "de cosmos74_in",
+   "texte": "Showroom vitré et voitures à vendre : il le demandait depuis 10 jours !",
+   "sous": "Enfin construit"
+  },
+  {
+   "img": "img_jeu.jpg",
+   "cadre": 0.5,
+   "haut": "GRANDE NOUVELLE",
+   "titre": "LE JEU",
+   "jaune": "ARRIVE 🎮",
+   "texte": "Les Fondateurs (acheteurs d'une maison) le testent en avant-première : leur maison dedans, nom doré, numéro et passeport.",
+   "sous": "Lien dans la bio"
+  },
+  {
+   "img": "img_40.8.jpg",
+   "cadre": 0.6,
+   "haut": "À TOI DE VOTER",
+   "titre": "ON ATTAQUE",
+   "jaune": "OU ON DÉFEND ?",
+   "liste": [
+    "A · on attaque leur île les premiers",
+    "B · on les attend derrière nos canons"
+   ],
+   "texte": "Et commente ce que tu veux construire à Vulkaris !",
+   "sous": "Commente A ou B",
+   "tresor": true
+  }
+ ]
+}
