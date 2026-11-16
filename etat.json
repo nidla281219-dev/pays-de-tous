@@ -1,6 +1,6 @@
 {
- "jour": 9,
- "habitants": 2133,
+ "jour": 10,
+ "habitants": 2198,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -201,12 +201,22 @@
    "nom": "Concessionnaire de cosmos74_in",
    "place": 24,
    "par": "@cosmos74_in (Instagram, 3 likes, demandé 10 jours)"
+  },
+  {
+   "type": "bibliotheque",
+   "nom": "Bibliothèque de ninjakai1483",
+   "par": "@ninjakai1483 (Instagram, 21 likes)"
+  },
+  {
+   "type": "grand_mur",
+   "nom": "Grand mur de Vulkaris",
+   "par": "trésor (1500 pièces), jour 10"
   }
  ],
  "vote_en_cours": {
-  "jour": 9,
+  "jour": 10,
   "questions": [
-   "Flotte ennemie : A on attaque leur île les premiers / B on les attend derrière nos canons",
+   "Leur roi a perdu : A on exige qu'il paie pour la paix / B on envahit leur île pendant qu'ils sont faibles",
    "Construction libre : commente ce que tu veux construire"
   ]
  },
@@ -246,12 +256,16 @@
   {
    "jour": 9,
    "resume": "2133 habitants (YT 498/TT 121/IG 1514). Paix contre la moitié du trésor : B refuser 49 / A payer 23 → le messager repart, la flotte ennemie se prépare. +492 likes → trésor 1467 / 1500 (il manque 33 pour le grand mur). Division blindée @leandro_gk40 (19), magasin de chaussures @EliottHentzi (YT 4), concessionnaire @cosmos74_in (3, 10 jours de demande). Aucun nouvel acheteur. Questions : A attaquer leur île / B attendre derrière les canons + construction libre."
+  },
+  {
+   "jour": 10,
+   "resume": "2198 habitants (YT 519/TT 125/IG 1554). Bataille : B attendre derrière les canons 51 / A attaquer 39 → la flotte ennemie se brise sur le grand mur et recule. +745 likes → trésor 2212 → grand mur construit (1500), reste 712 ; prochain objectif : flotte de guerre de @noamorax (1500). Bibliothèque de @ninjakai1483 (21). Questions : A faire payer la paix au roi / B envahir leur île + construction libre."
   }
  ],
  "habitants_detail": {
-  "youtube": 498,
-  "tiktok": 121,
-  "instagram": 1514
+  "youtube": 519,
+  "tiktok": 125,
+  "instagram": 1554
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -278,18 +292,20 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 1467,
+ "tresor": 712,
  "tresor_detail": {
-  "avant": 975,
-  "likes_jour8": {
-   "youtube": 93,
-   "tiktok": 18,
-   "instagram": 381
+  "avant": 1467,
+  "likes_jour9": {
+   "youtube": 183,
+   "tiktok": 23,
+   "instagram": 539
   },
-  "depense": {}
+  "depense": {
+   "grand mur": 1500
+  }
  },
  "objectif": {
-  "nom": "grand mur",
+  "nom": "flotte de guerre (idée de @noamorax)",
   "prix": 1500
  },
  "armee": {
@@ -309,7 +325,8 @@
    "plateforme": "instagram",
    "likes": 19,
    "demande": "commandant de la 7e division blindée (jour 3 de demande)"
-  }
+  },
+  "bataille": "B attendre derrière les canons 51 voix (YT 4, TT 3, IG 44, 68 likes) / A attaquer 39 (YT 11, IG 28, 18 likes) → la flotte ennemie attaque, se brise sur le grand mur et les canons, et recule"
  },
  "hauts_acheteurs": [
   "empereur.pe P1 cabane (jour 6)",
