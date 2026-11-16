@@ -10,4 +10,5 @@ Pour fêter ça, voici la grande bibliothèque de ninjakai, avec toutes les arch
 Et Noamorax veut des navires de guerre pour notre chantier naval : c'est le prochain objectif du trésor ! Sept cent douze pièces sur mille cinq cents.
 Question du jour : leur roi est à genoux. A, on exige qu'il paie pour la paix. B, on envahit leur île pendant qu'ils sont faibles.
 Et commente ce que tu veux construire à Vulkaris !
+Et toi aussi, achète ta maison dans les Hauts de Plavulca : ta maison dans la vidéo, ton nom sur le panneau, et tu deviens Fondateur du jeu de Vulkaris, avec ton nom en doré. Lien dans la bio.
 Chaque like, c'est une pièce pour le trésor. Abonne-toi pour devenir habitant. Demain, jour onze !
