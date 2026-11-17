@@ -1,4 +1,4 @@
-# Jour 11 — 2228 habitants, INVASION : B envahir 54 / A faire payer 24 → débarquement de nuit sur leur île, le roi s'enferme dans sa forteresse ; phare aux couleurs du drapeau de @paul_mntpls ; trésor 712 + 409 = 1121 / 1500 (flotte de guerre) ; questions : A siège / B attaque de nuit + ta construction
+# Jour 11 — 2228 habitants, INVASION : B envahir 54 / A faire payer 24 → débarquement de nuit sur leur île, le roi s'enferme dans sa forteresse ; phare aux couleurs du drapeau de @paul_mntpls ; trésor 712 + 409 = 1121 / 1500 (flotte de guerre) ; villa de Dyplo974 (P3, feu d'artifice) ; questions : A siège / B attaque de nuit + ta construction
 
 Cette nuit, on a débarqué sur leur île !
 Jour onze : deux mille deux cent vingt-huit habitants, au total.
@@ -9,6 +9,7 @@ On accoste sur leur plage… leur village est vide.
 Mais leur roi s'est enfermé dans sa forteresse.
 Question du jour : A, on l'encercle et on attend qu'il se rende. B, on attaque la forteresse cette nuit.
 Et commente ce que tu veux construire à Vulkaris !
+Et merci Dyplo974 ! Bienvenue dans les Hauts de Plavulca : ta villa moderne blanche, avec jardin fleuri, fontaine, voiture et drapeau… et ton feu d'artifice !
 Toi aussi, ta maison dans les Hauts : lien en bio. Tout reste gratuit, ça finance notre jeu Vulkaris.
 Chaque like, c'est une pièce : mille cent vingt et un sur mille cinq cents pour la flotte de guerre.
 Abonne-toi pour devenir habitant, et envoie la vidéo à un pote : s'il s'abonne, il devient soldat de Vulkaris et vote avec toi.
