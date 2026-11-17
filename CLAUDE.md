@@ -6,7 +6,10 @@ Autres docs (n'ouvrir QUE si besoin) : docs/TIMELINE.md (format timeline, à l'�
 
 ## Règles de l'utilisateur
 - ZONE VISIBLE : texte et éléments importants dans x 60–960, y 130–1600 ; ligne ≤ 840 px (centre x ≈ 510). Vérifier avec --cadre.
-- 2 à 3 questions MAX par vidéo. Vidéo 55–65 s.
+- 2 à 3 questions MAX par vidéo. Vidéo 40–50 s (jusqu'à 55 s s'il y a des acheteurs à remercier). Couper les récaps.
+- GIGA ACCROCHE (17.11, stats IG : 50 % partent avant 4 s, 0 partage, < 10 % à la fin) : charger le skill `viral-hooks` à l'étape 3, écrire 6 accroches (≥ 3 archétypes : conflit/danger, retournement, gros chiffre, question piège, « avant/après », mystère), garder la meilleure et mettre les 2 suivantes dans le message à l'utilisateur. Règles : JAMAIS commencer par « Jour N » (le dire après 3 s) ; événement montré dès l'image 1 (feu, bateau ennemi, foule, statue géante, gros plan) + 3–5 mots ÉNORMES + phrase dite < 2 s, tout aligné (dit = montré = écrit) ; être créatif mais tenir la promesse dans la vidéo. Relances toutes les ~10 s (« mais… », « sauf que… »).
+- PARTAGE : une raison concrète d'envoyer la vidéo (« Envoie-la à un pote : s'il s'abonne, il devient habitant et vote avec toi », camps rivaux, « tag celui qui serait chef »). Finir sur un SUSPENSE (une question ouverte ou une menace pour demain), pas sur « Demain, jour N+1 » seul.
+- ACHETEURS + PUB À CHAQUE VIDÉO : 1) remercier chaque nouvel acheteur (ventes.yml → vitrines.py, règle MAISONS PAYÉES) ; 2) une pub courte (≤ 5 s) pour les maisons : « Toi aussi, ta maison dans les Hauts, lien en bio — tout reste gratuit, ça finance notre jeu Vulkaris. » Placée APRÈS l'accroche et le vote, jamais au début.
 - CONSTRUIRE CE QUE LES GENS DEMANDENT, avec le NOM de la personne sur le bâtiment, dit à voix haute. Bâtiments BEAUX et détaillés (jamais des boîtes).
 - Habitants visibles quand la voix annonce leur nombre.
 - Trésor : 1 like = 1 pièce (likes des 3 vidéos) ; toujours inciter à liker.
@@ -20,7 +23,7 @@ Ne pas lire les gros fichiers (commentaires_*.json, scene.html, mots.json en ent
 PARTIE 1
 1. N = etat.jour + 1. Lancer commentaires.yml (jour N-1) ; attendre avec UNE seule commande en arrière-plan (pas de vérifications répétées) ; git pull.
 2. `python3 studio/compter.py N-1 --opt "A=mots|…" "B=mots|…"` → chiffres par réseau + total, votes, propositions répétées, top commentaires. Lire commentaires_autres.txt s'il existe. Décider (banque_questions.md), mettre à jour etat.json (+ historique court).
-3. Écrire jours/jourN/script.md (1re ligne « # titre » ; ~60 s) : « Jour N… », ce qui a changé, merci aux gagnants (pseudo), construction, nouvelle(s) question(s), « Commente… », « Like = pièce pour le trésor », « Abonne-toi pour devenir habitant », « Demain, jour N+1 ». Commit/push.
+3. Écrire jours/jourN/script.md (1re ligne « # titre » ; 40–50 s) : GIGA ACCROCHE (voir règles), puis « Jour N », ce qui a changé, merci aux gagnants (pseudo), construction, nouvelle(s) question(s), « Commente… », « Like = pièce pour le trésor », « Abonne-toi pour devenir habitant », raison de PARTAGER, pub maisons + merci acheteurs, SUSPENSE final. Commit/push.
 4. Envoyer à l'utilisateur (court) : chiffres, gagnants, ce qui sera construit, trésor, questions, SCRIPT COMPLET, « Réponds OK pour lancer la vidéo ». ATTENDRE son OK. Sans OK : rien fabriquer.
 PARTIE 2 (après OK)
 5. Lancer voix.yml (jour N), attendre, git pull. Nouveau bâtiment : le modéliser dans scene.html (comme boulangerie()/universite()). Écrire timeline.json (docs/TIMELINE.md ; partir du timeline de la veille) calé sur mots.json (lire avec un petit script : mot + temps). Rendre et REGARDER seulement 3–4 images test : `cd studio && node render.js --jour N t/f --test a,b,c --cadre`.
