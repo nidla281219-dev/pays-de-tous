@@ -1,0 +1,81 @@
+{
+ "jour": 11,
+ "tresor": [
+  1121,
+  1500,
+  "flotte de guerre"
+ ],
+ "slides": [
+  {
+   "img": "img_1.2.jpg",
+   "cadre": 0.55,
+   "haut": "LE JOURNAL DE VULKARIS",
+   "titre": "JOUR 11",
+   "badge": "2 228 HABITANTS",
+   "texte": "Cette nuit, nos soldats ont débarqué sur l'île ennemie. Voici ce qui s'est passé.",
+   "sous": "Glisse >>"
+  },
+  {
+   "img": "img_15.6.jpg",
+   "cadre": 0.5,
+   "haut": "VOUS AVEZ DÉCIDÉ",
+   "titre": "ON LES",
+   "jaune": "ENVAHIT !",
+   "texte": "Pas de flotte de guerre payée… alors on traverse avec le bateau de leroux_1136 et les barques des pêcheurs.",
+   "sous": "Envahir 54 voix · Faire payer 24"
+  },
+  {
+   "img": "img_18.6.jpg",
+   "cadre": 0.45,
+   "haut": "CONSTRUIT POUR VOUS",
+   "titre": "LE PHARE",
+   "jaune": "de paul_mntpls",
+   "texte": "Aux couleurs du drapeau, pour guider nos bateaux entre les deux îles."
+  },
+  {
+   "img": "img_22.5.jpg",
+   "cadre": 0.5,
+   "haut": "SUR LEUR PLAGE",
+   "titre": "VILLAGE",
+   "jaune": "VIDE…",
+   "texte": "Notre drapeau est planté. Mais leur roi s'est enfermé dans sa forteresse."
+  },
+  {
+   "img": "img_dyplo.jpg",
+   "cadre": 0.5,
+   "haut": "NOUVEL HABITANT DES HAUTS",
+   "titre": "MERCI",
+   "jaune": "Dyplo974",
+   "texte": "Villa moderne blanche, jardin, fontaine, voiture, drapeau… et feu d'artifice !"
+  },
+  {
+   "img": "img_4.5.jpg",
+   "cadre": 0.5,
+   "haut": "VULKARIS",
+   "titre": "2 228",
+   "jaune": "HABITANTS",
+   "texte": "Le commandant Lorenzo et 129 soldats sont de l'autre côté de la mer."
+  },
+  {
+   "img": "img_58.3.jpg",
+   "cadre": 0.55,
+   "haut": "À TOI DE VOTER",
+   "titre": "LE ROI",
+   "jaune": "S'EST ENFERMÉ",
+   "liste": [
+    "A · on encercle et on attend",
+    "B · on attaque cette nuit"
+   ],
+   "tresor": true,
+   "sous": "Réponds en commentaire"
+  }
+ ],
+ "fin": {
+  "img": "img_1.2.jpg",
+  "haut": "ÉPISODE DU JOUR 11",
+  "titre": "LA SUITE",
+  "jaune": "EN VIDÉO",
+  "texte": "Une lumière vient de s'allumer dans la forteresse… Regarde l'épisode en 3D et vote pour le jour 12 !",
+  "sous": "La vidéo est sur notre profil"
+ }
+}
