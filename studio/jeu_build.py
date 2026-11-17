@@ -25,6 +25,8 @@ js = remplace(js, "renderer.setSize(W,H);renderer.setPixelRatio(1);", "renderer.
 js = remplace(js, "scene.fog=new THREE.Fog('#bfe3f7',600,1900);", "scene.fog=new THREE.Fog('#bfe3f7',160,650);")
 js = remplace(js, "const cam=new THREE.PerspectiveCamera(50,W/H,1,5000);", "const cam=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.3,900);")
 js = remplace(js, "function special(b){", "function special(b){if(b.type==='jeu_hauts')return;")
+js = remplace(js, "Math.min(.32,(d-15)*.03)", "Math.min(.1,(d-15)*.01)")   # ville plus plate pour marcher
+js = remplace(js, "Math.max(1.6,height0(wx,wz))", "Math.max(1.6,heightT(wx,wz))")   # socles au niveau du plateau de la ville
 js += '\n{\n' + open(os.path.join(ICI, 'jeu', 'jeu.js'), encoding='utf8').read() + '\n}\n'   # bloc : ses noms ne gênent pas ceux du décor
 
 # ---------- 2. maisons : code 3D de la boutique ----------

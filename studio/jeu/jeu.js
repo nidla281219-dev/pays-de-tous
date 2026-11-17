@@ -10,7 +10,40 @@ const HAUTS = D.hauts; // {x, z, rot}
 PADDEF.jeu_hauts = [0, 0, 66, 39];
 const E = JSON.parse(JSON.stringify(D.etat));
 E.batiments = (E.batiments || []).filter(b => b.type !== 'quartier_hauts').concat([{ type: 'jeu_hauts', pos: [HAUTS.x, HAUTS.z], rot: HAUTS.rot }]);
-setup({ etat: E, habitants: { n: D.habitants, t0: 0 }, vis: () => false, prog: () => 1 });
+const TL0 = { etat: E, habitants: { n: D.habitants, t0: 0 }, vis: () => false, prog: () => 1 };
+// 1er passage : on construit pour MESURER l'emprise réelle de chaque bâtiment, puis on aplanit le terrain dessous (fini les socles en falaise)
+setup(TL0);
+{ const pads = {}, tailles = [];   // speciaux[k] ↔ E.batiments[k] (même ordre de construction)
+  const RADB = { universite: 18, ferme: 16, karting: 34, caserne_pompiers: 10, mine: 12, forge: 8, prison: 16, aeroport: 50, chantier_naval: 8, labo_marin: 12, defense: 34, base_militaire: 40, observatoire: 14, explorateurs: 18, reserve: 22 };
+  E.batiments.forEach((b, k) => { const g = speciaux[k], m = g && g.userData.inner && g.userData.inner.children[0]; if (!m || !m.isMesh) return;
+    m.geometry.computeBoundingBox(); const bb = m.geometry.boundingBox; if (![bb.min.x, bb.min.z, bb.max.x, bb.max.z].every(isFinite)) return;
+    tailles[k] = [bb.max.x - bb.min.x, bb.max.z - bb.min.z];
+    if (b.pos && !g.userData.flotte && !g.userData.monde && !['port', 'bateau', 'sentier', 'jeu_hauts', 'chantier_naval', 'quartier_hauts'].includes(b.type))
+      pads[b.type] = [(bb.min.x + bb.max.x) / 2, (bb.min.z + bb.max.z) / 2, (bb.max.x - bb.min.x) / 2 + 1.5, (bb.max.z - bb.min.z) / 2 + 1.5]; });
+  Object.assign(PADDEF, pads);
+  // bâtiments autour de la place : répartis entre les rues sans se chevaucher
+  if (capitale) { const [px, , pz] = capitale.userData.place, NR = (E.capitale && E.capitale.rues) || 5, SP = Math.PI * 2 / NR, rue0 = .3;
+    const autour = E.batiments.map((b, k) => ({ b, k })).filter(o => o.b.place !== undefined && tailles[o.k]);
+    const secteur = a => { const u = (((a - rue0) % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2); return Math.floor(u / SP); };
+    const S = [...Array(NR)].map(() => []), charge = S.map(() => 0), penal = S.map((_, si) => { const a = rue0 + si * SP + SP / 2; let p = 0;   // secteurs déjà occupés par un grand bâtiment : évités
+      for (const b of E.batiments) if (b.pos && b.place === undefined && RADB[b.type]) for (const r of [24, 34, 44]) if (Math.hypot(px + Math.cos(a) * r - b.pos[0], pz + Math.sin(a) * r - b.pos[1]) < RADB[b.type] + 10) p = 200; return p; });
+    charge.forEach((_, i) => charge[i] = penal[i]);
+    autour.sort((u, v) => u.b.place - v.b.place).forEach(o => { const s0 = secteur(o.b.place); let best = s0; for (const d of [-1, 1]) { const s1 = (s0 + d + NR) % NR; if (charge[s1] + 4 < charge[best]) best = s1; } S[best].push(o); charge[best] += tailles[o.k][0] + 2; });
+    S.forEach((liste, si) => { if (!liste.length) return; const prof = Math.max(...liste.map(o => tailles[o.k][1]));
+      const ch = charge[si] - penal[si], r = Math.max(13.5 + prof / 2, (ch + 9) / SP); const a0 = rue0 + si * SP + SP / 2; let arc = -ch / 2;
+      for (const o of liste) { const w = tailles[o.k][0] + 2, a = a0 + (arc + w / 2) / r; arc += w; const x = px + Math.cos(a) * r, z = pz + Math.sin(a) * r;
+        delete o.b.place; o.b.pos = [x, z]; o.b.rot = Math.atan2(px - x, pz - z); delete PADDEF[o.b.type || 'boulangerie']; } }); }   // sur le plateau de la ville : pas de socle propre
+  if (capitale) scene.remove(capitale); for (const g of speciaux) scene.remove(g); speciaux.length = 0; for (const g of GENS) scene.remove(g); GENS.length = 0;
+}
+setup(TL0);
+// maisons de la ville qui chevauchent un bâtiment ou une autre maison : retirées
+if (capitale) { const B = [], boite = o => { const b = new THREE.Box3().setFromObject(o); return b; };
+  for (const g of speciaux) { const m = g.userData.inner && g.userData.inner.children[0]; if (m && !g.userData.monde) B.push(boite(m).expandByScalar(-.5)); }
+  const garder = [];
+  for (const m of [...capitale.children]) { if (!m.isMesh || !(m.userData.d > 0)) continue; const b = boite(m).expandByScalar(-.3); b.min.y = -1e9; b.max.y = 1e9;
+    if (B.some(o => o.intersectsBox(b)) || garder.some(o => o.intersectsBox(b))) { capitale.remove(m); window.RETIRES = (window.RETIRES || 0) + 1; } else garder.push(b); }
+  window.NB_B = B.length; window.NB_G = garder.length;
+}
 for (const o of [city, villA, villB, cloudLayer, pinA, pinB, toi]) o.visible = false;
 for (const g of speciaux) { g.visible = true; g.userData.inner.scale.set(1, 1, 1); }
 
@@ -131,20 +164,58 @@ const HERBE = texBruit((x, n) => { x.fillStyle = 'rgb(128,128,128)'; x.fillRect(
 const GRAVIER = texBruit((x, n) => { x.fillStyle = 'rgb(140,140,140)'; x.fillRect(0, 0, n, n);
   for (let i = 0; i < 1800; i++) { const v = 80 + rnd() * 150 | 0, X = rnd() * n, Y = rnd() * n, r = .8 + rnd() * 2.6; x.fillStyle = `rgb(${v},${v},${v})`; for (const [ox, oy] of [[0, 0], [n, 0], [-n, 0], [0, n], [0, -n]]) { x.beginPath(); x.arc(X + ox, Y + oy, r, 0, 7); x.fill(); } } });
 const MASQUE = new THREE.CanvasTexture(mcv); MASQUE.flipY = false;
+// bruit doux tuilable (taches de prairie, variations)
+const BRUIT = (() => { const n = 256, c = document.createElement('canvas'); c.width = c.height = n; const x = c.getContext('2d'), im = x.createImageData(n, n), V = [];
+  for (const g of [8, 16, 32, 64]) { const v = new Float32Array(g * g).map(() => rnd()); V.push([g, v]); }
+  for (let y = 0; y < n; y++) for (let X = 0; X < n; X++) { let s = 0, a = .5, tot = 0;
+    for (const [g, v] of V) { const fx = X / n * g, fy = y / n * g, i0 = Math.floor(fx), j0 = Math.floor(fy), tx = fx - i0, ty = fy - j0, sx = tx * tx * (3 - 2 * tx), sy = ty * ty * (3 - 2 * ty), q = (i, j) => v[((j % g + g) % g) * g + ((i % g + g) % g)];
+      s += a * ((q(i0, j0) * (1 - sx) + q(i0 + 1, j0) * sx) * (1 - sy) + (q(i0, j0 + 1) * (1 - sx) + q(i0 + 1, j0 + 1) * sx) * sy); tot += a; a *= .5; }
+    const k = (y * n + X) * 4; im.data[k] = im.data[k + 1] = im.data[k + 2] = s / tot * 255; im.data[k + 3] = 255; }
+  x.putImageData(im, 0, 0); const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t; })();
 terrain.material.flatShading = false;
+const RIV = RIVER.map(([x, z]) => new THREE.Vector2(x, z));
 terrain.material.onBeforeCompile = sh => {
-  Object.assign(sh.uniforms, { uH: { value: HERBE }, uG: { value: GRAVIER }, uM: { value: MASQUE } });
-  sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec2 vW;').replace('#include <project_vertex>', '#include <project_vertex>\nvW = (modelMatrix * vec4(transformed, 1.0)).xz;');
-  sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nvarying vec2 vW; uniform sampler2D uH, uG, uM;')
-    .replace('#include <color_fragment>', `#include <color_fragment>
-      float vert = clamp((vColor.g - vColor.b) * 5.0 - .2, 0., 1.);
-      float h = texture2D(uH, vW / 3.5).r, h2 = texture2D(uH, vW / 23.0).r, s = texture2D(uG, vW / 2.0).r;
-      diffuseColor.rgb *= mix(.86 + .28 * s, (.7 + .6 * h) * (.85 + .3 * h2), vert);
+  Object.assign(sh.uniforms, { uH: { value: HERBE }, uG: { value: GRAVIER }, uM: { value: MASQUE }, uN: { value: BRUIT }, uV: { value: new THREE.Vector2(VOLC.x, VOLC.y) }, uR: { value: RIV } });
+  sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vW3; varying vec3 vWN;')
+    .replace('#include <project_vertex>', '#include <project_vertex>\nvW3 = (modelMatrix * vec4(transformed, 1.0)).xyz; vWN = normalize(mat3(modelMatrix) * objectNormal);');
+  sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
+    varying vec3 vW3; varying vec3 vWN; uniform sampler2D uH, uG, uM, uN; uniform vec2 uV; uniform vec2 uR[${RIV.length}];
+    float rivD(vec2 p){ float d = 1e9; for (int i = 0; i < ${RIV.length - 1}; i++) { vec2 a = uR[i], b = uR[i + 1], ab = b - a; float t = clamp(dot(p - a, ab) / dot(ab, ab), 0., 1.); d = min(d, length(p - a - ab * t)); } return d; }`)
+    .replace('#include <color_fragment>', `
+      vec2 vW = vW3.xz; float y = vW3.y, pente = 1.0 - clamp(vWN.y, 0., 1.);
+      float n1 = texture2D(uN, vW / 140.0).r, n2 = texture2D(uN, vW / 37.0).r, n3 = texture2D(uN, vW / 9.0).r;
+      float bl = texture2D(uH, vW / 3.2).r, bl2 = texture2D(uH, vW / 1.3).r, gr = texture2D(uG, vW / 2.2).r, gr2 = texture2D(uG, vW / 6.0).r;
+      vec3 herbeA = vec3(.33, .58, .22), herbeB = vec3(.47, .68, .28), seche = vec3(.66, .67, .34), foncee = vec3(.24, .45, .18);
+      vec3 c = mix(herbeA, herbeB, smoothstep(.38, .66, n1));
+      c = mix(c, seche, smoothstep(.58, .78, n2) * .45); c = mix(c, foncee, smoothstep(.55, .75, n3) * .25);
+      c *= .74 + .34 * bl + .14 * bl2;
+      vec3 terre = vec3(.50, .40, .28) * (.78 + .3 * gr + .15 * n3);
+      vec3 roche = vec3(.52, .49, .46) * (.7 + .45 * n3) * (.82 + .3 * gr2);
+      vec3 sable = vec3(.91, .84, .64) * (.86 + .2 * gr + .08 * n3);
+      float k = pente + (n3 - .5) * .12;
+      c = mix(c, terre, smoothstep(.13, .22, k));
+      c = mix(c, roche, smoothstep(.28, .40, k));
+      c = mix(c, mix(c, roche, .75), smoothstep(36.0, 52.0, y + (n2 - .5) * 10.0));
+      float plage = 1.0 - smoothstep(.9, 1.9, y + (n2 - .5) * 1.4); c = mix(c, sable, plage); c *= mix(1.0, .72, 1.0 - smoothstep(-.3, .45, y));
+      float dv = length(vW - uV); c = mix(c, vec3(.20, .17, .16) * (.7 + .6 * n3) * (.85 + .3 * gr2), 1.0 - smoothstep(22.0, 32.0, dv + (n2 - .5) * 10.0));
+      float rd = rivD(vW); c = mix(c, mix(sable * .75, roche, .45) * (.8 + .3 * gr), 1.0 - smoothstep(5.0, 8.5, rd + (n3 - .5) * 1.5));
       float m = texture2D(uM, (vW + 320.0) / 640.0).r;
-      vec3 chemin = vec3(.80, .71, .55) * (.78 + .4 * texture2D(uG, vW / 2.5).r);
-      diffuseColor.rgb = mix(diffuseColor.rgb, chemin, m);`);
+      vec3 chemin = vec3(.78, .69, .53) * (.8 + .3 * gr + .1 * n3);
+      c = mix(c, chemin, m * .95);
+      diffuseColor.rgb = pow(c, vec3(2.2));`);
 };
 terrain.material.needsUpdate = true;
+// la rivière : vraie eau entre les berges
+{ let pts = RIVER.map(p => [...p]); pts = chaikin(pts, 3); const pos = [], idx = [];
+  const P2 = []; for (let i = 0; i < pts.length - 1; i++) { const [a, b] = [pts[i], pts[i + 1]], l = Math.hypot(b[0] - a[0], b[1] - a[1]), n = Math.max(1, Math.ceil(l / 1.5)); for (let k = 0; k < n; k++) P2.push([a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n]); } P2.push(pts[pts.length - 1]);
+  let okPrec = false;
+  P2.forEach((p, i) => { const q = P2[Math.min(i + 1, P2.length - 1)], o = P2[Math.max(i - 1, 0)], dx = q[0] - o[0], dz = q[1] - o[1], l = Math.hypot(dx, dz) || 1, nx = -dz / l, nz = dx / l;
+    const h0 = height(p[0], p[1]), berge = Math.min(height(p[0] + nx * 9, p[1] + nz * 9), height(p[0] - nx * 9, p[1] - nz * 9)), y = Math.max(-.2, h0 + 2.1);
+    const ok = berge - h0 > 3.5 && Math.hypot(p[0] - cap[0], p[1] - cap[1]) > RV + 12 && !dansHauts(p[0], p[1], 8, 8);   // seulement là où la rivière est vraiment creusée
+    for (const s of [-1, 1]) pos.push(p[0] + nx * 7 * s, y, p[1] + nz * 7 * s); if (i && ok && okPrec) { const a = (i - 1) * 2; idx.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); } okPrec = ok; });
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+  const eau = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ color: '#3d9ccc', roughness: .12, metalness: .1, transparent: true, opacity: .82, side: THREE.DoubleSide }));
+  eau.renderOrder = 1; scene.add(eau); window.__eauRiviere = eau; }
 VMAT.onBeforeCompile = sh => {
   sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWP;').replace('#include <project_vertex>', '#include <project_vertex>\nvWP = (modelMatrix * vec4(transformed, 1.0)).xyz;');
   sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
@@ -213,6 +284,40 @@ function bloque(x, z, g, r = .4) {
 function obstacleCam(x, y, z) { const i = ci(x), j = ci(z), c = chunk(i, j); if (!c) return false; const b = ((j & 31) * CH + (i & 31)) * NW * 2;
   for (let k = 0; k < NW; k++) { const a = c.w[b + 2 * k]; if (a !== VIDE && a / 20 - .3 < y && c.w[b + 2 * k + 1] / 20 + .3 > y) return true; } return false; }
 
+// ================= herbe et fleurs autour du joueur =================
+const masquePetit = (() => { const c = document.createElement('canvas'); c.width = c.height = 512; const x = c.getContext('2d'); x.drawImage(mcv, 0, 0, 512, 512); return x.getImageData(0, 0, 512, 512).data; })();
+function touffe() { const pos = [], col = [], C1 = new THREE.Color('#2f5a1c'), C2 = new THREE.Color('#8cc44e');
+  for (let k = 0; k < 7; k++) { const a = k / 7 * 6.283 + rnd(), r = .05 + rnd() * .12, h = .28 + rnd() * .3, w = .045, cx = Math.cos(a) * r, cz = Math.sin(a) * r, px2 = -Math.sin(a) * w, pz2 = Math.cos(a) * w, lean = .12 + rnd() * .15;
+    pos.push(cx - px2, 0, cz - pz2, cx + px2, 0, cz + pz2, cx + Math.cos(a) * lean, h, cz + Math.sin(a) * lean); col.push(C1.r, C1.g, C1.b, C1.r, C1.g, C1.b, C2.r, C2.g, C2.b); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); g.computeVertexNormals(); return g; }
+function fleur() { const g = new THREE.OctahedronGeometry(.075, 0); g.scale(1, .6, 1); g.translate(0, .32, 0); const t = new THREE.CylinderGeometry(.012, .012, .32, 3); t.translate(0, .16, 0); return mergeG([g, t]); }
+function mergeG(L) { let n = 0; for (const g of L) n += (g.index ? g.toNonIndexed() : g).attributes.position.count; const P = new Float32Array(n * 3), N = new Float32Array(n * 3); let o = 0;
+  for (let g of L) { g = g.index ? g.toNonIndexed() : g; g.computeVertexNormals(); P.set(g.attributes.position.array, o * 3); N.set(g.attributes.normal.array, o * 3); o += g.attributes.position.count; }
+  const m = new THREE.BufferGeometry(); m.setAttribute('position', new THREE.BufferAttribute(P, 3)); m.setAttribute('normal', new THREE.BufferAttribute(N, 3)); return m; }
+const NH = 2400, NFL = 420;
+const herbes = new THREE.InstancedMesh(touffe(), new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide }), NH);
+const fleurs = new THREE.InstancedMesh(fleur(), new THREE.MeshLambertMaterial({ color: '#ffffff' }), NFL);
+for (const m of [herbes, fleurs]) { m.frustumCulled = false; m.count = 0; scene.add(m); }
+const FC = ['#ffffff', '#ffd23f', '#e85d9a', '#b06ad9', '#ff7a45', '#7fb2ff'].map(c => new THREE.Color(c));
+const herbeC = [1e9, 1e9];
+function replanter() {
+  const S = 1.45, R = 30, cx0 = Math.round(P.x / S), cz0 = Math.round(P.z / S); herbeC[0] = P.x; herbeC[1] = P.z;
+  const M = new THREE.Matrix4(), Q = new THREE.Quaternion(), Sc = new THREE.Vector3(), Ps = new THREE.Vector3(), up = new THREE.Vector3(0, 1, 0); let nh = 0, nf = 0;
+  const hs = (i, j, k) => { const v = Math.sin(i * 127.1 + j * 311.7 + k * 74.7) * 43758.5453; return v - Math.floor(v); };
+  for (let j = -R / S; j <= R / S; j++) for (let i = -R / S; i <= R / S; i++) { if (i * i + j * j > (R / S) * (R / S)) continue; const gi = cx0 + i, gj = cz0 + j;
+    if (hs(gi, gj, 9) < .12) continue;
+    const x = (gi + hs(gi, gj, 1) - .5) * S, z = (gj + hs(gi, gj, 2) - .5) * S, y = height(x, z);
+    if (y < 1.8 || y > 40 || Math.hypot(x - VOLC.x, z - VOLC.y) < 34 || riverDist(x, z) < 8.5) continue;
+    if (Math.abs(height(x + .9, z) - y) + Math.abs(height(x, z + .9) - y) > .55) continue;
+    const mi = Math.floor((x + 320) / 640 * 512), mj = Math.floor((z + 320) / 640 * 512); if (masquePetit[(mj * 512 + mi) * 4] > 40) continue;
+    const ii = ci(x), jj = ci(z), c = chunk(ii, jj); if (c) { const b = ((jj & 31) * CH + (ii & 31)); let objet = false; for (let k = 0; k < NF; k++) { const v = c.f[b * NF + k]; if (v !== VIDE && v / 20 > y - .3) objet = Math.abs(v / 20 - y) > .06 || objet; } if (objet || c.w[b * NW * 2] !== VIDE) continue; }
+    const yy = sol(x, z, y);
+    Q.setFromAxisAngle(up, hs(gi, gj, 3) * 6.28); const sc = .7 + hs(gi, gj, 4) * .7; Ps.set(x, yy - .02, z);
+    if (hs(gi, gj, 5) < .15 && nf < NFL) { Sc.set(sc, sc, sc); M.compose(Ps, Q, Sc); fleurs.setMatrixAt(nf, M); fleurs.setColorAt(nf, FC[Math.floor(hs(gi, gj, 6) * FC.length)]); nf++; }
+    else if (nh < NH) { Sc.set(sc, sc * (.8 + hs(gi, gj, 7) * .6), sc); M.compose(Ps, Q, Sc); herbes.setMatrixAt(nh, M); nh++; } }
+  herbes.count = nh; fleurs.count = nf; herbes.instanceMatrix.needsUpdate = true; fleurs.instanceMatrix.needsUpdate = true; if (fleurs.instanceColor) fleurs.instanceColor.needsUpdate = true;
+}
+
 // ================= le perso (tête ronde) =================
 const perso = new THREE.Group(); scene.add(perso);
 const COUL = ['#e8452c', '#2f7fe0', '#2fb36b', '#ffd34d', '#8a5cf6', '#f08a24', '#e0245e'];
@@ -229,7 +334,7 @@ perso.scale.setScalar(TAILLE / 2.7); perso.traverse(o => { if (o.isMesh) o.castS
 // ================= déplacements =================
 const P = { x: 0, z: 0, y: 0, dir: 0, phase: 0, v: 0 };
 let yaw = 0, pitch = .45, dist = 8;
-function libreAutour(x, z) { for (let r = 0; r < 14; r += .7) for (let a = 0; a < 6.28; a += .5) { const X = x + Math.cos(a) * r, Z = z + Math.sin(a) * r, g = sol(X, Z, height(X, Z) + .5); if (height(X, Z) > -.5 && !bloque(X, Z, g)) return [X, Z, g]; } return [x, z, sol(x, z)]; }
+function libreAutour(x, z, r0 = 0) { for (let r = r0; r < 18; r += .7) for (let a = 0; a < 6.28; a += .5) { const X = x + Math.cos(a) * r, Z = z + Math.sin(a) * r, g = sol(X, Z, height(X, Z) + .5); if (height(X, Z) > -.5 && !bloque(X, Z, g)) return [X, Z, g]; } return [x, z, sol(x, z)]; }
 function tp(lieu) {
   let x, z, cible;
   if (lieu === 'ville') { const a = .3 + Math.PI * 2 / NRUES; x = place[0] + Math.cos(a) * 8; z = place[2] + Math.sin(a) * 8; cible = [place[0] + Math.cos(a) * 30, place[2] + Math.sin(a) * 30]; }
@@ -273,7 +378,10 @@ function majInfo() {
 // ================= boucle =================
 let t = 0, last = performance.now(), n = 0;
 const vise = new THREE.Vector3(), camCible = new THREE.Vector3();
-function essai(x, z) { if (height(x, z) < -.6) return null; const g = sol(x, z, P.y); if (g > P.y + STEP || bloque(x, z, g)) return null; return g; }
+// le terrain se remonte toujours ; seuls les murs/objets bloquent. Si on est déjà coincé dans un mur, on peut en sortir.
+let coince = false;
+function essai(x, z) { if (height(x, z) < -.6) return null; const g = sol(x, z, P.y); if (!coince && bloque(x, z, g)) return null; return g; }
+let suivi = { t: 0, x: 0, z: 0 };
 function boucle(now) {
   const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt; n++;
   let jx = joy.x, jy = joy.y;
@@ -284,6 +392,7 @@ function boucle(now) {
     const fx = -Math.sin(yaw), fz = -Math.cos(yaw), rx = Math.cos(yaw), rz = -Math.sin(yaw);
     let mx2 = fx * -jy + rx * jx, mz2 = fz * -jy + rz * jx; const l = Math.hypot(mx2, mz2) || 1; mx2 /= l; mz2 /= l;
     const vit = 2.6 + 6 * amp * amp, sx = mx2 * vit * dt, sz = mz2 * vit * dt;
+    coince = bloque(P.x, P.z, P.y, .3);
     if (essai(P.x + sx, P.z + sz) !== null) { P.x += sx; P.z += sz; }
     else if (essai(P.x + sx, P.z) !== null) P.x += sx;            // glisse le long du mur
     else if (essai(P.x, P.z + sz) !== null) P.z += sz;
@@ -312,10 +421,13 @@ function boucle(now) {
     if (g.userData.flotte) { g.position.y = g.userData.y0 + Math.sin(t * 1.4) * .35; g.rotation.z = Math.sin(t * 1.1) * .04; }
     if (g.userData.karts) for (const m of g.userData.karts) { const K2 = m.userData.kart, a = -(t * .35 + K2.ph) * Math.PI * 2, x = Math.cos(a) * K2.RX, z = Math.sin(a) * K2.RZ * (1 + .35 * Math.sin(a * 2)), a2 = a - .05, x2 = Math.cos(a2) * K2.RX, z2 = Math.sin(a2) * K2.RZ * (1 + .35 * Math.sin(a2 * 2)); m.position.set(x, 0, z); m.rotation.y = Math.atan2(-(z2 - z), x2 - x); } }
   if (n % 10 === 0) majInfo();
+  // anti-blocage : on pousse depuis 1,5 s sans avancer → on se dégage vers l'endroit libre le plus proche
+  suivi.t += dt; if (amp < .3) suivi = { t: 0, x: P.x, z: P.z }; else if (suivi.t > 1.5) { if (Math.hypot(P.x - suivi.x, P.z - suivi.z) < .25 && (coince || height(P.x, P.z) < .3)) { const [X, Z, g] = libreAutour(P.x, P.z, 1.2); P.x = X; P.z = Z; P.y = g; } suivi = { t: 0, x: P.x, z: P.z }; }
+  if (Math.hypot(P.x - herbeC[0], P.z - herbeC[1]) > 8) replanter();
   renderer.render(scene, cam);
   if (n === 2) $('charge').classList.add('cache');
   requestAnimationFrame(boucle);
 }
 window.T_CHARGE = performance.now();
 requestAnimationFrame(boucle);
-window.JEU = { P, tp, renderer, place, murs: (x, z) => { const i = ci(x), j = ci(z), c = chunk(i, j); if (!c) return []; const b = ((j & 31) * CH + (i & 31)) * NW * 2, f = ((j & 31) * CH + (i & 31)) * NF; return [[...c.w.slice(b, b + 6)].map(v => v / 20), [...c.f.slice(f, f + 4)].map(v => v / 20)]; }, LOTS, CHEMINS, sol, bloque, hauts, get chunks() { return CHK.size; }, set yaw(v) { yaw = v; }, set pitch(v) { pitch = v; }, set dist(v) { dist = v; } };
+window.JEU = { P, tp, renderer, place, height, get pads() { return PADS.map(p => [+p.x.toFixed(0), +p.z.toFixed(0), +p.hw.toFixed(1), +p.hd.toFixed(1), +p.h.toFixed(1)]); }, PADDEF, murs: (x, z) => { const i = ci(x), j = ci(z), c = chunk(i, j); if (!c) return []; const b = ((j & 31) * CH + (i & 31)) * NW * 2, f = ((j & 31) * CH + (i & 31)) * NF; return [[...c.w.slice(b, b + 6)].map(v => v / 20), [...c.f.slice(f, f + 4)].map(v => v / 20)]; }, LOTS, CHEMINS, sol, bloque, hauts, get chunks() { return CHK.size; }, set yaw(v) { yaw = v; }, set pitch(v) { pitch = v; }, set dist(v) { dist = v; } };
