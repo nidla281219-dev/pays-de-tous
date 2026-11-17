@@ -18,6 +18,12 @@ But : un jeu où les abonnés se promènent dans Vulkaris, discutent, vivent des
 4. Événements (feu d'artifice, élection, marché…).
 5. Stores (Capacitor) : signaler/bloquer, suppression de compte, classification d'âge, règles d'achat in-app à vérifier.
 
+## Règles de pose des bâtiments dans le jeu (17.11, demande utilisateur : jamais dans le sol ni en l'air)
+1. Le TERRAIN s'adapte au bâtiment, jamais l'inverse : chaque bâtiment (grands bâtiments, boutiques, maisons de la ville, Hauts) a un socle de terrain plat à sa hauteur de base sur toute son emprise + 1 m, raccordé en pente douce (`socle()` dans studio/jeu/jeu.js).
+2. Aucun chevauchement : les boutiques de la place sont réparties entre les rues (largeurs mesurées côté place), les maisons de la ville qui touchent un bâtiment sont retirées.
+3. Rien dans l'eau sauf bateau/port ; un bâtiment au bord de mer est relié à la côte par une digue qui ne touche jamais un socle.
+4. Contrôle automatique au chargement : `window.CONTROLE` (en l'air / enfoncé / dans l'eau / chevauchement) DOIT être vide avant de publier, + test « pièges » (BFS) = 0. Tout nouveau bâtiment du jeu passe par ces règles.
+
 ## Règles
 - Ne JAMAIS lire scene.html (110 Ko) ou index.html (130 Ko) en entier : grep les fonctions, extraire avec un script.
 - Secrets uniquement dans GitHub/Vercel. Tutoiement, réponses courtes en français.
