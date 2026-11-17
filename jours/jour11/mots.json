@@ -1,0 +1,1274 @@
+[
+{
+"w": "Cette",
+"red": false,
+"s": 0.0,
+"e": 0.2
+},
+{
+"w": "nuit,",
+"red": false,
+"s": 0.2,
+"e": 0.46
+},
+{
+"w": "on",
+"red": false,
+"s": 0.76,
+"e": 0.86
+},
+{
+"w": "a",
+"red": false,
+"s": 0.86,
+"e": 1.0
+},
+{
+"w": "débarqué",
+"red": false,
+"s": 1.0,
+"e": 1.52
+},
+{
+"w": "sur",
+"red": false,
+"s": 1.52,
+"e": 1.74
+},
+{
+"w": "leur",
+"red": false,
+"s": 1.74,
+"e": 2.27
+},
+{
+"w": "île !",
+"red": false,
+"s": 2.27,
+"e": 2.8
+},
+{
+"w": "Jour",
+"red": false,
+"s": 2.8,
+"e": 2.88
+},
+{
+"w": "onze :",
+"red": false,
+"s": 2.88,
+"e": 3.223
+},
+{
+"w": "deux",
+"red": false,
+"s": 3.223,
+"e": 3.567
+},
+{
+"w": "mille",
+"red": false,
+"s": 3.567,
+"e": 3.91
+},
+{
+"w": "deux",
+"red": false,
+"s": 3.91,
+"e": 4.253
+},
+{
+"w": "cent",
+"red": false,
+"s": 4.253,
+"e": 4.597
+},
+{
+"w": "vingt-huit",
+"red": false,
+"s": 4.597,
+"e": 4.94
+},
+{
+"w": "habitants,",
+"red": false,
+"s": 4.94,
+"e": 5.44
+},
+{
+"w": "au",
+"red": false,
+"s": 5.44,
+"e": 5.74
+},
+{
+"w": "total.",
+"red": false,
+"s": 5.74,
+"e": 6.02
+},
+{
+"w": "Cinquante-quatre",
+"red": false,
+"s": 6.02,
+"e": 6.94
+},
+{
+"w": "voix",
+"red": false,
+"s": 6.94,
+"e": 7.44
+},
+{
+"w": "contre",
+"red": false,
+"s": 7.44,
+"e": 7.78
+},
+{
+"w": "vingt-quatre :",
+"red": false,
+"s": 7.78,
+"e": 8.82
+},
+{
+"w": "vous",
+"red": false,
+"s": 8.82,
+"e": 8.92
+},
+{
+"w": "avez",
+"red": false,
+"s": 8.92,
+"e": 9.12
+},
+{
+"w": "choisi",
+"red": false,
+"s": 9.12,
+"e": 9.56
+},
+{
+"w": "l'invasion.",
+"red": false,
+"s": 9.56,
+"e": 10.18
+},
+{
+"w": "Sauf",
+"red": false,
+"s": 10.56,
+"e": 10.86
+},
+{
+"w": "que",
+"red": false,
+"s": 10.86,
+"e": 11.16
+},
+{
+"w": "notre",
+"red": false,
+"s": 11.16,
+"e": 11.38
+},
+{
+"w": "flotte",
+"red": false,
+"s": 11.38,
+"e": 11.76
+},
+{
+"w": "de",
+"red": false,
+"s": 11.76,
+"e": 11.96
+},
+{
+"w": "guerre",
+"red": false,
+"s": 11.96,
+"e": 12.14
+},
+{
+"w": "n'est",
+"red": false,
+"s": 12.14,
+"e": 12.36
+},
+{
+"w": "pas",
+"red": false,
+"s": 12.36,
+"e": 12.5
+},
+{
+"w": "payée…",
+"red": false,
+"s": 12.5,
+"e": 12.96
+},
+{
+"w": "alors",
+"red": false,
+"s": 13.46,
+"e": 13.68
+},
+{
+"w": "Lorenzo",
+"red": false,
+"s": 14.4,
+"e": 14.68
+},
+{
+"w": "embarque",
+"red": false,
+"s": 14.68,
+"e": 15.2
+},
+{
+"w": "ses",
+"red": false,
+"s": 15.2,
+"e": 15.4
+},
+{
+"w": "cent",
+"red": false,
+"s": 15.4,
+"e": 15.67
+},
+{
+"w": "vingt-neuf",
+"red": false,
+"s": 15.67,
+"e": 15.94
+},
+{
+"w": "soldats",
+"red": false,
+"s": 15.94,
+"e": 16.34
+},
+{
+"w": "sur",
+"red": false,
+"s": 16.34,
+"e": 16.52
+},
+{
+"w": "le",
+"red": false,
+"s": 16.52,
+"e": 16.66
+},
+{
+"w": "bateau",
+"red": false,
+"s": 16.66,
+"e": 16.94
+},
+{
+"w": "de",
+"red": false,
+"s": 16.94,
+"e": 17.04
+},
+{
+"w": "leroux",
+"red": false,
+"s": 17.04,
+"e": 17.5
+},
+{
+"w": "et",
+"red": false,
+"s": 17.5,
+"e": 17.62
+},
+{
+"w": "les",
+"red": false,
+"s": 17.62,
+"e": 17.78
+},
+{
+"w": "barques",
+"red": false,
+"s": 17.78,
+"e": 18.04
+},
+{
+"w": "des",
+"red": false,
+"s": 18.04,
+"e": 18.2
+},
+{
+"w": "pêcheurs.",
+"red": false,
+"s": 18.2,
+"e": 18.64
+},
+{
+"w": "Pour",
+"red": false,
+"s": 19.02,
+"e": 19.14
+},
+{
+"w": "les",
+"red": false,
+"s": 19.14,
+"e": 19.28
+},
+{
+"w": "guider",
+"red": false,
+"s": 19.28,
+"e": 19.46
+},
+{
+"w": "dans",
+"red": false,
+"s": 19.46,
+"e": 19.64
+},
+{
+"w": "la",
+"red": false,
+"s": 19.64,
+"e": 19.76
+},
+{
+"w": "nuit,",
+"red": false,
+"s": 19.76,
+"e": 19.96
+},
+{
+"w": "paul",
+"red": false,
+"s": 20.32,
+"e": 20.42
+},
+{
+"w": "a",
+"red": false,
+"s": 20.42,
+"e": 20.52
+},
+{
+"w": "demandé",
+"red": false,
+"s": 20.52,
+"e": 20.8
+},
+{
+"w": "un",
+"red": false,
+"s": 20.8,
+"e": 21.0
+},
+{
+"w": "phare",
+"red": false,
+"s": 21.0,
+"e": 21.3
+},
+{
+"w": "aux",
+"red": false,
+"s": 21.3,
+"e": 21.48
+},
+{
+"w": "couleurs",
+"red": false,
+"s": 21.48,
+"e": 21.82
+},
+{
+"w": "de",
+"red": false,
+"s": 21.82,
+"e": 21.92
+},
+{
+"w": "notre",
+"red": false,
+"s": 21.92,
+"e": 22.06
+},
+{
+"w": "drapeau :",
+"red": false,
+"s": 22.06,
+"e": 22.58
+},
+{
+"w": "le",
+"red": false,
+"s": 22.96,
+"e": 23.1
+},
+{
+"w": "voilà !",
+"red": false,
+"s": 23.1,
+"e": 23.32
+},
+{
+"w": "On",
+"red": false,
+"s": 23.78,
+"e": 23.88
+},
+{
+"w": "accoste",
+"red": false,
+"s": 23.88,
+"e": 24.28
+},
+{
+"w": "sur",
+"red": false,
+"s": 24.28,
+"e": 24.46
+},
+{
+"w": "leur",
+"red": false,
+"s": 24.46,
+"e": 24.6
+},
+{
+"w": "plage…",
+"red": false,
+"s": 24.6,
+"e": 25.08
+},
+{
+"w": "leur",
+"red": false,
+"s": 25.58,
+"e": 25.82
+},
+{
+"w": "village",
+"red": false,
+"s": 25.82,
+"e": 26.02
+},
+{
+"w": "est",
+"red": false,
+"s": 26.02,
+"e": 26.26
+},
+{
+"w": "vide.",
+"red": false,
+"s": 26.26,
+"e": 26.52
+},
+{
+"w": "Mais",
+"red": false,
+"s": 26.94,
+"e": 27.06
+},
+{
+"w": "leur",
+"red": false,
+"s": 27.06,
+"e": 27.18
+},
+{
+"w": "roi",
+"red": false,
+"s": 27.18,
+"e": 27.5
+},
+{
+"w": "s'est",
+"red": false,
+"s": 27.5,
+"e": 27.66
+},
+{
+"w": "enfermé",
+"red": false,
+"s": 27.66,
+"e": 28.14
+},
+{
+"w": "dans",
+"red": false,
+"s": 28.14,
+"e": 28.26
+},
+{
+"w": "sa",
+"red": false,
+"s": 28.26,
+"e": 28.42
+},
+{
+"w": "forteresse.",
+"red": false,
+"s": 28.42,
+"e": 28.98
+},
+{
+"w": "Question",
+"red": false,
+"s": 28.98,
+"e": 29.6
+},
+{
+"w": "du",
+"red": false,
+"s": 29.6,
+"e": 29.84
+},
+{
+"w": "jour :",
+"red": false,
+"s": 29.84,
+"e": 30.14
+},
+{
+"w": "A,",
+"red": false,
+"s": 30.52,
+"e": 30.74
+},
+{
+"w": "on",
+"red": false,
+"s": 31.06,
+"e": 31.28
+},
+{
+"w": "l'encercle",
+"red": false,
+"s": 31.28,
+"e": 31.9
+},
+{
+"w": "et",
+"red": false,
+"s": 31.9,
+"e": 32.12
+},
+{
+"w": "on",
+"red": false,
+"s": 32.12,
+"e": 32.26
+},
+{
+"w": "attend",
+"red": false,
+"s": 32.26,
+"e": 32.42
+},
+{
+"w": "qu'il",
+"red": false,
+"s": 32.42,
+"e": 32.64
+},
+{
+"w": "se",
+"red": false,
+"s": 32.64,
+"e": 32.84
+},
+{
+"w": "rende.",
+"red": false,
+"s": 32.84,
+"e": 33.38
+},
+{
+"w": "B,",
+"red": false,
+"s": 33.46,
+"e": 33.68
+},
+{
+"w": "on",
+"red": false,
+"s": 34.12,
+"e": 34.24
+},
+{
+"w": "attaque",
+"red": false,
+"s": 34.24,
+"e": 34.58
+},
+{
+"w": "la",
+"red": false,
+"s": 34.58,
+"e": 34.7
+},
+{
+"w": "forteresse",
+"red": false,
+"s": 34.7,
+"e": 35.24
+},
+{
+"w": "cette",
+"red": false,
+"s": 35.24,
+"e": 35.58
+},
+{
+"w": "nuit.",
+"red": false,
+"s": 35.58,
+"e": 35.84
+},
+{
+"w": "Et",
+"red": false,
+"s": 36.28,
+"e": 36.38
+},
+{
+"w": "commente",
+"red": false,
+"s": 36.38,
+"e": 36.8
+},
+{
+"w": "ce",
+"red": false,
+"s": 36.8,
+"e": 36.88
+},
+{
+"w": "que",
+"red": false,
+"s": 36.88,
+"e": 37.02
+},
+{
+"w": "tu",
+"red": false,
+"s": 37.02,
+"e": 37.12
+},
+{
+"w": "veux",
+"red": false,
+"s": 37.12,
+"e": 37.24
+},
+{
+"w": "construire",
+"red": false,
+"s": 37.24,
+"e": 37.7
+},
+{
+"w": "à",
+"red": false,
+"s": 37.7,
+"e": 37.8
+},
+{
+"w": "Vulkaris !",
+"red": false,
+"s": 37.8,
+"e": 38.66
+},
+{
+"w": "Et",
+"red": false,
+"s": 38.66,
+"e": 38.86
+},
+{
+"w": "merci",
+"red": false,
+"s": 38.86,
+"e": 39.24
+},
+{
+"w": "Dyplo974 !",
+"red": false,
+"s": 39.24,
+"e": 40.7
+},
+{
+"w": "Bienvenue",
+"red": false,
+"s": 40.7,
+"e": 41.2
+},
+{
+"w": "dans",
+"red": false,
+"s": 41.2,
+"e": 41.42
+},
+{
+"w": "les",
+"red": false,
+"s": 41.42,
+"e": 41.56
+},
+{
+"w": "Hauts",
+"red": false,
+"s": 41.56,
+"e": 41.8
+},
+{
+"w": "de",
+"red": false,
+"s": 41.8,
+"e": 41.88
+},
+{
+"w": "Plavulca :",
+"red": false,
+"s": 41.88,
+"e": 42.72
+},
+{
+"w": "ta",
+"red": false,
+"s": 42.72,
+"e": 42.84
+},
+{
+"w": "villa",
+"red": false,
+"s": 42.84,
+"e": 43.06
+},
+{
+"w": "moderne",
+"red": false,
+"s": 43.06,
+"e": 43.52
+},
+{
+"w": "blanche,",
+"red": false,
+"s": 43.52,
+"e": 44.06
+},
+{
+"w": "avec",
+"red": false,
+"s": 44.06,
+"e": 44.34
+},
+{
+"w": "jardin",
+"red": false,
+"s": 44.34,
+"e": 44.7
+},
+{
+"w": "fleuri,",
+"red": false,
+"s": 44.7,
+"e": 45.12
+},
+{
+"w": "fontaine,",
+"red": false,
+"s": 45.44,
+"e": 45.88
+},
+{
+"w": "voiture",
+"red": false,
+"s": 46.14,
+"e": 46.54
+},
+{
+"w": "et",
+"red": false,
+"s": 46.54,
+"e": 46.94
+},
+{
+"w": "drapeau…",
+"red": false,
+"s": 46.94,
+"e": 47.44
+},
+{
+"w": "et",
+"red": false,
+"s": 47.44,
+"e": 47.92
+},
+{
+"w": "ton",
+"red": false,
+"s": 47.92,
+"e": 48.08
+},
+{
+"w": "feu",
+"red": false,
+"s": 48.08,
+"e": 48.22
+},
+{
+"w": "d'artifice !",
+"red": false,
+"s": 48.22,
+"e": 48.7
+},
+{
+"w": "Toi",
+"red": false,
+"s": 49.16,
+"e": 49.38
+},
+{
+"w": "aussi,",
+"red": false,
+"s": 49.38,
+"e": 49.6
+},
+{
+"w": "ta",
+"red": false,
+"s": 49.9,
+"e": 49.94
+},
+{
+"w": "maison",
+"red": false,
+"s": 49.94,
+"e": 50.14
+},
+{
+"w": "dans",
+"red": false,
+"s": 50.14,
+"e": 50.34
+},
+{
+"w": "les",
+"red": false,
+"s": 50.34,
+"e": 50.48
+},
+{
+"w": "Hauts :",
+"red": false,
+"s": 50.48,
+"e": 50.92
+},
+{
+"w": "lien",
+"red": false,
+"s": 50.92,
+"e": 51.06
+},
+{
+"w": "en",
+"red": false,
+"s": 51.06,
+"e": 51.26
+},
+{
+"w": "bio.",
+"red": false,
+"s": 51.26,
+"e": 51.38
+},
+{
+"w": "Tout",
+"red": false,
+"s": 51.72,
+"e": 51.84
+},
+{
+"w": "reste",
+"red": false,
+"s": 51.84,
+"e": 52.06
+},
+{
+"w": "gratuit,",
+"red": false,
+"s": 52.06,
+"e": 52.5
+},
+{
+"w": "ça",
+"red": false,
+"s": 52.8,
+"e": 52.9
+},
+{
+"w": "finance",
+"red": false,
+"s": 52.9,
+"e": 53.22
+},
+{
+"w": "notre",
+"red": false,
+"s": 53.22,
+"e": 53.52
+},
+{
+"w": "jeu",
+"red": false,
+"s": 53.52,
+"e": 53.8
+},
+{
+"w": "Vulkaris.",
+"red": false,
+"s": 53.8,
+"e": 54.68
+},
+{
+"w": "Chaque",
+"red": false,
+"s": 54.68,
+"e": 55.04
+},
+{
+"w": "like,",
+"red": false,
+"s": 55.04,
+"e": 55.3
+},
+{
+"w": "c'est",
+"red": false,
+"s": 55.4,
+"e": 55.62
+},
+{
+"w": "une",
+"red": false,
+"s": 55.62,
+"e": 55.82
+},
+{
+"w": "pièce :",
+"red": false,
+"s": 55.82,
+"e": 56.22
+},
+{
+"w": "mille",
+"red": false,
+"s": 56.22,
+"e": 56.432
+},
+{
+"w": "cent",
+"red": false,
+"s": 56.432,
+"e": 56.644
+},
+{
+"w": "vingt",
+"red": false,
+"s": 56.644,
+"e": 56.856
+},
+{
+"w": "et",
+"red": false,
+"s": 56.856,
+"e": 57.068
+},
+{
+"w": "un",
+"red": false,
+"s": 57.068,
+"e": 57.28
+},
+{
+"w": "sur",
+"red": false,
+"s": 57.28,
+"e": 57.54
+},
+{
+"w": "mille",
+"red": false,
+"s": 57.54,
+"e": 57.72
+},
+{
+"w": "cinq",
+"red": false,
+"s": 57.72,
+"e": 57.9
+},
+{
+"w": "cents",
+"red": false,
+"s": 57.9,
+"e": 58.08
+},
+{
+"w": "pour",
+"red": false,
+"s": 58.08,
+"e": 58.4
+},
+{
+"w": "la",
+"red": false,
+"s": 58.4,
+"e": 58.52
+},
+{
+"w": "flotte",
+"red": false,
+"s": 58.52,
+"e": 58.8
+},
+{
+"w": "de",
+"red": false,
+"s": 58.8,
+"e": 58.9
+},
+{
+"w": "guerre.",
+"red": false,
+"s": 58.9,
+"e": 59.14
+},
+{
+"w": "Abonne-toi",
+"red": false,
+"s": 59.46,
+"e": 59.9
+},
+{
+"w": "pour",
+"red": false,
+"s": 59.9,
+"e": 60.08
+},
+{
+"w": "devenir",
+"red": false,
+"s": 60.08,
+"e": 60.34
+},
+{
+"w": "habitant,",
+"red": false,
+"s": 60.34,
+"e": 60.9
+},
+{
+"w": "et",
+"red": false,
+"s": 60.9,
+"e": 61.14
+},
+{
+"w": "envoie",
+"red": false,
+"s": 61.14,
+"e": 61.5
+},
+{
+"w": "la",
+"red": false,
+"s": 61.5,
+"e": 61.62
+},
+{
+"w": "vidéo",
+"red": false,
+"s": 61.62,
+"e": 61.92
+},
+{
+"w": "à",
+"red": false,
+"s": 61.92,
+"e": 62.08
+},
+{
+"w": "un",
+"red": false,
+"s": 62.08,
+"e": 62.18
+},
+{
+"w": "pote :",
+"red": false,
+"s": 62.18,
+"e": 62.5
+},
+{
+"w": "s'il",
+"red": false,
+"s": 62.76,
+"e": 62.92
+},
+{
+"w": "s'abonne,",
+"red": false,
+"s": 62.92,
+"e": 63.38
+},
+{
+"w": "il",
+"red": false,
+"s": 63.54,
+"e": 63.64
+},
+{
+"w": "devient",
+"red": false,
+"s": 63.64,
+"e": 63.92
+},
+{
+"w": "soldat",
+"red": false,
+"s": 63.92,
+"e": 64.38
+},
+{
+"w": "de",
+"red": false,
+"s": 64.38,
+"e": 64.48
+},
+{
+"w": "Vulkaris",
+"red": false,
+"s": 64.48,
+"e": 65.04
+},
+{
+"w": "et",
+"red": false,
+"s": 65.04,
+"e": 65.22
+},
+{
+"w": "vote",
+"red": false,
+"s": 65.22,
+"e": 65.46
+},
+{
+"w": "avec",
+"red": false,
+"s": 65.46,
+"e": 65.66
+},
+{
+"w": "toi.",
+"red": false,
+"s": 65.66,
+"e": 65.88
+},
+{
+"w": "Mais",
+"red": false,
+"s": 66.2,
+"e": 66.34
+},
+{
+"w": "attention…",
+"red": false,
+"s": 66.34,
+"e": 66.6
+},
+{
+"w": "dans",
+"red": false,
+"s": 67.18,
+"e": 67.28
+},
+{
+"w": "la",
+"red": false,
+"s": 67.28,
+"e": 67.4
+},
+{
+"w": "forteresse,",
+"red": false,
+"s": 67.4,
+"e": 68.04
+},
+{
+"w": "une",
+"red": false,
+"s": 68.24,
+"e": 68.38
+},
+{
+"w": "lumière",
+"red": false,
+"s": 68.38,
+"e": 68.74
+},
+{
+"w": "vient",
+"red": false,
+"s": 68.74,
+"e": 68.96
+},
+{
+"w": "de",
+"red": false,
+"s": 68.96,
+"e": 69.1
+},
+{
+"w": "s'allumer.",
+"red": false,
+"s": 69.1,
+"e": 69.48
+},
+{
+"w": "Que",
+"red": false,
+"s": 69.8,
+"e": 69.96
+},
+{
+"w": "prépare",
+"red": false,
+"s": 69.96,
+"e": 70.42
+},
+{
+"w": "leur",
+"red": false,
+"s": 70.42,
+"e": 70.54
+},
+{
+"w": "roi ?",
+"red": false,
+"s": 70.54,
+"e": 70.9
+}
+]
