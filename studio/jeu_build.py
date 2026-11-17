@@ -27,6 +27,7 @@ js = remplace(js, "const cam=new THREE.PerspectiveCamera(50,W/H,1,5000);", "cons
 js = remplace(js, "function special(b){", "function special(b){if(b.type==='jeu_hauts')return;")
 js = remplace(js, "Math.min(.32,(d-15)*.03)", "Math.min(.1,(d-15)*.01)")   # ville plus plate pour marcher
 js = remplace(js, "Math.max(1.6,height0(wx,wz))", "Math.max(1.6,heightT(wx,wz))")   # socles au niveau du plateau de la ville
+js = remplace(js, "if(e<18){const w=1-e/18", "const BL=p.b||18;if(e<BL){const w=1-e/BL")   # raccord réglable (bâtiments du bord de mer reliés à la terre)
 js += '\n{\n' + open(os.path.join(ICI, 'jeu', 'jeu.js'), encoding='utf8').read() + '\n}\n'   # bloc : ses noms ne gênent pas ceux du décor
 
 # ---------- 2. maisons : code 3D de la boutique ----------
