@@ -1,6 +1,6 @@
 {
- "jour": 10,
- "habitants": 2198,
+ "jour": 11,
+ "habitants": 2228,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -211,12 +211,17 @@
    "type": "grand_mur",
    "nom": "Grand mur de Vulkaris",
    "par": "trésor (1500 pièces), jour 10"
+  },
+  {
+   "type": "phare",
+   "nom": "Phare de paul_mntpls",
+   "par": "@paul_mntpls (Instagram, 22 likes) — aux couleurs du drapeau, pour naviguer entre les deux îles"
   }
  ],
  "vote_en_cours": {
-  "jour": 10,
+  "jour": 11,
   "questions": [
-   "Leur roi a perdu : A on exige qu'il paie pour la paix / B on envahit leur île pendant qu'ils sont faibles",
+   "Le roi s'est enfermé dans sa forteresse : A on l'encercle et on attend qu'il se rende / B on attaque la forteresse cette nuit",
    "Construction libre : commente ce que tu veux construire"
   ]
  },
@@ -260,12 +265,16 @@
   {
    "jour": 10,
    "resume": "2198 habitants (YT 519/TT 125/IG 1554). Bataille : B attendre derrière les canons 51 / A attaquer 39 → la flotte ennemie se brise sur le grand mur et recule. +745 likes → trésor 2212 → grand mur construit (1500), reste 712 ; prochain objectif : flotte de guerre de @noamorax (1500). Bibliothèque de @ninjakai1483 (21). Questions : A faire payer la paix au roi / B envahir leur île + construction libre."
+  },
+  {
+   "jour": 11,
+   "resume": "2228 habitants (YT 540/TT 126/IG 1562). Invasion : B envahir 54 / A faire payer 24 → débarquement de nuit sur leur île, le roi s'enferme dans sa forteresse. +409 likes → trésor 1121 / 1500 (flotte de guerre). Phare de @paul_mntpls (22). Questions : A siège / B attaque de nuit + construction libre."
   }
  ],
  "habitants_detail": {
-  "youtube": 519,
-  "tiktok": 125,
-  "instagram": 1554
+  "youtube": 540,
+  "tiktok": 126,
+  "instagram": 1562
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -292,17 +301,15 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 712,
+ "tresor": 1121,
  "tresor_detail": {
-  "avant": 1467,
-  "likes_jour9": {
-   "youtube": 183,
+  "avant": 712,
+  "likes_jour10": {
+   "youtube": 86,
    "tiktok": 23,
-   "instagram": 539
+   "instagram": 300
   },
-  "depense": {
-   "grand mur": 1500
-  }
+  "depense": {}
  },
  "objectif": {
   "nom": "flotte de guerre (idée de @noamorax)",
@@ -342,5 +349,9 @@
  "paix": {
   "vote": "B refuser 49 voix (YT 4, IG 45, 88 likes) / A payer 23 (YT 9, TT 1, IG 13, 35 likes)",
   "resultat": "refus : le messager repart, la flotte ennemie se prépare"
+ },
+ "invasion": {
+  "vote": "B envahir 54 voix (YT 8, TT 2, IG 44, 75 likes) / A faire payer la paix 24 (YT 2, IG 22, 41 likes)",
+  "resultat": "débarquement de nuit (bateau de leroux + barques, flotte de guerre pas encore payée) ; village vide ; le roi s'enferme dans sa forteresse"
  }
 }
