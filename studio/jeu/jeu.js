@@ -44,6 +44,7 @@ setup(TL0);
   // bâtiments autour de la place : répartis entre les rues sans se chevaucher
   if (capitale) { const [px, , pz] = capitale.userData.place, NR = (E.capitale && E.capitale.rues) || 5, SP = Math.PI * 2 / NR, rue0 = .3;
     const autour = E.batiments.map((b, k) => ({ b, k })).filter(o => o.b.place !== undefined && tailles[o.k]);
+    for (const o of autour) if (o.b.type !== 'hopital') { o.b.anneau = true; tailles[o.k] = dimsBoutique(o.b); }   // boutiques du jeu (ville.js) : leurs vraies dimensions
     const secteur = a => { const u = (((a - rue0) % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2); return Math.floor(u / SP); };
     const S = [...Array(NR)].map(() => []), charge = S.map(() => 0), penal = S.map((_, si) => { const a = rue0 + si * SP + SP / 2; let p = 0;   // secteurs déjà occupés par un grand bâtiment : évités
       for (const b of E.batiments) if (b.pos && b.place === undefined && RADB[b.type]) for (const r of [24, 34, 44]) if (Math.hypot(px + Math.cos(a) * r - b.pos[0], pz + Math.sin(a) * r - b.pos[1]) < RADB[b.type] + 10) p = 200; return p; });
@@ -56,6 +57,11 @@ setup(TL0);
   if (capitale) scene.remove(capitale); for (const g of speciaux) scene.remove(g); speciaux.length = 0; for (const g of GENS) scene.remove(g); GENS.length = 0;
 }
 setup(TL0);
+// ---- la ville du jeu : boutiques refaites (ville.js) à la place des maquettes, place + rues + mobilier ----
+const BOUTIQUES = [];
+E.batiments.forEach((b, k) => { const g = speciaux[k]; if (!b.anneau || !g) return; const inner = g.userData.inner; inner.clear(); inner.add(...construireBoutique(b).children); BOUTIQUES.push(g); });
+scene.updateMatrixWorld(true);
+const VILLE = construireVille(BOUTIQUES);
 // maisons de la ville qui chevauchent un bâtiment ou une autre maison : retirées
 scene.updateMatrixWorld(true);
 if (capitale) { const B = [], boite = o => { const b = new THREE.Box3().setFromObject(o); return b; };
@@ -78,7 +84,9 @@ function socle(o, base, marge = 1, raccord = 8) { const m = o.isMesh ? o : o.use
   m.geometry.computeBoundingBox(); const bb = m.geometry.boundingBox; if (![bb.min.x, bb.max.x, bb.min.z, bb.max.z].every(isFinite)) return;
   m.updateWorldMatrix(true, false); const c = new THREE.Vector3((bb.min.x + bb.max.x) / 2, 0, (bb.min.z + bb.max.z) / 2).applyMatrix4(m.matrixWorld), ax = new THREE.Vector3(1, 0, 0).transformDirection(m.matrixWorld), r = Math.atan2(-ax.z, ax.x);
   PADS.push({ x: c.x, z: c.z, c: Math.cos(r), s: Math.sin(r), cx: 0, cz: 0, hw: (bb.max.x - bb.min.x) / 2 + marge, hd: (bb.max.z - bb.min.z) / 2 + marge, h: base, b: raccord }); }
-for (const g of speciaux) { const b = E.batiments[speciaux.indexOf(g)]; if (!b || g.userData.flotte || g.userData.monde || ['port', 'bateau', 'sentier'].includes(b.type) || PADDEF[b.type]) continue; socle(g, g.position.y); }
+for (const g of speciaux) { const b = E.batiments[speciaux.indexOf(g)]; if (!b || g.userData.flotte || g.userData.monde || ['port', 'bateau', 'sentier'].includes(b.type) || PADDEF[b.type]) continue;
+  if (b.anneau) { const [W, Dt] = dimsBoutique(b), r = g.rotation.y; PADS.push({ x: g.position.x, z: g.position.z, c: Math.cos(r), s: Math.sin(r), cx: 0, cz: 0, hw: W / 2 + 1, hd: Dt / 2 + 1, h: g.position.y, b: 6 }); continue; }
+  socle(g, g.position.y); }
 if (capitale) for (const m of capitale.children) if (m.isMesh && m.userData.d > 0) socle(m, m.position.y, .8, 6);
 function controlePose() {
   const out = [], boites = [];
@@ -363,7 +371,7 @@ function addMur(i, j, a, z) { if (i < 0 || j < 0 || i >= NC || j >= NC) return; 
   scene.traverse(o => {
     if (!o.isMesh || o.isInstancedMesh || !visible(o)) return; for (let p = o; p; p = p.parent) if (ignore.has(p)) return;
     const pos = o.geometry.attributes.position, idx = o.geometry.index, n = idx ? idx.count : pos.count, M = o.matrixWorld;
-    const eau = o.material && o.material.transparent && o.material.opacity < 1;
+    const eau = o.material && o.material.transparent && o.material.opacity < 1 && !o.userData.verre;
     for (let t = 0; t < n; t += 3) {
       const a = idx ? idx.getX(t) : t, b = idx ? idx.getX(t + 1) : t + 1, c = idx ? idx.getX(t + 2) : t + 2;
       A.fromBufferAttribute(pos, a).applyMatrix4(M); B.fromBufferAttribute(pos, b).applyMatrix4(M); C.fromBufferAttribute(pos, c).applyMatrix4(M);
@@ -441,7 +449,7 @@ let yaw = 0, pitch = .45, dist = 8;
 function libreAutour(x, z, r0 = 0) { for (let r = r0; r < 18; r += .7) for (let a = 0; a < 6.28; a += .5) { const X = x + Math.cos(a) * r, Z = z + Math.sin(a) * r, g = sol(X, Z, height(X, Z) + .5); if (height(X, Z) > -.5 && !bloque(X, Z, g)) return [X, Z, g]; } return [x, z, sol(x, z)]; }
 function tp(lieu) {
   let x, z, cible;
-  if (lieu === 'ville') { const a = .3 + Math.PI * 2 / NRUES; x = place[0] + Math.cos(a) * 8; z = place[2] + Math.sin(a) * 8; cible = [place[0] + Math.cos(a) * 30, place[2] + Math.sin(a) * 30]; }
+  if (lieu === 'ville') { const a = .3 + Math.PI * 2 / NRUES; x = place[0] + Math.cos(a) * 11; z = place[2] + Math.sin(a) * 11; cible = [place[0], place[2]]; }
   else { const a = versHauts(-58, 0), b = versHauts(0, 0); x = a.x; z = a.z; cible = [b.x, b.z]; }
   const [X, Z, g] = libreAutour(x, z); P.x = X; P.z = Z; P.y = g; P.dir = Math.atan2(cible[0] - X, cible[1] - Z); yaw = P.dir + Math.PI; pitch = .45;
 }
@@ -544,4 +552,4 @@ function boucle(now) {
 window.CONTROLE = controlePose(); if (window.CONTROLE.length) console.warn('Règles de pose :', JSON.stringify(window.CONTROLE));
 window.T_CHARGE = performance.now();
 requestAnimationFrame(boucle);
-window.JEU = { P, tp, renderer, place, height, DIGUES, height0: (x, z) => height0(x, z), get pads() { return PADS.map(p => [+p.x.toFixed(0), +p.z.toFixed(0), +p.hw.toFixed(1), +p.hd.toFixed(1), +p.h.toFixed(1)]); }, PADDEF, murs: (x, z) => { const i = ci(x), j = ci(z), c = chunk(i, j); if (!c) return []; const b = ((j & 31) * CH + (i & 31)) * NW * 2, f = ((j & 31) * CH + (i & 31)) * NF; return [[...c.w.slice(b, b + 6)].map(v => v / 20), [...c.f.slice(f, f + 4)].map(v => v / 20)]; }, LOTS, CHEMINS, sol, bloque, hauts, get chunks() { return CHK.size; }, set yaw(v) { yaw = v; }, set pitch(v) { pitch = v; }, set dist(v) { dist = v; } };
+window.JEU = { P, tp, renderer, BOUTIQUES, place, height, DIGUES, height0: (x, z) => height0(x, z), get pads() { return PADS.map(p => [+p.x.toFixed(0), +p.z.toFixed(0), +p.hw.toFixed(1), +p.hd.toFixed(1), +p.h.toFixed(1)]); }, PADDEF, murs: (x, z) => { const i = ci(x), j = ci(z), c = chunk(i, j); if (!c) return []; const b = ((j & 31) * CH + (i & 31)) * NW * 2, f = ((j & 31) * CH + (i & 31)) * NF; return [[...c.w.slice(b, b + 6)].map(v => v / 20), [...c.f.slice(f, f + 4)].map(v => v / 20)]; }, LOTS, CHEMINS, sol, bloque, hauts, get chunks() { return CHK.size; }, set yaw(v) { yaw = v; }, set pitch(v) { pitch = v; }, set dist(v) { dist = v; } };
