@@ -373,6 +373,13 @@ const lacher = e => { if (e.pointerId === joy.id) { joy.id = null; joy.x = joy.y
 cv.addEventListener('pointerup', lacher); cv.addEventListener('pointercancel', lacher);
 cv.addEventListener('wheel', e => { dist = Math.max(4, Math.min(18, dist + e.deltaY * .01)); }, { passive: true });
 const K = {}; addEventListener('keydown', e => { K[e.key.toLowerCase()] = true; $('aide').classList.add('cache'); }); addEventListener('keyup', e => { K[e.key.toLowerCase()] = false; });
+// ---- 🐞 signaler : code de position à copier + capture d'écran ; ?ici=CODE ramène exactement au même endroit ----
+$('bug').onclick = () => { const code = ['V1', P.x.toFixed(1), P.z.toFixed(1), P.y.toFixed(1), yaw.toFixed(2), pitch.toFixed(2), dist.toFixed(0)].join(':');
+  $('bug-code').textContent = code; $('bug-boite').classList.add('on'); copier(code); };
+function copier(code) { $('bug-copie').textContent = 'Copier'; try { navigator.clipboard.writeText('🐞 Vulkaris ' + code).then(() => $('bug-copie').textContent = '✅ Code copié', () => {}); } catch (e) {} }
+$('bug-copie').onclick = () => copier($('bug-code').textContent);
+$('bug-ok').onclick = () => $('bug-boite').classList.remove('on');
+{ const m = /[?&]ici=(V1:[-\d.:]+)/.exec(location.search); if (m) { const v = m[1].split(':').slice(1).map(Number); P.x = v[0]; P.z = v[1]; P.y = v[2]; yaw = v[3]; pitch = v[4]; dist = v[5] || dist; } }
 $('tp-hauts').onclick = () => tp('hauts'); $('tp-ville').onclick = () => tp('ville');
 $('zoom').onclick = () => { dist = dist > 11 ? 5.5 : dist > 7 ? 14 : 8; };
 
