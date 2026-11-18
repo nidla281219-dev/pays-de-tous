@@ -696,6 +696,18 @@ function initJ11(tl){const D=tl.debarquement;if(D){const n=D.barques||6;{const b
   const f=new THREE.Group();const pole=new THREE.Mesh(new THREE.CylinderGeometry(.25,.25,14,6),new THREE.MeshStandardMaterial({color:'#2a2a2a'}));pole.position.y=7;f.add(pole);const fm=new THREE.Mesh(new THREE.PlaneGeometry(8,5.25),new THREE.MeshStandardMaterial({map:flagTex,side:THREE.DoubleSide}));fm.position.set(4,11.4,0);f.add(fm);f.visible=false;scene.add(f);DEB.fl=f}
  if(tl.lumiere!==undefined&&tl.ennemi){const [ix,iz]=tl.ennemi.ile;const cv=document.createElement('canvas');cv.width=cv.height=128;const c=cv.getContext('2d');const g=c.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'rgba(255,240,180,1)');g.addColorStop(.25,'rgba(255,170,60,.8)');g.addColorStop(1,'rgba(255,120,30,0)');c.fillStyle=g;c.fillRect(0,0,128,128);
   const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(cv),blending:THREE.AdditiveBlending,depthWrite:false,transparent:true}));sp.position.set(ix-10,24+36,iz-20-6);sp.scale.setScalar(26);sp.visible=false;scene.add(sp);DEB.lum=sp}}
+
+// siège (jour 12) : nos soldats encerclent la forteresse avec des torches ; une torche s'agite en haut du donjon
+const SIE={sol:[],tor:[],sig:null};
+function glowSprite(sc){const cv=document.createElement('canvas');cv.width=cv.height=64;const c=cv.getContext('2d');const g=c.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'rgba(255,240,180,1)');g.addColorStop(.3,'rgba(255,160,50,.85)');g.addColorStop(1,'rgba(255,110,20,0)');c.fillStyle=g;c.fillRect(0,0,64,64);
+ const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(cv),blending:THREE.AdditiveBlending,depthWrite:false,transparent:true}));sp.scale.setScalar(sc);sp.visible=false;scene.add(sp);return sp}
+function initJ12(tl){const S=tl.siege;if(!S||!tl.ennemi)return;const [ix,iz]=tl.ennemi.ile;const cx=ix-10,cz=iz-20;const n=S.soldats||48,R=S.rayon||40;
+ for(let i=0;i<n;i++){const a=i/n*Math.PI*2,rr=R+(i%2)*4;const x=cx+Math.cos(a)*rr,z=cz+Math.sin(a)*rr;const s=soldat(i);const y=EH?Math.max(.5,EH(x,z)):.5;s.position.set(x,y,z);s.rotation.y=Math.atan2(cx-x,cz-z);s.userData.ph=i;SIE.sol.push(s);
+  if(i%3===0){const tq=glowSprite(5);tq.position.set(x+Math.cos(a)*1.5,y+6.2,z+Math.sin(a)*1.5);tq.userData.ph=i;SIE.tor.push(tq)}}
+ SIE.sig=glowSprite(14);SIE.sig.userData.c=[cx,cz]}
+function bougerJ12(t){const S=TL.siege;if(!S)return;const on=TL.vis(t,'siege');
+ SIE.sol.forEach(s=>{s.visible=on&&t>=(S.t0||0)});SIE.tor.forEach(q=>{q.visible=on&&t>=(S.t0||0)&&TL.vis(t,'nuit');if(q.visible)q.material.opacity=.8+.2*Math.sin(t*11+q.userData.ph)});
+ if(SIE.sig){const k=t-(S.torche??1e9);SIE.sig.visible=k>=0&&on;if(SIE.sig.visible){const [cx,cz]=SIE.sig.userData.c;SIE.sig.position.set(cx+Math.sin(t*4)*4,24+44+Math.abs(Math.cos(t*4))*2,cz+2-9);SIE.sig.material.opacity=Math.min(1,k/.4)}}}
 function bougerJ11(t){for(const b of PHARES)b.rotation.y=t*.9;const D=TL.debarquement;
  if(D){const FL=D.flash&&t>=D.flash[0]&&t<D.flash[1];const ts=FL?D.flash[0]-.3:D.ts,tf=FL?D.flash[0]+1:D.tf;const [x0,z0]=D.de,[x1,z1]=D.a;const q=FL?1:Math.max(0,Math.min(1,(t-D.t0)/(D.t1-D.t0)));const ang=Math.atan2(-(z1-z0),x1-x0);
   DEB.bat.forEach((b,k)=>{b.visible=(FL||t>=D.t0-.01)&&TL.vis(t,'debarquement');const off=(k-(DEB.bat.length-1)/2)*16,back=Math.abs(k-(DEB.bat.length-1)/2)*9+(k?6:0);b.position.set(lerp(x0,x1,q)+off,.4+Math.sin(t*1.5+k)*.35,lerp(z0,z1,q)-back);b.rotation.y=ang;b.rotation.z=Math.sin(t*1.2+k)*.05});
@@ -931,7 +943,7 @@ window.setup=(tl)=>{TL=tl;const E=tl.etat||{};
   const [px,py,pz]=capitale.userData.place;flagG.position.set(px+(E.capitale.drapeau_dx??-9),py-.3,pz+(E.capitale.drapeau_dz??3))}
  for(const b of E.batiments||[])special(b);
  if(tl.ennemi)construireEnnemi(tl.ennemi);
- initJ7(tl);initJ11(tl);
+ initJ7(tl);initJ11(tl);initJ12(tl);
  if(tl.habitants)placerGens(tl.habitants);
  for(const f of tl.fantomes||[]){const [x,z]=SITES[f.site]||f.pos;const g=ghostBuildings(x,z,f.n||40,f.rayon||30,f.seed||200+extras.length*17,f.hauteur||10);g.userData.key=f.key;extras.push(g)}
  for(const p of tl.epingles||[]){const [x,z]=SITES[p.site]||p.pos;const g=pin(p.couleur||'#2f7fe0',p.lettre||'?',x,z);g.userData.key=p.key;g.userData.h0=height(x,z);extras.push(g)}
@@ -958,7 +970,7 @@ window.frame=(t)=>{
  for(const g of extras){if(g.isGroup&&g.children[0]&&g.children[0].isSprite){g.visible=TL.vis(t,g.userData.key);g.position.y=g.userData.h0+6+Math.sin(t*3)*1.5}else{const pr=TL.prog(t,g.userData.key);g.children.forEach(b=>{const v=Math.max(0,Math.min(1,(pr*1.4-b.userData.d)*4));b.scale.set(1,v||.0001,1);b.visible=v>0})}}
  if(capitale){const pr=progAbs(t,'capitale');capitale.children.forEach(b=>{const v=Math.max(0,Math.min(1,(pr*1.5-b.userData.d)*3));b.scale.set(1,v||.0001,1);b.visible=v>0})}
  for(const g of speciaux){g.traverse(o=>{if(o.userData&&o.userData.barber)o.userData.barber.offset.y=-t*.6});if(g.userData.flotte){g.position.y=g.userData.y0+Math.sin(t*1.4)*.35;g.rotation.z=Math.sin(t*1.1)*.04}const pr=g.userData.key?progAbs(t,g.userData.key):1;const v=g.userData.monde?1:ease(Math.max(0,Math.min(1,pr)));g.userData.inner.scale.set(1,v||.0001,1);g.visible=pr>0;g.userData.sp.visible=pr>.85;g.userData.sp.material.opacity=Math.min(1,(pr-.85)*8)}
- bougerGens(t);bougerEnnemi(t);bougerJ7(t);bougerJ11(t);
+ bougerGens(t);bougerEnnemi(t);bougerJ7(t);bougerJ11(t);bougerJ12(t);
  for(const g of speciaux)if(g.userData.karts)for(const m of g.userData.karts){const K=m.userData.kart,a=-(t*.35+K.ph)*Math.PI*2,x=Math.cos(a)*K.RX,z=Math.sin(a)*K.RZ*(1+.35*Math.sin(a*2)),a2=a-.05,x2=Math.cos(a2)*K.RX,z2=Math.sin(a2)*K.RZ*(1+.35*Math.sin(a2*2));m.position.set(x,0,z);m.rotation.y=Math.atan2(-(z2-z),x2-x)}
  flagG.visible=TL.vis(t,'drapeau')||(!!(TL.etat&&TL.etat.capitale)&&!TL.vis(t,'sansDrapeau'));toi.visible=TL.vis(t,'toi');toi.children.forEach(c=>c.material.emissiveIntensity=.5+.4*Math.sin(t*5));
  renderer.render(scene,cam);
