@@ -1,6 +1,6 @@
 {
- "jour": 11,
- "habitants": 2228,
+ "jour": 12,
+ "habitants": 2261,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -216,12 +216,17 @@
    "type": "phare",
    "nom": "Phare de paul_mntpls",
    "par": "@paul_mntpls (Instagram, 22 likes) — aux couleurs du drapeau, pour naviguer entre les deux îles"
+  },
+  {
+   "type": "bateaux_exploration",
+   "nom": "Bateaux d'exploration de cesare_92b",
+   "par": "@cesare_92b (Instagram, 7 likes) — construits dans son port (jour 5), pour explorer les autres îles"
   }
  ],
  "vote_en_cours": {
-  "jour": 11,
+  "jour": 12,
   "questions": [
-   "Le roi s'est enfermé dans sa forteresse : A on l'encercle et on attend qu'il se rende / B on attaque la forteresse cette nuit",
+   "Le roi propose un duel : son champion contre notre commandant lorenzo. A on accepte le duel / B on refuse et on continue le siège",
    "Construction libre : commente ce que tu veux construire"
   ]
  },
@@ -269,12 +274,16 @@
   {
    "jour": 11,
    "resume": "2228 habitants (YT 540/TT 126/IG 1562). Invasion : B envahir 54 / A faire payer 24 → débarquement de nuit sur leur île, le roi s'enferme dans sa forteresse. +409 likes → trésor 1121 / 1500 (flotte de guerre). Phare de @paul_mntpls (22). Questions : A siège / B attaque de nuit + construction libre. Nouvel acheteur : Dyplo974 (villa P3)."
+  },
+  {
+   "jour": 12,
+   "resume": "2261 habitants (YT 557/TT 126/IG 1578). Siège : A 58 / B attaque 14 → forteresse encerclée, le roi propose un duel. +368 likes → trésor 1489 / 1500 (il manque 11 pour la flotte de guerre). Bateaux d'exploration de @cesare_92b (7). Acheteurs : Jack Harper, Ethanalric, Pierre.lzh. Questions : A duel / B continuer le siège + construction libre."
   }
  ],
  "habitants_detail": {
-  "youtube": 540,
+  "youtube": 557,
   "tiktok": 126,
-  "instagram": 1562
+  "instagram": 1578
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -301,13 +310,13 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 1121,
+ "tresor": 1489,
  "tresor_detail": {
-  "avant": 712,
-  "likes_jour10": {
-   "youtube": 86,
-   "tiktok": 23,
-   "instagram": 300
+  "avant": 1121,
+  "likes_jour11": {
+   "youtube": 84,
+   "tiktok": 10,
+   "instagram": 274
   },
   "depense": {}
  },
@@ -341,7 +350,10 @@
   "_.zowwee._ P33 petite maison (panneau Famille Mustafić)",
   "Hidroway P44 villa + statue bronze + feu d'artifice (plaque Défenseur de Vulkaris)",
   "Clutcche P43 grande maison rose + jardin, voiture, piscine, drapeau (bord de mer)",
-  "Dyplo974 P3 villa moderne blanche + jardin, drapeau, voiture, fontaine, feu d'artifice (jour 11)"
+  "Dyplo974 P3 villa moderne blanche + jardin, drapeau, voiture, fontaine, feu d'artifice (jour 11)",
+  "Jack Harper P35 villa méditerranéenne bleue bord de mer + jardin, drapeau, voiture, piscine, statue marbre (jour 12)",
+  "Ethanalric P7 villa chalet bois + drapeau, fontaine, jardin, voiture, statue or (jour 12)",
+  "Pierre.lzh P2 grande maison classique crème + jardin, voiture, fontaine, piscine (jour 12)"
  ],
  "messager": {
   "vote": "A écouter 72 voix (YT 17, TT 1, IG 54, 49 likes) / B prison 4 (YT 1, IG 3)",
@@ -354,5 +366,9 @@
  "invasion": {
   "vote": "B envahir 54 voix (YT 8, TT 2, IG 44, 75 likes) / A faire payer la paix 24 (YT 2, IG 22, 41 likes)",
   "resultat": "débarquement de nuit (bateau de leroux + barques, flotte de guerre pas encore payée) ; village vide ; le roi s'enferme dans sa forteresse"
+ },
+ "siege": {
+  "vote": "A siège 58 voix (YT 9, IG 49, 56 likes) / B attaque de nuit 14 (YT 4, IG 10, 5 likes)",
+  "resultat": "forteresse encerclée ; la nuit, une torche en haut de la tour : le roi propose un duel (son champion contre @lorenzo_lns09)"
  }
 }
