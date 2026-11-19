@@ -6,7 +6,13 @@ Autres docs (n'ouvrir QUE si besoin) : docs/TIMELINE.md (format timeline, à l'�
 
 ## Règles de l'utilisateur
 - ZONE VISIBLE : texte et éléments importants dans x 60–960, y 130–1600 ; ligne ≤ 840 px (centre x ≈ 510). Vérifier avec --cadre.
-- 2 à 3 questions MAX par vidéo. Vidéo 40–50 s (jusqu'à 55 s s'il y a des acheteurs à remercier). Couper les récaps.
+- 2 à 3 questions MAX par vidéo. Vidéo ≤ 45 s (≤ 52 s avec acheteurs), voir PLAN ANTI-BAISSE. Couper les récaps.
+- PLAN ANTI-BAISSE (19.11, stats jour 12 : TikTok 6 s de moyenne, la plupart partent à 0:01 ; vidéos de 61–71 s malgré la règle ; 0 partage) — PRIORITAIRE :
+  a) DURÉE STRICTE : script ≤ 95 mots (≈ 35 s) hors merci acheteurs ; vérifier avec `wc -w` avant d'envoyer le script, couper sinon. Vidéo finale ≤ 45 s (≤ 52 s avec acheteurs). Plus de chiffres par réseau, plus de récap d'hier.
+  b) POUR LES NOUVEAUX : 99 % des vues viennent de gens qui ne connaissent pas la série. Les 3 premières secondes = le CONCEPT + l'enjeu, compréhensibles sans avoir vu avant. Modèle : « 2 000 inconnus dirigent ce pays avec leurs commentaires… et ils viennent de piéger un roi. » (la vidéo à 34 k vues = « hier on était zéro, aujourd'hui 233 »). Jamais de « leur roi », « l'ennemi », « la guerre » sans contexte.
+  c) IMAGE 1 : claire, de jour ou très éclairée, en mouvement, gros plan (perso, foule, explosion), JAMAIS « JOUR N » écrit sur l'image 1 (le mettre dans le HUD seulement, après 3 s). Texte image 1 = l'enjeu en 3–5 mots.
+  d) UNE SEULE question à la fin, simple (A ou B) + raison de partager.
+  e) Merci acheteurs + pub : courts et APRÈS la question ; la pub longue va en story/carrousel, pas dans la vidéo.
 - GIGA ACCROCHE (17.11, stats IG : 50 % partent avant 4 s, 0 partage, < 10 % à la fin) : charger le skill `viral-hooks` à l'étape 3, écrire 6 accroches (≥ 3 archétypes : conflit/danger, retournement, gros chiffre, question piège, « avant/après », mystère), garder la meilleure et mettre les 2 suivantes dans le message à l'utilisateur. Règles : JAMAIS commencer par « Jour N » (le dire après 3 s) ; événement montré dès l'image 1 (feu, bateau ennemi, foule, statue géante, gros plan) + 3–5 mots ÉNORMES + phrase dite < 2 s, tout aligné (dit = montré = écrit) ; être créatif mais tenir la promesse dans la vidéo. Relances toutes les ~10 s (« mais… », « sauf que… »).
 - PARTAGE : une raison concrète d'envoyer la vidéo (« Envoie-la à un pote : s'il s'abonne, il devient habitant et vote avec toi », camps rivaux, « tag celui qui serait chef »). Finir sur un SUSPENSE (une question ouverte ou une menace pour demain), pas sur « Demain, jour N+1 » seul.
 - ACHETEURS + PUB À CHAQUE VIDÉO : 1) remercier chaque nouvel acheteur (ventes.yml → vitrines.py, règle MAISONS PAYÉES) ; 2) une pub courte (≤ 5 s) pour les maisons : « Toi aussi, ta maison dans les Hauts, lien en bio — tout reste gratuit, ça finance notre jeu Vulkaris. » Placée APRÈS l'accroche et le vote, jamais au début.
