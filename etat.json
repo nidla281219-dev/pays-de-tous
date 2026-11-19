@@ -1,6 +1,6 @@
 {
- "jour": 12,
- "habitants": 2261,
+ "jour": 13,
+ "habitants": 2276,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -221,13 +221,18 @@
    "type": "bateaux_exploration",
    "nom": "Bateaux d'exploration de cesare_92b",
    "par": "@cesare_92b (Instagram, 7 likes) — construits dans son port (jour 5), pour explorer les autres îles"
+  },
+  {
+   "type": "ecole",
+   "nom": "École d'elodie_guerra",
+   "place": 29,
+   "par": "@elodie_guerra (Instagram, 7 likes, enseignante)"
   }
  ],
  "vote_en_cours": {
-  "jour": 12,
+  "jour": 13,
   "questions": [
-   "Le roi propose un duel : son champion contre notre commandant lorenzo. A on accepte le duel / B on refuse et on continue le siège",
-   "Construction libre : commente ce que tu veux construire"
+   "Des affamés sortent de la forteresse. A on les nourrit (ils deviennent des nôtres) / B on les renvoie"
   ]
  },
  "historique": [
@@ -278,12 +283,16 @@
   {
    "jour": 12,
    "resume": "2261 habitants (YT 557/TT 126/IG 1578). Siège : A 58 / B attaque 14 → forteresse encerclée, le roi propose un duel. +368 likes → trésor 1489 / 1500 (il manque 11 pour la flotte de guerre). Bateaux d'exploration de @cesare_92b (7). Acheteurs : Jack Harper, Ethanalric, Pierre.lzh. Questions : A duel / B continuer le siège + construction libre."
+  },
+  {
+   "jour": 13,
+   "resume": "2276 habitants. Duel refusé (B 40 / A 21) → siège continue. Trésor 1489+331=1820 → flotte de guerre (1500), reste 320 ; objectif armée de l'air 2000. École d'@elodie_guerra. Affamés sortent de la forteresse : A nourrir / B renvoyer. Pas de nouvel acheteur."
   }
  ],
  "habitants_detail": {
-  "youtube": 557,
-  "tiktok": 126,
-  "instagram": 1578
+  "youtube": 570,
+  "tiktok": 125,
+  "instagram": 1581
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -310,19 +319,21 @@
    "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
   }
  ],
- "tresor": 1489,
+ "tresor": 320,
  "tresor_detail": {
-  "avant": 1121,
-  "likes_jour11": {
-   "youtube": 84,
-   "tiktok": 10,
-   "instagram": 274
+  "avant": 1489,
+  "likes_jour12": {
+   "youtube": 91,
+   "tiktok": 9,
+   "instagram": 231
   },
-  "depense": {}
+  "depense": {
+   "flotte_de_guerre": 1500
+  }
  },
  "objectif": {
-  "nom": "flotte de guerre (idée de @noamorax)",
-  "prix": 1500
+  "nom": "armée de l'air (idée de @StanislasHobetKrauth)",
+  "prix": 2000
  },
  "armee": {
   "cree": "jour 5",
@@ -342,7 +353,8 @@
    "likes": 19,
    "demande": "commandant de la 7e division blindée (jour 3 de demande)"
   },
-  "bataille": "B attendre derrière les canons 51 voix (YT 4, TT 3, IG 44, 68 likes) / A attaquer 39 (YT 11, IG 28, 18 likes) → la flotte ennemie attaque, se brise sur le grand mur et les canons, et recule"
+  "bataille": "B attendre derrière les canons 51 voix (YT 4, TT 3, IG 44, 68 likes) / A attaquer 39 (YT 11, IG 28, 18 likes) → la flotte ennemie attaque, se brise sur le grand mur et les canons, et recule",
+  "flotte_de_guerre": "achetée jour 13 (trésor 1820 - 1500)"
  },
  "hauts_acheteurs": [
   "empereur.pe P1 cabane (jour 6)",
@@ -370,5 +382,9 @@
  "siege": {
   "vote": "A siège 58 voix (YT 9, IG 49, 56 likes) / B attaque de nuit 14 (YT 4, IG 10, 5 likes)",
   "resultat": "forteresse encerclée ; la nuit, une torche en haut de la tour : le roi propose un duel (son champion contre @lorenzo_lns09)"
+ },
+ "duel": {
+  "vote": "B refuser 40 voix (YT 7, IG 33, 68 likes) / A accepter 21 (YT 7, IG 14, 16 likes)",
+  "resultat": "duel refusé, le siège continue ; la flotte de guerre bloque la mer ; les portes s'ouvrent, des affamés sortent (le roi n'est pas parmi eux)"
  }
 }
