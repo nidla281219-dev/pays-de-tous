@@ -232,7 +232,7 @@
  "vote_en_cours": {
   "jour": 13,
   "questions": [
-   "Des affamés sortent de la forteresse. A on les nourrit (ils deviennent des nôtres) / B on les renvoie"
+   "Le roi s'enfuit en barque. A on le capture / B on le coule"
   ]
  },
  "historique": [
@@ -286,7 +286,7 @@
   },
   {
    "jour": 13,
-   "resume": "2276 habitants. Duel refusé (B 40 / A 21) → siège continue. Trésor 1489+331=1820 → flotte de guerre (1500), reste 320 ; objectif armée de l'air 2000. École d'@elodie_guerra. Affamés sortent de la forteresse : A nourrir / B renvoyer. Pas de nouvel acheteur."
+   "resume": "2276 habitants. Duel refusé (B 40 / A 21) → siège continue. Trésor 1489+331=1820 → flotte de guerre (1500), reste 320 ; objectif armée de l'air 2000. École d'@elodie_guerra. À l'aube le roi s'enfuit en barque vers notre île : A capturer / B couler. Pas de nouvel acheteur."
   }
  ],
  "habitants_detail": {
@@ -385,6 +385,6 @@
  },
  "duel": {
   "vote": "B refuser 40 voix (YT 7, IG 33, 68 likes) / A accepter 21 (YT 7, IG 14, 16 likes)",
-  "resultat": "duel refusé, le siège continue ; la flotte de guerre bloque la mer ; les portes s'ouvrent, des affamés sortent (le roi n'est pas parmi eux)"
+  "resultat": "duel refusé, le siège continue ; flotte de guerre payée ; à l'aube le roi s'enfuit en barque, droit sur notre flotte (vers notre île)"
  }
 }

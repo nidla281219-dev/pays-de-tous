@@ -1,12 +1,12 @@
-# Jour 13 — 2276 habitants, DUEL refusé : B 40 voix / A 21 → le siège continue ; trésor 1489 + 331 = 1820 → FLOTTE DE GUERRE achetée (reste 320) ; école d'@elodie_guerra (7 likes) ; pas de nouvel acheteur ; question : A nourrir les affamés / B les renvoyer
+# Jour 13 — 2276 habitants, DUEL refusé : B 40 / A 21 → siège ; trésor 1820 → FLOTTE DE GUERRE achetée (reste 320) ; école d'@elodie_guerra ; à l'aube le roi s'enfuit en bateau, droit sur notre flotte ; question : A le capturer vivant / B couler son bateau
 
-Deux mille inconnus dirigent ce pays avec leurs commentaires… et ils s'offrent une flotte de guerre !
-Un like, une pièce : la flotte est payée !
-Jour treize. Le roi proposait un duel : vous avez dit non.
-Le siège continue.
+Ce roi s'enfuit… sauf que deux mille inconnus lui barrent la route !
+Ici, chaque abonné est un habitant, et les commentaires décident.
+Jour treize : duel refusé, le siège continue.
+Un like, une pièce : la flotte de guerre est payée !
 Et voici l'école d'elodie !
-Sauf que les portes de la forteresse s'ouvrent… des affamés sortent.
-A, on les nourrit. B, on les renvoie. Commente !
+Sauf qu'à l'aube, une barque quitte la forteresse… avec le roi !
+A, on le capture. B, on le coule. Commente !
 Envoie-la à un pote : abonné, il vote avec toi.
-Toi aussi, ta maison dans les Hauts, lien en bio. Tout reste gratuit, ça finance notre jeu Vulkaris.
-Mais où est passé le roi ?
+Ta maison dans les Hauts : lien en bio. Tout reste gratuit, ça finance notre jeu Vulkaris.
+Mais pourquoi fonce-t-il vers notre île ?
