@@ -1,0 +1,74 @@
+{
+ "jour": 13,
+ "slides": [
+  {
+   "img": "img_0.5.jpg",
+   "cadre": 0.5,
+   "haut": "LE JOURNAL DE VULKARIS",
+   "titre": "JOUR 13",
+   "badge": "2 276 HABITANTS",
+   "texte": "Ici, chaque abonné est un habitant… et ce sont les commentaires qui décident.",
+   "sous": "Glisse >>"
+  },
+  {
+   "img": "img_9.5.jpg",
+   "cadre": 0.5,
+   "haut": "LE DUEL PROPOSÉ PAR LE ROI",
+   "titre": "VOUS AVEZ",
+   "jaune": "DIT NON !",
+   "texte": "Pas de duel : nos soldats gardent la forteresse encerclée.",
+   "sous": "Refuser 40 voix · Accepter 21"
+  },
+  {
+   "img": "img_13.5.jpg",
+   "cadre": 0.5,
+   "haut": "PAYÉE AVEC VOS LIKES",
+   "titre": "LA FLOTTE",
+   "jaune": "DE GUERRE",
+   "texte": "1 820 pièces dans le trésor : nos navires noir et rouge prennent la mer.",
+   "sous": "1 like = 1 pièce"
+  },
+  {
+   "img": "img_15.6.jpg",
+   "cadre": 0.5,
+   "haut": "CONSTRUIT POUR VOUS",
+   "titre": "L'ÉCOLE",
+   "jaune": "d'elodie_guerra",
+   "texte": "Pour apprendre aux enfants l'histoire de notre pays."
+  },
+  {
+   "img": "img_19.8.jpg",
+   "cadre": 0.45,
+   "haut": "À L'AUBE…",
+   "titre": "LE ROI",
+   "jaune": "S'ENFUIT !",
+   "texte": "Une barque quitte la forteresse en cachette… avec le roi à bord."
+  },
+  {
+   "img": "img_6.5.jpg",
+   "cadre": 0.5,
+   "haut": "NOTRE FLOTTE L'ATTEND",
+   "titre": "ROUTE",
+   "jaune": "BARRÉE ⚓",
+   "texte": "Mais pourquoi fonce-t-il vers notre île ?"
+  },
+  {
+   "img": "img_22.jpg",
+   "cadre": 0.6,
+   "haut": "À TOI DE VOTER",
+   "titre": "CAPTURÉ",
+   "jaune": "OU COULÉ ?",
+   "liste": [
+    "A · on le capture",
+    "B · on le coule"
+   ],
+   "tresor": true,
+   "sous": "Réponds en commentaire"
+  }
+ ],
+ "tresor": [
+  320,
+  2000,
+  "armée de l'air"
+ ]
+}
