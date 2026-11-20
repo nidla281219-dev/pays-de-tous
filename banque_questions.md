@@ -1,5 +1,6 @@
 ## ⚠️ JOUR 14 (20.11) — ACCROCHE CHOISIE AVEC L'UTILISATEUR (à utiliser telle quelle, adapter au résultat A/B)
 - Défaut : « 2 276 CONTRE 1 » — dit : « Deux mille inconnus contre un seul roi. » (< 2 s) puis « Ici, chaque abonné est un habitant… et ce sont eux qui décident de son sort. » Image 1 : GROS PLAN du roi dans sa barque (éclairée, aube dorée), la caméra recule et révèle notre flotte devant lui. Texte énorme : « 2 276 CONTRE 1 ».
+- Miniature : « ~2 276~ CONTRE 1 / IL *FUIT* ?! » (ou « IL *COULE* ?! » / « *CAPTURÉ* ?! » selon le vote), cercle rouge sur le roi, flèche.
 - Payer le suspense d'hier (« pourquoi fonce-t-il vers notre île ? ») dans les 10 s.
 - Si l'utilisateur choisit une autre accroche dans le chat, la remplacer ici.
 
