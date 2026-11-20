@@ -1,0 +1,68 @@
+{
+ "jour": 14,
+ "slides": [
+  {
+   "img": "img_0.5.jpg",
+   "cadre": 0.45,
+   "haut": "LE JOURNAL DE VULKARIS",
+   "titre": "JOUR 14",
+   "badge": "2 283 HABITANTS",
+   "texte": "Hier il était roi… aujourd'hui, il est prisonnier de 2 000 inconnus.",
+   "sous": "Glisse >>"
+  },
+  {
+   "img": "img_2.5.jpg",
+   "cadre": 0.5,
+   "haut": "VOUS AVEZ VOTÉ",
+   "titre": "ON LE",
+   "jaune": "CAPTURE !",
+   "texte": "Pas un coup de canon : on le veut vivant.",
+   "sous": "Capturer 42 voix · Couler 2"
+  },
+  {
+   "img": "img_8.5.jpg",
+   "cadre": 0.5,
+   "haut": "NOTRE FLOTTE DE GUERRE",
+   "titre": "ENCERCLÉ",
+   "jaune": "⚓",
+   "texte": "Cinq navires noir et rouge referment le piège autour de sa barque."
+  },
+  {
+   "img": "img_10.5.jpg",
+   "cadre": 0.45,
+   "haut": "PRISONNIER",
+   "titre": "LE ROI",
+   "jaune": "EST À NOUS !",
+   "texte": "La couronne est toujours sur sa tête… mais plus pour longtemps ?"
+  },
+  {
+   "img": "img_11.5.jpg",
+   "cadre": 0.5,
+   "haut": "CONSTRUIT POUR VOUS",
+   "titre": "LE BASKET",
+   "jaune": "de solhead_",
+   "texte": "Un vrai terrain avec paniers, gradins et supporters."
+  },
+  {
+   "img": "img_31.jpg",
+   "cadre": 0.5,
+   "haut": "SAUF QUE…",
+   "titre": "LA FORTERESSE",
+   "jaune": "RÉSISTE",
+   "texte": "Ses soldats tiennent toujours les murs."
+  },
+  {
+   "img": "img_8.5.jpg",
+   "cadre": 0.6,
+   "haut": "À TOI DE VOTER",
+   "titre": "ÉCHANGE",
+   "jaune": "OU PRISON ?",
+   "liste": [
+    "A · on l'échange contre sa forteresse",
+    "B · prison à vie"
+   ],
+   "tresor": true,
+   "sous": "Réponds en commentaire"
+  }
+ ]
+}
