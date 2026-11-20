@@ -1,390 +1,400 @@
 {
- "jour": 13,
- "habitants": 2276,
- "nom": "Vulkaris",
- "drapeau": {
-  "fond": "sautoir",
-  "couleurs": [
-   "#141414",
-   "#c0281e"
+  "jour": 14,
+  "habitants": 2283,
+  "nom": "Vulkaris",
+  "drapeau": {
+    "fond": "sautoir",
+    "couleurs": [
+      "#141414",
+      "#c0281e"
+    ],
+    "liseré": "#e6c9a0",
+    "symboles": [
+      {
+        "forme": "anneau",
+        "couleur": "#e6c9a0",
+        "fond": "#1a1010",
+        "taille": 0.7,
+        "x": 0.5,
+        "y": 0.5
+      },
+      {
+        "forme": "volcan_lave",
+        "couleur": "#ff6a1a",
+        "taille": 0.5,
+        "x": 0.5,
+        "y": 0.58
+      },
+      {
+        "forme": "lance",
+        "couleur": "#e6c9a0",
+        "taille": 0.3,
+        "x": 0.5,
+        "y": 0.14
+      }
+    ]
+  },
+  "capitale": {
+    "site": "plage_ville",
+    "rayon": 42,
+    "nom": "Plavulca",
+    "nom_par": "@SHIANNN-g6p (YouTube, 5 likes, égalité avec Likkos tranchée par l'utilisateur)"
+  },
+  "chef": {
+    "pseudo": "@cc_gdfr",
+    "plateforme": "instagram",
+    "likes": 165,
+    "promesse": "figure médiatique ; les décisions par référendum citoyen"
+  },
+  "lois": [],
+  "constructions": [
+    {
+      "type": "karting",
+      "nom": "Circuit de karting de Vulkaris",
+      "place": 0,
+      "par": "référendum jour 3 : karting 74 voix / stade 68"
+    },
+    {
+      "type": "ferme",
+      "nom": "Ferme de lean.dvko",
+      "place": 1,
+      "par": "@lean.dvko (Instagram, 91 likes)"
+    },
+    {
+      "type": "kebab",
+      "nom": "Kebab d'alexis._.privvvvv",
+      "place": 2,
+      "par": "@alexis._.privvvvv (Instagram, 31 likes)"
+    },
+    {
+      "type": "poulet",
+      "nom": "Poulet frit de bunny_bugzy",
+      "place": 3,
+      "par": "@bunny_bugzy (Instagram, 24 likes)"
+    },
+    {
+      "type": "bistro",
+      "nom": "Bistro de fiizenn",
+      "place": 4,
+      "par": "@fiizenn (Instagram, 8 likes)"
+    },
+    {
+      "type": "sentier",
+      "nom": "Sentier du volcan de ma_tribuu",
+      "place": 5,
+      "par": "@ma_tribuu (Instagram, 18 likes)"
+    },
+    {
+      "type": "caserne_pompiers",
+      "nom": "Caserne de pompiers de salman381560",
+      "place": 6,
+      "par": "@salman381560 (Instagram, métier pompier, 4 likes)"
+    },
+    {
+      "type": "mine",
+      "nom": "Mine de quentin.gsdn",
+      "place": 7,
+      "par": "@quentin.gsdn (Instagram, 62 likes)"
+    },
+    {
+      "type": "port",
+      "nom": "Port de cesare_92b",
+      "place": 8,
+      "par": "@cesare_92b (Instagram, 34 likes)"
+    },
+    {
+      "type": "forge",
+      "nom": "Forge de 4kage5an",
+      "place": 9,
+      "par": "@4kage5an (Instagram, forgeron, 10 likes)"
+    },
+    {
+      "type": "prison",
+      "nom": "Prison de leoetpaslesbas",
+      "place": 10,
+      "par": "@leoetpaslesbas (Instagram, 8 likes)",
+      "pos": [
+        55,
+        108
+      ]
+    },
+    {
+      "type": "aeroport",
+      "nom": "Aéroport de chloe_vtr23",
+      "place": 11,
+      "par": "@chloe_vtr23 (Instagram, 13 likes)"
+    },
+    {
+      "type": "chantier_naval",
+      "nom": "Chantier naval de lucas_spn_",
+      "place": 12,
+      "par": "@lucas_spn_ (Instagram, 7 likes)"
+    },
+    {
+      "type": "labo_marin",
+      "nom": "Labo marin de nikitoulich",
+      "place": 13,
+      "par": "@nikitoulich (Instagram, 10 likes)"
+    },
+    {
+      "type": "quartier_hauts",
+      "nom": "Les Hauts de Plavulca",
+      "place": 14,
+      "par": "annonce jeu + maisons (demande de l'utilisateur)"
+    },
+    {
+      "type": "base_militaire",
+      "nom": "Base militaire de Vulkaris",
+      "place": 15,
+      "par": "trésor 2428 ≥ 2000 (jour 7)"
+    },
+    {
+      "type": "canons",
+      "nom": "Canons de la plage",
+      "place": 16,
+      "par": "vote jour 6 : B canons 22 voix"
+    },
+    {
+      "type": "bunker",
+      "nom": "Bunker de lysic_studio",
+      "place": 17,
+      "par": "@lysic_studio (Instagram, 47 likes)"
+    },
+    {
+      "type": "hopital",
+      "nom": "Hôpital de ndiasse_pro_121",
+      "place": 18,
+      "par": "@ndiasse_pro_121 (Instagram, 6 likes ; aussi @elodie_guerra 5, @Guenole-gz7kl)"
+    },
+    {
+      "type": "observatoire",
+      "nom": "Observatoire du volcan de BobSpie",
+      "place": 19,
+      "par": "@BobSpie-m5e (YouTube, 9 likes)"
+    },
+    {
+      "type": "explorateurs",
+      "nom": "Base des explorateurs de nathan.fr08",
+      "place": 20,
+      "par": "@nathan.fr08 (Instagram, 31 likes, métier le plus liké : explorateur)"
+    },
+    {
+      "type": "reserve",
+      "nom": "Réserve animale d'emma_shtn",
+      "place": 21,
+      "par": "@emma_shtn (Instagram, 12 likes)"
+    },
+    {
+      "type": "division_blindee",
+      "nom": "7e division blindée de leandro_gk40",
+      "place": 22,
+      "par": "@leandro_gk40 (Instagram, 19 likes, demandé 3 jours)"
+    },
+    {
+      "type": "chaussures",
+      "nom": "Magasin de chaussures d'EliottHentzi",
+      "place": 23,
+      "par": "@EliottHentzi (YouTube, 4 likes)"
+    },
+    {
+      "type": "concessionnaire",
+      "nom": "Concessionnaire de cosmos74_in",
+      "place": 24,
+      "par": "@cosmos74_in (Instagram, 3 likes, demandé 10 jours)"
+    },
+    {
+      "type": "bibliotheque",
+      "nom": "Bibliothèque de ninjakai1483",
+      "par": "@ninjakai1483 (Instagram, 21 likes)"
+    },
+    {
+      "type": "grand_mur",
+      "nom": "Grand mur de Vulkaris",
+      "par": "trésor (1500 pièces), jour 10"
+    },
+    {
+      "type": "phare",
+      "nom": "Phare de paul_mntpls",
+      "par": "@paul_mntpls (Instagram, 22 likes) — aux couleurs du drapeau, pour naviguer entre les deux îles"
+    },
+    {
+      "type": "bateaux_exploration",
+      "nom": "Bateaux d'exploration de cesare_92b",
+      "par": "@cesare_92b (Instagram, 7 likes) — construits dans son port (jour 5), pour explorer les autres îles"
+    },
+    {
+      "type": "ecole",
+      "nom": "École d'elodie_guerra",
+      "place": 29,
+      "par": "@elodie_guerra (Instagram, 7 likes, enseignante)"
+    }
   ],
-  "liseré": "#e6c9a0",
-  "symboles": [
-   {
-    "forme": "anneau",
-    "couleur": "#e6c9a0",
-    "fond": "#1a1010",
-    "taille": 0.7,
-    "x": 0.5,
-    "y": 0.5
-   },
-   {
-    "forme": "volcan_lave",
-    "couleur": "#ff6a1a",
-    "taille": 0.5,
-    "x": 0.5,
-    "y": 0.58
-   },
-   {
-    "forme": "lance",
-    "couleur": "#e6c9a0",
-    "taille": 0.3,
-    "x": 0.5,
-    "y": 0.14
-   }
-  ]
- },
- "capitale": {
-  "site": "plage_ville",
-  "rayon": 42,
-  "nom": "Plavulca",
-  "nom_par": "@SHIANNN-g6p (YouTube, 5 likes, égalité avec Likkos tranchée par l'utilisateur)"
- },
- "chef": {
-  "pseudo": "@cc_gdfr",
-  "plateforme": "instagram",
-  "likes": 165,
-  "promesse": "figure médiatique ; les décisions par référendum citoyen"
- },
- "lois": [],
- "constructions": [
-  {
-   "type": "karting",
-   "nom": "Circuit de karting de Vulkaris",
-   "place": 0,
-   "par": "référendum jour 3 : karting 74 voix / stade 68"
+  "vote_en_cours": {
+    "jour": 14,
+    "questions": [
+      "Le roi capturé : A l'échanger contre sa forteresse / B prison à vie"
+    ]
   },
-  {
-   "type": "ferme",
-   "nom": "Ferme de lean.dvko",
-   "place": 1,
-   "par": "@lean.dvko (Instagram, 91 likes)"
+  "historique": [
+    {
+      "jour": 1,
+      "resume": "Présentation de l'île déserte, 0 habitant. Vote 1 : capitale A plage / B volcan. Appel au nom + drapeau."
+    },
+    {
+      "jour": 2,
+      "resume": "Vote capitale : A plage 27 (YT 7, TT 11, IG 9) / B volcan 13 (YT 7, TT 2, IG 4) → capitale sur la plage. Nom VULKARIS + drapeau de @c_c_a_a_s (Instagram, 27 likes ; Regastan 2e avec 12). Boulangerie de @RL_Ham. Trésor lancé : 222 pièces. Questions : candidatures chef + nom de la capitale."
+    },
+    {
+      "jour": 3,
+      "resume": "Chef : @cc_gdfr (Instagram, 165 likes, décisions par référendum). Trésor : +2422 likes → université construite (500), reste 2144. Bateau de @leroux_1136. Capitale Plavulca. Questions : référendum stade/karting + métiers. Lecture Instagram complète grâce à Apify payant (156 commentaires)."
+    },
+    {
+      "jour": 4,
+      "resume": "1379 habitants. Référendum : karting 74 voix/72 likes, stade 68/71 → karting construit (trésor 2144+1009-3000=153). Montage demandes : ferme, kebab, poulet frit, bistro, sentier du volcan, caserne de pompiers. Île ennemie → vote A armée / B alliance. Prochain chantier 2000."
+    },
+    {
+      "jour": 5,
+      "resume": "1654 habitants (YT 392/TT 110/IG 1152). Vote A armée 129 / B alliance 24 → armée de 129 volontaires. +662 likes → trésor 815 / 2000 (base militaire). Demandes : mine @quentin.gsdn, port @cesare_92b, forge @4kage5an, prison @leoetpaslesbas. Questions : commandant (plus liké) + A attaquer / B se défendre."
+    },
+    {
+      "jour": 6,
+      "resume": "Défense B 41 / attaque A 22 ; commandant @lorenzo_lns09 (222 likes) ; 1866 habitants ; trésor 1828/2000 ; aéroport, chantier naval, labo marin ; annonce jeu + Hauts de Plavulca. Question : défense de la plage (A mur / B canons / C pièges, ou proposition libre)."
+    },
+    {
+      "jour": 7,
+      "resume": "1974 habitants (YT 434/TT 116/IG 1424). Défense : B canons 22 / A mur 16 / C pièges 3 + bunker @lysic_studio (47). +600 likes → trésor 2428 → base militaire construite, reste 428 / 1500 (grand mur). Hôpital @ndiasse_pro_121, observatoire @BobSpie-m5e. Merci acheteurs vanvan.du17, _.zowwee._, Hidroway + passage site. Questions : messager A écouter / B prison ; métier libre."
+    },
+    {
+      "jour": 8,
+      "resume": "2077 habitants (YT 475/TT 119/IG 1483). Messager : A écouter 72 / B prison 4 → leur roi propose la paix contre la moitié du trésor. +547 likes → trésor 975 / 1500 (grand mur). Métier le plus liké : explorateur @nathan.fr08 (31) → base des explorateurs ; réserve animale @emma_shtn (12). Acheteur Clutcche (grande maison rose, piscine, voiture, drapeau). Questions : A payer la paix / B refuser (nom de l'île ennemie retiré par l'utilisateur). Récap des 5 acheteurs des Hauts."
+    },
+    {
+      "jour": 9,
+      "resume": "2133 habitants (YT 498/TT 121/IG 1514). Paix contre la moitié du trésor : B refuser 49 / A payer 23 → le messager repart, la flotte ennemie se prépare. +492 likes → trésor 1467 / 1500 (il manque 33 pour le grand mur). Division blindée @leandro_gk40 (19), magasin de chaussures @EliottHentzi (YT 4), concessionnaire @cosmos74_in (3, 10 jours de demande). Aucun nouvel acheteur. Questions : A attaquer leur île / B attendre derrière les canons + construction libre."
+    },
+    {
+      "jour": 10,
+      "resume": "2198 habitants (YT 519/TT 125/IG 1554). Bataille : B attendre derrière les canons 51 / A attaquer 39 → la flotte ennemie se brise sur le grand mur et recule. +745 likes → trésor 2212 → grand mur construit (1500), reste 712 ; prochain objectif : flotte de guerre de @noamorax (1500). Bibliothèque de @ninjakai1483 (21). Questions : A faire payer la paix au roi / B envahir leur île + construction libre."
+    },
+    {
+      "jour": 11,
+      "resume": "2228 habitants (YT 540/TT 126/IG 1562). Invasion : B envahir 54 / A faire payer 24 → débarquement de nuit sur leur île, le roi s'enferme dans sa forteresse. +409 likes → trésor 1121 / 1500 (flotte de guerre). Phare de @paul_mntpls (22). Questions : A siège / B attaque de nuit + construction libre. Nouvel acheteur : Dyplo974 (villa P3)."
+    },
+    {
+      "jour": 12,
+      "resume": "2261 habitants (YT 557/TT 126/IG 1578). Siège : A 58 / B attaque 14 → forteresse encerclée, le roi propose un duel. +368 likes → trésor 1489 / 1500 (il manque 11 pour la flotte de guerre). Bateaux d'exploration de @cesare_92b (7). Acheteurs : Jack Harper, Ethanalric, Pierre.lzh. Questions : A duel / B continuer le siège + construction libre."
+    },
+    {
+      "jour": 13,
+      "resume": "2276 habitants. Duel refusé (B 40 / A 21) → siège continue. Trésor 1489+331=1820 → flotte de guerre (1500), reste 320 ; objectif armée de l'air 2000. École d'@elodie_guerra. À l'aube le roi s'enfuit en barque vers notre île : A capturer / B couler. Pas de nouvel acheteur."
+    },
+    {
+      "jour": 14,
+      "resume": "Capture A 42 / B 2 → roi capturé par la flotte. Terrain de basket de @solhead_. Trésor 494. Vote : A échange contre forteresse / B prison à vie."
+    }
+  ],
+  "habitants_detail": {
+    "youtube": 578,
+    "tiktok": 125,
+    "instagram": 1580
   },
-  {
-   "type": "kebab",
-   "nom": "Kebab d'alexis._.privvvvv",
-   "place": 2,
-   "par": "@alexis._.privvvvv (Instagram, 31 likes)"
+  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
+  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
+  "batiments": [
+    {
+      "nom": "Boulangerie de RL_Ham",
+      "place": -1.5708,
+      "par": "@RL_Ham"
+    },
+    {
+      "type": "universite",
+      "nom": "Université de Vulkaris",
+      "idee": "@JulesGondo-k5k"
+    },
+    {
+      "type": "bateau",
+      "nom": "Bateau de leroux_1136",
+      "par": "@leroux_1136 (Instagram, 63 likes)"
+    },
+    {
+      "type": "barber",
+      "nom": "Barbershop d'estebarbero",
+      "place": 0,
+      "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
+    },
+    {
+      "type": "basket",
+      "nom": "Terrain de basket de solhead_",
+      "par": "@solhead_ (Instagram, 15 likes)"
+    }
+  ],
+  "tresor": 494,
+  "tresor_detail": {
+    "avant": 320,
+    "likes_jour13": {
+      "youtube": 52,
+      "tiktok": 7,
+      "instagram": 115
+    }
   },
-  {
-   "type": "poulet",
-   "nom": "Poulet frit de bunny_bugzy",
-   "place": 3,
-   "par": "@bunny_bugzy (Instagram, 24 likes)"
+  "objectif": {
+    "nom": "armée de l'air (idée de @StanislasHobetKrauth)",
+    "prix": 2000
   },
-  {
-   "type": "bistro",
-   "nom": "Bistro de fiizenn",
-   "place": 4,
-   "par": "@fiizenn (Instagram, 8 likes)"
+  "armee": {
+    "cree": "jour 5",
+    "vote": "A armée 129 voix (YT 24, TT 5, IG 100) / B alliance 24 (YT 2, IG 22)",
+    "soldats": 129,
+    "commandant": {
+      "pseudo": "@lorenzo_lns09",
+      "plateforme": "instagram",
+      "likes": 222,
+      "devise": "Discipline, Honneur, Protection"
+    },
+    "strategie": "défense (B 41 voix : YT 4, IG 37 / A attaque 22 : YT 6, TT 1, IG 15)",
+    "defense_plage": "B canons 22 voix (IG 22, 55 likes) / A mur 16 (YT 6, TT 2, IG 8) / C pièges 3 (YT 1, IG 2) + bunker de @lysic_studio (IG, 47 likes, proposition la plus likée)",
+    "division_blindee": {
+      "commandant": "@leandro_gk40",
+      "plateforme": "instagram",
+      "likes": 19,
+      "demande": "commandant de la 7e division blindée (jour 3 de demande)"
+    },
+    "bataille": "B attendre derrière les canons 51 voix (YT 4, TT 3, IG 44, 68 likes) / A attaquer 39 (YT 11, IG 28, 18 likes) → la flotte ennemie attaque, se brise sur le grand mur et les canons, et recule",
+    "flotte_de_guerre": "achetée jour 13 (trésor 1820 - 1500)"
   },
-  {
-   "type": "sentier",
-   "nom": "Sentier du volcan de ma_tribuu",
-   "place": 5,
-   "par": "@ma_tribuu (Instagram, 18 likes)"
+  "hauts_acheteurs": [
+    "empereur.pe P1 cabane (jour 6)",
+    "vanvan.du17 P18 grande maison",
+    "_.zowwee._ P33 petite maison (panneau Famille Mustafić)",
+    "Hidroway P44 villa + statue bronze + feu d'artifice (plaque Défenseur de Vulkaris)",
+    "Clutcche P43 grande maison rose + jardin, voiture, piscine, drapeau (bord de mer)",
+    "Dyplo974 P3 villa moderne blanche + jardin, drapeau, voiture, fontaine, feu d'artifice (jour 11)",
+    "Jack Harper P35 villa méditerranéenne bleue bord de mer + jardin, drapeau, voiture, piscine, statue marbre (jour 12)",
+    "Ethanalric P7 villa chalet bois + drapeau, fontaine, jardin, voiture, statue or (jour 12)",
+    "Pierre.lzh P2 grande maison classique crème + jardin, voiture, fontaine, piscine (jour 12)"
+  ],
+  "messager": {
+    "vote": "A écouter 72 voix (YT 17, TT 1, IG 54, 49 likes) / B prison 4 (YT 1, IG 3)",
+    "message": "leur roi propose la paix contre la moitié du trésor"
   },
-  {
-   "type": "caserne_pompiers",
-   "nom": "Caserne de pompiers de salman381560",
-   "place": 6,
-   "par": "@salman381560 (Instagram, métier pompier, 4 likes)"
+  "paix": {
+    "vote": "B refuser 49 voix (YT 4, IG 45, 88 likes) / A payer 23 (YT 9, TT 1, IG 13, 35 likes)",
+    "resultat": "refus : le messager repart, la flotte ennemie se prépare"
   },
-  {
-   "type": "mine",
-   "nom": "Mine de quentin.gsdn",
-   "place": 7,
-   "par": "@quentin.gsdn (Instagram, 62 likes)"
+  "invasion": {
+    "vote": "B envahir 54 voix (YT 8, TT 2, IG 44, 75 likes) / A faire payer la paix 24 (YT 2, IG 22, 41 likes)",
+    "resultat": "débarquement de nuit (bateau de leroux + barques, flotte de guerre pas encore payée) ; village vide ; le roi s'enferme dans sa forteresse"
   },
-  {
-   "type": "port",
-   "nom": "Port de cesare_92b",
-   "place": 8,
-   "par": "@cesare_92b (Instagram, 34 likes)"
+  "siege": {
+    "vote": "A siège 58 voix (YT 9, IG 49, 56 likes) / B attaque de nuit 14 (YT 4, IG 10, 5 likes)",
+    "resultat": "forteresse encerclée ; la nuit, une torche en haut de la tour : le roi propose un duel (son champion contre @lorenzo_lns09)"
   },
-  {
-   "type": "forge",
-   "nom": "Forge de 4kage5an",
-   "place": 9,
-   "par": "@4kage5an (Instagram, forgeron, 10 likes)"
+  "duel": {
+    "vote": "B refuser 40 voix (YT 7, IG 33, 68 likes) / A accepter 21 (YT 7, IG 14, 16 likes)",
+    "resultat": "duel refusé, le siège continue ; flotte de guerre payée ; à l'aube le roi s'enfuit en barque, droit sur notre flotte (vers notre île)"
   },
-  {
-   "type": "prison",
-   "nom": "Prison de leoetpaslesbas",
-   "place": 10,
-   "par": "@leoetpaslesbas (Instagram, 8 likes)",
-   "pos": [
-    55,
-    108
-   ]
-  },
-  {
-   "type": "aeroport",
-   "nom": "Aéroport de chloe_vtr23",
-   "place": 11,
-   "par": "@chloe_vtr23 (Instagram, 13 likes)"
-  },
-  {
-   "type": "chantier_naval",
-   "nom": "Chantier naval de lucas_spn_",
-   "place": 12,
-   "par": "@lucas_spn_ (Instagram, 7 likes)"
-  },
-  {
-   "type": "labo_marin",
-   "nom": "Labo marin de nikitoulich",
-   "place": 13,
-   "par": "@nikitoulich (Instagram, 10 likes)"
-  },
-  {
-   "type": "quartier_hauts",
-   "nom": "Les Hauts de Plavulca",
-   "place": 14,
-   "par": "annonce jeu + maisons (demande de l'utilisateur)"
-  },
-  {
-   "type": "base_militaire",
-   "nom": "Base militaire de Vulkaris",
-   "place": 15,
-   "par": "trésor 2428 ≥ 2000 (jour 7)"
-  },
-  {
-   "type": "canons",
-   "nom": "Canons de la plage",
-   "place": 16,
-   "par": "vote jour 6 : B canons 22 voix"
-  },
-  {
-   "type": "bunker",
-   "nom": "Bunker de lysic_studio",
-   "place": 17,
-   "par": "@lysic_studio (Instagram, 47 likes)"
-  },
-  {
-   "type": "hopital",
-   "nom": "Hôpital de ndiasse_pro_121",
-   "place": 18,
-   "par": "@ndiasse_pro_121 (Instagram, 6 likes ; aussi @elodie_guerra 5, @Guenole-gz7kl)"
-  },
-  {
-   "type": "observatoire",
-   "nom": "Observatoire du volcan de BobSpie",
-   "place": 19,
-   "par": "@BobSpie-m5e (YouTube, 9 likes)"
-  },
-  {
-   "type": "explorateurs",
-   "nom": "Base des explorateurs de nathan.fr08",
-   "place": 20,
-   "par": "@nathan.fr08 (Instagram, 31 likes, métier le plus liké : explorateur)"
-  },
-  {
-   "type": "reserve",
-   "nom": "Réserve animale d'emma_shtn",
-   "place": 21,
-   "par": "@emma_shtn (Instagram, 12 likes)"
-  },
-  {
-   "type": "division_blindee",
-   "nom": "7e division blindée de leandro_gk40",
-   "place": 22,
-   "par": "@leandro_gk40 (Instagram, 19 likes, demandé 3 jours)"
-  },
-  {
-   "type": "chaussures",
-   "nom": "Magasin de chaussures d'EliottHentzi",
-   "place": 23,
-   "par": "@EliottHentzi (YouTube, 4 likes)"
-  },
-  {
-   "type": "concessionnaire",
-   "nom": "Concessionnaire de cosmos74_in",
-   "place": 24,
-   "par": "@cosmos74_in (Instagram, 3 likes, demandé 10 jours)"
-  },
-  {
-   "type": "bibliotheque",
-   "nom": "Bibliothèque de ninjakai1483",
-   "par": "@ninjakai1483 (Instagram, 21 likes)"
-  },
-  {
-   "type": "grand_mur",
-   "nom": "Grand mur de Vulkaris",
-   "par": "trésor (1500 pièces), jour 10"
-  },
-  {
-   "type": "phare",
-   "nom": "Phare de paul_mntpls",
-   "par": "@paul_mntpls (Instagram, 22 likes) — aux couleurs du drapeau, pour naviguer entre les deux îles"
-  },
-  {
-   "type": "bateaux_exploration",
-   "nom": "Bateaux d'exploration de cesare_92b",
-   "par": "@cesare_92b (Instagram, 7 likes) — construits dans son port (jour 5), pour explorer les autres îles"
-  },
-  {
-   "type": "ecole",
-   "nom": "École d'elodie_guerra",
-   "place": 29,
-   "par": "@elodie_guerra (Instagram, 7 likes, enseignante)"
+  "capture": {
+    "vote": "A capturer 42 voix (YT 10, TT 1, IG 31, 40 likes) / B couler 2 (IG 2)",
+    "resultat": "la flotte encercle la barque, le roi est capturé ; ses soldats tiennent encore la forteresse"
   }
- ],
- "vote_en_cours": {
-  "jour": 13,
-  "questions": [
-   "Le roi s'enfuit en barque. A on le capture / B on le coule"
-  ]
- },
- "historique": [
-  {
-   "jour": 1,
-   "resume": "Présentation de l'île déserte, 0 habitant. Vote 1 : capitale A plage / B volcan. Appel au nom + drapeau."
-  },
-  {
-   "jour": 2,
-   "resume": "Vote capitale : A plage 27 (YT 7, TT 11, IG 9) / B volcan 13 (YT 7, TT 2, IG 4) → capitale sur la plage. Nom VULKARIS + drapeau de @c_c_a_a_s (Instagram, 27 likes ; Regastan 2e avec 12). Boulangerie de @RL_Ham. Trésor lancé : 222 pièces. Questions : candidatures chef + nom de la capitale."
-  },
-  {
-   "jour": 3,
-   "resume": "Chef : @cc_gdfr (Instagram, 165 likes, décisions par référendum). Trésor : +2422 likes → université construite (500), reste 2144. Bateau de @leroux_1136. Capitale Plavulca. Questions : référendum stade/karting + métiers. Lecture Instagram complète grâce à Apify payant (156 commentaires)."
-  },
-  {
-   "jour": 4,
-   "resume": "1379 habitants. Référendum : karting 74 voix/72 likes, stade 68/71 → karting construit (trésor 2144+1009-3000=153). Montage demandes : ferme, kebab, poulet frit, bistro, sentier du volcan, caserne de pompiers. Île ennemie → vote A armée / B alliance. Prochain chantier 2000."
-  },
-  {
-   "jour": 5,
-   "resume": "1654 habitants (YT 392/TT 110/IG 1152). Vote A armée 129 / B alliance 24 → armée de 129 volontaires. +662 likes → trésor 815 / 2000 (base militaire). Demandes : mine @quentin.gsdn, port @cesare_92b, forge @4kage5an, prison @leoetpaslesbas. Questions : commandant (plus liké) + A attaquer / B se défendre."
-  },
-  {
-   "jour": 6,
-   "resume": "Défense B 41 / attaque A 22 ; commandant @lorenzo_lns09 (222 likes) ; 1866 habitants ; trésor 1828/2000 ; aéroport, chantier naval, labo marin ; annonce jeu + Hauts de Plavulca. Question : défense de la plage (A mur / B canons / C pièges, ou proposition libre)."
-  },
-  {
-   "jour": 7,
-   "resume": "1974 habitants (YT 434/TT 116/IG 1424). Défense : B canons 22 / A mur 16 / C pièges 3 + bunker @lysic_studio (47). +600 likes → trésor 2428 → base militaire construite, reste 428 / 1500 (grand mur). Hôpital @ndiasse_pro_121, observatoire @BobSpie-m5e. Merci acheteurs vanvan.du17, _.zowwee._, Hidroway + passage site. Questions : messager A écouter / B prison ; métier libre."
-  },
-  {
-   "jour": 8,
-   "resume": "2077 habitants (YT 475/TT 119/IG 1483). Messager : A écouter 72 / B prison 4 → leur roi propose la paix contre la moitié du trésor. +547 likes → trésor 975 / 1500 (grand mur). Métier le plus liké : explorateur @nathan.fr08 (31) → base des explorateurs ; réserve animale @emma_shtn (12). Acheteur Clutcche (grande maison rose, piscine, voiture, drapeau). Questions : A payer la paix / B refuser (nom de l'île ennemie retiré par l'utilisateur). Récap des 5 acheteurs des Hauts."
-  },
-  {
-   "jour": 9,
-   "resume": "2133 habitants (YT 498/TT 121/IG 1514). Paix contre la moitié du trésor : B refuser 49 / A payer 23 → le messager repart, la flotte ennemie se prépare. +492 likes → trésor 1467 / 1500 (il manque 33 pour le grand mur). Division blindée @leandro_gk40 (19), magasin de chaussures @EliottHentzi (YT 4), concessionnaire @cosmos74_in (3, 10 jours de demande). Aucun nouvel acheteur. Questions : A attaquer leur île / B attendre derrière les canons + construction libre."
-  },
-  {
-   "jour": 10,
-   "resume": "2198 habitants (YT 519/TT 125/IG 1554). Bataille : B attendre derrière les canons 51 / A attaquer 39 → la flotte ennemie se brise sur le grand mur et recule. +745 likes → trésor 2212 → grand mur construit (1500), reste 712 ; prochain objectif : flotte de guerre de @noamorax (1500). Bibliothèque de @ninjakai1483 (21). Questions : A faire payer la paix au roi / B envahir leur île + construction libre."
-  },
-  {
-   "jour": 11,
-   "resume": "2228 habitants (YT 540/TT 126/IG 1562). Invasion : B envahir 54 / A faire payer 24 → débarquement de nuit sur leur île, le roi s'enferme dans sa forteresse. +409 likes → trésor 1121 / 1500 (flotte de guerre). Phare de @paul_mntpls (22). Questions : A siège / B attaque de nuit + construction libre. Nouvel acheteur : Dyplo974 (villa P3)."
-  },
-  {
-   "jour": 12,
-   "resume": "2261 habitants (YT 557/TT 126/IG 1578). Siège : A 58 / B attaque 14 → forteresse encerclée, le roi propose un duel. +368 likes → trésor 1489 / 1500 (il manque 11 pour la flotte de guerre). Bateaux d'exploration de @cesare_92b (7). Acheteurs : Jack Harper, Ethanalric, Pierre.lzh. Questions : A duel / B continuer le siège + construction libre."
-  },
-  {
-   "jour": 13,
-   "resume": "2276 habitants. Duel refusé (B 40 / A 21) → siège continue. Trésor 1489+331=1820 → flotte de guerre (1500), reste 320 ; objectif armée de l'air 2000. École d'@elodie_guerra. À l'aube le roi s'enfuit en barque vers notre île : A capturer / B couler. Pas de nouvel acheteur."
-  }
- ],
- "habitants_detail": {
-  "youtube": 570,
-  "tiktok": 125,
-  "instagram": 1581
- },
- "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
- "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
- "batiments": [
-  {
-   "nom": "Boulangerie de RL_Ham",
-   "place": -1.5708,
-   "par": "@RL_Ham"
-  },
-  {
-   "type": "universite",
-   "nom": "Université de Vulkaris",
-   "idee": "@JulesGondo-k5k"
-  },
-  {
-   "type": "bateau",
-   "nom": "Bateau de leroux_1136",
-   "par": "@leroux_1136 (Instagram, 63 likes)"
-  },
-  {
-   "type": "barber",
-   "nom": "Barbershop d'estebarbero",
-   "place": 0,
-   "par": "@estebarbero (Instagram 15 + TikTok 3 likes)"
-  }
- ],
- "tresor": 320,
- "tresor_detail": {
-  "avant": 1489,
-  "likes_jour12": {
-   "youtube": 91,
-   "tiktok": 9,
-   "instagram": 231
-  },
-  "depense": {
-   "flotte_de_guerre": 1500
-  }
- },
- "objectif": {
-  "nom": "armée de l'air (idée de @StanislasHobetKrauth)",
-  "prix": 2000
- },
- "armee": {
-  "cree": "jour 5",
-  "vote": "A armée 129 voix (YT 24, TT 5, IG 100) / B alliance 24 (YT 2, IG 22)",
-  "soldats": 129,
-  "commandant": {
-   "pseudo": "@lorenzo_lns09",
-   "plateforme": "instagram",
-   "likes": 222,
-   "devise": "Discipline, Honneur, Protection"
-  },
-  "strategie": "défense (B 41 voix : YT 4, IG 37 / A attaque 22 : YT 6, TT 1, IG 15)",
-  "defense_plage": "B canons 22 voix (IG 22, 55 likes) / A mur 16 (YT 6, TT 2, IG 8) / C pièges 3 (YT 1, IG 2) + bunker de @lysic_studio (IG, 47 likes, proposition la plus likée)",
-  "division_blindee": {
-   "commandant": "@leandro_gk40",
-   "plateforme": "instagram",
-   "likes": 19,
-   "demande": "commandant de la 7e division blindée (jour 3 de demande)"
-  },
-  "bataille": "B attendre derrière les canons 51 voix (YT 4, TT 3, IG 44, 68 likes) / A attaquer 39 (YT 11, IG 28, 18 likes) → la flotte ennemie attaque, se brise sur le grand mur et les canons, et recule",
-  "flotte_de_guerre": "achetée jour 13 (trésor 1820 - 1500)"
- },
- "hauts_acheteurs": [
-  "empereur.pe P1 cabane (jour 6)",
-  "vanvan.du17 P18 grande maison",
-  "_.zowwee._ P33 petite maison (panneau Famille Mustafić)",
-  "Hidroway P44 villa + statue bronze + feu d'artifice (plaque Défenseur de Vulkaris)",
-  "Clutcche P43 grande maison rose + jardin, voiture, piscine, drapeau (bord de mer)",
-  "Dyplo974 P3 villa moderne blanche + jardin, drapeau, voiture, fontaine, feu d'artifice (jour 11)",
-  "Jack Harper P35 villa méditerranéenne bleue bord de mer + jardin, drapeau, voiture, piscine, statue marbre (jour 12)",
-  "Ethanalric P7 villa chalet bois + drapeau, fontaine, jardin, voiture, statue or (jour 12)",
-  "Pierre.lzh P2 grande maison classique crème + jardin, voiture, fontaine, piscine (jour 12)"
- ],
- "messager": {
-  "vote": "A écouter 72 voix (YT 17, TT 1, IG 54, 49 likes) / B prison 4 (YT 1, IG 3)",
-  "message": "leur roi propose la paix contre la moitié du trésor"
- },
- "paix": {
-  "vote": "B refuser 49 voix (YT 4, IG 45, 88 likes) / A payer 23 (YT 9, TT 1, IG 13, 35 likes)",
-  "resultat": "refus : le messager repart, la flotte ennemie se prépare"
- },
- "invasion": {
-  "vote": "B envahir 54 voix (YT 8, TT 2, IG 44, 75 likes) / A faire payer la paix 24 (YT 2, IG 22, 41 likes)",
-  "resultat": "débarquement de nuit (bateau de leroux + barques, flotte de guerre pas encore payée) ; village vide ; le roi s'enferme dans sa forteresse"
- },
- "siege": {
-  "vote": "A siège 58 voix (YT 9, IG 49, 56 likes) / B attaque de nuit 14 (YT 4, IG 10, 5 likes)",
-  "resultat": "forteresse encerclée ; la nuit, une torche en haut de la tour : le roi propose un duel (son champion contre @lorenzo_lns09)"
- },
- "duel": {
-  "vote": "B refuser 40 voix (YT 7, IG 33, 68 likes) / A accepter 21 (YT 7, IG 14, 16 likes)",
-  "resultat": "duel refusé, le siège continue ; flotte de guerre payée ; à l'aube le roi s'enfuit en barque, droit sur notre flotte (vers notre île)"
- }
 }
