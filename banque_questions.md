@@ -1,3 +1,8 @@
+## ⚠️ JOUR 14 (20.11) — ACCROCHE CHOISIE AVEC L'UTILISATEUR (à utiliser telle quelle, adapter au résultat A/B)
+- Défaut : « 2 276 CONTRE 1 » — dit : « Deux mille inconnus contre un seul roi. » (< 2 s) puis « Ici, chaque abonné est un habitant… et ce sont eux qui décident de son sort. » Image 1 : GROS PLAN du roi dans sa barque (éclairée, aube dorée), la caméra recule et révèle notre flotte devant lui. Texte énorme : « 2 276 CONTRE 1 ».
+- Payer le suspense d'hier (« pourquoi fonce-t-il vers notre île ? ») dans les 10 s.
+- Si l'utilisateur choisit une autre accroche dans le chat, la remplacer ici.
+
 ## ⚠️ JOUR 9 (15.11) — MAISONS ACHETÉES : clips prêts
 - jours/jour9/maison_Hidroway.mp4 (villa classique bleue, jardin, drapeau, garage, fontaine, piscine, feu d'artifice, statue en bronze « Défenseur de Vulkaris ») et jours/jour9/maison_Clutcche.mp4 (grande maison méditerranéenne rose, jardin, garage, piscine, drapeau) → les insérer en entier (inserts), un après l'autre, avec un remerciement à voix haute pour chacun. Si d'autres achats arrivent avant 14h45 : relancer ventes.yml puis `python3 studio/vitrines.py 9 <pseudos>`.
 
