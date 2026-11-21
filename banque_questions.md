@@ -1,3 +1,9 @@
+## ⚠️ JOUR 15 (21.11) — APPLIQUER docs/VIRAL.md (vidéo « 32 leçons » transmise par l'utilisateur)
+- Format AVANT/APRÈS + « tu découvres seulement maintenant » : image 0 = l'île VIDE du jour 1 (render.js --jour 1 --test 2 --propre → petit insert mp4 de 1,5 s avec zoom, via ffmpeg), texte énorme « IL Y A 15 JOURS : RIEN », coupe sèche → le roi en prison entouré de la foule (éclairé, gros plan). Dit : « Il y a quinze jours, cette île était vide… et tu la découvres seulement maintenant ? » puis « Ici, chaque abonné est un habitant… et deux mille inconnus viennent de mettre un roi en prison. »
+- FAIRE DEVINER le vote d'hier (échange contre la forteresse ou prison à vie) : « Devine ce qu'ils ont choisi… » → compteur A/B qui monte → révélation.
+- Le roi = MASCOTTE récurrente (même perso, même couronne, expression lisible).
+- 25–35 s, ton naturel (pas pub). Question finale à « toi ». « Lien en bio » + jeu Vulkaris en UNE phrase à la toute fin. Même musique que d'habitude.
+
 ## ⚠️ JOUR 14 (20.11) — ACCROCHE CHOISIE AVEC L'UTILISATEUR (à utiliser telle quelle, adapter au résultat A/B)
 - Défaut : « 2 276 CONTRE 1 » — dit : « Deux mille inconnus contre un seul roi. » (< 2 s) puis « Ici, chaque abonné est un habitant… et ce sont eux qui décident de son sort. » Image 1 : GROS PLAN du roi dans sa barque (éclairée, aube dorée), la caméra recule et révèle notre flotte devant lui. Texte énorme : « 2 276 CONTRE 1 ».
 - Miniature : « ~2 276~ CONTRE 1 / IL *FUIT* ?! » (ou « IL *COULE* ?! » / « *CAPTURÉ* ?! » selon le vote), cercle rouge sur le roi, flèche.
