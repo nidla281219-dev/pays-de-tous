@@ -1,0 +1,13 @@
+{
+ "jour": 15,
+ "slides": [
+  {"img": "img_ile_vide.jpg", "cadre": 0.45, "haut": "IL Y A 15 JOURS", "titre": "RIEN.", "badge": "2 287 HABITANTS AUJOURD'HUI", "texte": "Cette île était vide… et tu la découvres seulement maintenant ?", "sous": "Glisse >>"},
+  {"img": "img_3.5.jpg", "cadre": 0.45, "haut": "JOUR 15", "titre": "UN ROI", "jaune": "PRISONNIER", "texte": "2 000 inconnus tiennent son sort entre leurs mains."},
+  {"img": "img_14.jpg", "cadre": 0.5, "haut": "VOUS AVEZ VOTÉ", "titre": "ON", "jaune": "L'ÉCHANGE !", "texte": "Sa liberté contre sa forteresse.", "sous": "Échange 40 voix · Prison 10"},
+  {"img": "img_17.6.jpg", "cadre": 0.5, "haut": "SANS UN COMBAT", "titre": "LA FORTERESSE", "jaune": "EST À NOUS", "texte": "Notre drapeau flotte sur le donjon."},
+  {"img": "img_18.7.jpg", "cadre": 0.5, "haut": "CONSTRUIT POUR VOUS", "titre": "L'AQUARIUM", "jaune": "de clutcche", "texte": "Bassin géant, requin, raie et dauphins."},
+  {"img": "img_19.8.jpg", "cadre": 0.5, "haut": "AU FOND DU BASSIN", "titre": "NOS FONDS", "jaune": "MARINS 🐠", "texte": "Les habitants font déjà la queue."},
+  {"img": "img_35.jpg", "cadre": 0.45, "haut": "SAUF QUE…", "titre": "LE ROI A JURÉ", "jaune": "DE REVENIR", "texte": "Il repart vers son île, seul dans sa barque."},
+  {"img": "img_24.5.jpg", "cadre": 0.6, "haut": "À TOI DE VOTER", "titre": "LA FORTERESSE :", "jaune": "RASER OU GARDER ?", "liste": ["A · on la rase", "B · notre deuxième ville"], "tresor": true, "sous": "Réponds en commentaire"}
+ ]
+}
