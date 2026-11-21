@@ -1,6 +1,6 @@
 {
-  "jour": 14,
-  "habitants": 2283,
+  "jour": 15,
+  "habitants": 2287,
   "nom": "Vulkaris",
   "drapeau": {
     "fond": "sautoir",
@@ -227,12 +227,17 @@
       "nom": "École d'elodie_guerra",
       "place": 29,
       "par": "@elodie_guerra (Instagram, 7 likes, enseignante)"
+    },
+    {
+      "type": "aquarium",
+      "nom": "Aquarium de clutcche",
+      "par": "@clutcche (Instagram, 7 likes)"
     }
   ],
   "vote_en_cours": {
-    "jour": 14,
+    "jour": 15,
     "questions": [
-      "Le roi capturé : A l'échanger contre sa forteresse / B prison à vie"
+      "La forteresse prise : A la raser / B en faire notre deuxième ville"
     ]
   },
   "historique": [
@@ -291,11 +296,15 @@
     {
       "jour": 14,
       "resume": "Capture A 42 / B 2 → roi capturé par la flotte. Terrain de basket de @solhead_. Trésor 494. Vote : A échange contre forteresse / B prison à vie."
+    },
+    {
+      "jour": 15,
+      "resume": "2287 habitants. Échange A 40 / B 10 → roi rendu, forteresse à nous. Aquarium de @clutcche. Trésor 747 / 2000 (armée de l'air). Vote : forteresse A raser / B 2e ville. Suspense : le roi jure de revenir."
     }
   ],
   "habitants_detail": {
-    "youtube": 578,
-    "tiktok": 125,
+    "youtube": 583,
+    "tiktok": 124,
     "instagram": 1580
   },
   "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
@@ -328,13 +337,13 @@
       "par": "@solhead_ (Instagram, 15 likes)"
     }
   ],
-  "tresor": 494,
+  "tresor": 747,
   "tresor_detail": {
-    "avant": 320,
-    "likes_jour13": {
-      "youtube": 52,
-      "tiktok": 7,
-      "instagram": 115
+    "avant": 494,
+    "likes_jour14": {
+      "youtube": 59,
+      "tiktok": 25,
+      "instagram": 169
     }
   },
   "objectif": {
@@ -396,5 +405,9 @@
   "capture": {
     "vote": "A capturer 42 voix (YT 10, TT 1, IG 31, 40 likes) / B couler 2 (IG 2)",
     "resultat": "la flotte encercle la barque, le roi est capturé ; ses soldats tiennent encore la forteresse"
+  },
+  "echange": {
+    "vote": "A échange 40 voix (YT 10, TT 1, IG 29, 24 likes) / B prison à vie 10 (IG 10, 6 likes)",
+    "resultat": "le roi est rendu (repart en barque), sa forteresse devient à nous sans combat ; il jure de revenir"
   }
 }
