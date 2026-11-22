@@ -62,6 +62,17 @@ for r, c in coms:
 for k, (p, l, t) in sorted(grp.items(), key=lambda x: (-len(x[1][0]), -x[1][1]))[:15]:
     if len(p) >= 2: print(f'{len(p)} pers. · {l} likes · « {t} »')
 
+print('\n== TAGS / RECRUTEURS (potes tagués différents par personne, hors chaîne) ==')
+tags = defaultdict(set)
+for r, c in coms:
+    for m in re.findall(r'@([\w.]{2,30})', c['texte']):
+        m = m.lower().rstrip('.')
+        if 'paysdetous' in m.replace('.', '').replace('_', '') or m == c['auteur'].lstrip('@').lower(): continue
+        tags[(r, c['auteur'])].add(m)
+for (r, a), ms in sorted(tags.items(), key=lambda x: -len(x[1]))[:10]:
+    print(f'{len(ms)} tagués · [{r}] {a}')
+if not tags: print('aucun tag')
+
 print(f'\n== TOP {top} COMMENTAIRES (tous réseaux) ==')
 for r, c in sorted(coms, key=lambda x: -x[1]['likes'])[:top]:
     t = ' '.join(c['texte'].split())
