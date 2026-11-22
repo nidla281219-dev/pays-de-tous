@@ -1,6 +1,6 @@
 {
- "jour": 15,
- "habitants": 2287,
+ "jour": 16,
+ "habitants": 2309,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -232,12 +232,18 @@
    "type": "aquarium",
    "nom": "Aquarium de clutcche",
    "par": "@clutcche (Instagram, 7 likes)"
+  },
+  {
+   "type": "office_tourisme",
+   "nom": "Office du tourisme de r0m1_agt",
+   "place": 31,
+   "par": "@r0m1_agt (Instagram, 9 likes) — dans la deuxième ville"
   }
  ],
  "vote_en_cours": {
-  "jour": 15,
+  "jour": 16,
   "questions": [
-   "La forteresse prise : A la raser / B en faire notre deuxième ville"
+   "Les gardes du roi dans la forteresse : A la prison / B ils rejoignent notre armée"
   ]
  },
  "historique": [
@@ -300,6 +306,10 @@
   {
    "jour": 15,
    "resume": "2287 habitants. Échange A 40 / B 10 → roi rendu, forteresse à nous. Aquarium de @clutcche. Trésor 747 / 2000 (armée de l'air). Vote : forteresse A raser / B 2e ville. Suspense : le roi jure de revenir."
+  },
+  {
+   "jour": 16,
+   "resume": "2309 habitants. Forteresse B 31 / A 2 → deuxième ville. Office du tourisme de @r0m1_agt. @clutcche 1er Ambassadeur (comment le plus liké, 31 likes, +3). Trésor 975 / 2000. Vote : gardes du roi A prison / B notre armée. Suspense : un garde a disparu."
   }
  ],
  "habitants_detail": {
@@ -337,7 +347,7 @@
    "par": "@solhead_ (Instagram, 15 likes)"
   }
  ],
- "tresor": 747,
+ "tresor": 975,
  "tresor_detail": {
   "avant": 494,
   "likes_jour14": {
@@ -410,5 +420,11 @@
   "vote": "A échange 40 voix (YT 10, TT 1, IG 29, 24 likes) / B prison à vie 10 (IG 10, 6 likes)",
   "resultat": "le roi est rendu (repart en barque), sa forteresse devient à nous sans combat ; il jure de revenir"
  },
- "ambassadeurs": {}
+ "ambassadeurs": {
+  "Clutcche": 3
+ },
+ "forteresse": {
+  "vote": "B deuxième ville 31 voix (YT 3, TT 1, IG 27, 52 likes) / A raser 2 (IG 2)",
+  "resultat": "la forteresse devient la deuxième ville de Vulkaris (nom à choisir plus tard)"
+ }
 }
