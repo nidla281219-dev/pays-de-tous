@@ -7,6 +7,6 @@ Romi voulait un office du tourisme : voilà.
 Un like, une pièce : neuf cent soixante-quinze.
 Sauf que les gardes du roi sont dedans. A, la prison. B, notre armée. Commente !
 Clutcche devient notre premier Ambassadeur !
-Tague tes potes : un pote, un point. Trois points : Ambassadeur !
+Tague tes potes en commentaire : à trois potes, tu deviens Ambassadeur… ton pseudo dans la vidéo, et ton vote compte double !
 Ta maison : lien en bio, ça finance notre jeu.
 Mais cette nuit, un garde a disparu…

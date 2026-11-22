@@ -2,7 +2,7 @@ name: Publier sur YouTube
 on:
   workflow_dispatch:
     inputs:
-      action: {description: "verifier = juste afficher la chaîne liée ; publier = rendu 3D + son + envoi", type: choice, options: [verifier, publier, maintenant, lien], default: verifier}
+      action: {description: "verifier = juste afficher la chaîne liée ; publier = rendu 3D + son + envoi", type: choice, options: [verifier, publier, maintenant, lien, supprimer], default: verifier}
       jour: {description: "numéro du jour", default: "1"}
       heure: {description: "heure de publication (heure suisse, publié tout de suite si passée)", default: "17:00"}
       video: {description: "action maintenant : id de la vidéo YouTube à rendre publique tout de suite", default: ""}
@@ -27,6 +27,8 @@ jobs:
       - if: inputs.action == 'lien'
         name: Lien du site dans la chaîne et les vidéos
         run: python studio/publier.py lien
+      - if: inputs.action == 'supprimer'
+        run: python studio/publier.py supprimer "${{ inputs.video }}"
       - if: inputs.action == 'maintenant'
         name: Rendre publique maintenant
         run: python studio/publier.py maintenant "${{ inputs.video }}"
