@@ -1,0 +1,578 @@
+[
+{
+"w": "Tu",
+"red": false,
+"s": 0.0,
+"e": 0.16
+},
+{
+"w": "vois",
+"red": false,
+"s": 0.16,
+"e": 0.3
+},
+{
+"w": "cette",
+"red": false,
+"s": 0.3,
+"e": 0.48
+},
+{
+"w": "forteresse ?",
+"red": false,
+"s": 0.48,
+"e": 1.0
+},
+{
+"w": "Deux",
+"red": false,
+"s": 1.0,
+"e": 1.4
+},
+{
+"w": "mille",
+"red": false,
+"s": 1.4,
+"e": 1.8
+},
+{
+"w": "inconnus",
+"red": false,
+"s": 1.8,
+"e": 2.26
+},
+{
+"w": "viennent",
+"red": false,
+"s": 2.26,
+"e": 2.46
+},
+{
+"w": "de",
+"red": false,
+"s": 2.46,
+"e": 2.62
+},
+{
+"w": "la",
+"red": false,
+"s": 2.62,
+"e": 2.72
+},
+{
+"w": "voler",
+"red": false,
+"s": 2.72,
+"e": 3.06
+},
+{
+"w": "à",
+"red": false,
+"s": 3.06,
+"e": 3.16
+},
+{
+"w": "un",
+"red": false,
+"s": 3.16,
+"e": 3.28
+},
+{
+"w": "roi.",
+"red": false,
+"s": 3.28,
+"e": 3.6
+},
+{
+"w": "Ici,",
+"red": false,
+"s": 3.92,
+"e": 4.24
+},
+{
+"w": "chaque",
+"red": false,
+"s": 4.62,
+"e": 4.78
+},
+{
+"w": "abonné",
+"red": false,
+"s": 4.78,
+"e": 5.2
+},
+{
+"w": "est",
+"red": false,
+"s": 5.2,
+"e": 5.36
+},
+{
+"w": "un",
+"red": false,
+"s": 5.36,
+"e": 5.46
+},
+{
+"w": "habitant,",
+"red": false,
+"s": 5.46,
+"e": 5.9
+},
+{
+"w": "et",
+"red": false,
+"s": 6.14,
+"e": 6.3
+},
+{
+"w": "les",
+"red": false,
+"s": 6.3,
+"e": 6.4
+},
+{
+"w": "commentaires",
+"red": false,
+"s": 6.4,
+"e": 6.64
+},
+{
+"w": "décident.",
+"red": false,
+"s": 6.64,
+"e": 7.32
+},
+{
+"w": "Jour",
+"red": false,
+"s": 7.92,
+"e": 8.06
+},
+{
+"w": "seize.",
+"red": false,
+"s": 8.06,
+"e": 8.95
+},
+{
+"w": "Raser,",
+"red": false,
+"s": 8.95,
+"e": 9.84
+},
+{
+"w": "ou",
+"red": false,
+"s": 9.84,
+"e": 9.92
+},
+{
+"w": "deuxième",
+"red": false,
+"s": 9.92,
+"e": 10.28
+},
+{
+"w": "ville ?",
+"red": false,
+"s": 10.28,
+"e": 10.56
+},
+{
+"w": "Trente",
+"red": false,
+"s": 10.56,
+"e": 10.867
+},
+{
+"w": "et",
+"red": false,
+"s": 10.867,
+"e": 11.173
+},
+{
+"w": "un",
+"red": false,
+"s": 11.173,
+"e": 11.48
+},
+{
+"w": "contre",
+"red": false,
+"s": 11.48,
+"e": 11.78
+},
+{
+"w": "deux :",
+"red": false,
+"s": 11.78,
+"e": 12.58
+},
+{
+"w": "ville !",
+"red": false,
+"s": 12.58,
+"e": 12.86
+},
+{
+"w": "Romi",
+"red": false,
+"s": 12.86,
+"e": 13.7
+},
+{
+"w": "voulait",
+"red": false,
+"s": 13.7,
+"e": 13.92
+},
+{
+"w": "un",
+"red": false,
+"s": 13.92,
+"e": 14.02
+},
+{
+"w": "office",
+"red": false,
+"s": 14.02,
+"e": 14.26
+},
+{
+"w": "du",
+"red": false,
+"s": 14.26,
+"e": 14.44
+},
+{
+"w": "tourisme :",
+"red": false,
+"s": 14.44,
+"e": 14.88
+},
+{
+"w": "voilà.",
+"red": false,
+"s": 15.28,
+"e": 15.46
+},
+{
+"w": "Un",
+"red": false,
+"s": 15.96,
+"e": 16.12
+},
+{
+"w": "like,",
+"red": false,
+"s": 16.12,
+"e": 16.36
+},
+{
+"w": "une",
+"red": false,
+"s": 16.68,
+"e": 16.8
+},
+{
+"w": "pièce :",
+"red": false,
+"s": 16.8,
+"e": 17.18
+},
+{
+"w": "neuf",
+"red": false,
+"s": 17.18,
+"e": 17.767
+},
+{
+"w": "cent",
+"red": false,
+"s": 17.767,
+"e": 18.353
+},
+{
+"w": "soixante-quinze.",
+"red": false,
+"s": 18.353,
+"e": 18.94
+},
+{
+"w": "Sauf",
+"red": false,
+"s": 18.94,
+"e": 19.26
+},
+{
+"w": "que",
+"red": false,
+"s": 19.26,
+"e": 19.58
+},
+{
+"w": "les",
+"red": false,
+"s": 19.58,
+"e": 20.0
+},
+{
+"w": "gardes",
+"red": false,
+"s": 20.0,
+"e": 20.34
+},
+{
+"w": "du",
+"red": false,
+"s": 20.34,
+"e": 20.46
+},
+{
+"w": "roi",
+"red": false,
+"s": 20.46,
+"e": 20.68
+},
+{
+"w": "sont",
+"red": false,
+"s": 20.68,
+"e": 20.82
+},
+{
+"w": "dedans.",
+"red": false,
+"s": 20.82,
+"e": 21.1
+},
+{
+"w": "A,",
+"red": false,
+"s": 21.64,
+"e": 21.82
+},
+{
+"w": "la",
+"red": false,
+"s": 22.18,
+"e": 22.24
+},
+{
+"w": "prison.",
+"red": false,
+"s": 22.24,
+"e": 22.48
+},
+{
+"w": "B,",
+"red": false,
+"s": 23.0,
+"e": 23.3
+},
+{
+"w": "notre",
+"red": false,
+"s": 23.7,
+"e": 23.8
+},
+{
+"w": "armée.",
+"red": false,
+"s": 23.8,
+"e": 24.18
+},
+{
+"w": "Commente !",
+"red": false,
+"s": 24.54,
+"e": 25.02
+},
+{
+"w": "Clutcche",
+"red": false,
+"s": 25.02,
+"e": 25.68
+},
+{
+"w": "devient",
+"red": false,
+"s": 25.68,
+"e": 26.02
+},
+{
+"w": "notre",
+"red": false,
+"s": 26.02,
+"e": 26.26
+},
+{
+"w": "premier",
+"red": false,
+"s": 26.26,
+"e": 26.76
+},
+{
+"w": "Ambassadeur !",
+"red": false,
+"s": 26.76,
+"e": 27.5
+},
+{
+"w": "Tague",
+"red": false,
+"s": 27.5,
+"e": 27.94
+},
+{
+"w": "tes",
+"red": false,
+"s": 27.94,
+"e": 28.12
+},
+{
+"w": "potes :",
+"red": false,
+"s": 28.12,
+"e": 28.68
+},
+{
+"w": "un",
+"red": false,
+"s": 28.7,
+"e": 28.84
+},
+{
+"w": "pote,",
+"red": false,
+"s": 28.84,
+"e": 29.34
+},
+{
+"w": "un",
+"red": false,
+"s": 29.34,
+"e": 29.48
+},
+{
+"w": "point.",
+"red": false,
+"s": 29.48,
+"e": 29.68
+},
+{
+"w": "Trois",
+"red": false,
+"s": 29.68,
+"e": 30.26
+},
+{
+"w": "points :",
+"red": false,
+"s": 30.26,
+"e": 30.52
+},
+{
+"w": "Ambassadeur !",
+"red": false,
+"s": 30.8,
+"e": 31.66
+},
+{
+"w": "Ta",
+"red": false,
+"s": 31.94,
+"e": 32.06
+},
+{
+"w": "maison :",
+"red": false,
+"s": 32.06,
+"e": 32.32
+},
+{
+"w": "lien",
+"red": false,
+"s": 32.32,
+"e": 32.96
+},
+{
+"w": "en",
+"red": false,
+"s": 32.96,
+"e": 33.04
+},
+{
+"w": "bio,",
+"red": false,
+"s": 33.04,
+"e": 33.24
+},
+{
+"w": "ça",
+"red": false,
+"s": 33.56,
+"e": 33.66
+},
+{
+"w": "finance",
+"red": false,
+"s": 33.66,
+"e": 33.94
+},
+{
+"w": "notre",
+"red": false,
+"s": 33.94,
+"e": 34.2
+},
+{
+"w": "jeu.",
+"red": false,
+"s": 34.2,
+"e": 34.54
+},
+{
+"w": "Mais",
+"red": false,
+"s": 34.92,
+"e": 35.1
+},
+{
+"w": "cette",
+"red": false,
+"s": 35.1,
+"e": 35.28
+},
+{
+"w": "nuit,",
+"red": false,
+"s": 35.28,
+"e": 35.56
+},
+{
+"w": "un",
+"red": false,
+"s": 36.14,
+"e": 36.24
+},
+{
+"w": "garde",
+"red": false,
+"s": 36.24,
+"e": 36.5
+},
+{
+"w": "a",
+"red": false,
+"s": 36.5,
+"e": 36.64
+},
+{
+"w": "disparu…",
+"red": false,
+"s": 36.64,
+"e": 37.22
+}
+]
