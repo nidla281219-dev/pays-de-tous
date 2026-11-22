@@ -23,7 +23,7 @@ TL.shots = TL.shots.map(s => {
 TL.caps = (TL.caps || []).map(c => {
   if (!c.lignes) return c;
   const lines = c.lignes.map(l => l.split(/(\*[^*]+\*)/).filter(Boolean).map(s => s.startsWith('*') ? [s.slice(1, -1), 1] : [s, 0]));
-  return { t0: c.t0, t1: c.t1, lines, y: c.y };
+  return { t0: c.t0, t1: c.t1, lines, y: c.y, taille: c.taille };
 });
 TL.cards = TL.cards || []; TL.flashes = TL.flashes || [];
 if (propre) { TL.caps = []; TL.cards = []; TL.bandeaux = []; TL.flashes = []; TL.win.fin = [[0, 999]]; } TL.win = TL.win || {}; TL.grow = TL.grow || {};
