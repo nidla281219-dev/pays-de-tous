@@ -4,7 +4,7 @@
 (publication.json, envoyé automatiquement)
 **Commentaire à épingler** :
 ⚔️ Les gardes du roi : A = la prison ⛓️ / B = ils rejoignent notre armée 🛡️
-🎖️ Deviens Ambassadeur de Vulkaris : tague tes potes ici (1 pote = 1 point), le commentaire le plus liké gagne +3. 3 pts Ambassadeur · 10 Grand Ambassadeur · 25 Ministre · 50 Conseiller du chef. Les grades sont annoncés dans la vidéo du lendemain !
+🎖️ Deviens Ambassadeur : tague tes potes ici (1 pote = 1 point, commentaire le plus liké = +3). 3 pts = Ambassadeur → ton pseudo dans la vidéo + ton vote compte DOUBLE · 10 = ton perso dans la vidéo · 25 = Ministre, tu proposes un vote · 50 = Conseiller du chef. Annoncé dans la vidéo de demain !
 
 ## TikTok
 **Légende** :
@@ -14,7 +14,7 @@ Tu vois cette forteresse ? 2 000 inconnus viennent de la voler à un roi 🏰 Ic
 
 **Commentaire à épingler** :
 ⚔️ Les gardes du roi : A = la prison ⛓️ / B = ils rejoignent notre armée 🛡️
-🎖️ Deviens Ambassadeur de Vulkaris : tague tes potes ici (1 pote = 1 point), le commentaire le plus liké gagne +3. 3 pts Ambassadeur · 10 Grand Ambassadeur · 25 Ministre · 50 Conseiller du chef. Les grades sont annoncés dans la vidéo du lendemain !
+🎖️ Deviens Ambassadeur : tague tes potes ici (1 pote = 1 point, commentaire le plus liké = +3). 3 pts = Ambassadeur → ton pseudo dans la vidéo + ton vote compte DOUBLE · 10 = ton perso dans la vidéo · 25 = Ministre, tu proposes un vote · 50 = Conseiller du chef. Annoncé dans la vidéo de demain !
 
 ## Instagram
 **Légende** :
@@ -25,10 +25,10 @@ Tu vois cette forteresse ? 2 000 inconnus viennent de la voler à un roi 🏰 Ic
 🎖️ @clutcche devient notre premier Ambassadeur !
 💰 Trésor : 975 pièces, objectif armée de l'air.
 🗳️ Les gardes du roi : A la prison / B notre armée ?
-📲 Tague tes potes : 1 pote = 1 point, 3 points = Ambassadeur.
+📲 Tague 3 potes = Ambassadeur : ton pseudo dans la vidéo + ton vote compte double.
 
 #LePaysDeTous #royaume #ville
 
 **Commentaire à épingler** :
 ⚔️ Les gardes du roi : A = la prison ⛓️ / B = ils rejoignent notre armée 🛡️
-🎖️ Deviens Ambassadeur de Vulkaris : tague tes potes ici (1 pote = 1 point), le commentaire le plus liké gagne +3. 3 pts Ambassadeur · 10 Grand Ambassadeur · 25 Ministre · 50 Conseiller du chef. Les grades sont annoncés dans la vidéo du lendemain !
+🎖️ Deviens Ambassadeur : tague tes potes ici (1 pote = 1 point, commentaire le plus liké = +3). 3 pts = Ambassadeur → ton pseudo dans la vidéo + ton vote compte DOUBLE · 10 = ton perso dans la vidéo · 25 = Ministre, tu proposes un vote · 50 = Conseiller du chef. Annoncé dans la vidéo de demain !
