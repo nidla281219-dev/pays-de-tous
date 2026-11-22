@@ -1,0 +1,3 @@
+125 caractères
+voix.mp3 écrite
+mots.json : 21 mots, calage 90%, fin à 6.7 s
