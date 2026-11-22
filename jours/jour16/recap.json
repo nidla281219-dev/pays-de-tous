@@ -1,0 +1,13 @@
+{
+ "jour": 16,
+ "slides": [
+  {"img": "img_0.15.jpg", "cadre": 0.3, "haut": "JOUR 16", "titre": "VOLÉE", "jaune": "À UN ROI", "badge": "2 309 HABITANTS", "texte": "2 000 inconnus viennent de lui prendre sa forteresse… et il est furieux.", "sous": "Glisse >>"},
+  {"img": "img_2.2.jpg", "cadre": 0.45, "haut": "NOTRE DRAPEAU FLOTTE", "titre": "LA FORTERESSE", "jaune": "EST À NOUS", "texte": "Ici, chaque abonné est un habitant. Ce sont les commentaires qui décident."},
+  {"img": "img_9.5.jpg", "cadre": 0.5, "haut": "VOUS AVEZ VOTÉ", "titre": "NOTRE", "jaune": "DEUXIÈME VILLE !", "texte": "Raser ou garder ? Vous l'avez gardée.", "sous": "Deuxième ville 31 voix · Raser 2"},
+  {"img": "img_13.8.jpg", "cadre": 0.5, "haut": "CONSTRUIT POUR VOUS", "titre": "L'OFFICE DU TOURISME", "jaune": "de r0m1_agt", "texte": "Pour faire découvrir nos îles."},
+  {"img": "img_26.jpg", "cadre": 0.5, "haut": "PREMIER GRADÉ", "titre": "🎖️ AMBASSADEUR", "jaune": "clutcche", "texte": "Le commentaire le plus liké d'hier : +3 points. 1 pote tagué = 1 point, 3 points = Ambassadeur."},
+  {"img": "img_4.5.jpg", "cadre": 0.5, "haut": "À PLAVULCA", "titre": "2 309", "jaune": "HABITANTS", "texte": "1 abonné = 1 habitant. Toi aussi, rejoins-les."},
+  {"img": "img_36.jpg", "cadre": 0.45, "haut": "SAUF QUE…", "titre": "UN GARDE A", "jaune": "DISPARU", "texte": "Cette nuit, dans la forteresse…"},
+  {"img": "img_20.jpg", "cadre": 0.6, "haut": "À TOI DE VOTER", "titre": "LES GARDES DU ROI :", "jaune": "PRISON OU ARMÉE ?", "liste": ["A · la prison", "B · ils rejoignent notre armée"], "tresor": true, "sous": "Réponds en commentaire"}
+ ]
+}
