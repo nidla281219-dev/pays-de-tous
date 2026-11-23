@@ -1,6 +1,6 @@
 {
- "jour": 16,
- "habitants": 2309,
+ "jour": 17,
+ "habitants": 2315,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -241,9 +241,9 @@
   }
  ],
  "vote_en_cours": {
-  "jour": 16,
+  "jour": 17,
   "questions": [
-   "Les gardes du roi dans la forteresse : A la prison / B ils rejoignent notre armée"
+   "Le garde traître est chez le roi avec notre carte : A on le rattrape en mer / B on piège la côte"
   ]
  },
  "historique": [
@@ -310,6 +310,10 @@
   {
    "jour": 16,
    "resume": "2309 habitants. Forteresse B 31 / A 2 → deuxième ville. Office du tourisme de @r0m1_agt. @clutcche 1er Ambassadeur (comment le plus liké, 31 likes, +3). Trésor 975 / 2000. Vote : gardes du roi A prison / B notre armée. Suspense : un garde a disparu."
+  },
+  {
+   "jour": 17,
+   "resume": "2315 habitants. Gardes B 28 / A 4 → rejoignent notre armée. Commissariat de @mrt_by_lilix. @benncarakram Ambassadeur (3 tags), @clutcche +3 (6 pts). Trésor 1166 / 2000. Vote : garde traître A rattraper / B piéger la côte. Suspense : le roi a la carte."
   }
  ],
  "habitants_detail": {
@@ -345,16 +349,22 @@
    "type": "basket",
    "nom": "Terrain de basket de solhead_",
    "par": "@solhead_ (Instagram, 15 likes)"
+  },
+  {
+   "type": "commissariat",
+   "nom": "Commissariat de mrt_by_lilix",
+   "par": "@mrt_by_lilix (Instagram, 2 likes)"
   }
  ],
- "tresor": 975,
+ "tresor": 1166,
  "tresor_detail": {
   "avant": 494,
   "likes_jour14": {
    "youtube": 59,
    "tiktok": 25,
    "instagram": 169
-  }
+  },
+  "jour17": 191
  },
  "objectif": {
   "nom": "armée de l'air (idée de @StanislasHobetKrauth)",
@@ -421,10 +431,15 @@
   "resultat": "le roi est rendu (repart en barque), sa forteresse devient à nous sans combat ; il jure de revenir"
  },
  "ambassadeurs": {
-  "Clutcche": 3
+  "Clutcche": 6,
+  "benncarakram": 3
  },
  "forteresse": {
   "vote": "B deuxième ville 31 voix (YT 3, TT 1, IG 27, 52 likes) / A raser 2 (IG 2)",
   "resultat": "la forteresse devient la deuxième ville de Vulkaris (nom à choisir plus tard)"
+ },
+ "gardes_du_roi": {
+  "vote": "B notre armée 28 voix (YT 2, IG 26, 23 likes) / A prison 4 (IG 4)",
+  "resultat": "les gardes du roi rejoignent notre armée"
  }
 }
