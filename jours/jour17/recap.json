@@ -1,0 +1,12 @@
+{
+ "jour": 17,
+ "slides": [
+  {"img": "img_0.5.jpg", "cadre": 0.4, "haut": "JOUR 17", "titre": "TU LEUR FERAIS", "jaune": "CONFIANCE ?", "badge": "2 315 HABITANTS", "texte": "Les soldats de notre ennemi… 2 000 inconnus ont dit oui.", "sous": "Glisse >>"},
+  {"img": "img_10.5.jpg", "cadre": 0.5, "haut": "VOUS AVEZ VOTÉ", "titre": "LES GARDES DU ROI", "jaune": "REJOIGNENT NOTRE ARMÉE", "texte": "Ici, chaque abonné est un habitant. Ce sont les commentaires qui décident.", "sous": "Notre armée 28 voix · Prison 4"},
+  {"img": "img_13.6.jpg", "cadre": 0.5, "haut": "CONSTRUIT POUR VOUS", "titre": "LE COMMISSARIAT", "jaune": "de mrt_by_lilix", "texte": "Les anciens gardes y prennent leur service."},
+  {"img": "img_2.5.jpg", "cadre": 0.5, "haut": "NOUVEAU GRADÉ", "titre": "🎖️ AMBASSADEUR", "jaune": "benncarakram", "texte": "3 potes tagués = Ambassadeur : ton pseudo dans la vidéo et ton vote compte double."},
+  {"img": "img_4.5.jpg", "cadre": 0.5, "haut": "À PLAVULCA", "titre": "2 315", "jaune": "HABITANTS", "texte": "1 abonné = 1 habitant. Toi aussi, rejoins-les."},
+  {"img": "img_17.5.jpg", "cadre": 0.45, "haut": "SAUF QUE…", "titre": "LE ROI A", "jaune": "NOTRE CARTE", "texte": "Le garde disparu l'a rejoint… avec la carte de notre île."},
+  {"img": "img_22.jpg", "cadre": 0.6, "haut": "À TOI DE VOTER", "titre": "LE TRAÎTRE :", "jaune": "RATTRAPER OU PIÉGER ?", "liste": ["A · on le rattrape en mer", "B · on piège la côte"], "tresor": true, "sous": "Réponds en commentaire"}
+ ]
+}
