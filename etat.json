@@ -1,6 +1,6 @@
 {
- "jour": 17,
- "habitants": 2315,
+ "jour": 18,
+ "habitants": 2325,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -241,9 +241,9 @@
   }
  ],
  "vote_en_cours": {
-  "jour": 17,
+  "jour": 18,
   "questions": [
-   "Le garde traître est chez le roi avec notre carte : A on le rattrape en mer / B on piège la côte"
+   "Le traître capturé avoue que le roi prépare une flotte : A on le juge au tribunal / B il devient notre espion"
   ]
  },
  "historique": [
@@ -314,12 +314,16 @@
   {
    "jour": 17,
    "resume": "2315 habitants. Gardes B 28 / A 4 → rejoignent notre armée. Commissariat de @mrt_by_lilix. @benncarakram Ambassadeur (3 tags), @clutcche +3 (6 pts). Trésor 1166 / 2000. Vote : garde traître A rattraper / B piéger la côte. Suspense : le roi a la carte."
+  },
+  {
+   "jour": 18,
+   "resume": "Piège côte B 15 / A 12 : traître capturé sur la plage. Tribunal de titouanlbn. Clutcche 9 pts. Trésor 1336/2000. Vote : A juger / B espion."
   }
  ],
  "habitants_detail": {
-  "youtube": 583,
-  "tiktok": 124,
-  "instagram": 1580
+  "youtube": 605,
+  "tiktok": 128,
+  "instagram": 1592
  },
  "nom_par": "@c_c_a_a_s (Instagram, 27 likes — lu sur capture de l'utilisateur, absent de la lecture Apify)",
  "drapeau_par": "@c_c_a_a_s (Instagram, image jointe au commentaire)",
@@ -354,9 +358,14 @@
    "type": "commissariat",
    "nom": "Commissariat de mrt_by_lilix",
    "par": "@mrt_by_lilix (Instagram, 2 likes)"
+  },
+  {
+   "type": "tribunal",
+   "nom": "Tribunal de titouanlbn",
+   "par": "@titouanlbn (Instagram, 4 likes)"
   }
  ],
- "tresor": 1166,
+ "tresor": 1336,
  "tresor_detail": {
   "avant": 494,
   "likes_jour14": {
@@ -364,7 +373,8 @@
    "tiktok": 25,
    "instagram": 169
   },
-  "jour17": 191
+  "jour17": 191,
+  "jour18": 170
  },
  "objectif": {
   "nom": "armée de l'air (idée de @StanislasHobetKrauth)",
@@ -431,7 +441,7 @@
   "resultat": "le roi est rendu (repart en barque), sa forteresse devient à nous sans combat ; il jure de revenir"
  },
  "ambassadeurs": {
-  "Clutcche": 6,
+  "Clutcche": 9,
   "benncarakram": 3
  },
  "forteresse": {
@@ -441,5 +451,9 @@
  "gardes_du_roi": {
   "vote": "B notre armée 28 voix (YT 2, IG 26, 23 likes) / A prison 4 (IG 4)",
   "resultat": "les gardes du roi rejoignent notre armée"
+ },
+ "piege_cote": {
+  "vote": "B piéger la côte 15 voix (YT 1, IG 14, 14 likes) / A rattraper en mer 12 (YT 2, IG 10, 2 likes)",
+  "resultat": "la nuit, le garde traître débarque : filets et torches, capturé sur la plage ; il n'a plus la carte ; il avoue que le roi prépare une flotte"
  }
 }
