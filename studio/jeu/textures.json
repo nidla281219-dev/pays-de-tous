@@ -1,0 +1,14 @@
+{
+  "modele": "nano-banana-2",
+  "style": "Seamless tileable game texture, perfectly flat top-down orthographic view, even diffuse lighting, no shadows, no perspective, no horizon, no objects, no text, no border, semi-realistic stylized look like Fortnite, rich but natural colors, fills the whole square.",
+  "images": [
+    {"nom": "herbe", "prompt": "lush green meadow grass seen from directly above, short grass blades with subtle color variation, a few tiny clover leaves"},
+    {"nom": "herbe_seche", "prompt": "dry yellow-green summer grass seen from directly above, mixed with a little soil"},
+    {"nom": "terre", "prompt": "brown forest soil seen from directly above, small pebbles, a few dry leaves and twigs"},
+    {"nom": "chemin", "prompt": "packed light brown dirt footpath with fine gravel seen from directly above"},
+    {"nom": "sable", "prompt": "warm golden beach sand seen from directly above, fine grains, gentle ripples"},
+    {"nom": "sable_mouille", "prompt": "wet darker beach sand seen from directly above, smooth with small shells"},
+    {"nom": "roche", "prompt": "grey granite rock surface seen from directly above, cracks and lichen spots"},
+    {"nom": "roche_volcanique", "prompt": "dark basalt volcanic rock and black ash seen from directly above, porous texture"}
+  ]
+}
