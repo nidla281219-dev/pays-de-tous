@@ -9,15 +9,22 @@ const TAILLE = 1.9;         // taille du perso (porte ≈ 2,3)
 const ECH = 2, DEMI = 640;          // l'île tient dans [-DEMI, DEMI]
 VOLC.multiplyScalar(ECH); for (const p of RIVER) { p[0] *= ECH; p[1] *= ECH; } for (const k in SITES) SITES[k] = SITES[k].map(v => v * ECH);
 riverDist = (x, z) => { let best = 1e9; for (let i = 0; i < RIVER.length - 1; i++) { const [ax, az] = RIVER[i], [bx2, bz] = RIVER[i + 1], vx = bx2 - ax, vz = bz - az; let t = ((x - ax) * vx + (z - az) * vz) / (vx * vx + vz * vz); t = Math.max(0, Math.min(1, t)); best = Math.min(best, Math.hypot(x - ax - vx * t, z - az - vz * t)); } return best; };
+const lisse = v => { v = Math.max(0, Math.min(1, v)); return v * v * (3 - 2 * v); };
 height0 = (x, z) => {
   const ang = Math.atan2(z, x), r = Math.hypot(x, z);
   const Rb = (230 + 38 * Math.sin(ang * 3 + .7) + 22 * Math.sin(ang * 5 + 2.1) + 30 * (fbm(Math.cos(ang) * 2 + 5, Math.sin(ang) * 2 + 5) - .5)) * ECH;
-  let h = (1 - Math.pow(r / Rb, 2.2)) * 30; if (r > Rb) h = -(r - Rb) * .18 - 1;
-  const dedans = Math.max(0, Math.min(1, (Rb - r) / 110));
-  h += (fbm(x * .006 + 3, z * .006 + 7) - .5) * 18 * dedans + (fbm(x * .022 + 11, z * .022 + 5) - .5) * 2.5 * dedans;   // collines + petites ondulations
-  const dv = Math.hypot(x - VOLC.x, z - VOLC.y); h += 120 * Math.exp(-dv * dv / (2 * 100 * 100)); if (dv < 40) h -= (40 - dv) * 1.5;   // volcan + cratère
-  const rd = riverDist(x, z); if (rd < 20 && h > 1) h = Math.min(h, h - (20 - rd) * .5 * Math.min(1, h / 6));                        // vallée de la rivière
-  if (Math.hypot(x + 70 * ECH, z - 235 * ECH) < 55 * ECH) h = Math.min(h, -2);                                                    // baie du port
+  const cote = lisse((Rb - r) / 140), fal = Math.pow(Math.max(0, Math.cos(ang + 1.0)), 3);          // fal : côte à falaises vers le nord-est
+  let h = r > Rb ? -(r - Rb) * (.18 + fal * .7) - 1 : (1 - Math.pow(r / Rb, 2.2)) * 26;                   // plages en pente douce
+  if (r <= Rb && fal > .05) h = Math.max(h, fal * 16 * lisse((Rb - r) / 9));                              // plateau qui tombe en falaise
+  const dV = Math.hypot(x - SITES.plage_ville[0], z - SITES.plage_ville[1]), plaine = 1 - lisse((dV - 90) / 170);   // grande plaine autour de la ville
+  h += Math.max(0, fbm(x * .0045 + 3, z * .0045 + 7) - .42) * 55 * cote * (1 - .85 * plaine);            // collines arrondies, séparées par des plaines
+  h += (fbm(x * .015 + 11, z * .015 + 5) - .5) * 1.2 * cote;                                               // très légères ondulations
+  const dv = Math.hypot(x - VOLC.x, z - VOLC.y), av = Math.atan2(z - VOLC.y, x - VOLC.x);
+  h += 120 * Math.exp(-dv * dv / (2 * 100 * 100));                                                          // volcan
+  h += 7 * Math.pow(Math.abs(Math.sin(av * 3 + 1.3)), 6) * Math.exp(-dv * dv / (2 * 130 * 130)) * lisse((dv - 30) / 30);   // coulées de lave refroidie
+  if (dv < 40) h -= (40 - dv) * 1.5;                                                                        // cratère
+  const rd = riverDist(x, z); if (rd < 26 && h > 1) h -= lisse(1 - rd / 26) * Math.min(7, h * .6);           // vallée de la rivière, berges douces
+  if (Math.hypot(x + 70 * ECH, z - 235 * ECH) < 55 * ECH) h = Math.min(h, -2);                               // baie du port
   return h; };
 buildTerrain = () => {};            // le sol du jeu est reconstruit plus bas, en morceaux
 terrain.visible = false; trees.visible = trunks.visible = false; trees.count = trunks.count = 0;
@@ -116,10 +123,12 @@ for (const p of PADS) { const rr = Math.max(p.hw, p.hd) + 22; let mer = 0; for (
     if (d < c.w + 14 && !PADS.some(p => { const dx = x - p.x, dz = z - p.z, lx = dx * p.c - dz * p.s - p.cx, lz = dx * p.s + dz * p.c - p.cz; return Math.abs(lx) < p.hw + 1 && Math.abs(lz) < p.hd + 1; })) { const y = c.h0 + (c.h1 - c.h0) * t, u = Math.max(0, Math.min(1, (c.w + 14 - d) / 14)), k = u * u * (3 - 2 * u); h = Math.max(h, h + (y - h) * k); } }
   return h; }; }
 // ---- le sol : grille de 481×481 points (2,7 m), découpée en 8×8 morceaux (seuls ceux à l'écran sont dessinés) ----
-const SOL3D = new THREE.Group(); scene.add(SOL3D);
+const SOL3D = new THREE.Group(); scene.add(SOL3D); const HAUT = {};
 { const N = 480, st = 2 * DEMI / N, Hs = new Float32Array((N + 1) * (N + 1));
   for (let j = 0; j <= N; j++) for (let i = 0; i <= N; i++) Hs[j * (N + 1) + i] = height(-DEMI + i * st, -DEMI + j * st);
   const hA = (i, j) => Hs[Math.max(0, Math.min(N, j)) * (N + 1) + Math.max(0, Math.min(N, i))];
+  { const u8 = new Uint8Array((N + 1) * (N + 1)); for (let k = 0; k < u8.length; k++) u8[k] = Math.max(0, Math.min(255, Math.round((Hs[k] + 24) / 32 * 255)));   // -24 m … +8 m
+    HAUT.tex = new THREE.DataTexture(u8, N + 1, N + 1, THREE.RedFormat); HAUT.tex.magFilter = HAUT.tex.minFilter = THREE.LinearFilter; HAUT.tex.needsUpdate = true; }
   terrain.material.vertexColors = false;
   const M = 8, n = N / M;
   for (let cj = 0; cj < M; cj++) for (let cI = 0; cI < M; cI++) { const pos = [], nor = [], idx = [];
@@ -274,48 +283,106 @@ const BRUIT = (() => { const n = 256, c = document.createElement('canvas'); c.wi
   x.putImageData(im, 0, 0); const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t; })();
 terrain.material.flatShading = false;
 const RIV = RIVER.map(([x, z]) => new THREE.Vector2(x, z));
+const TXL = new THREE.TextureLoader(), TXS = {};
+for (const nom of ['herbe', 'herbe_seche', 'terre', 'chemin', 'sable', 'sable_mouille', 'roche', 'roche_volcanique']) { const t = TXL.load('textures/' + nom + '.jpg'); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy()); TXS[nom] = t; }
 terrain.material.onBeforeCompile = sh => {
-  Object.assign(sh.uniforms, { uH: { value: HERBE }, uG: { value: GRAVIER }, uM: { value: MASQUE }, uN: { value: BRUIT }, uV: { value: new THREE.Vector2(VOLC.x, VOLC.y) }, uR: { value: RIV } });
+  Object.assign(sh.uniforms, { tH: { value: TXS.herbe }, tHS: { value: TXS.herbe_seche }, tT: { value: TXS.terre }, tC: { value: TXS.chemin }, tS: { value: TXS.sable }, tSM: { value: TXS.sable_mouille }, tR: { value: TXS.roche }, tV: { value: TXS.roche_volcanique },
+    uM: { value: MASQUE }, uN: { value: BRUIT }, uV: { value: new THREE.Vector2(VOLC.x, VOLC.y) }, uR: { value: RIV } });
   sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vW3; varying vec3 vWN;')
     .replace('#include <project_vertex>', '#include <project_vertex>\nvW3 = (modelMatrix * vec4(transformed, 1.0)).xyz; vWN = normalize(mat3(modelMatrix) * objectNormal);');
   sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
-    varying vec3 vW3; varying vec3 vWN; uniform sampler2D uH, uG, uM, uN; uniform vec2 uV; uniform vec2 uR[${RIV.length}];
-    float rivD(vec2 p){ float d = 1e9; for (int i = 0; i < ${RIV.length - 1}; i++) { vec2 a = uR[i], b = uR[i + 1], ab = b - a; float t = clamp(dot(p - a, ab) / dot(ab, ab), 0., 1.); d = min(d, length(p - a - ab * t)); } return d; }`)
+    varying vec3 vW3; varying vec3 vWN; uniform sampler2D tH, tHS, tT, tC, tS, tSM, tR, tV, uM, uN; uniform vec2 uV; uniform vec2 uR[${RIV.length}];
+    float rivD(vec2 p){ float d = 1e9; for (int i = 0; i < ${RIV.length - 1}; i++) { vec2 a = uR[i], b = uR[i + 1], ab = b - a; float t = clamp(dot(p - a, ab) / dot(ab, ab), 0., 1.); d = min(d, length(p - a - ab * t)); } return d; }
+    vec3 samp(sampler2D t, vec2 p, float s, float k){ vec3 a = texture2D(t, p / s).rgb; if (k < .02) return a; vec3 b = texture2D(t, mat2(.8, -.6, .6, .8) * p / (s * 1.43) + vec2(.31, .67)).rgb; return mix(a, b, k); }`)
     .replace('#include <color_fragment>', `
       vec2 vW = vW3.xz; float y = vW3.y, pente = 1.0 - clamp(vWN.y, 0., 1.);
-      float n1 = texture2D(uN, vW / 140.0).r, n2 = texture2D(uN, vW / 37.0).r, n3 = texture2D(uN, vW / 9.0).r;
-      float bl = texture2D(uH, vW / 3.2).r, bl2 = texture2D(uH, vW / 1.3).r, gr = texture2D(uG, vW / 2.2).r, gr2 = texture2D(uG, vW / 6.0).r;
-      vec3 herbeA = vec3(.33, .58, .22), herbeB = vec3(.47, .68, .28), seche = vec3(.66, .67, .34), foncee = vec3(.24, .45, .18);
-      vec3 c = mix(herbeA, herbeB, smoothstep(.38, .66, n1));
-      c = mix(c, seche, smoothstep(.58, .78, n2) * .45); c = mix(c, foncee, smoothstep(.55, .75, n3) * .25);
-      c *= .74 + .34 * bl + .14 * bl2;
-      vec3 terre = vec3(.50, .40, .28) * (.78 + .3 * gr + .15 * n3);
-      vec3 roche = vec3(.52, .49, .46) * (.7 + .45 * n3) * (.82 + .3 * gr2);
-      vec3 sable = vec3(.91, .84, .64) * (.86 + .2 * gr + .08 * n3);
-      float k = pente + (n3 - .5) * .12;
-      c = mix(c, terre, smoothstep(.13, .22, k));
-      c = mix(c, roche, smoothstep(.28, .40, k));
-      c = mix(c, mix(c, roche, .75), smoothstep(60.0, 85.0, y + (n2 - .5) * 14.0));
-      float plage = 1.0 - smoothstep(.9, 1.9, y + (n2 - .5) * 1.4); c = mix(c, sable, plage); c *= mix(1.0, .72, 1.0 - smoothstep(-.3, .45, y));
-      float dv = length(vW - uV); c = mix(c, vec3(.20, .17, .16) * (.7 + .6 * n3) * (.85 + .3 * gr2), 1.0 - smoothstep(42.0, 60.0, dv + (n2 - .5) * 16.0));
-      float rd = rivD(vW); c = mix(c, mix(sable * .75, roche, .45) * (.8 + .3 * gr), 1.0 - smoothstep(10.0, 16.0, rd + (n3 - .5) * 3.0));
-      float m = texture2D(uM, (vW + ${DEMI}.0) / ${2 * DEMI}.0).r;
-      vec3 chemin = vec3(.78, .69, .53) * (.8 + .3 * gr + .1 * n3);
-      c = mix(c, chemin, m * .95);
-      diffuseColor.rgb = pow(c, vec3(2.2));`);
+      float n1 = texture2D(uN, vW / 170.0).r, n2 = texture2D(uN, vW / 45.0).r, n3 = texture2D(uN, vW / 11.0).r, k = smoothstep(.3, .7, n2);   // k : anti-répétition
+      vec3 c = samp(tH, vW, 6.0, k);
+      float w = smoothstep(.56, .74, n1 + (y - 25.0) * .004); if (w > .01) c = mix(c, samp(tHS, vW, 7.0, k), w);                                   // herbe sèche
+      w = max(smoothstep(.66, .82, n3 * .5 + n2 * .5) * .55, smoothstep(.12, .22, pente + (n3 - .5) * .08)); if (w > .01) c = mix(c, samp(tT, vW, 5.0, k), w);   // terre
+      w = max(smoothstep(.27, .38, pente + (n3 - .5) * .1), smoothstep(65.0, 90.0, y + (n2 - .5) * 20.0)); if (w > .01) c = mix(c, samp(tR, vW, 9.0, k), w);       // roche
+      float dv = length(vW - uV), av = atan(vW.y - uV.y, vW.x - uV.x), coulee = pow(abs(sin(av * 3.0 + 1.3)), 6.0) * (1.0 - smoothstep(110.0, 190.0, dv + (n2 - .5) * 40.0));
+      w = max(1.0 - smoothstep(55.0, 85.0, dv + (n2 - .5) * 25.0), smoothstep(.35, .6, coulee)); if (w > .01) c = mix(c, samp(tV, vW, 7.0, k), w);             // volcan + coulées
+      w = (1.0 - smoothstep(5.0, 10.0, rivD(vW) + (n3 - .5) * 3.0)) * .85; if (w > .01) c = mix(c, samp(tSM, vW, 4.0, k), w);                                           // lit de la rivière
+      w = 1.0 - smoothstep(1.0, 2.2, y + (n2 - .5) * 1.5); if (w > .01) c = mix(c, samp(tS, vW, 6.0, k), w);                                                     // plage
+      w = 1.0 - smoothstep(-.2, .7, y + (n3 - .5) * .4); if (w > .01) c = mix(c, samp(tSM, vW, 4.0, k), w);                                                     // sable mouillé
+      w = texture2D(uM, (vW + ${DEMI}.0) / ${2 * DEMI}.0).r; if (w > .01) c = mix(c, samp(tC, vW, 4.0, k), w);                                                    // chemins
+      diffuseColor.rgb = c * (.86 + .28 * n1);`);
 };
 terrain.material.needsUpdate = true;
+// ---- la mer : vagues, eau turquoise près des plages, écume sur le rivage ----
+const T_EAU = { value: 0 };
+ocean.material = new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: .18, metalness: .05, transparent: true });
+ocean.position.y = -.12;
+ocean.material.onBeforeCompile = sh => {
+  Object.assign(sh.uniforms, { uT: T_EAU, uHt: { value: HAUT.tex }, uN: { value: BRUIT } });
+  sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float uT; varying vec2 vWo; varying float vVag;')
+    .replace('#include <begin_vertex>', `#include <begin_vertex>
+      vec2 wp = (modelMatrix * vec4(position, 1.0)).xz; vWo = wp;
+      vVag = .28 * sin(wp.x * .045 + uT * 1.2) + .22 * cos(wp.y * .055 + uT * .9) + .1 * sin((wp.x + wp.y) * .12 + uT * 2.1); transformed.y += vVag;`);
+  sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>\nuniform float uT; uniform sampler2D uHt, uN; varying vec2 vWo; varying float vVag;`)
+    .replace('#include <color_fragment>', `#include <color_fragment>
+      vec2 uv = (vWo + ${DEMI}.0) / ${2 * DEMI}.0; float hs = (uv.x < 0.0 || uv.y < 0.0 || uv.x > 1.0 || uv.y > 1.0) ? -24.0 : texture2D(uHt, uv).r * 32.0 - 24.0;
+      float prof = max(0.0, vVag - .12 - hs);
+      vec3 cl = mix(vec3(.38, .86, .82), vec3(.13, .62, .76), smoothstep(.0, 3.5, prof)); cl = mix(cl, vec3(.05, .27, .52), smoothstep(3.0, 18.0, prof));
+      float bruit = texture2D(uN, vWo / 9.0 + vec2(uT * .02, uT * .015)).r, bruit2 = texture2D(uN, vWo / 23.0 - vec2(uT * .01, 0.0)).r;
+      cl *= .92 + .16 * bruit2;
+      float ecume = (1.0 - smoothstep(.0, 1.1, prof)) * smoothstep(.42, .62, bruit + .25 * sin(prof * 7.0 - uT * 2.2));
+      cl = mix(cl, vec3(.97, .98, 1.0), ecume * .85);
+      diffuseColor.rgb = cl; diffuseColor.a = mix(.55, .95, smoothstep(.0, 4.0, prof)) + ecume * .3;`);
+};
+// ================= ROCHERS et BUISSONS =================
+const ROCHERS = [], BUISSONS = [];
+{ const G = 4, cap2 = 450, M4 = new THREE.Matrix4(), Q = new THREE.Quaternion(), S3 = new THREE.Vector3(), P3 = new THREE.Vector3(), tc = new THREE.Color();
+  const caillou = graine => { const g2 = new THREE.IcosahedronGeometry(1, 1), p = g2.attributes.position, v = new THREE.Vector3();
+    for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const f = .75 + .5 * hash(Math.round(v.x * 50) + graine * 7, Math.round(v.y * 50) * 3 + Math.round(v.z * 50)); p.setXYZ(i, v.x * f, v.y * f * .7, v.z * f); }
+    g2.computeVertexNormals(); return g2; };
+  const buisson = () => { const L = []; for (const [x, y, z, r] of [[0, .55, 0, .7], [.45, .45, .2, .5], [-.4, .42, -.15, .5], [.1, .8, -.3, .45]]) { const g2 = new THREE.IcosahedronGeometry(r, 1).toNonIndexed(); g2.deleteAttribute('uv'); g2.translate(x, y, z); L.push(g2); } return mergeG2(L); };
+  const mergeG2 = L => { let n = 0; for (const g2 of L) n += g2.attributes.position.count; const P = new Float32Array(n * 3); let o = 0; for (const g2 of L) { P.set(g2.attributes.position.array, o * 3); o += g2.attributes.position.count; } const m = new THREE.BufferGeometry(); m.setAttribute('position', new THREE.BufferAttribute(P, 3)); m.computeVertexNormals(); return m; };
+  const tR = TXS.roche.clone(); tR.repeat.set(1.5, 1.5); tR.needsUpdate = true;
+  const matR = new THREE.MeshStandardMaterial({ map: tR, color: '#c9c2b8', roughness: .95 }), matB = new THREE.MeshLambertMaterial({ color: '#ffffff' });
+  const geoR = [caillou(1), caillou(2), caillou(3)], geoB = buisson();
+  const mk = (geo, mat) => [...Array(G * G)].map(() => ({ m: new THREE.InstancedMesh(geo, mat, cap2), n: 0 }));
+  const gR = geoR.map(g2 => mk(g2, matR)), gB = mk(geoB, matB);
+  const dansPad = (x, z) => PADS.some(p => { const dx = x - p.x, dz = z - p.z, lx = dx * p.c - dz * p.s - p.cx, lz = dx * p.s + dz * p.c - p.cz; return Math.abs(lx) < p.hw + 4 && Math.abs(lz) < p.hd + 4; });
+  const cell = (x, z) => Math.min(G - 1, Math.floor((x + DEMI) / (2 * DEMI) * G)) + Math.min(G - 1, Math.floor((z + DEMI) / (2 * DEMI) * G)) * G;
+  for (let i = 0; i < 90000; i++) { const x = (hash(i, 21) - .5) * 2 * (DEMI - 40), z = (hash(i, 22) - .5) * 2 * (DEMI - 40), h = height(x, z); if (h < .4) continue;
+    if (Math.hypot(x - cap[0], z - cap[1]) < RV + 12 || dansHauts(x, z, 6, 6) || dansPad(x, z) || surChemin(x, z, 10)) continue;
+    const pente = Math.abs(height(x + 2, z) - h) + Math.abs(height(x, z + 2) - h), dv = Math.hypot(x - VOLC.x, z - VOLC.y), rd = riverDist(x, z), zone = fbm(x * .01 + 11, z * .01 + 3), u = hash(i, 23);
+    let pR = .004 + Math.min(.5, pente * .12) + (dv < 190 ? .05 : 0) + (rd > 11 && rd < 22 ? .06 : 0) + (h < 2.2 && h > .5 ? .02 : 0);
+    let pB = (zone > .4 && zone < .5 ? .09 : .012) * (pente < 1.6 ? 1 : .2) * (dv < 150 ? .1 : 1);
+    if (u < pR) { const k = Math.floor(hash(i, 24) * 3), grp = gR[k][cell(x, z)]; if (grp.n >= cap2) continue; const sc = .35 + Math.pow(hash(i, 25), 2.5) * 2.2;
+      P3.set(x, h - sc * .25, z); Q.setFromEuler(new THREE.Euler(hash(i, 26) * .4, hash(i, 27) * 6.3, hash(i, 28) * .4)); S3.set(sc * (.8 + hash(i, 29) * .5), sc, sc * (.8 + hash(i, 30) * .5)); M4.compose(P3, Q, S3);
+      grp.m.setMatrixAt(grp.n++, M4); }
+    else if (u < pR + pB) { const grp = gB[cell(x, z)]; if (grp.n >= cap2) continue; const sc = .7 + hash(i, 31) * .9; P3.set(x, h - .1, z); Q.setFromAxisAngle(new THREE.Vector3(0, 1, 0), hash(i, 32) * 6.3); S3.set(sc, sc * (.8 + hash(i, 33) * .4), sc); M4.compose(P3, Q, S3);
+      grp.m.setMatrixAt(grp.n, M4); grp.m.setColorAt(grp.n, tc.set(['#3d7a2e', '#4f8f36', '#2f6b2a', '#5d9a3c'][Math.floor(hash(i, 34) * 4)]).offsetHSL(0, 0, (hash(i, 35) - .5) * .06)); grp.n++; } }
+  for (const L of [...gR, gB]) for (const g2 of L) { if (!g2.n) continue; g2.m.count = g2.n; g2.m.computeBoundingSphere(); g2.m.receiveShadow = true; scene.add(g2.m); (L === gB ? BUISSONS : ROCHERS).push(g2.m); }
+}
 // la rivière : vraie eau entre les berges
-{ let pts = RIVER.map(p => [...p]); pts = chaikin(pts, 3); const pos = [], idx = [];
+{ let pts = RIVER.map(p => [...p]); pts = chaikin(pts, 3); const pos = [], idx = [], flux = [];
   const P2 = []; for (let i = 0; i < pts.length - 1; i++) { const [a, b] = [pts[i], pts[i + 1]], l = Math.hypot(b[0] - a[0], b[1] - a[1]), n = Math.max(1, Math.ceil(l / 1.5)); for (let k = 0; k < n; k++) P2.push([a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n]); } P2.push(pts[pts.length - 1]);
-  let okPrec = false;
+  let okPrec = false, dist = 0, yPrec = null;
   P2.forEach((p, i) => { const q = P2[Math.min(i + 1, P2.length - 1)], o = P2[Math.max(i - 1, 0)], dx = q[0] - o[0], dz = q[1] - o[1], l = Math.hypot(dx, dz) || 1, nx = -dz / l, nz = dx / l;
-    const h0 = height(p[0], p[1]), berge = Math.min(height(p[0] + nx * 18, p[1] + nz * 18), height(p[0] - nx * 18, p[1] - nz * 18)), y = Math.max(-.2, h0 + 2.4);
-    const ok = berge - h0 > 3.5 && Math.hypot(p[0] - cap[0], p[1] - cap[1]) > RV + 12 && !dansHauts(p[0], p[1], 8, 8);   // seulement là où la rivière est vraiment creusée
-    for (const s of [-1, 1]) pos.push(p[0] + nx * 11 * s, y, p[1] + nz * 11 * s); if (i && ok && okPrec) { const a = (i - 1) * 2; idx.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); } okPrec = ok; });
-  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
-  const eau = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ color: '#3d9ccc', roughness: .12, metalness: .1, transparent: true, opacity: .82, side: THREE.DoubleSide }));
-  eau.renderOrder = 1; scene.add(eau); window.__eauRiviere = eau; }
+    const h0 = height(p[0], p[1]), berge = Math.min(height(p[0] + nx * 18, p[1] + nz * 18), height(p[0] - nx * 18, p[1] - nz * 18)), y = Math.max(-.2, h0 + 1.3);
+    const larg = s2 => { for (let d = 1; d < 22; d += .5) if (height(p[0] + nx * d * s2, p[1] + nz * d * s2) > y + .15) return d + .8; return 22; };   // l'eau s'arrête aux berges
+    const dT = Math.hypot(p[0] - cap[0], p[1] - cap[1]) - (RV + 14), fin = lisse(dT / 18) * (dansHauts(p[0], p[1], 8, 8) ? 0 : 1), ok = fin > .02 && h0 > -1.5;   // la rivière s'efface en douceur sous la ville
+    if (i) dist += Math.hypot(p[0] - P2[i - 1][0], p[1] - P2[i - 1][1]); const pente = yPrec === null ? 0 : Math.min(1, Math.abs(yPrec - y) / 1.2); yPrec = y;
+    for (const s2 of [-1, 1]) { const L2 = Math.max(.3, larg(s2) * fin); pos.push(p[0] + nx * L2 * s2, y, p[1] + nz * L2 * s2); flux.push(s2, dist, pente); }
+    if (i && ok && okPrec) { const a = (i - 1) * 2; idx.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); } okPrec = ok; });
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('flux', new THREE.Float32BufferAttribute(flux, 3)); g.setIndex(idx); g.computeVertexNormals();
+  const mat = new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: .1, metalness: .05, transparent: true, opacity: .88, side: THREE.DoubleSide });
+  mat.onBeforeCompile = sh => { Object.assign(sh.uniforms, { uT: T_EAU, uN: { value: BRUIT } });
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute vec3 flux; varying vec3 vF;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvF = flux;');
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uT; uniform sampler2D uN; varying vec3 vF;')
+      .replace('#include <color_fragment>', `#include <color_fragment>
+        float st = texture2D(uN, vec2(vF.x * .35, vF.y / 7.0 - uT * .45)).r, st2 = texture2D(uN, vec2(vF.x * .8 + .3, vF.y / 3.0 - uT * .8)).r;
+        vec3 cl = mix(vec3(.14, .46, .64), vec3(.42, .74, .86), smoothstep(.6, .85, st * .6 + st2 * .4) * .7);
+        cl = mix(cl, vec3(.96, .98, 1.0), smoothstep(.3, .7, vF.z) * smoothstep(.45, .7, st2) * .8);   // écume des rapides / cascades
+        diffuseColor.rgb = cl;`); };
+  const eau = new THREE.Mesh(g, mat); eau.renderOrder = 1; scene.add(eau); window.__eauRiviere = eau; }
+// lave au fond du cratère
+{ const hv = height(VOLC.x, VOLC.y), lave = new THREE.Mesh(new THREE.CircleGeometry(16, 32).rotateX(-Math.PI / 2), new THREE.MeshStandardMaterial({ color: '#ff6a1a', emissive: '#ff4500', emissiveIntensity: 1.4, roughness: .6 }));
+  lave.position.set(VOLC.x, hv + 1.2, VOLC.y); scene.add(lave); }
 VMAT.onBeforeCompile = sh => {
   sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWP;').replace('#include <project_vertex>', '#include <project_vertex>\nvWP = (modelMatrix * vec4(transformed, 1.0)).xyz;');
   sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
@@ -331,7 +398,7 @@ VMAT.needsUpdate = true;
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
 sun.castShadow = true; sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -32, right: 32, top: 32, bottom: -32, near: 1, far: 400 }); sun.shadow.bias = -.0006; sun.shadow.normalBias = .04; scene.add(sun.target);
 const SUN_DIR = sun.position.clone().normalize();
-const exclus = new Set([terrain, ocean, clouds, cloudLayer, smoke, trees, trunks, ...FORETS]);
+const exclus = new Set([terrain, ocean, clouds, cloudLayer, smoke, trees, trunks, ...FORETS, ...ROCHERS, ...BUISSONS]);
 scene.traverse(o => { if (!o.isMesh) return; for (let p = o; p; p = p.parent) if (exclus.has(p)) return; o.castShadow = true; o.receiveShadow = true; });
 terrain.receiveShadow = true;
 
@@ -366,7 +433,7 @@ function addMur(i, j, a, z) { if (i < 0 || j < 0 || i >= NC || j >= NC) return; 
       const l1 = ((B.z - C.z) * (x - C.x) + (C.x - B.x) * (z - C.z)) / d, l2 = ((C.z - A.z) * (x - C.x) + (A.x - C.x) * (z - C.z)) / d, l3 = 1 - l1 - l2;
       if (l1 >= -.02 && l2 >= -.02 && l3 >= -.02) fn(i, j, l1 * A.y + l2 * B.y + l3 * C.y); } };
   const visible = o => { for (let p = o; p; p = p.parent) if (!p.visible) return false; return true; };
-  const ignore = new Set([terrain, SOL3D, ocean, clouds, cloudLayer, smoke, trees, trunks, ...FORETS, ...GENS]);
+  const ignore = new Set([terrain, SOL3D, ocean, clouds, cloudLayer, smoke, trees, trunks, ...FORETS, ...ROCHERS, ...BUISSONS, ...GENS]);
   scene.updateMatrixWorld(true);
   scene.traverse(o => {
     if (!o.isMesh || o.isInstancedMesh || !visible(o)) return; for (let p = o; p; p = p.parent) if (ignore.has(p)) return;
@@ -384,6 +451,8 @@ function addMur(i, j, a, z) { if (i < 0 || j < 0 || i >= NC || j >= NC) return; 
     }
   });
   const m4 = new THREE.Matrix4(), pp = new THREE.Vector3(), qq = new THREE.Quaternion(), ss = new THREE.Vector3();
+  for (const F of ROCHERS) for (let k = 0; k < F.count; k++) { F.getMatrixAt(k, m4); m4.decompose(pp, qq, ss); if (ss.y < .8) continue; const r = .75 * ss.x;   // gros rochers : solides
+    for (let j = ci(pp.z - r); j <= ci(pp.z + r); j++) for (let i = ci(pp.x - r); i <= ci(pp.x + r); i++) addMur(i, j, pp.y - .5, pp.y + ss.y * .9); }
   for (const F of FORETS) if (F.geometry === treeG) for (let k = 0; k < F.count; k++) { F.getMatrixAt(k, m4); m4.decompose(pp, qq, ss); if (ss.x < .05) continue; const r = .9 * ss.x;
     for (let j = ci(pp.z - r); j <= ci(pp.z + r); j++) for (let i = ci(pp.x - r); i <= ci(pp.x + r); i++) addMur(i, j, pp.y - .5, pp.y + 4 * ss.y); }
 }
@@ -533,7 +602,7 @@ function boucle(now) {
   cam.position.lerp(camCible, Math.min(1, dt * 12)); cam.lookAt(vise);
   sun.target.position.set(P.x, P.y, P.z); sun.position.copy(SUN_DIR).multiplyScalar(150).add(sun.target.position);
   // décor vivant
-  if (n % 2 === 0) waves(t);
+  T_EAU.value = t;
   waveFlag(t);
   for (const g of clouds.children) { g.position.x = g.userData.x0 ?? (g.userData.x0 = g.position.x); g.position.x = g.userData.x0 + t * g.userData.v; }
   smoke.children.forEach((s, i) => { const ph = (t * .25 + i / 10) % 1; s.position.set(VOLC.x + Math.sin(i * 3 + t * .5) * 4 + ph * 20, height(VOLC.x, VOLC.y) + 10 + ph * 60, VOLC.y - ph * 8); s.scale.setScalar(1 + ph * 3); s.material.opacity = .7 * (1 - ph); });

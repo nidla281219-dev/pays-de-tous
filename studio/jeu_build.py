@@ -27,7 +27,8 @@ js = remplace(js, "const cam=new THREE.PerspectiveCamera(50,W/H,1,5000);", "cons
 js = remplace(js, "function special(b){", "function special(b){if(b.type==='jeu_hauts')return;")
 js = remplace(js, "Math.min(.32,(d-15)*.03)", "Math.min(.1,(d-15)*.01)")   # ville plus plate pour marcher
 js = remplace(js, "Math.max(1.6,height0(wx,wz))", "Math.max(1.6,heightT(wx,wz))")   # socles au niveau du plateau de la ville
-js = remplace(js, "if(e<18){const w=1-e/18", "const BL=p.b||18;if(e<BL){const w=1-e/BL")   # raccord réglable (bâtiments du bord de mer reliés à la terre)
+js = remplace(js, "function height(x,z){let h=heightT(x,z);for(const p of PADS){const dx=x-p.x,dz=z-p.z,lx=dx*p.c-dz*p.s-p.cx,lz=dx*p.s+dz*p.c-p.cz;const e=Math.hypot(Math.max(Math.abs(lx)-p.hw,0),Math.max(Math.abs(lz)-p.hd,0));if(e<18){const w=1-e/18,k=w*w*(3-2*w);h=h+(p.h-h)*k}}return h}",
+  "function height(x,z){let h=heightT(x,z),dans=null;for(const p of PADS){const dx=x-p.x,dz=z-p.z,lx=dx*p.c-dz*p.s-p.cx,lz=dx*p.s+dz*p.c-p.cz;const e=Math.hypot(Math.max(Math.abs(lx)-p.hw,0),Math.max(Math.abs(lz)-p.hd,0));if(e<=0){if(!dans)dans=p;continue}const BL=p.b||18;if(e<BL){const w=1-e/BL,k=w*w*(3-2*w);h=h+(p.h-h)*k}}return dans?dans.h:h}")   # sur un socle : sa hauteur exacte, jamais modifiée par un socle voisin ; raccord réglable (p.b)
 js += '\n{\n' + open(os.path.join(ICI, 'jeu', 'ville.js'), encoding='utf8').read() + '\n' + open(os.path.join(ICI, 'jeu', 'jeu.js'), encoding='utf8').read() + '\n}\n'   # bloc : ses noms ne gênent pas ceux du décor
 
 # ---------- 2. maisons : code 3D de la boutique ----------
@@ -116,4 +117,10 @@ page = HTML.replace('__DATA__', json.dumps(DATA, ensure_ascii=False)).replace('_
 open(os.path.join(OUT, 'index.html'), 'w', encoding='utf8').write(page)
 shutil.copy(os.path.join(ICI, 'three.js'), os.path.join(OUT, 'three.js'))
 shutil.copy(os.path.join(ICI, 'lilita.woff2'), os.path.join(OUT, 'lilita.woff2'))
+# textures du sol (générées par Kie.ai, studio/jeu/textures) → 512 px pour les téléphones
+from PIL import Image
+os.makedirs(os.path.join(OUT, 'textures'), exist_ok=True)
+for f in sorted(glob.glob(os.path.join(ICI, 'jeu', 'textures', '*.jpg'))):
+    if f.endswith('_brut.jpg'): continue
+    Image.open(f).convert('RGB').resize((512, 512), Image.LANCZOS).save(os.path.join(OUT, 'textures', os.path.basename(f)), quality=86)
 print(f"OK → {OUT}/index.html ({len(page)//1024} Ko) · {sum(1 for l in lots if 'etat' in l)} maisons achetées · décor {os.path.basename(os.path.dirname(tls[-1]))}")
