@@ -95,6 +95,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:#9fd3f2;font-family:L,
 #charge{position:fixed;inset:0;background:#9fd3f2;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:30px;text-shadow:0 3px 0 #3b2412;transition:opacity .5s;z-index:9}
 #charge small{font-size:16px;margin-top:10px;font-family:system-ui,sans-serif;text-shadow:none;opacity:.9}
 .cache{opacity:0;pointer-events:none!important}
+#saut{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:calc(max(18px,env(safe-area-inset-bottom)) + 90px);width:72px;height:72px;border-radius:50%;border:3px solid rgba(255,255,255,.7);background:rgba(15,25,40,.45);color:#fff;font-size:34px;touch-action:none;z-index:5}
 #bug-boite{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);opacity:0;pointer-events:none;transition:.2s;background:#fffaf0;border:3px solid #e8c35a;border-radius:18px;padding:14px 16px;text-align:center;width:min(320px,86vw);box-sizing:border-box;font-family:system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:8}
 #bug-boite.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}#bug-boite b{display:block;font:22px L,sans-serif;color:#b8862b;font-weight:normal}#bug-boite span{display:block;font-size:14px;color:#333;margin:6px 0}#bug-boite code{display:block;background:#efe6d2;border-radius:8px;padding:6px;font-size:14px;margin:6px 0;user-select:all;-webkit-user-select:all}#bug-boite button{font:15px L,sans-serif;border:0;border-radius:12px;padding:8px 14px;margin:4px;background:#1f4a6e;color:#fff}
 </style></head><body>
@@ -102,6 +103,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:#9fd3f2;font-family:L,
 <div class="haut"><div class="titre">🌋 Vulkaris</div><div class="btns"><button id="tp-hauts">🏡 Hauts</button><button id="tp-ville">🏙️ Ville</button><button id="zoom">🔍</button><button id="bug">🐞</button></div></div>
 <div id="bug-boite"><b>🐞 Un souci ici ?</b><span>Code copié ✅<br>Touche Fermer, fais une capture d'écran, puis envoie-la à Claude en collant le code :</span><code id="bug-code"></code><div><button id="bug-copie">Copier</button><button id="bug-ok">Fermer</button></div></div>
 <div id="joy"><div id="joyb"></div></div>
+<button id="saut">⤴</button>
 <div id="aide">👈 Glisse à <b>gauche</b> pour marcher<br>👉 Glisse à <b>droite</b> pour tourner la caméra<br>🏡 Visite les maisons des Fondateurs !</div>
 <div id="info"></div>
 <div id="charge">🌋 Vulkaris<small>Chargement de l'île…</small></div>

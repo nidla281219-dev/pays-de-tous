@@ -5,7 +5,7 @@ const MOD = {};
 { const { GLTFLoader } = await import('./lib/loaders/GLTFLoader.js'); const SU = await import('./lib/utils/SkeletonUtils.js'); MOD.cloner = SU.clone;
   const ld = new GLTFLoader(), charge = n => ld.loadAsync('modeles/' + n + '.glb').then(g => { MOD[n] = g; }).catch(e => console.warn('modèle', n, e));
   const tx = document.querySelector('#charge small'); if (tx) tx.textContent = 'Chargement des modèles 3D…';
-  await Promise.all(['boulangerie', 'habitant', 'arbre'].map(charge)); }
+  await Promise.all(['boulangerie', 'habitant', 'arbre', 'perso', 'perso_marche', 'perso_course', 'perso_saut'].map(charge)); }
 // met un modèle à l'échelle : largeur (x) = L ou hauteur = H, posé sur y = 0, centré en x/z
 function normaliser(obj, { L, H }) { obj.updateMatrixWorld(true); const b = new THREE.Box3().setFromObject(obj), t = b.getSize(new THREE.Vector3());
   const k = L ? L / t.x : H / t.y; obj.scale.multiplyScalar(k); obj.updateMatrixWorld(true); const b2 = new THREE.Box3().setFromObject(obj), c = b2.getCenter(new THREE.Vector3());
@@ -537,13 +537,34 @@ const jambes = [-.2, .2].map(dx => { const p = new THREE.Group(); p.position.set
 const bras = [-.55, .55].map(dx => { const p = new THREE.Group(); p.position.set(dx, 1.38, 0); const m = new THREE.Mesh(new THREE.CapsuleGeometry(.12, .4, 4, 8), habit); m.position.y = -.3; p.add(m); perso.add(p); return p; });
 perso.scale.setScalar(TAILLE / 2.7); perso.traverse(o => { if (o.isMesh) o.castShadow = true; });
 // le joueur aussi en 3D (même modèle que les habitants, haut rouge pour se repérer)
-let MIX_J = null;
-if (MOD.habitant) { for (const c of [...perso.children]) c.visible = false; const o = MOD.cloner(MOD.habitant.scene); normaliser(o, { H: 1.8 / perso.scale.x });
-  o.traverse(m => { if (m.isMesh) { m.castShadow = true; m.frustumCulled = false; m.material = m.material.clone(); m.material.color.set('#ffc9c2'); } });
-  perso.add(o); MIX_J = new THREE.AnimationMixer(o); MIX_J.clipAction(MOD.habitant.animations[0]).play(); }
+let MIX_J = null; const ANIM = {};
+{ const base = MOD.perso || MOD.habitant;
+  if (base) { for (const c of [...perso.children]) c.visible = false; const o = MOD.cloner(base.scene); normaliser(o, { H: (MOD.perso ? 1.55 : 1.8) / perso.scale.x });
+    o.traverse(m => { if (m.isMesh) { m.castShadow = true; m.frustumCulled = false; if (!MOD.perso) { m.material = m.material.clone(); m.material.color.set('#ffc9c2'); } } });
+    perso.add(o); MIX_J = new THREE.AnimationMixer(o);
+    const clip = n => MOD[n] && MOD[n].animations[0];
+    const sources = MOD.perso ? { repos: clip('perso'), marche: clip('perso_marche'), course: clip('perso_course'), saut: clip('perso_saut') } : { marche: clip('habitant') };
+    for (const k in sources) if (sources[k]) { const a = MIX_J.clipAction(sources[k]); a.play(); a.setEffectiveWeight(0); ANIM[k] = a; }
+    if (ANIM.saut) { ANIM.saut.setLoop(THREE.LoopOnce); ANIM.saut.clampWhenFinished = true; ANIM.saut.stop(); }
+    if (!ANIM.repos && ANIM.marche) ANIM.repos = null; } }
+// mélange des animations selon la vitesse réelle (pas de pieds qui glissent)
+const VIT_MARCHE = 1.5, VIT_COURSE = 4.6;   // vitesses « naturelles » des animations (m/s)
+function animer(dt) {
+  if (!MIX_J) return; const v = P.vitesse, enLAir = P.air;
+  let wR = 0, wM = 0, wC = 0;
+  if (!enLAir) { if (v < .15) wR = 1; else if (v < 3.2) { const k = Math.min(1, (v - .15) / .5); wR = 1 - k; wM = k; } else { const k = Math.min(1, (v - 3.2) / 1.2); wM = 1 - k; wC = k; } }
+  const lisser = (a, w) => { if (!a) return; a.setEffectiveWeight(a.getEffectiveWeight() + (w - a.getEffectiveWeight()) * Math.min(1, dt * 10)); };
+  if (ANIM.repos) lisser(ANIM.repos, wR); else if (ANIM.marche && wR > .9) ANIM.marche.timeScale = 0;
+  lisser(ANIM.marche, ANIM.repos ? wM : Math.max(wM, wC, wR)); lisser(ANIM.course, wC);
+  if (ANIM.marche && (ANIM.repos || wR < .9)) ANIM.marche.timeScale = Math.max(.6, Math.min(2, v / VIT_MARCHE));
+  if (ANIM.course) ANIM.course.timeScale = Math.max(.8, Math.min(1.6, v / VIT_COURSE));
+  if (ANIM.saut) { const w = enLAir ? 1 : 0; ANIM.saut.setEffectiveWeight(ANIM.saut.getEffectiveWeight() + (w - ANIM.saut.getEffectiveWeight()) * Math.min(1, dt * 14)); }
+  MIX_J.update(dt);
+}
+function sauter() { if (P.air) return; P.air = true; P.vy = 6.2; if (ANIM.saut) { ANIM.saut.reset(); ANIM.saut.play(); ANIM.saut.timeScale = 1.3; } }
 
 // ================= déplacements =================
-const P = { x: 0, z: 0, y: 0, dir: 0, phase: 0, v: 0 };
+const P = { x: 0, z: 0, y: 0, dir: 0, phase: 0, v: 0, vitesse: 0, mx: 0, mz: 1, air: false, vy: 0 };
 let yaw = 0, pitch = .45, dist = 8;
 function libreAutour(x, z, r0 = 0) { for (let r = r0; r < 18; r += .7) for (let a = 0; a < 6.28; a += .5) { const X = x + Math.cos(a) * r, Z = z + Math.sin(a) * r, g = sol(X, Z, height(X, Z) + .5); if (height(X, Z) > -.5 && !bloque(X, Z, g)) return [X, Z, g]; } return [x, z, sol(x, z)]; }
 function tp(lieu) {
@@ -579,6 +600,7 @@ $('bug-copie').onclick = () => copier($('bug-code').textContent);
 $('bug-ok').onclick = () => $('bug-boite').classList.remove('on');
 { const m = /[?&]ici=(V1:[-\d.:]+)/.exec(location.search); if (m) { const v = m[1].split(':').slice(1).map(Number); P.x = v[0]; P.z = v[1]; P.y = v[2]; yaw = v[3]; pitch = v[4]; dist = v[5] || dist; } }
 $('tp-hauts').onclick = () => tp('hauts'); $('tp-ville').onclick = () => tp('ville');
+$('saut').addEventListener('pointerdown', e => { e.preventDefault(); sauter(); });
 $('zoom').onclick = () => { dist = dist > 11 ? 5.5 : dist > 7 ? 14 : 8; };
 
 // ---- carte d'info près d'une maison ----
@@ -595,7 +617,7 @@ function majInfo() {
 
 // ================= boucle =================
 let t = 0, last = performance.now(), n = 0;
-const vise = new THREE.Vector3(), camCible = new THREE.Vector3();
+const vise = new THREE.Vector3(), viseC = new THREE.Vector3(), camCible = new THREE.Vector3();
 // le terrain se remonte toujours ; seuls les murs/objets bloquent. Si on est déjà coincé dans un mur, on peut en sortir.
 let coince = false;
 function essai(x, z) { if (height(x, z) < -.6) return null; const g = sol(x, z, P.y); if (!coince && bloque(x, z, g)) return null; return g; }
@@ -606,23 +628,32 @@ function boucle(now) {
   const kx = (K.d || K.arrowright ? 1 : 0) - (K.q || K.a || K.arrowleft ? 1 : 0), ky = (K.s || K.arrowdown ? 1 : 0) - (K.z || K.w || K.arrowup ? 1 : 0);
   if (kx || ky) { const l = Math.hypot(kx, ky); jx = kx / l * (K.shift ? 1 : .6); jy = ky / l * (K.shift ? 1 : .6); }
   const amp = Math.min(1, Math.hypot(jx, jy));
-  if (amp > .08) {
-    const fx = -Math.sin(yaw), fz = -Math.cos(yaw), rx = Math.cos(yaw), rz = -Math.sin(yaw);
+  if (K[' '] && !P.saute) { sauter(); P.saute = true; } if (!K[' ']) P.saute = false;
+  // vitesse visée : marche douce → marche → course selon jusqu'où on pousse le joystick
+  const cibleV = amp < .12 ? 0 : amp < .75 ? 1.1 + (amp - .12) / .63 * 2.2 : 3.3 + (amp - .75) / .25 * 2.9;
+  P.vitesse += (cibleV - P.vitesse) * Math.min(1, dt * (cibleV > P.vitesse ? 5 : 8));            // démarrage et freinage progressifs
+  if (amp > .08) { const fx = -Math.sin(yaw), fz = -Math.cos(yaw), rx = Math.cos(yaw), rz = -Math.sin(yaw);
     let mx2 = fx * -jy + rx * jx, mz2 = fz * -jy + rz * jx; const l = Math.hypot(mx2, mz2) || 1; mx2 /= l; mz2 /= l;
-    const vit = 2.6 + 6 * amp * amp, sx = mx2 * vit * dt, sz = mz2 * vit * dt;
+    const k = Math.min(1, dt * (P.vitesse > 3 ? 7 : 10)); P.mx += (mx2 - P.mx) * k; P.mz += (mz2 - P.mz) * k; const l2 = Math.hypot(P.mx, P.mz) || 1; P.mx /= l2; P.mz /= l2; }
+  if (P.vitesse > .02) {
+    const sx = P.mx * P.vitesse * dt, sz = P.mz * P.vitesse * dt;
     coince = bloque(P.x, P.z, P.y, .3);
     if (essai(P.x + sx, P.z + sz) !== null) { P.x += sx; P.z += sz; }
     else if (essai(P.x + sx, P.z) !== null) P.x += sx;            // glisse le long du mur
     else if (essai(P.x, P.z + sz) !== null) P.z += sz;
-    const cible = Math.atan2(mx2, mz2); let d = ((cible - P.dir + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI; P.dir += d * Math.min(1, dt * 12);
-    P.phase += dt * vit * 2.2; P.v = amp;
-  } else { P.v *= .8; P.phase *= .9; }
-  const gs = sol(P.x, P.z, P.y); P.y = gs > P.y ? gs : Math.max(gs, P.y - dt * 14);
-  perso.position.set(P.x, P.y + Math.abs(Math.sin(P.phase)) * .08 * Math.min(1, P.v * 2), P.z); perso.rotation.y = P.dir;
-  if (MIX_J) MIX_J.update(P.v > .05 ? dt * (.55 + P.v * 1.3) : 0);
-  const sw = Math.sin(P.phase) * .7 * Math.min(1, P.v * 1.5); jambes[0].rotation.x = sw; jambes[1].rotation.x = -sw; bras[0].rotation.x = -sw * .8; bras[1].rotation.x = sw * .8;
+    else P.vitesse *= .5;
+    const cible = Math.atan2(P.mx, P.mz); let d = ((cible - P.dir + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI; P.dir += d * Math.min(1, dt * 9);   // demi-tour en douceur
+  }
+  P.v = Math.min(1, P.vitesse / 6); P.phase += dt * P.vitesse * 2.2;
+  // hauteur : sol, ou saut avec gravité
+  const gs = sol(P.x, P.z, P.y);
+  if (P.air) { P.vy -= 18 * dt; P.y += P.vy * dt; if (P.y <= gs && P.vy < 0) { P.y = gs; P.air = false; P.vy = 0; } }
+  else { if (gs < P.y - .6) { P.air = true; P.vy = 0; } else P.y = gs > P.y ? gs : Math.max(gs, P.y - dt * 14); }
+  perso.position.set(P.x, P.y, P.z); perso.rotation.y = P.dir;
+  animer(dt);
+  if (!MIX_J) { const sw = Math.sin(P.phase) * .7 * Math.min(1, P.v * 1.5); jambes[0].rotation.x = sw; jambes[1].rotation.x = -sw; bras[0].rotation.x = -sw * .8; bras[1].rotation.x = sw * .8; }
   // caméra 3e personne (ne traverse pas les murs)
-  vise.set(P.x, P.y + TAILLE * .75, P.z);
+  viseC.set(P.x, P.y + TAILLE * .75, P.z); if (!vise.lengthSq()) vise.copy(viseC); vise.lerp(viseC, Math.min(1, dt * 9));
   // caméra : garde l'angle choisi ; seul un vrai bâtiment entre elle et le perso la rapproche (jamais à moins de 3 m)
   const ox = Math.sin(yaw) * Math.cos(pitch), oy = Math.sin(pitch), oz = Math.cos(yaw) * Math.cos(pitch);
   const proches = CAMB.filter(b => Math.abs(b.x - P.x) < b.r + dist + 2 && Math.abs(b.z - P.z) < b.r + dist + 2);
@@ -630,7 +661,7 @@ function boucle(now) {
   camD += (dd - camD) * Math.min(1, dt * (dd < camD ? 9 : 2.5));
   camCible.set(vise.x + ox * camD, vise.y + oy * camD, vise.z + oz * camD);
   camCible.y = Math.max(camCible.y, height(camCible.x, camCible.z) + .6, sol(camCible.x, camCible.z, camCible.y - .3) + .4);
-  cam.position.lerp(camCible, Math.min(1, dt * 12)); cam.lookAt(vise);
+  cam.position.lerp(camCible, Math.min(1, dt * 7)); cam.lookAt(vise);
   sun.target.position.set(P.x, P.y, P.z); sun.position.copy(SUN_DIR).multiplyScalar(150).add(sun.target.position);
   // décor vivant
   T_EAU.value = t;
