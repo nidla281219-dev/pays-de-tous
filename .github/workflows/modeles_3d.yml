@@ -1,0 +1,29 @@
+name: Modèles 3D (téléchargement + allègement)
+on:
+  workflow_dispatch:
+    inputs:
+      liste: {description: "nom=url, séparés par des espaces (GLB Higgsfield)", required: true}
+      taille_texture: {description: "taille max des textures (px)", default: "1024"}
+permissions:
+  contents: write
+jobs:
+  m:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "20"}
+      - run: npm i -g @gltf-transform/cli@4 >/dev/null
+      - shell: bash
+        run: |
+          mkdir -p studio/jeu/modeles /tmp/brut
+          for paire in ${{ inputs.liste }}; do
+            nom="${paire%%=*}"; url="${paire#*=}"
+            curl -fsSL -o "/tmp/brut/$nom.glb" "$url"
+            echo "== $nom : $(du -h /tmp/brut/$nom.glb | cut -f1) brut"; gltf-transform inspect "/tmp/brut/$nom.glb" --format md | head -40
+            gltf-transform optimize "/tmp/brut/$nom.glb" "studio/jeu/modeles/$nom.glb" --compress quantize --texture-compress webp --texture-size ${{ inputs.taille_texture }} --simplify false
+            echo "== $nom : $(du -h studio/jeu/modeles/$nom.glb | cut -f1) optimisé"
+          done
+      - run: |
+          git config user.name "Pays de Tous bot"; git config user.email "actions@github.com"
+          git add studio/jeu/modeles; git diff --cached --quiet || (git commit -m "Modèles 3D : ${{ inputs.liste }}" | head -1 && git pull --rebase -q && git push)
