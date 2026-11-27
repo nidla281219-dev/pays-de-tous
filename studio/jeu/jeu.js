@@ -1,5 +1,15 @@
 // ================= JEU VULKARIS — balade solo (ajouté après le décor de scene.html, dans un bloc) =================
 const D = window.JEU_DATA;
+// ================= MODÈLES 3D (Higgsfield, allégés par .github/workflows/modeles_3d.yml) =================
+const MOD = {};
+{ const { GLTFLoader } = await import('./lib/loaders/GLTFLoader.js'); const SU = await import('./lib/utils/SkeletonUtils.js'); MOD.cloner = SU.clone;
+  const ld = new GLTFLoader(), charge = n => ld.loadAsync('modeles/' + n + '.glb').then(g => { MOD[n] = g; }).catch(e => console.warn('modèle', n, e));
+  const tx = document.querySelector('#charge small'); if (tx) tx.textContent = 'Chargement des modèles 3D…';
+  await Promise.all(['boulangerie', 'habitant', 'arbre'].map(charge)); }
+// met un modèle à l'échelle : largeur (x) = L ou hauteur = H, posé sur y = 0, centré en x/z
+function normaliser(obj, { L, H }) { obj.updateMatrixWorld(true); const b = new THREE.Box3().setFromObject(obj), t = b.getSize(new THREE.Vector3());
+  const k = L ? L / t.x : H / t.y; obj.scale.multiplyScalar(k); obj.updateMatrixWorld(true); const b2 = new THREE.Box3().setFromObject(obj), c = b2.getCenter(new THREE.Vector3());
+  obj.position.x -= c.x; obj.position.z -= c.z; obj.position.y -= b2.min.y; return b2.getSize(new THREE.Vector3()); }
 const $ = id => document.getElementById(id);
 addEventListener('resize', () => { renderer.setSize(innerWidth, innerHeight); cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); });
 const STEP = .6;            // hauteur de marche franchissable
@@ -66,7 +76,12 @@ setup(TL0);
 setup(TL0);
 // ---- la ville du jeu : boutiques refaites (ville.js) à la place des maquettes, place + rues + mobilier ----
 const BOUTIQUES = [];
-E.batiments.forEach((b, k) => { const g = speciaux[k]; if (!b.anneau || !g) return; const inner = g.userData.inner; inner.clear(); inner.add(...construireBoutique(b).children); BOUTIQUES.push(g); });
+E.batiments.forEach((b, k) => { const g = speciaux[k]; if (!b.anneau || !g) return; const inner = g.userData.inner; inner.clear();
+  if (!b.type && MOD.boulangerie) { const [W, Dt] = dimsBoutique(b), m = MOD.boulangerie.scene.clone(true), grp = new THREE.Group(); grp.add(m); const t = normaliser(m, { L: W });
+    const emprise = new THREE.Mesh(new THREE.BoxGeometry(t.x, t.y, t.z).translate(0, t.y / 2, 0), new THREE.MeshBasicMaterial()); emprise.visible = false;
+    const ens = b.enseigne || enseigneDe(b.nom || 'BOULANGERIE'), pn = panneau(Array.isArray(ens) ? ens : [ens], W * .55, .9, '#1f2a24', '#f2c14e'); pn.position.set(0, t.y * .42, t.z / 2 + .15);
+    inner.add(emprise, grp, pn); g.userData.modele3d = true; }
+  else inner.add(...construireBoutique(b).children); BOUTIQUES.push(g); });
 scene.updateMatrixWorld(true);
 const VILLE = construireVille(BOUTIQUES);
 // maisons de la ville qui chevauchent un bâtiment ou une autre maison : retirées
@@ -499,6 +514,16 @@ function replanter() {
   herbes.count = nh; fleurs.count = nf; herbes.instanceMatrix.needsUpdate = true; fleurs.instanceMatrix.needsUpdate = true; if (fleurs.instanceColor) fleurs.instanceColor.needsUpdate = true;
 }
 
+// ================= HABITANTS en 3D (Higgsfield) =================
+const PNJ = [];
+if (MOD.habitant) { for (const g of GENS) g.visible = false; GENS.length = 0;
+  const clip = MOD.habitant.animations[0], teintes = ['#ffffff', '#ffd9c2', '#c9e3ff', '#e1ffd0', '#ffe6f2', '#fff2c2'];
+  for (let i = 0; i < 16; i++) { const o = MOD.cloner(MOD.habitant.scene); normaliser(o, { H: 1.8 }); const w = new THREE.Group(); w.add(o); scene.add(w);
+    o.traverse(m => { if (m.isMesh) { m.castShadow = true; m.frustumCulled = false; if (i % 6) { m.material = m.material.clone(); m.material.color.set(teintes[i % 6]); } } });
+    const mx = new THREE.AnimationMixer(o); const ac = mx.clipAction(clip); ac.play(); ac.time = hash(i, 51) * clip.duration;
+    const r = 10.5 + hash(i, 52) * 1.1, sp = (hash(i, 53) < .5 ? -1 : 1) * 1.15 / r;
+    PNJ.push({ o: w, mx, u: { a: hash(i, 54) * Math.PI * 2, r, v: sp } }); } }
+
 // ================= le perso (tête ronde) =================
 const perso = new THREE.Group(); scene.add(perso);
 const COUL = ['#e8452c', '#2f7fe0', '#2fb36b', '#ffd34d', '#8a5cf6', '#f08a24', '#e0245e'];
@@ -511,6 +536,11 @@ for (const dx of [-.2, .2]) { const o = new THREE.Mesh(new THREE.SphereGeometry(
 const jambes = [-.2, .2].map(dx => { const p = new THREE.Group(); p.position.set(dx, .62, 0); const m = new THREE.Mesh(new THREE.CapsuleGeometry(.15, .4, 4, 8), pant); m.position.y = -.3; p.add(m); perso.add(p); return p; });
 const bras = [-.55, .55].map(dx => { const p = new THREE.Group(); p.position.set(dx, 1.38, 0); const m = new THREE.Mesh(new THREE.CapsuleGeometry(.12, .4, 4, 8), habit); m.position.y = -.3; p.add(m); perso.add(p); return p; });
 perso.scale.setScalar(TAILLE / 2.7); perso.traverse(o => { if (o.isMesh) o.castShadow = true; });
+// le joueur aussi en 3D (même modèle que les habitants, haut rouge pour se repérer)
+let MIX_J = null;
+if (MOD.habitant) { for (const c of [...perso.children]) c.visible = false; const o = MOD.cloner(MOD.habitant.scene); normaliser(o, { H: 1.8 / perso.scale.x });
+  o.traverse(m => { if (m.isMesh) { m.castShadow = true; m.frustumCulled = false; m.material = m.material.clone(); m.material.color.set('#ffc9c2'); } });
+  perso.add(o); MIX_J = new THREE.AnimationMixer(o); MIX_J.clipAction(MOD.habitant.animations[0]).play(); }
 
 // ================= déplacements =================
 const P = { x: 0, z: 0, y: 0, dir: 0, phase: 0, v: 0 };
@@ -589,6 +619,7 @@ function boucle(now) {
   } else { P.v *= .8; P.phase *= .9; }
   const gs = sol(P.x, P.z, P.y); P.y = gs > P.y ? gs : Math.max(gs, P.y - dt * 14);
   perso.position.set(P.x, P.y + Math.abs(Math.sin(P.phase)) * .08 * Math.min(1, P.v * 2), P.z); perso.rotation.y = P.dir;
+  if (MIX_J) MIX_J.update(P.v > .05 ? dt * (.55 + P.v * 1.3) : 0);
   const sw = Math.sin(P.phase) * .7 * Math.min(1, P.v * 1.5); jambes[0].rotation.x = sw; jambes[1].rotation.x = -sw; bras[0].rotation.x = -sw * .8; bras[1].rotation.x = sw * .8;
   // caméra 3e personne (ne traverse pas les murs)
   vise.set(P.x, P.y + TAILLE * .75, P.z);
@@ -606,7 +637,8 @@ function boucle(now) {
   waveFlag(t);
   for (const g of clouds.children) { g.position.x = g.userData.x0 ?? (g.userData.x0 = g.position.x); g.position.x = g.userData.x0 + t * g.userData.v; }
   smoke.children.forEach((s, i) => { const ph = (t * .25 + i / 10) % 1; s.position.set(VOLC.x + Math.sin(i * 3 + t * .5) * 4 + ph * 20, height(VOLC.x, VOLC.y) + 10 + ph * 60, VOLC.y - ph * 8); s.scale.setScalar(1 + ph * 3); s.material.opacity = .7 * (1 - ph); });
-  bougerGens(t); for (const g of GENS) { if (!g.visible) continue; g.scale.multiplyScalar(TAILLE / 4.05); const bob = Math.abs(Math.sin(t * 7 + g.userData.ph)); g.position.y = sol(g.position.x, g.position.z, g.position.y) + bob * .07; }
+  for (const h of PNJ) { h.mx.update(dt); const u = h.u, a = u.a + u.v * t, x = place[0] + Math.cos(a) * u.r, z = place[2] + Math.sin(a) * u.r; h.o.position.set(x, sol(x, z, place[1] + .5), z); h.o.rotation.y = Math.atan2(-Math.sin(a) * Math.sign(u.v), Math.cos(a) * Math.sign(u.v)); }
+  if (!PNJ.length) bougerGens(t); for (const g of GENS) { if (!g.visible) continue; g.scale.multiplyScalar(TAILLE / 4.05); const bob = Math.abs(Math.sin(t * 7 + g.userData.ph)); g.position.y = sol(g.position.x, g.position.z, g.position.y) + bob * .07; }
   for (const g of speciaux) { g.traverse(o => { if (o.userData && o.userData.barber) o.userData.barber.offset.y = -t * .6 });
     if (g.userData.flotte) { g.position.y = g.userData.y0 + Math.sin(t * 1.4) * .35; g.rotation.z = Math.sin(t * 1.1) * .04; }
     if (g.userData.karts) for (const m of g.userData.karts) { const K2 = m.userData.kart, a = -(t * .35 + K2.ph) * Math.PI * 2, x = Math.cos(a) * K2.RX, z = Math.sin(a) * K2.RZ * (1 + .35 * Math.sin(a * 2)), a2 = a - .05, x2 = Math.cos(a2) * K2.RX, z2 = Math.sin(a2) * K2.RZ * (1 + .35 * Math.sin(a2 * 2)); m.position.set(x, 0, z); m.rotation.y = Math.atan2(-(z2 - z), x2 - x); } }
@@ -621,4 +653,4 @@ function boucle(now) {
 window.CONTROLE = controlePose(); if (window.CONTROLE.length) console.warn('Règles de pose :', JSON.stringify(window.CONTROLE));
 window.T_CHARGE = performance.now();
 requestAnimationFrame(boucle);
-window.JEU = { P, tp, renderer, BOUTIQUES, place, height, DIGUES, height0: (x, z) => height0(x, z), get pads() { return PADS.map(p => [+p.x.toFixed(0), +p.z.toFixed(0), +p.hw.toFixed(1), +p.hd.toFixed(1), +p.h.toFixed(1)]); }, PADDEF, murs: (x, z) => { const i = ci(x), j = ci(z), c = chunk(i, j); if (!c) return []; const b = ((j & 31) * CH + (i & 31)) * NW * 2, f = ((j & 31) * CH + (i & 31)) * NF; return [[...c.w.slice(b, b + 6)].map(v => v / 20), [...c.f.slice(f, f + 4)].map(v => v / 20)]; }, LOTS, CHEMINS, sol, bloque, hauts, get chunks() { return CHK.size; }, set yaw(v) { yaw = v; }, set pitch(v) { pitch = v; }, set dist(v) { dist = v; } };
+window.JEU = { PNJ, P, tp, renderer, BOUTIQUES, place, height, DIGUES, height0: (x, z) => height0(x, z), get pads() { return PADS.map(p => [+p.x.toFixed(0), +p.z.toFixed(0), +p.hw.toFixed(1), +p.hd.toFixed(1), +p.h.toFixed(1)]); }, PADDEF, murs: (x, z) => { const i = ci(x), j = ci(z), c = chunk(i, j); if (!c) return []; const b = ((j & 31) * CH + (i & 31)) * NW * 2, f = ((j & 31) * CH + (i & 31)) * NF; return [[...c.w.slice(b, b + 6)].map(v => v / 20), [...c.f.slice(f, f + 4)].map(v => v / 20)]; }, LOTS, CHEMINS, sol, bloque, hauts, get chunks() { return CHK.size; }, set yaw(v) { yaw = v; }, set pitch(v) { pitch = v; }, set dist(v) { dist = v; } };

@@ -154,6 +154,17 @@ function construireBoutique(b) {
   return g;
 }
 
+// ---- arbres en 3D (modèle Higgsfield instancié) ----
+const ARBRES3D = [];
+function planterArbres3D() { if (!MOD.arbre || !ARBRES3D.length) return; MOD.arbre.scene.updateMatrixWorld(true); let mesh = null; MOD.arbre.scene.traverse(o => { if (o.isMesh && !mesh) mesh = o; }); if (!mesh) return;
+  const geo = new THREE.BufferGeometry(), src = mesh.geometry;   // attributs « quantifiés » → flottants (sinon l'échelle est écrêtée)
+  for (const k in src.attributes) { const a = src.attributes[k], f = new Float32Array(a.count * a.itemSize); for (let i = 0; i < a.count; i++) for (let c = 0; c < a.itemSize; c++) f[i * a.itemSize + c] = a.getComponent(i, c); geo.setAttribute(k, new THREE.BufferAttribute(f, a.itemSize)); }
+  if (src.index) geo.setIndex(src.index.clone()); geo.applyMatrix4(mesh.matrixWorld); geo.computeBoundingBox(); const b = geo.boundingBox, k = 1 / (b.max.y - b.min.y);
+  geo.translate(-(b.min.x + b.max.x) / 2, -b.min.y, -(b.min.z + b.max.z) / 2); geo.scale(k, k, k);   // 1 m de haut, posé à y = 0
+  const im = new THREE.InstancedMesh(geo, mesh.material, ARBRES3D.length), M = new THREE.Matrix4(), Q = new THREE.Quaternion(), up = new THREE.Vector3(0, 1, 0);
+  ARBRES3D.forEach(([x, y, z, h], i) => { Q.setFromAxisAngle(up, hash(i, 61) * 6.28); const s2 = h * (.85 + hash(i, 62) * .3); M.compose(new THREE.Vector3(x, y, z), Q, new THREE.Vector3(s2, s2, s2)); im.setMatrixAt(i, M); });
+  im.castShadow = true; im.receiveShadow = true; scene.add(im); return im; }
+
 // ---- la place, les rues et le mobilier ----
 function lampadaireV(L, Lm, x, y, z) { cyl(L, .09, .14, 4.4, x, y + 2.2, z, '#22262a', 8); cyl(L, .2, .26, .35, x, y + .17, z, '#22262a', 8); bx(L, .5, .08, .5, x, y + 4.45, z, '#22262a'); bx(Lm, .34, .5, .34, x, y + 4.15, z, '#fff0c4'); bx(L, .44, .06, .44, x, y + 3.88, z, '#22262a'); }
 function bancV(L, x, y, z, ry) { const H = []; for (let i = 0; i < 4; i++) bx(H, 1.9, .06, .13, 0, .48, -.24 + i * .16, '#8a5a3a'); for (let i = 0; i < 3; i++) bx(H, 1.9, .12, .05, 0, .65 + i * .16, -.33, '#8a5a3a'); for (const s of [-1, 1]) { bx(H, .07, .5, .55, s * .82, .25, 0, '#22262a'); bx(H, .07, .55, .06, s * .82, .7, -.33, '#22262a'); }
@@ -186,7 +197,7 @@ function construireVille(boutiques) {
   for (let k = 0; k < 8; k++) { const a = k / 8 * Math.PI * 2, g2 = new THREE.CylinderGeometry(.05, .09, 2.3, 6).toNonIndexed(); g2.deleteAttribute('uv'); g2.translate(px + Math.cos(a) * 1.65, y + 1.85, pz + Math.sin(a) * 1.65); B.eau.push(paint(g2, '#fff')); }   // filets d'eau
   // massifs, bancs, arbres, lampadaires autour de la fontaine (entre les rues)
   for (let i = 0; i < NR; i++) { const a = .3 + (i + .5) / NR * Math.PI * 2, cx = px + Math.cos(a) * 8.5, cz = pz + Math.sin(a) * 8.5;
-    if (libre(cx, cz)) { cyl(B.pierre, 1.6, 1.7, .4, cx, y + .2, cz, '#cfc5b3', 16); cyl(B.detail, 1.45, 1.45, .3, cx, y + .32, cz, '#4a3626', 16); arbreV(B.detail, cx, y + .4, cz, .9);
+    if (libre(cx, cz)) { cyl(B.pierre, 1.6, 1.7, .4, cx, y + .2, cz, '#cfc5b3', 16); cyl(B.detail, 1.45, 1.45, .3, cx, y + .32, cz, '#4a3626', 16); if (MOD.arbre) ARBRES3D.push([cx, y + .4, cz, 6.5]); else arbreV(B.detail, cx, y + .4, cz, .9);
       for (let k = 0; k < 10; k++) sph(B.detail, .15, cx + Math.cos(k) * 1.1, y + .55, cz + Math.sin(k) * 1.1, ['#e04a6b', '#ffd23f', '#ffffff', '#b06ad9'][k % 4]); }
     for (const s of [-1, 1]) { const b2 = a + s * .32, bx2 = px + Math.cos(b2) * 6.3, bz2 = pz + Math.sin(b2) * 6.3; if (libre(bx2, bz2)) bancV(B.detail, bx2, y, bz2, -b2 - Math.PI / 2); }
     const la = .3 + i / NR * Math.PI * 2; for (const s of [-1, 1]) { const lx = px + Math.cos(la) * 12 - Math.sin(la) * s * 3.6, lz = pz + Math.sin(la) * 12 + Math.cos(la) * s * 3.6; if (libre(lx, lz, .3)) lampadaireV(B.detail, Lm, lx, y, lz); } }
@@ -200,5 +211,8 @@ function construireVille(boutiques) {
     for (let r = 18; r < d1 - 2; r += 11) for (const s of [-1, 1]) { const o = s * 3.9, x = px + Math.cos(a) * r - Math.sin(a) * o, z = pz + Math.sin(a) * r + Math.cos(a) * o, yy = height(x, z) + .42;
       if (Math.round(r / 11) % 2 === (s > 0 ? 0 : 1)) { if (libre(x, z, .3)) lampadaireV(B.detail, Lm, x, yy, z); } else if (libre(x, z, .3)) { bancV(B.detail, x - Math.sin(a) * s * .1, yy, z + Math.cos(a) * s * .1, -a + (s > 0 ? Math.PI : 0) - Math.PI / 2); const x2 = x + Math.cos(a) * 1.4, z2 = z + Math.sin(a) * 1.4; if (libre(x2, z2, .2)) poubelleV(B.detail, x2, yy, z2); } }
     if (i % 2 === 0) for (const [r, s] of [[24, 1], [36, -1]]) { const o = s * 1.6, x = px + Math.cos(a) * r - Math.sin(a) * o, z = pz + Math.sin(a) * r + Math.cos(a) * o; voitureV(B.detail, x, height(x, z) + .3, z, Math.atan2(Math.cos(a), Math.sin(a)) + (s > 0 ? 0 : Math.PI), ['#c0392b', '#2f6fa8', '#f2c14e', '#2b2b2b', '#ecf0f1', '#27ae60'][(i * 2 + (s > 0 ? 0 : 1)) % 6]); } }
+  if (MOD.arbre) for (let i = 0, n = 0; i < 400 && n < 30; i++) { const a = hash(i, 71) * Math.PI * 2, r = RV2 + 12 + hash(i, 72) * 40, x = px + Math.cos(a) * r, z = pz + Math.sin(a) * r, h = height(x, z);
+    if (h < 1.5 || riverDist(x, z) < 20 || !libre(x, z, 6) || PADS.some(q => Math.hypot(q.x - x, q.z - z) < Math.max(q.hw, q.hd) + 6)) continue; ARBRES3D.push([x, h - .2, z, 6 + hash(i, 73) * 3]); n++; }
+  planterArbres3D();
   const grp = new THREE.Group(); grp.name = 'ville-jeu'; for (const m of maillages(B)) grp.add(m); scene.add(grp); return grp;
 }

@@ -105,6 +105,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:#9fd3f2;font-family:L,
 <div id="aide">👈 Glisse à <b>gauche</b> pour marcher<br>👉 Glisse à <b>droite</b> pour tourner la caméra<br>🏡 Visite les maisons des Fondateurs !</div>
 <div id="info"></div>
 <div id="charge">🌋 Vulkaris<small>Chargement de l'île…</small></div>
+<script type="importmap">{"imports":{"three":"./three.js"}}</script>
 <script>window.JEU_DATA = __DATA__;</script>
 <script type="module">
 __BOUTIQUE__
@@ -117,6 +118,13 @@ page = HTML.replace('__DATA__', json.dumps(DATA, ensure_ascii=False)).replace('_
 open(os.path.join(OUT, 'index.html'), 'w', encoding='utf8').write(page)
 shutil.copy(os.path.join(ICI, 'three.js'), os.path.join(OUT, 'three.js'))
 shutil.copy(os.path.join(ICI, 'lilita.woff2'), os.path.join(OUT, 'lilita.woff2'))
+# chargeur de modèles 3D (addons three.js r170) + modèles Higgsfield allégés
+LIB = os.path.join(ICI, 'jeu', 'lib')
+for sous in ['loaders', 'utils']:
+    os.makedirs(os.path.join(OUT, 'lib', sous), exist_ok=True)
+    for f in glob.glob(os.path.join(LIB, sous, '*.js')): shutil.copy(f, os.path.join(OUT, 'lib', sous, os.path.basename(f)))
+os.makedirs(os.path.join(OUT, 'modeles'), exist_ok=True)
+for f in glob.glob(os.path.join(ICI, 'jeu', 'modeles', '*.glb')): shutil.copy(f, os.path.join(OUT, 'modeles', os.path.basename(f)))
 # textures du sol (générées par Kie.ai, studio/jeu/textures) → 512 px pour les téléphones
 from PIL import Image
 os.makedirs(os.path.join(OUT, 'textures'), exist_ok=True)
