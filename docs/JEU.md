@@ -30,3 +30,8 @@ But : un jeu où les abonnés se promènent dans Vulkaris, discutent, vivent des
 ## Règles
 - Ne JAMAIS lire scene.html (110 Ko) ou index.html (130 Ko) en entier : grep les fonctions, extraire avec un script.
 - Secrets uniquement dans GitHub/Vercel. Tutoiement, réponses courtes en français.
+
+### 27.11 — Perso simple + mouvements
+- Nouveau perso joueur Higgsfield (chibi « jouet ») : modeles/perso.glb (repos) + perso_marche / perso_course / perso_saut (même squelette, avance du bassin supprimée).
+- Mouvements : accélération/freinage progressifs, marche lente → marche → course selon le joystick, animations mélangées et calées sur la vitesse, demi-tours doux, saut (bouton ⤴ / Espace) avec gravité, caméra plus douce.
+- Bug corrigé : dt négatif au chargement faisait monter le perso dans le ciel au départ.

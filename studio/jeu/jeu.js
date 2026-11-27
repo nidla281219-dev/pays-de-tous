@@ -542,7 +542,8 @@ let MIX_J = null; const ANIM = {};
   if (base) { for (const c of [...perso.children]) c.visible = false; const o = MOD.cloner(base.scene); normaliser(o, { H: (MOD.perso ? 1.55 : 1.8) / perso.scale.x });
     o.traverse(m => { if (m.isMesh) { m.castShadow = true; m.frustumCulled = false; if (!MOD.perso) { m.material = m.material.clone(); m.material.color.set('#ffc9c2'); } } });
     perso.add(o); MIX_J = new THREE.AnimationMixer(o);
-    const clip = n => MOD[n] && MOD[n].animations[0];
+    const clip = n => { const c = MOD[n] && MOD[n].animations[0]; if (!c) return null;   // supprime l'avance du bassin (le jeu déplace déjà le perso)
+      for (const t of c.tracks) if (/Hips\.position$/.test(t.name)) { const v = t.values, x0 = v[0], z0 = v[2]; for (let i = 0; i < v.length; i += 3) { v[i] = x0; v[i + 2] = z0; } } return c; };
     const sources = MOD.perso ? { repos: clip('perso'), marche: clip('perso_marche'), course: clip('perso_course'), saut: clip('perso_saut') } : { marche: clip('habitant') };
     for (const k in sources) if (sources[k]) { const a = MIX_J.clipAction(sources[k]); a.play(); a.setEffectiveWeight(0); ANIM[k] = a; }
     if (ANIM.saut) { ANIM.saut.setLoop(THREE.LoopOnce); ANIM.saut.clampWhenFinished = true; ANIM.saut.stop(); }
@@ -571,7 +572,7 @@ function tp(lieu) {
   let x, z, cible;
   if (lieu === 'ville') { const a = .3 + Math.PI * 2 / NRUES; x = place[0] + Math.cos(a) * 11; z = place[2] + Math.sin(a) * 11; cible = [place[0], place[2]]; }
   else { const a = versHauts(-58, 0), b = versHauts(0, 0); x = a.x; z = a.z; cible = [b.x, b.z]; }
-  const [X, Z, g] = libreAutour(x, z); P.x = X; P.z = Z; P.y = g; P.dir = Math.atan2(cible[0] - X, cible[1] - Z); yaw = P.dir + Math.PI; pitch = .45;
+  const [X, Z, g] = libreAutour(x, z); P.x = X; P.z = Z; P.y = g; P.air = false; P.vy = 0; P.recale = true; P.dir = Math.atan2(cible[0] - X, cible[1] - Z); yaw = P.dir + Math.PI; pitch = .45;
 }
 tp('hauts');
 
@@ -623,7 +624,7 @@ let coince = false;
 function essai(x, z) { if (height(x, z) < -.6) return null; const g = sol(x, z, P.y); if (!coince && bloque(x, z, g)) return null; return g; }
 let suivi = { t: 0, x: 0, z: 0 };
 function boucle(now) {
-  const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt; n++;
+  const dt = Math.max(0, Math.min(.05, (now - last) / 1000)); last = now; t += dt; n++;
   let jx = joy.x, jy = joy.y;
   const kx = (K.d || K.arrowright ? 1 : 0) - (K.q || K.a || K.arrowleft ? 1 : 0), ky = (K.s || K.arrowdown ? 1 : 0) - (K.z || K.w || K.arrowup ? 1 : 0);
   if (kx || ky) { const l = Math.hypot(kx, ky); jx = kx / l * (K.shift ? 1 : .6); jy = ky / l * (K.shift ? 1 : .6); }
@@ -646,6 +647,7 @@ function boucle(now) {
   }
   P.v = Math.min(1, P.vitesse / 6); P.phase += dt * P.vitesse * 2.2;
   // hauteur : sol, ou saut avec gravité
+  if (P.recale) { P.y = sol(P.x, P.z, height(P.x, P.z) + .5); P.recale = false; }
   const gs = sol(P.x, P.z, P.y);
   if (P.air) { P.vy -= 18 * dt; P.y += P.vy * dt; if (P.y <= gs && P.vy < 0) { P.y = gs; P.air = false; P.vy = 0; } }
   else { if (gs < P.y - .6) { P.air = true; P.vy = 0; } else P.y = gs > P.y ? gs : Math.max(gs, P.y - dt * 14); }
