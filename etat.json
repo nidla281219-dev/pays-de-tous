@@ -1,6 +1,6 @@
 {
  "jour": 18,
- "habitants": 2328,
+ "habitants": 2330,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -317,7 +317,7 @@
   },
   {
    "jour": 18,
-   "resume": "2328 habitants. Piège côte B 15 / A 11 : traître capturé sur la plage. Tribunal de titouanlbn. Clutcche 9 pts. Trésor 1361/2000. Vote : A juger / B espion. Suspense : il n'a plus la carte."
+   "resume": "2330 habitants. Piège côte B 15 / A 12 : traître capturé sur la plage. Tribunal de titouanlbn. Clutcche 9 pts. Trésor 1367/2000. Vote : A juger / B espion. Suspense : il n'a plus la carte."
   }
  ],
  "habitants_detail": {
@@ -365,7 +365,7 @@
    "par": "@titouanlbn (Instagram, 4 likes)"
   }
  ],
- "tresor": 1361,
+ "tresor": 1367,
  "tresor_detail": {
   "avant": 494,
   "likes_jour14": {
@@ -453,7 +453,7 @@
   "resultat": "les gardes du roi rejoignent notre armée"
  },
  "piege_cote": {
-  "vote": "B piéger la côte 15 voix (YT 1, IG 14, 18 likes) / A rattraper en mer 11 (YT 1, IG 10, 2 likes) — recompté le 26.11",
+  "vote": "B piéger la côte 15 voix (YT 1, IG 14, 14 likes) / A rattraper en mer 12 (YT 1, IG 11, 2 likes) — recompté le 27.11",
   "resultat": "la nuit, le garde traître débarque : filets et torches, capturé sur la plage ; il n'a plus la carte ; il avoue que le roi prépare une flotte"
  }
 }
