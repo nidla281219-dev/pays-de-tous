@@ -1,4 +1,4 @@
-# Ventes — Les Hauts de Plavulca (mis à jour 28.11.2026 07:56 UTC)
+# Ventes — Les Hauts de Plavulca (mis à jour 28.11.2026 17:37 UTC)
 
 - Paniers ouverts (page de paiement affichée) : **64**
 - Payés : **9** · abandonnés ou en cours : 55
