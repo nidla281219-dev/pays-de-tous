@@ -1,6 +1,6 @@
 {
  "jour": 18,
- "habitants": 2330,
+ "habitants": 2326,
  "nom": "Vulkaris",
  "drapeau": {
   "fond": "sautoir",
@@ -317,7 +317,7 @@
   },
   {
    "jour": 18,
-   "resume": "2330 habitants. Piège côte B 15 / A 12 : traître capturé sur la plage. Tribunal de titouanlbn. Clutcche 9 pts. Trésor 1367/2000. Vote : A juger / B espion. Suspense : il n'a plus la carte."
+   "resume": "2326 habitants. Piège côte B 15 / A 12 : traître capturé sur la plage. Tribunal de titouanlbn. Clutcche 9 pts. Trésor 1372/2000. Vote : A juger / B espion. Suspense : il n'a plus la carte."
   }
  ],
  "habitants_detail": {
@@ -365,7 +365,7 @@
    "par": "@titouanlbn (Instagram, 4 likes)"
   }
  ],
- "tresor": 1367,
+ "tresor": 1372,
  "tresor_detail": {
   "avant": 494,
   "likes_jour14": {
@@ -374,7 +374,7 @@
    "instagram": 169
   },
   "jour17": 191,
-  "jour18": 190
+  "jour18": 206
  },
  "objectif": {
   "nom": "armée de l'air (idée de @StanislasHobetKrauth)",
